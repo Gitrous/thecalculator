@@ -1,0 +1,192 @@
+Crea esta estructura de carpetas:
+
+Codi
+/public
+    /css
+        styles.css
+    /js
+        main.js
+    /calculadoras
+        hipoteca-avanzada.html
+        irpf.html
+        interes-compuesto.html
+        alquiler-vs-compra.html
+        consumo-electrico.html
+        horas-trabajadas.html
+        mru.html
+        mrua.html
+        conversor-unidades.html
+        salario-neto.html
+        gasto-coche.html
+index.html
+🎨 2. Diseño general
+Estilo limpio, profesional y moderno.
+
+Paleta: tonos verdes (#0FA958, #0C7A42) + blanco + gris suave.
+
+Tipografía: Inter o Roboto.
+
+Cabecera fija con menú.
+
+Footer simple con enlaces a calculadoras.
+
+Diseño responsive.
+
+🧭 3. Página principal (index.html)
+Debe incluir:
+
+Título: Simuladores y Calculadoras Online
+
+Subtítulo: herramientas útiles para finanzas, física, hogar y productividad
+
+Grid de tarjetas con enlaces a cada calculadora
+
+Breve descripción de cada categoría
+
+🧮 4. Calculadoras que debes crear
+Crea todas estas calculadoras, cada una en su archivo HTML dentro de /public/calculadoras/.
+
+A. Finanzas
+Hipoteca avanzada
+
+Entrada: capital, interés, años, tipo fijo/variable
+
+Salida: cuota, tabla de amortización, gráficos
+
+IRPF por comunidad autónoma
+
+Entrada: salario bruto, comunidad
+
+Salida: retención, neto mensual, neto anual
+
+Interés compuesto (inversión)
+
+Entrada: capital inicial, aportación mensual, años, interés
+
+Salida: capital final, intereses generados, gráfico
+
+Alquiler vs compra
+
+Comparación de coste total a largo plazo
+
+Salario neto
+
+Entrada: bruto anual, pagas, contrato
+
+Salida: neto mensual
+
+Gasto de coche
+
+Combustible, mantenimiento, seguro, impuestos
+
+B. Hogar y vida diaria
+Consumo eléctrico
+
+Entrada: electrodomésticos + horas
+
+Salida: coste mensual
+
+C. Productividad
+Horas trabajadas
+
+Entrada: hora inicio/fin
+
+Salida: horas totales, horas extra
+
+D. Física (educativas)
+MRU
+
+Cálculo de distancia, velocidad o tiempo
+
+MRUA
+
+Cálculo con aceleración, velocidad inicial, tiempo
+
+Conversor de unidades
+
+Longitud, masa, energía, temperatura
+
+⚙️ 5. Requisitos técnicos
+Cada calculadora debe usar JavaScript puro (sin frameworks).
+
+El JS debe estar en archivos separados dentro de /public/js/.
+
+Cada página debe tener:
+
+Formulario de entrada
+
+Resultados dinámicos
+
+Explicación breve
+
+Preguntas frecuentes
+
+Usa gráficos simples con <canvas> o librería ligera (Chart.js).
+
+🧩 6. Código base para cada calculadora
+Cada archivo HTML debe seguir esta plantilla:
+
+Codi
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Nombre de la calculadora]</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>[Nombre de la calculadora]</h1>
+    <a href="../../index.html">← Volver al inicio</a>
+</header>
+
+<main>
+    <section class="calculator">
+        <!-- Aquí va el formulario -->
+    </section>
+
+    <section class="results">
+        <!-- Aquí van los resultados -->
+    </section>
+
+    <section class="info">
+        <!-- Explicación y FAQs -->
+    </section>
+</main>
+
+<script src="../js/[archivo].js"></script>
+</body>
+</html>
+🧠 7. JavaScript
+Cada archivo JS debe:
+
+Capturar inputs
+
+Calcular resultados
+
+Actualizar el DOM
+
+Validar datos
+
+Mostrar errores si faltan campos
+
+📱 8. Responsive
+Grid adaptable
+
+Formularios fluidos
+
+Gráficos que se ajusten al ancho
+
+🧩 9. SEO
+Títulos únicos
+
+Meta descripción
+
+Encabezados H1, H2, H3
+
+Texto explicativo en cada página
+
+🚀 10. Objetivo final
+Crear una web profesional, rápida y escalable con todas las calculadoras y simuladores mencionados, lista para publicar.

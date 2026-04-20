@@ -4,6 +4,15 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+### Simuladores y Calculadoras Online (artifacts/calculadoras)
+- React + Vite frontend-only web app at preview path `/`
+- 11 calculators: Hipoteca Avanzada, IRPF, Interés Compuesto, Alquiler vs Compra, Salario Neto, Gasto de Coche, Consumo Eléctrico, Horas Trabajadas, MRU, MRUA, Conversor de Unidades
+- All logic client-side in React (useState), no backend
+- Charts with recharts, UI with shadcn components, green theme (#0FA958)
+- Spanish language throughout, SEO-friendly pages with FAQs
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces

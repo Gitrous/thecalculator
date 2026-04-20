@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Simuladores y Calculadoras Online"
+version = "1.0.0"
+id = "artifacts/calculadoras"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20080
+
+[services.development]
+run = "pnpm --filter @workspace/calculadoras run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/calculadoras", "run", "build" ]
+publicDir = "artifacts/calculadoras/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20080"
+BASE_PATH = "/"
