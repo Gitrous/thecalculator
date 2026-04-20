@@ -4,14 +4,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowLeft, Calculator } from "lucide-react";
+import { ArrowLeft, Calculator, ChevronsUpDown, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function IRPF() {
   const [bruto, setBruto] = useState("30000");
   const [ccaa, setCcaa] = useState("Madrid");
+  const [openCcaa, setOpenCcaa] = useState(false);
   const [results, setResults] = useState<{
     bruto: number;
     netoAnual: number;
@@ -111,16 +114,53 @@ export default function IRPF() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="ccaa">Comunidad Autónoma</Label>
-                <Select value={ccaa} onValueChange={setCcaa}>
-                  <SelectTrigger id="ccaa">
-                    <SelectValue placeholder="Selecciona CCAA" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {ccaas.map(c => (
-                      <SelectItem key={c} value={c}>{c}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Popover open={openCcaa} onOpenChange={setOpenCcaa}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      id="ccaa"
+                      data-testid="button-ccaa-selector"
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={openCcaa}
+                      className="w-full justify-between font-normal"
+                    >
+                      {ccaa || "Selecciona una comunidad..."}
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-full p-0" align="start">
+                    <Command>
+                      <CommandInput
+                        data-testid="input-ccaa-search"
+                        placeholder="Buscar comunidad..."
+                      />
+                      <CommandList className="max-h-60 overflow-y-auto">
+                        <CommandEmpty>No se encontró ninguna comunidad.</CommandEmpty>
+                        <CommandGroup>
+                          {ccaas.map((c) => (
+                            <CommandItem
+                              key={c}
+                              value={c}
+                              onSelect={(val) => {
+                                const match = ccaas.find(x => x.toLowerCase() === val.toLowerCase()) || val;
+                                setCcaa(match);
+                                setOpenCcaa(false);
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  ccaa === c ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                              {c}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
               </div>
               <Button type="submit" className="w-full">Calcular IRPF</Button>
             </form>
