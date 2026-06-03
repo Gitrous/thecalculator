@@ -1,13 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Simuladores y Calculadoras Online</title>
+
+    <!-- Anti-flash: apply dark class before first paint -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (t === "dark" || (!t && d) || (t === "system" && d)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+
+    <!-- Primary SEO -->
+    <title>Simuladores y Calculadoras Online Gratis | Simuladores y Calculadoras Online</title>
+    <meta name="description" content="Calculadoras gratuitas de finanzas (hipoteca, IRPF, interés compuesto), hogar (coche, luz), trabajo y física. Sin registro." />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Simuladores y Calculadoras Online" />
+
+    <!-- Canonical (home) -->
+    <link rel="canonical" href="https://thecalculator.tech/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thecalculator.tech/" />
+    <meta property="og:title" content="Simuladores y Calculadoras Online Gratis | Simuladores y Calculadoras Online" />
+    <meta property="og:description" content="Calculadoras gratuitas de finanzas (hipoteca, IRPF, interés compuesto), hogar (coche, luz), trabajo y física. Sin registro." />
+    <meta property="og:image" content="https://thecalculator.tech/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Simuladores y Calculadoras Online" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Simuladores y Calculadoras Online Gratis | Simuladores y Calculadoras Online" />
+    <meta name="twitter:description" content="Calculadoras gratuitas de finanzas (hipoteca, IRPF, interés compuesto), hogar (coche, luz), trabajo y física. Sin registro." />
+    <meta name="twitter:image" content="https://thecalculator.tech/opengraph.jpg" />
+
+    <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts: preconnect then load async (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    </noscript>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1123812992313934" crossorigin="anonymous"></script>
+
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Simuladores y Calculadoras Online",
+        "url": "https://thecalculator.tech",
+        "description": "Herramientas gratuitas de cálculo y simulación para finanzas, hogar, trabajo, educación y productividad.",
+        "inLanguage": "es",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://thecalculator.tech/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Simuladores y Calculadoras Online",
+        "url": "https://thecalculator.tech",
+        "logo": "https://thecalculator.tech/favicon.svg"
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
