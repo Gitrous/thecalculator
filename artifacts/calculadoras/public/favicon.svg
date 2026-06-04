@@ -1,3 +1,27 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13B466"/>
+      <stop offset="1" stop-color="#0C9A4E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo: cuadrado redondeado verde de marca -->
+  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+
+  <!-- Cuerpo de la calculadora -->
+  <rect x="48" y="32" width="84" height="116" rx="16" fill="#FFFFFF"/>
+
+  <!-- Pantalla -->
+  <rect x="62" y="46" width="56" height="26" rx="6" fill="#0C9A4E"/>
+
+  <!-- Botones: 3 columnas x 2 filas; el "=" en naranja de acento -->
+  <g fill="#0FA958">
+    <circle cx="68"  cy="92"  r="7"/>
+    <circle cx="90"  cy="92"  r="7"/>
+    <circle cx="112" cy="92"  r="7"/>
+    <circle cx="68"  cy="118" r="7"/>
+    <circle cx="90"  cy="118" r="7"/>
+  </g>
+  <circle cx="112" cy="118" r="7" fill="#FF6A00"/>
 </svg>
