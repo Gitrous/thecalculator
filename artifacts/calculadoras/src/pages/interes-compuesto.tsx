@@ -6,13 +6,58 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowLeft, Coins } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowLeft, Coins, TrendingUp } from "lucide-react";
+
+/**
+ * Fondos/índices famosos con su rentabilidad anual media histórica (nominal, en
+ * euros/dólares sin descontar inflación). Son medias de largo plazo orientativas;
+ * rentabilidades pasadas no garantizan rentabilidades futuras.
+ */
+type Fund = {
+  id: string;
+  name: string;
+  rate: number;
+  risk: string;
+  desc: string;
+};
+
+const FUNDS: Fund[] = [
+  { id: "sp500", name: "S&P 500", rate: 10, risk: "Alto", desc: "Las 500 mayores empresas cotizadas de EE. UU. Referencia mundial; rentabilidad media histórica cercana al 10% anual." },
+  { id: "msci-world", name: "MSCI World", rate: 8, risk: "Alto", desc: "Unas 1.500 grandes y medianas empresas de 23 países desarrollados. El fondo indexado global más popular." },
+  { id: "nasdaq100", name: "Nasdaq 100", rate: 13.5, risk: "Muy alto", desc: "Las 100 mayores empresas tecnológicas no financieras de EE. UU. Mayor rentabilidad reciente, pero más volátil." },
+  { id: "ftse-all-world", name: "FTSE All-World", rate: 8, risk: "Alto", desc: "Más de 4.000 empresas de mercados desarrollados y emergentes. Diversificación global máxima." },
+  { id: "msci-em", name: "MSCI Emerging Markets", rate: 6, risk: "Muy alto", desc: "Mercados emergentes (China, India, Taiwán, Brasil...). Mayor potencial y mayor volatilidad." },
+  { id: "msci-world-small", name: "MSCI World Small Cap", rate: 9, risk: "Muy alto", desc: "Empresas de pequeña capitalización de países desarrollados. Históricamente más rentables y volátiles." },
+  { id: "eurostoxx50", name: "Euro Stoxx 50", rate: 6.5, risk: "Alto", desc: "Las 50 mayores empresas de la eurozona (Alemania, Francia, España...)." },
+  { id: "dowjones", name: "Dow Jones", rate: 8, risk: "Alto", desc: "30 grandes empresas industriales y de consumo de EE. UU. El índice más antiguo." },
+  { id: "nikkei225", name: "Nikkei 225", rate: 5.5, risk: "Alto", desc: "225 grandes empresas de la Bolsa de Tokio. Principal referencia de la renta variable japonesa." },
+  { id: "ibex35", name: "IBEX 35", rate: 4, risk: "Alto", desc: "Las 35 empresas más líquidas de la Bolsa española. Fuerte peso de banca y energía." },
+];
+
+const CUSTOM = "custom";
 
 export default function InteresCompuesto() {
   const [initial, setInitial] = useState("10000");
   const [monthly, setMonthly] = useState("200");
   const [rate, setRate] = useState("7");
   const [years, setYears] = useState("20");
+  const [fund, setFund] = useState(CUSTOM);
+
+  const selectedFund = FUNDS.find((f) => f.id === fund) ?? null;
+
+  // Al elegir un fondo, fija su rentabilidad histórica como interés estimado.
+  const handleFundChange = (id: string) => {
+    setFund(id);
+    const f = FUNDS.find((fund) => fund.id === id);
+    if (f) setRate(String(f.rate));
+  };
+
+  // Editar el interés a mano vuelve al modo "Personalizado".
+  const handleRateChange = (value: string) => {
+    setRate(value);
+    setFund(CUSTOM);
+  };
   
   const [results, setResults] = useState<{
     finalAmount: number;
@@ -106,13 +151,44 @@ export default function InteresCompuesto() {
                 />
               </div>
               <div className="space-y-2">
+                <Label htmlFor="fund">Fondo de inversión</Label>
+                <Select value={fund} onValueChange={handleFundChange}>
+                  <SelectTrigger id="fund" data-testid="select-fund">
+                    <SelectValue placeholder="Personalizado" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value={CUSTOM}>Personalizado</SelectItem>
+                    {FUNDS.map((f) => (
+                      <SelectItem key={f.id} value={f.id}>
+                        {f.name} · {f.rate}%
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {selectedFund && (
+                  <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 text-sm space-y-1">
+                    <div className="flex items-center gap-2 font-medium text-gray-900 dark:text-gray-100">
+                      <TrendingUp className="w-4 h-4 text-primary" />
+                      {selectedFund.name}
+                      <span className="ml-auto text-xs font-normal text-gray-500">
+                        Riesgo: {selectedFund.risk}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400">{selectedFund.desc}</p>
+                    <p className="text-xs text-gray-400">
+                      Rentabilidad media histórica orientativa. Rentabilidades pasadas no garantizan rentabilidades futuras.
+                    </p>
+                  </div>
+                )}
+              </div>
+              <div className="space-y-2">
                 <Label htmlFor="rate">Interés Anual Estimado (%)</Label>
                 <Input
                   id="rate"
                   type="number"
                   step="0.1"
                   value={rate}
-                  onChange={(e) => setRate(e.target.value)}
+                  onChange={(e) => handleRateChange(e.target.value)}
                   required
                 />
               </div>
@@ -218,6 +294,12 @@ export default function InteresCompuesto() {
             <AccordionTrigger>¿Por qué es importante empezar pronto?</AccordionTrigger>
             <AccordionContent>
               El factor más importante en el interés compuesto es el tiempo. Empezar a invertir 10 años antes con cantidades menores suele resultar en un capital final mucho mayor que empezar más tarde aportando cantidades mayores.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>¿De dónde salen las rentabilidades de los fondos?</AccordionTrigger>
+            <AccordionContent>
+              Cada fondo o índice (S&amp;P 500, MSCI World, Nasdaq 100...) tiene un porcentaje que refleja su rentabilidad media anual histórica de largo plazo, sin descontar la inflación. Son cifras orientativas para que veas cómo crecería tu inversión con un comportamiento similar al pasado. Al elegir un fondo, ese porcentaje se aplica automáticamente como interés estimado, pero puedes ajustarlo a mano cuando quieras. Recuerda: rentabilidades pasadas no garantizan rentabilidades futuras y toda inversión conlleva riesgo de pérdida.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
