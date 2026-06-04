@@ -4,10 +4,14 @@ Guía para Claude Code en este repositorio.
 
 ## Flujo de trabajo (IMPORTANTE)
 
-- **Después de CADA cambio, súbelo a GitHub.** En cuanto un cambio esté hecho y
-  verificado (typecheck/build OK), haz `git add` de lo modificado, `git commit`
-  con un mensaje descriptivo y `git push origin main`. No esperes a que el
-  usuario lo pida cada vez: el push forma parte de completar el cambio.
+- **Después de CADA cambio, PREGUNTA al usuario si quiere verlo en el servidor o
+  subirlo a GitHub.** En cuanto un cambio esté hecho y verificado (typecheck/build
+  OK), no hagas `commit`/`push` por tu cuenta: pregúntale primero qué prefiere:
+  - **Verlo en el servidor**: levanta/usa el servidor local de previsualización
+    (`pnpm exec vite preview --config vite.config.ts`, en `http://localhost:<puerto>`)
+    y dale la URL del cambio.
+  - **Subirlo a GitHub**: solo entonces haz `git add` + `git commit` +
+    `git push origin main`.
 - Mensajes de commit en imperativo y descriptivos; terminar con la línea
   `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`.
 
