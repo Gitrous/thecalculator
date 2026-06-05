@@ -277,7 +277,7 @@ export default function IRPF() {
                             <Cell fill="#ef4444" />
                             <Cell fill="#f59e0b" />
                           </Pie>
-                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Tooltip formatter={(value: number, _name: string, props: { payload?: { name?: string } }) => [value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' }), props.payload?.name ?? _name]} />
                           <Legend />
                         </PieChart>
                       ) : (
@@ -295,7 +295,7 @@ export default function IRPF() {
                           endAngle={-270}
                         >
                           <RadialBar dataKey="value" label={{ position: "insideStart", fill: "#fff", fontSize: 11 }} />
-                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Tooltip formatter={(value: number, _name: string, props: { payload?: { name?: string } }) => [value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' }), props.payload?.name ?? _name]} />
                           <Legend />
                         </RadialBarChart>
                       )}
