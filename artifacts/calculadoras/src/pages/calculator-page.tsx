@@ -25,6 +25,7 @@ import NotaMedia from "@/pages/nota-media";
 import MRU from "@/pages/mru";
 import MRUA from "@/pages/mrua";
 import ConversorUnidades from "@/pages/conversor-unidades";
+import Pitagoras from "@/pages/pitagoras";
 import Imc from "@/pages/imc";
 
 /** Maps "categoria/slug" to the page component implementing the calculator. */
@@ -44,6 +45,7 @@ const REGISTRY: Record<string, ComponentType> = {
   "trabajo/autonomos": Autonomos,
   "trabajo/dias-entre-fechas": DiasEntreFechas,
   "trabajo/horas-trabajadas": HorasTrabajadas,
+  "educacion/pitagoras": Pitagoras,
   "educacion/regla-de-tres": ReglaDeTres,
   "educacion/nota-media": NotaMedia,
   "educacion/mru": MRU,

@@ -6,14 +6,16 @@ Guía para Claude Code en este repositorio.
 
 - **Después de CADA cambio, PREGUNTA al usuario si quiere verlo en el servidor o
   subirlo a GitHub.** En cuanto un cambio esté hecho y verificado (typecheck/build
-  OK), no hagas `commit`/`push` por tu cuenta: pregúntale primero qué prefiere:
-  - **Verlo en el servidor**: levanta/usa el servidor local de previsualización
-    (`pnpm exec vite preview --config vite.config.ts`, en `http://localhost:<puerto>`)
-    y dale la URL del cambio.
-  - **Subirlo a GitHub**: solo entonces haz `git add` + `git commit` +
-    `git push origin main`.
+  OK), pregunta exactamente esto: `¿Servidor (s) o GitHub (g)?`
+- **El usuario responderá con una sola letra:**
+  - **`s`** → haz el build y dale la URL del cambio. Si ya hay un servidor
+    de previsualización corriendo, **no arranques uno nuevo**: el build
+    actualiza `dist/public/` y el servidor existente ya sirve los nuevos
+    ficheros. Solo arranca uno nuevo (`pnpm exec vite preview --config
+    vite.config.ts`) si no hay ninguno en marcha.
+  - **`g`** → haz `git add` + `git commit` + `git push origin main`.
 - Mensajes de commit en imperativo y descriptivos; terminar con la línea
-  `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`.
+  `Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>`.
 
 ## Estructura
 

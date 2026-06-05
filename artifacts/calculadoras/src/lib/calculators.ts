@@ -300,6 +300,19 @@ export const CALCULATORS: CalculatorMeta[] = [
 
   // ── Educación ─────────────────────────────────────────────────────────────
   {
+    slug: "pitagoras",
+    category: "educacion",
+    title: "Calculadora de Pitágoras",
+    description:
+      "Calcula la hipotenusa o un cateto de un triángulo rectángulo aplicando el teorema de Pitágoras: a² + b² = c².",
+    shortLabel: "Pitágoras",
+    icon: Calculator,
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
+    seoTitle: "Calculadora del Teorema de Pitágoras",
+    seoDescription:
+      "Calcula la hipotenusa o un cateto de un triángulo rectángulo con el teorema de Pitágoras: a² + b² = c².",
+  },
+  {
     slug: "regla-de-tres",
     category: "educacion",
     title: "Calculadora Regla de Tres",
