@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, PieChart, Pie, Cell, RadialBarChart, RadialBar } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Calculator, ChevronsUpDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,7 @@ export default function IRPF() {
   const [bruto, setBruto] = useState("30000");
   const [ccaa, setCcaa] = useState("Madrid");
   const [openCcaa, setOpenCcaa] = useState(false);
+  const [chartType, setChartType] = useState<"barras" | "tarta" | "horizontal" | "radial">("barras");
   const [results, setResults] = useState<{
     bruto: number;
     netoAnual: number;
@@ -198,29 +199,106 @@ export default function IRPF() {
               </div>
 
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-lg">Comparativa Bruto vs Neto</CardTitle>
+                  <div className="flex gap-1 rounded-lg border p-1">
+                    {(["barras", "horizontal", "tarta", "radial"] as const).map((type) => (
+                      <button
+                        key={type}
+                        onClick={() => setChartType(type)}
+                        className={cn(
+                          "px-3 py-1 text-xs rounded-md transition-colors capitalize",
+                          chartType === type
+                            ? "bg-primary text-primary-foreground font-medium"
+                            : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-100"
+                        )}
+                      >
+                        {type === "barras" ? "Barras" : type === "horizontal" ? "Horizontal" : type === "tarta" ? "Tarta" : "Radial"}
+                      </button>
+                    ))}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[300px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={[{
-                        name: "Salario",
-                        Neto: results.netoAnual,
-                        Impuestos: results.retencion,
-                        SeguridadSocial: results.bruto * 0.0635
-                      }]}>
-                        <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
-                        <XAxis dataKey="name" />
-                        <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                        <Tooltip 
-                          formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
-                        />
-                        <Legend />
-                        <Bar dataKey="Neto" stackId="a" fill="#0FA958" />
-                        <Bar dataKey="Impuestos" stackId="a" fill="#ef4444" />
-                        <Bar dataKey="SeguridadSocial" stackId="a" fill="#f59e0b" name="Seg. Social" />
-                      </BarChart>
+                      {chartType === "barras" ? (
+                        <BarChart data={[{
+                          name: "Salario",
+                          Neto: results.netoAnual,
+                          Impuestos: results.retencion,
+                          SeguridadSocial: results.bruto * 0.0635
+                        }]}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis dataKey="name" />
+                          <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Legend />
+                          <Bar dataKey="Neto" stackId="a" fill="#0FA958" />
+                          <Bar dataKey="Impuestos" stackId="a" fill="#ef4444" />
+                          <Bar dataKey="SeguridadSocial" stackId="a" fill="#f59e0b" name="Seg. Social" />
+                        </BarChart>
+                      ) : chartType === "horizontal" ? (
+                        <BarChart
+                          layout="vertical"
+                          data={[{
+                            name: "Salario",
+                            Neto: results.netoAnual,
+                            Impuestos: results.retencion,
+                            SeguridadSocial: results.bruto * 0.0635
+                          }]}
+                          margin={{ left: 10 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis type="number" tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                          <YAxis type="category" dataKey="name" width={55} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Legend />
+                          <Bar dataKey="Neto" stackId="a" fill="#0FA958" />
+                          <Bar dataKey="Impuestos" stackId="a" fill="#ef4444" />
+                          <Bar dataKey="SeguridadSocial" stackId="a" fill="#f59e0b" name="Seg. Social" />
+                        </BarChart>
+                      ) : chartType === "tarta" ? (
+                        <PieChart>
+                          <Pie
+                            data={[
+                              { name: "Neto", value: results.netoAnual },
+                              { name: "Impuestos", value: results.retencion },
+                              { name: "Seg. Social", value: results.bruto * 0.0635 },
+                            ]}
+                            cx="50%"
+                            cy="50%"
+                            innerRadius={60}
+                            outerRadius={110}
+                            dataKey="value"
+                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`}
+                            labelLine={true}
+                          >
+                            <Cell fill="#0FA958" />
+                            <Cell fill="#ef4444" />
+                            <Cell fill="#f59e0b" />
+                          </Pie>
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Legend />
+                        </PieChart>
+                      ) : (
+                        <RadialBarChart
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={30}
+                          outerRadius={120}
+                          data={[
+                            { name: "Seg. Social", value: results.bruto * 0.0635, fill: "#f59e0b" },
+                            { name: "Impuestos", value: results.retencion, fill: "#ef4444" },
+                            { name: "Neto", value: results.netoAnual, fill: "#0FA958" },
+                          ]}
+                          startAngle={90}
+                          endAngle={-270}
+                        >
+                          <RadialBar dataKey="value" label={{ position: "insideStart", fill: "#fff", fontSize: 11 }} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                          <Legend />
+                        </RadialBarChart>
+                      )}
                     </ResponsiveContainer>
                   </div>
                 </CardContent>
