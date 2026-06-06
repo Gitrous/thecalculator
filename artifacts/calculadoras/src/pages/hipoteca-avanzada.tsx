@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
@@ -259,6 +261,8 @@ export default function HipotecaAvanzada() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <div className="pt-12 mt-12 border-t">
         <h2 className="text-2xl font-bold mb-6">Preguntas Frecuentes sobre Hipotecas</h2>

@@ -2,6 +2,8 @@ import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
 import { ChevronRight } from "lucide-react";
 import { getCalculator, getCategory, type CategoryId } from "@/lib/calculators";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { Seo } from "@/components/seo";
 import NotFound from "@/pages/not-found";
 
@@ -118,6 +120,7 @@ export default function CalculatorPage() {
       </nav>
 
       <Component />
+      <AdUnit slot={AD_SLOTS.afterResult} className="mt-10" />
     </div>
   );
 }

@@ -8,6 +8,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, PieChart, Pie, Cell, RadialBarChart, RadialBar } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { ArrowLeft, Calculator, ChevronsUpDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -314,6 +316,8 @@ export default function IRPF() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <div className="pt-12 mt-12 border-t">
         <h2 className="text-2xl font-bold mb-6">Preguntas Frecuentes sobre el IRPF</h2>
