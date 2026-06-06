@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLocale } from "@/lib/locale";
 
 type Mode = "hipotenusa" | "cateto";
 
@@ -280,7 +281,57 @@ function TriangleViz({ a, b, c, calculated }: TriangleVizProps) {
 
 // ── Main component ───────────────────────────────────────────────────────────
 
+const T = {
+  es: {
+    title: "Calculadora de Pitágoras",
+    subtitle: "Calcula la hipotenusa o un cateto de un triángulo rectángulo. El simulador se actualiza en tiempo real conforme introduces los valores.",
+    cardTitle: "¿Qué quieres calcular?",
+    hypBtn: "Hipotenusa (c)",
+    legBtn: "Cateto (b)",
+    legA: "Cateto a",
+    legB: "Cateto b",
+    hyp: "Hipotenusa c",
+    hypResult: "Hipotenusa (c)",
+    legResult: "Cateto (b)",
+    invalidWarning: "⚠️ La hipotenusa debe ser mayor que el cateto.",
+    enterValues: "Introduce los valores para calcular.",
+    simTitle: "Simulador",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Qué es el teorema de Pitágoras?",
+    a1: "El teorema de Pitágoras establece que en todo triángulo rectángulo la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa: a² + b² = c². Fue demostrado por el matemático griego Pitágoras en el siglo VI a.C.",
+    q2: "¿Qué es la hipotenusa y qué son los catetos?",
+    a2: "La hipotenusa (c) es el lado más largo del triángulo rectángulo y es el opuesto al ángulo recto. Los catetos (a y b) son los dos lados que forman el ángulo recto.",
+    q3: "¿Cuál es la terna pitagórica más conocida?",
+    a3: "La terna 3-4-5 es la más famosa: 3² + 4² = 9 + 16 = 25 = 5². Otras ternas conocidas son 5-12-13, 8-15-17 y 7-24-25.",
+  },
+  en: {
+    title: "Pythagorean Theorem Calculator",
+    subtitle: "Calculate the hypotenuse or a leg of a right triangle. The simulator updates in real time as you enter values.",
+    cardTitle: "What do you want to calculate?",
+    hypBtn: "Hypotenuse (c)",
+    legBtn: "Leg (b)",
+    legA: "Leg a",
+    legB: "Leg b",
+    hyp: "Hypotenuse c",
+    hypResult: "Hypotenuse (c)",
+    legResult: "Leg (b)",
+    invalidWarning: "⚠️ The hypotenuse must be greater than the leg.",
+    enterValues: "Enter values to calculate.",
+    simTitle: "Simulator",
+    faqTitle: "Frequently asked questions",
+    q1: "What is the Pythagorean theorem?",
+    a1: "The Pythagorean theorem states that in every right triangle, the sum of the squares of the two legs equals the square of the hypotenuse: a² + b² = c². It was proved by the Greek mathematician Pythagoras in the 6th century BC.",
+    q2: "What are the hypotenuse and legs?",
+    a2: "The hypotenuse (c) is the longest side of a right triangle and is opposite the right angle. The legs (a and b) are the two sides that form the right angle.",
+    q3: "What is the most famous Pythagorean triple?",
+    a3: "The 3-4-5 triple is the most famous: 3² + 4² = 9 + 16 = 25 = 5². Other well-known triples are 5-12-13, 8-15-17 and 7-24-25.",
+  },
+};
+
 export default function Pitagoras() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [mode, setMode] = useState<Mode>("hipotenusa");
   const [a, setA] = useState("");
   const [b, setB] = useState("");
@@ -325,20 +376,15 @@ export default function Pitagoras() {
         <div className="bg-primary/10 p-2 rounded-lg">
           <Triangle className="h-6 w-6 text-primary" />
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          Calculadora de Pitágoras
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">
-        Calcula la hipotenusa o un cateto de un triángulo rectángulo.
-        El simulador se actualiza en tiempo real conforme introduces los valores.
-      </p>
+      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* ── Inputs ── */}
         <Card>
           <CardHeader>
-            <CardTitle>¿Qué quieres calcular?</CardTitle>
+            <CardTitle>{t.cardTitle}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex gap-2 mb-6">
@@ -346,19 +392,19 @@ export default function Pitagoras() {
                 variant={mode === "hipotenusa" ? "default" : "outline"}
                 onClick={() => { setMode("hipotenusa"); setC(""); }}
               >
-                Hipotenusa (c)
+                {t.hypBtn}
               </Button>
               <Button
                 variant={mode === "cateto" ? "default" : "outline"}
                 onClick={() => { setMode("cateto"); setB(""); }}
               >
-                Cateto (b)
+                {t.legBtn}
               </Button>
             </div>
 
             <div className="space-y-4">
               <div>
-                <Label htmlFor="a">Cateto a</Label>
+                <Label htmlFor="a">{t.legA}</Label>
                 <Input
                   id="a"
                   type="number"
@@ -372,7 +418,7 @@ export default function Pitagoras() {
 
               {mode === "hipotenusa" ? (
                 <div>
-                  <Label htmlFor="b">Cateto b</Label>
+                  <Label htmlFor="b">{t.legB}</Label>
                   <Input
                     id="b"
                     type="number"
@@ -385,7 +431,7 @@ export default function Pitagoras() {
                 </div>
               ) : (
                 <div>
-                  <Label htmlFor="c">Hipotenusa c</Label>
+                  <Label htmlFor="c">{t.hyp}</Label>
                   <Input
                     id="c"
                     type="number"
@@ -404,14 +450,12 @@ export default function Pitagoras() {
                 <p className="text-xs text-muted-foreground mb-1">{formula}</p>
                 <p className="text-3xl font-bold text-primary">{fmt(result)}</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {mode === "hipotenusa" ? "Hipotenusa (c)" : "Cateto (b)"}
+                  {mode === "hipotenusa" ? t.hypResult : t.legResult}
                 </p>
               </div>
             ) : (
               <p className="mt-6 text-sm text-muted-foreground text-center">
-                {invalidCateto
-                  ? "⚠️ La hipotenusa debe ser mayor que el cateto."
-                  : "Introduce los valores para calcular."}
+                {invalidCateto ? t.invalidWarning : t.enterValues}
               </p>
             )}
           </CardContent>
@@ -420,7 +464,7 @@ export default function Pitagoras() {
         {/* ── Triangle visualization ── */}
         <Card>
           <CardHeader>
-            <CardTitle>Simulador</CardTitle>
+            <CardTitle>{t.simTitle}</CardTitle>
           </CardHeader>
           <CardContent className="flex items-center justify-center h-[260px]">
             <TriangleViz
@@ -434,31 +478,19 @@ export default function Pitagoras() {
       </div>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">Preguntas frecuentes</h2>
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible>
           <AccordionItem value="q1">
-            <AccordionTrigger>¿Qué es el teorema de Pitágoras?</AccordionTrigger>
-            <AccordionContent>
-              El teorema de Pitágoras establece que en todo triángulo rectángulo
-              la suma de los cuadrados de los catetos es igual al cuadrado de la
-              hipotenusa: a² + b² = c². Fue demostrado por el matemático griego
-              Pitágoras en el siglo VI a.C.
-            </AccordionContent>
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
-            <AccordionTrigger>¿Qué es la hipotenusa y qué son los catetos?</AccordionTrigger>
-            <AccordionContent>
-              La hipotenusa (c) es el lado más largo del triángulo rectángulo y
-              es el opuesto al ángulo recto. Los catetos (a y b) son los dos
-              lados que forman el ángulo recto.
-            </AccordionContent>
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q3">
-            <AccordionTrigger>¿Cuál es la terna pitagórica más conocida?</AccordionTrigger>
-            <AccordionContent>
-              La terna 3-4-5 es la más famosa: 3² + 4² = 9 + 16 = 25 = 5².
-              Otras ternas conocidas son 5-12-13, 8-15-17 y 7-24-25.
-            </AccordionContent>
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

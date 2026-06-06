@@ -7,8 +7,11 @@ import {
   getCalculatorsByCategory,
   type CalculatorMeta,
   calcPath,
+  enCalcPath,
+  EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { useLocale } from "@/lib/locale";
 
 const RECENT_KEY = "calc_recent";
 
@@ -27,6 +30,8 @@ function getRecentCalcs(): CalculatorMeta[] {
 }
 
 export default function Home() {
+  const locale = useLocale();
+  const isEn = locale === "en";
   const [query, setQuery] = useState("");
   const [recent, setRecent] = useState<CalculatorMeta[]>([]);
 
@@ -39,22 +44,30 @@ export default function Home() {
   const searchResults = normalized
     ? CALCULATORS.filter(
         (c) =>
-          c.title.toLowerCase().includes(normalized) ||
-          c.description.toLowerCase().includes(normalized) ||
-          c.shortLabel.toLowerCase().includes(normalized),
+          (isEn ? c.enTitle : c.title).toLowerCase().includes(normalized) ||
+          (isEn ? c.enDescription : c.description).toLowerCase().includes(normalized) ||
+          (isEn ? c.enShortLabel : c.shortLabel).toLowerCase().includes(normalized),
       )
     : [];
   const isSearching = normalized.length > 0;
+
+  const heroTitle = isEn
+    ? "Online Calculators & Simulators"
+    : "Simuladores y Calculadoras Online";
+  const heroSubtitle = isEn
+    ? "Over 25 free tools for finance, home, work, education and health. No registration required."
+    : "Más de 25 herramientas gratuitas para finanzas, hogar, trabajo, educación y salud. Sin registro.";
+  const searchPlaceholder = isEn ? "Search a calculator…" : "Busca una calculadora…";
+  const recentLabel = isEn ? "Recently used" : "Usadas recientemente";
 
   return (
     <div className="max-w-6xl mx-auto space-y-16">
       <section className="text-center space-y-5 py-12 md:py-20">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
-          Simuladores y Calculadoras Online
+          {heroTitle}
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Más de 25 herramientas gratuitas para finanzas, hogar, trabajo,
-          educación y salud. Sin registro.
+          {heroSubtitle}
         </p>
 
         {/* Search */}
@@ -62,7 +75,7 @@ export default function Home() {
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
           <input
             type="search"
-            placeholder="Busca una calculadora…"
+            placeholder={searchPlaceholder}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full pl-11 pr-10 py-3.5 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 text-base shadow-sm"
@@ -82,13 +95,16 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-2 pt-1">
             {featured.map((cat) => {
               const Icon = cat.icon;
+              const href = isEn
+                ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
+                : `/calculadoras/${cat.id}`;
               return (
-                <Link key={cat.id} href={`/calculadoras/${cat.id}`}>
+                <Link key={cat.id} href={href}>
                   <span
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium cursor-pointer transition-opacity hover:opacity-80 ${cat.color}`}
                   >
                     <Icon className="w-3.5 h-3.5" />
-                    {cat.name}
+                    {isEn ? cat.enName : cat.name}
                   </span>
                 </Link>
               );
@@ -102,7 +118,11 @@ export default function Home() {
         <section>
           <p className="text-sm text-muted-foreground mb-6">
             {searchResults.length}{" "}
-            {searchResults.length === 1 ? "resultado" : "resultados"} para{" "}
+            {isEn
+              ? searchResults.length === 1 ? "result" : "results"
+              : searchResults.length === 1 ? "resultado" : "resultados"
+            }{" "}
+            {isEn ? "for" : "para"}{" "}
             <span className="font-medium text-foreground">"{query}"</span>
           </p>
           {searchResults.length > 0 ? (
@@ -113,7 +133,9 @@ export default function Home() {
             </div>
           ) : (
             <p className="text-center text-muted-foreground py-16">
-              No se encontraron calculadoras para "{query}"
+              {isEn
+                ? `No calculators found for "${query}"`
+                : `No se encontraron calculadoras para "${query}"`}
             </p>
           )}
         </section>
@@ -125,7 +147,7 @@ export default function Home() {
           <div className="flex items-center gap-2 mb-6">
             <Clock className="w-5 h-5 text-muted-foreground" />
             <h2 className="text-xl font-bold text-gray-900 dark:text-gray-50">
-              Usadas recientemente
+              {recentLabel}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -140,6 +162,9 @@ export default function Home() {
       {!isSearching &&
         featured.map((cat) => {
           const Icon = cat.icon;
+          const catHref = isEn
+            ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
+            : `/calculadoras/${cat.id}`;
           return (
             <section key={cat.id} id={cat.id}>
               <div className="flex items-center gap-3 mb-6">
@@ -149,13 +174,13 @@ export default function Home() {
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <Link href={`/calculadoras/${cat.id}`}>
+                  <Link href={catHref}>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-50 hover:text-primary transition-colors cursor-pointer">
-                      {cat.name}
+                      {isEn ? cat.enName : cat.name}
                     </h2>
                   </Link>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {cat.description}
+                    {isEn ? cat.enDescription : cat.description}
                   </p>
                 </div>
               </div>

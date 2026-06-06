@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLocale } from "@/lib/locale";
 
 const RATES = [21, 10, 4, 0];
 
@@ -21,7 +22,49 @@ function eur(n: number): string {
   });
 }
 
+const T = {
+  es: {
+    title: "Calculadora de IVA",
+    subtitle: "Suma o resta el IVA a cualquier precio. Tipos del 21%, 10%, 4% y 0%.",
+    cardTitle: "Datos",
+    addVat: "Añadir IVA",
+    removeVat: "Quitar IVA",
+    labelAdd: "Importe sin IVA (base)",
+    labelRemove: "Importe con IVA (total)",
+    vatType: "Tipo de IVA",
+    taxBase: "Base imponible",
+    vatAmount: "IVA",
+    total: "Total",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Qué tipos de IVA hay en España?",
+    a1: "El tipo general es del 21%, el reducido del 10% (hostelería, transporte…), el superreducido del 4% (alimentos básicos, medicamentos, libros) y el 0% para algunos productos exentos.",
+    q2: "¿Cómo se quita el IVA de un precio final?",
+    a2: "Se divide el precio con IVA entre (1 + tipo/100). Por ejemplo, con un 21%: base = total / 1,21.",
+  },
+  en: {
+    title: "VAT Calculator",
+    subtitle: "Add or remove VAT from any price. Rates of 21%, 10%, 4% and 0%.",
+    cardTitle: "Data",
+    addVat: "Add VAT",
+    removeVat: "Remove VAT",
+    labelAdd: "Amount without VAT (base)",
+    labelRemove: "Amount with VAT (total)",
+    vatType: "VAT rate",
+    taxBase: "Tax base",
+    vatAmount: "VAT",
+    total: "Total",
+    faqTitle: "Frequently asked questions",
+    q1: "What VAT rates are there in Spain?",
+    a1: "The standard rate is 21%, the reduced rate is 10% (hospitality, transport…), the super-reduced rate is 4% (basic food, medicines, books) and 0% for some exempt products.",
+    q2: "How do you remove VAT from a final price?",
+    a2: "Divide the price with VAT by (1 + rate/100). For example, at 21%: base = total / 1.21.",
+  },
+};
+
 export default function Iva() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [amount, setAmount] = useState("");
   const [rate, setRate] = useState(21);
   const [mode, setMode] = useState<"add" | "remove">("add");
@@ -50,15 +93,13 @@ export default function Iva() {
         <div className="bg-primary/10 p-2 rounded-lg">
           <Receipt className="h-6 w-6 text-primary" />
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Calculadora de IVA</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">
-        Suma o resta el IVA a cualquier precio. Tipos del 21%, 10%, 4% y 0%.
-      </p>
+      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Datos</CardTitle>
+          <CardTitle>{t.cardTitle}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex gap-2">
@@ -66,19 +107,19 @@ export default function Iva() {
               variant={mode === "add" ? "default" : "outline"}
               onClick={() => setMode("add")}
             >
-              Añadir IVA
+              {t.addVat}
             </Button>
             <Button
               variant={mode === "remove" ? "default" : "outline"}
               onClick={() => setMode("remove")}
             >
-              Quitar IVA
+              {t.removeVat}
             </Button>
           </div>
 
           <div>
             <Label htmlFor="amount">
-              {mode === "add" ? "Importe sin IVA (base)" : "Importe con IVA (total)"}
+              {mode === "add" ? t.labelAdd : t.labelRemove}
             </Label>
             <Input
               id="amount"
@@ -91,7 +132,7 @@ export default function Iva() {
           </div>
 
           <div>
-            <Label>Tipo de IVA</Label>
+            <Label>{t.vatType}</Label>
             <div className="flex gap-2 flex-wrap mt-1">
               {RATES.map((r) => (
                 <Button
@@ -113,15 +154,15 @@ export default function Iva() {
           <CardContent className="pt-6">
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <p className="text-sm text-muted-foreground">Base imponible</p>
+                <p className="text-sm text-muted-foreground">{t.taxBase}</p>
                 <p className="text-xl font-bold">{eur(base)}</p>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">IVA ({rate}%)</p>
+                <p className="text-sm text-muted-foreground">{t.vatAmount} ({rate}%)</p>
                 <p className="text-xl font-bold">{eur(iva)}</p>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Total</p>
+                <p className="text-sm text-muted-foreground">{t.total}</p>
                 <p className="text-xl font-bold text-primary">{eur(total)}</p>
               </div>
             </div>
@@ -130,22 +171,15 @@ export default function Iva() {
       )}
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold mb-4">Preguntas frecuentes</h2>
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible>
           <AccordionItem value="q1">
-            <AccordionTrigger>¿Qué tipos de IVA hay en España?</AccordionTrigger>
-            <AccordionContent>
-              El tipo general es del 21%, el reducido del 10% (hostelería,
-              transporte…), el superreducido del 4% (alimentos básicos,
-              medicamentos, libros) y el 0% para algunos productos exentos.
-            </AccordionContent>
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
-            <AccordionTrigger>¿Cómo se quita el IVA de un precio final?</AccordionTrigger>
-            <AccordionContent>
-              Se divide el precio con IVA entre (1 + tipo/100). Por ejemplo, con
-              un 21%: base = total / 1,21.
-            </AccordionContent>
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

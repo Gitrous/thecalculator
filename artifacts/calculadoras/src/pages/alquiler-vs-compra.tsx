@@ -8,8 +8,67 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Home } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useLocale } from "@/lib/locale";
+
+const T = {
+  es: {
+    backHome: "Volver al inicio",
+    title: "Alquiler vs Compra",
+    subtitle: "Compara el coste real a largo plazo de comprar una vivienda frente a vivir de alquiler invirtiendo la diferencia.",
+    buyTitle: "Datos de Compra",
+    priceLabel: "Precio de la vivienda (€)",
+    downPayLabel: "Entrada (%)",
+    interestLabel: "Interés (%)",
+    yearsLabel: "Años hipoteca",
+    feesLabel: "Gastos e impuestos (%)",
+    rentTitle: "Datos de Alquiler",
+    rentLabel: "Alquiler mensual (€)",
+    rentIncLabel: "Incremento anual alquiler (%)",
+    investRetLabel: "Rentabilidad inversión alternativa (%)",
+    compareBtn: "Comparar Opciones",
+    buyBetter: "Comprar será más rentable que alquilar a partir del",
+    yearLabel: "Año",
+    rentBetter: "En esta simulación a 30 años,",
+    rentBetterBold: "alquilar",
+    rentBetterEnd: "siempre resulta financieramente más favorable.",
+    chartTitle: "Evolución del Coste Neto (Acumulado - Patrimonio)",
+    chartNote: "Un coste negativo significa que tu patrimonio es mayor que lo gastado.",
+    netBuyCost: "Coste Neto Compra",
+    netRentCost: "Coste Neto Alquiler",
+    placeholder: "Introduce los datos para comparar ambas opciones a largo plazo.",
+  },
+  en: {
+    backHome: "Back to home",
+    title: "Rent vs Buy",
+    subtitle: "Compare the real long-term cost of buying a home versus renting and investing the difference.",
+    buyTitle: "Purchase Data",
+    priceLabel: "Property price (€)",
+    downPayLabel: "Down payment (%)",
+    interestLabel: "Interest rate (%)",
+    yearsLabel: "Mortgage years",
+    feesLabel: "Fees and taxes (%)",
+    rentTitle: "Rental Data",
+    rentLabel: "Monthly rent (€)",
+    rentIncLabel: "Annual rent increase (%)",
+    investRetLabel: "Alternative investment return (%)",
+    compareBtn: "Compare Options",
+    buyBetter: "Buying will be more profitable than renting from",
+    yearLabel: "Year",
+    rentBetter: "In this 30-year simulation,",
+    rentBetterBold: "renting",
+    rentBetterEnd: "is always financially more favourable.",
+    chartTitle: "Net Cost Evolution (Cumulative – Wealth)",
+    chartNote: "A negative cost means your wealth exceeds what you have spent.",
+    netBuyCost: "Net Buy Cost",
+    netRentCost: "Net Rent Cost",
+    placeholder: "Enter the data to compare both options over the long term.",
+  },
+};
 
 export default function AlquilerVsCompra() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [precioVivienda, setPrecioVivienda] = useState("200000");
   const [entradaPerc, setEntradaPerc] = useState("20");
   const [interesHipoteca, setInteresHipoteca] = useState("3.0");
@@ -55,30 +114,24 @@ export default function AlquilerVsCompra() {
     let breakEvenYear = null;
 
     for (let year = 1; year <= 30; year++) {
-      // Compra
       let pagoAnualHipoteca = 0;
       if (year <= parseFloat(anosHipoteca)) {
         pagoAnualHipoteca = cuotaHipoteca * 12;
         costeAcumuladoCompra += pagoAnualHipoteca;
       }
-      // Simplificado: gastos de mantenimiento, IBI, etc (1% del valor de casa aprox)
       const mantenimiento = pCasa * 0.01;
       costeAcumuladoCompra += mantenimiento;
 
-      // Alquiler + Inversión
       const pagoAnualAlquiler = alqMensual * 12;
       costeAcumuladoAlquiler += pagoAnualAlquiler;
-      
-      // El inquilino invierte la diferencia entre la cuota+mantenimiento de compra y el alquiler
+
       const diferencia = (pagoAnualHipoteca + mantenimiento) - pagoAnualAlquiler;
       inversionAlternativa = inversionAlternativa * (1 + rInv) + diferencia;
-      
+
       alqMensual *= (1 + incAlq);
 
-      // Coste neto real (Coste acumulado - patrimonio)
-      const valorCasa = pCasa * Math.pow(1.02, year); // Asumimos 2% revalorización anual
-      
-      // Capital pendiente
+      const valorCasa = pCasa * Math.pow(1.02, year);
+
       let capitalPendiente = 0;
       if (year <= parseFloat(anosHipoteca)) {
         const mesesRestantes = meses - (year * 12);
@@ -86,15 +139,15 @@ export default function AlquilerVsCompra() {
           capitalPendiente = cuotaHipoteca * (Math.pow(1 + rHipoteca, mesesRestantes) - 1) / (rHipoteca * Math.pow(1 + rHipoteca, mesesRestantes));
         }
       }
-      
+
       const patrimonioCompra = valorCasa - capitalPendiente;
       const costeNetoCompra = costeAcumuladoCompra - patrimonioCompra;
       const costeNetoAlquiler = costeAcumuladoAlquiler - inversionAlternativa + (entrada + gastosIniciales);
 
       data.push({
         year,
-        CosteCompra: costeNetoCompra,
-        CosteAlquiler: costeNetoAlquiler,
+        [t.netBuyCost]: costeNetoCompra,
+        [t.netRentCost]: costeNetoAlquiler,
       });
 
       if (breakEvenYear === null && costeNetoCompra < costeNetoAlquiler) {
@@ -107,18 +160,16 @@ export default function AlquilerVsCompra() {
 
   return (
     <div className="max-w-5xl mx-auto space-y-8">
-      <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
-        <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+      <Link href={locale === "en" ? "/en" : "/"} className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
+        <ArrowLeft className="w-4 h-4 mr-1" /> {t.backHome}
       </Link>
 
       <div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50 flex items-center gap-3">
           <Home className="w-8 h-8 text-primary" />
-          Alquiler vs Compra
+          {t.title}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Compara el coste real a largo plazo de comprar una vivienda frente a vivir de alquiler invirtiendo la diferencia.
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
@@ -126,29 +177,29 @@ export default function AlquilerVsCompra() {
           <form onSubmit={calculate} className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Datos de Compra</CardTitle>
+                <CardTitle className="text-lg">{t.buyTitle}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label>Precio de la vivienda (€)</Label>
+                  <Label>{t.priceLabel}</Label>
                   <Input type="number" value={precioVivienda} onChange={e => setPrecioVivienda(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>Entrada (%)</Label>
+                  <Label>{t.downPayLabel}</Label>
                   <Input type="number" value={entradaPerc} onChange={e => setEntradaPerc(e.target.value)} required />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label>Interés (%)</Label>
+                    <Label>{t.interestLabel}</Label>
                     <Input type="number" step="0.1" value={interesHipoteca} onChange={e => setInteresHipoteca(e.target.value)} required />
                   </div>
                   <div className="space-y-2">
-                    <Label>Años hipoteca</Label>
+                    <Label>{t.yearsLabel}</Label>
                     <Input type="number" value={anosHipoteca} onChange={e => setAñosHipoteca(e.target.value)} required />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label>Gastos e impuestos (%)</Label>
+                  <Label>{t.feesLabel}</Label>
                   <Input type="number" value={gastosCompra} onChange={e => setGastosCompra(e.target.value)} required />
                 </div>
               </CardContent>
@@ -156,24 +207,24 @@ export default function AlquilerVsCompra() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Datos de Alquiler</CardTitle>
+                <CardTitle className="text-lg">{t.rentTitle}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label>Alquiler mensual (€)</Label>
+                  <Label>{t.rentLabel}</Label>
                   <Input type="number" value={alquiler} onChange={e => setAlquiler(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>Incremento anual alquiler (%)</Label>
+                  <Label>{t.rentIncLabel}</Label>
                   <Input type="number" step="0.1" value={incrementoAlquiler} onChange={e => setIncrementoAlquiler(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>Rentabilidad inversión alternativa (%)</Label>
+                  <Label>{t.investRetLabel}</Label>
                   <Input type="number" step="0.1" value={rentabilidadInversion} onChange={e => setRentabilidadInversion(e.target.value)} required />
                 </div>
               </CardContent>
             </Card>
-            <Button type="submit" className="w-full">Comparar Opciones</Button>
+            <Button type="submit" className="w-full">{t.compareBtn}</Button>
           </form>
         </div>
 
@@ -184,17 +235,15 @@ export default function AlquilerVsCompra() {
                 <CardContent className="p-6">
                   {results.breakEvenYear ? (
                     <div>
-                      <p className="text-lg text-gray-800 dark:text-gray-200">
-                        Comprar será más rentable que alquilar a partir del
-                      </p>
+                      <p className="text-lg text-gray-800 dark:text-gray-200">{t.buyBetter}</p>
                       <p className="text-3xl font-bold text-primary mt-2">
-                        Año {results.breakEvenYear}
+                        {t.yearLabel} {results.breakEvenYear}
                       </p>
                     </div>
                   ) : (
                     <div>
                       <p className="text-lg text-gray-800 dark:text-gray-200">
-                        En esta simulación a 30 años, <span className="font-bold text-primary">alquilar</span> siempre resulta financieramente más favorable.
+                        {t.rentBetter} <span className="font-bold text-primary">{t.rentBetterBold}</span> {t.rentBetterEnd}
                       </p>
                     </div>
                   )}
@@ -203,23 +252,23 @@ export default function AlquilerVsCompra() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Evolución del Coste Neto (Acumulado - Patrimonio)</CardTitle>
-                  <p className="text-sm text-gray-500">Un coste negativo significa que tu patrimonio es mayor que lo gastado.</p>
+                  <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
+                  <p className="text-sm text-gray-500">{t.chartNote}</p>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[400px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
-                        <XAxis dataKey="year" tickFormatter={(v) => `Año ${v}`} />
+                        <XAxis dataKey="year" tickFormatter={(v) => `${t.yearLabel} ${v}`} />
                         <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                        <Tooltip 
+                        <Tooltip
                           formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })}
-                          labelFormatter={(label) => `Año ${label}`}
+                          labelFormatter={(label) => `${t.yearLabel} ${label}`}
                         />
                         <Legend />
-                        <Line type="monotone" dataKey="CosteCompra" name="Coste Neto Compra" stroke="#0FA958" strokeWidth={3} dot={false} />
-                        <Line type="monotone" dataKey="CosteAlquiler" name="Coste Neto Alquiler" stroke="#ef4444" strokeWidth={3} dot={false} />
+                        <Line type="monotone" dataKey={t.netBuyCost} stroke="#0FA958" strokeWidth={3} dot={false} />
+                        <Line type="monotone" dataKey={t.netRentCost} stroke="#ef4444" strokeWidth={3} dot={false} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
@@ -230,7 +279,7 @@ export default function AlquilerVsCompra() {
             <Card className="h-full flex items-center justify-center min-h-[400px] border-dashed">
               <CardContent className="text-center text-gray-500">
                 <Home className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                <p>Introduce los datos para comparar ambas opciones a largo plazo.</p>
+                <p>{t.placeholder}</p>
               </CardContent>
             </Card>
           )}

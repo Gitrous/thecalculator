@@ -1,10 +1,11 @@
-import { Switch, Route, Redirect, Router as WouterRouter } from "wouter";
+import { Switch, Route, Redirect, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/hooks/use-theme";
 import NotFound from "@/pages/not-found";
 import { Layout } from "@/components/layout";
+import { LocaleContext, type Locale } from "@/lib/locale";
 
 import Home from "@/pages/home";
 import Category from "@/pages/category";
@@ -28,20 +29,28 @@ const LEGACY_REDIRECTS: Record<string, string> = {
 };
 
 function Router() {
+  const [location] = useLocation();
+  const locale: Locale = location.startsWith("/en") ? "en" : "es";
+
   return (
-    <Switch>
-      <Route path="/" component={Home} />
+    <LocaleContext.Provider value={locale}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/en" component={Home} />
 
-      {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
-        <Route key={from} path={`/calculadoras/${from}`}>
-          <Redirect to={to} replace />
-        </Route>
-      ))}
+        {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
+          <Route key={from} path={`/calculadoras/${from}`}>
+            <Redirect to={to} replace />
+          </Route>
+        ))}
 
-      <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
-      <Route path="/calculadoras/:categoria" component={Category} />
-      <Route component={NotFound} />
-    </Switch>
+        <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
+        <Route path="/calculadoras/:categoria" component={Category} />
+        <Route path="/en/calculators/:categoria/:slug" component={CalculatorPage} />
+        <Route path="/en/calculators/:categoria" component={Category} />
+        <Route component={NotFound} />
+      </Switch>
+    </LocaleContext.Provider>
   );
 }
 

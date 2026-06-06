@@ -12,8 +12,73 @@ import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { ArrowLeft, Calculator, ChevronsUpDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/lib/locale";
+
+const T = {
+  es: {
+    backHome: "Volver al inicio",
+    title: "Calculadora IRPF",
+    subtitle: "Calcula tu sueldo neto y las retenciones de IRPF según tu Comunidad Autónoma.",
+    cardTitle: "Tus Datos",
+    grossLabel: "Salario bruto anual (€)",
+    ccaaLabel: "Comunidad Autónoma",
+    ccaaPlaceholder: "Selecciona una comunidad...",
+    ccaaSearch: "Buscar comunidad...",
+    ccaaNotFound: "No se encontró ninguna comunidad.",
+    calculateBtn: "Calcular IRPF",
+    monthlyNet12: "Sueldo Neto Mensual (12 pagas)",
+    annualNet: "Sueldo Neto Anual",
+    effectiveRate: "Tipo Efectivo",
+    chartTitle: "Comparativa Bruto vs Neto",
+    net: "Neto",
+    taxes: "Impuestos",
+    socialSec: "Seg. Social",
+    bars: "Barras",
+    horizontal: "Horizontal",
+    pie: "Tarta",
+    radial: "Radial",
+    placeholder: "Introduce tu salario bruto para calcular tu sueldo neto y retenciones.",
+    faqTitle: "Preguntas Frecuentes sobre el IRPF",
+    q1: "¿Qué es el IRPF?",
+    a1: "El IRPF (Impuesto sobre la Renta de las Personas Físicas) es un impuesto que pagan todos los residentes en España por los ingresos obtenidos durante un año (salarios, alquileres, inversiones, etc.).",
+    q2: "¿Qué diferencia hay entre salario bruto y neto?",
+    a2: "El salario bruto es el dinero total que la empresa te paga antes de descontar impuestos y cotizaciones. El salario neto es la cantidad final que recibes en tu cuenta bancaria tras aplicar las retenciones de IRPF y las cotizaciones a la Seguridad Social.",
+  },
+  en: {
+    backHome: "Back to home",
+    title: "Spanish Income Tax Calculator",
+    subtitle: "Calculate your net salary and income tax withholding according to your Autonomous Community.",
+    cardTitle: "Your Details",
+    grossLabel: "Annual gross salary (€)",
+    ccaaLabel: "Autonomous Community",
+    ccaaPlaceholder: "Select a community...",
+    ccaaSearch: "Search community...",
+    ccaaNotFound: "No community found.",
+    calculateBtn: "Calculate Income Tax",
+    monthlyNet12: "Monthly Net Salary (12 payments)",
+    annualNet: "Annual Net Salary",
+    effectiveRate: "Effective Rate",
+    chartTitle: "Gross vs Net Comparison",
+    net: "Net",
+    taxes: "Taxes",
+    socialSec: "Soc. Security",
+    bars: "Bars",
+    horizontal: "Horizontal",
+    pie: "Pie",
+    radial: "Radial",
+    placeholder: "Enter your gross salary to calculate your net salary and withholding.",
+    faqTitle: "Frequently Asked Questions about Income Tax",
+    q1: "What is IRPF?",
+    a1: "IRPF (Impuesto sobre la Renta de las Personas Físicas) is the Spanish personal income tax paid by all residents in Spain on income earned during a year (salaries, rents, investments, etc.).",
+    q2: "What is the difference between gross and net salary?",
+    a2: "Gross salary is the total amount the company pays you before deducting taxes and contributions. Net salary is the final amount you receive in your bank account after applying income tax withholding and Social Security contributions.",
+  },
+};
 
 export default function IRPF() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [bruto, setBruto] = useState("30000");
   const [ccaa, setCcaa] = useState("Madrid");
   const [openCcaa, setOpenCcaa] = useState(false);
@@ -37,14 +102,12 @@ export default function IRPF() {
     const b = parseFloat(bruto);
     if (isNaN(b) || b <= 0) return;
 
-    // Simplified IRPF logic
     const minimoPersonal = 5550;
     let baseImponible = b - minimoPersonal;
     if (baseImponible < 0) baseImponible = 0;
 
     let cuotaIntegral = 0;
-    
-    // Tramos simplificados
+
     if (baseImponible <= 12450) {
       cuotaIntegral = baseImponible * 0.19;
     } else if (baseImponible <= 20200) {
@@ -59,19 +122,17 @@ export default function IRPF() {
       cuotaIntegral = 12450 * 0.19 + (20200 - 12450) * 0.24 + (35200 - 20200) * 0.30 + (60000 - 35200) * 0.37 + (300000 - 60000) * 0.45 + (baseImponible - 300000) * 0.47;
     }
 
-    // SS estimation
     const ss = b > 0 ? b * 0.0635 : 0;
-    
-    // Simplification for CCAA (adding slight variations just for simulation feel)
+
     let ajusteCCAA = 1;
     if (ccaa === "Madrid") ajusteCCAA = 0.95;
     else if (ccaa === "Cataluña") ajusteCCAA = 1.05;
     else if (ccaa === "Andalucía") ajusteCCAA = 0.98;
     else if (ccaa === "País Vasco" || ccaa === "Navarra") ajusteCCAA = 0.9;
-    
+
     const retencionTotal = cuotaIntegral * ajusteCCAA;
     const netoAnual = b - retencionTotal - ss;
-    
+
     setResults({
       bruto: b,
       netoAnual,
@@ -81,31 +142,36 @@ export default function IRPF() {
     });
   };
 
+  const chartTypeLabels: Record<"barras" | "tarta" | "horizontal" | "radial", string> = {
+    barras: t.bars,
+    horizontal: t.horizontal,
+    tarta: t.pie,
+    radial: t.radial,
+  };
+
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
-        <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+      <Link href={locale === "en" ? "/en" : "/"} className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
+        <ArrowLeft className="w-4 h-4 mr-1" /> {t.backHome}
       </Link>
 
       <div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50 flex items-center gap-3">
           <Calculator className="w-8 h-8 text-primary" />
-          Calculadora IRPF
+          {t.title}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Calcula tu sueldo neto y las retenciones de IRPF según tu Comunidad Autónoma.
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
         <Card className="md:col-span-1">
           <CardHeader>
-            <CardTitle>Tus Datos</CardTitle>
+            <CardTitle>{t.cardTitle}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={calculateIRPF} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="bruto">Salario bruto anual (€)</Label>
+                <Label htmlFor="bruto">{t.grossLabel}</Label>
                 <Input
                   id="bruto"
                   type="number"
@@ -116,7 +182,7 @@ export default function IRPF() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="ccaa">Comunidad Autónoma</Label>
+                <Label htmlFor="ccaa">{t.ccaaLabel}</Label>
                 <Popover open={openCcaa} onOpenChange={setOpenCcaa}>
                   <PopoverTrigger asChild>
                     <Button
@@ -127,7 +193,7 @@ export default function IRPF() {
                       aria-expanded={openCcaa}
                       className="w-full justify-between font-normal"
                     >
-                      {ccaa || "Selecciona una comunidad..."}
+                      {ccaa || t.ccaaPlaceholder}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
@@ -135,10 +201,10 @@ export default function IRPF() {
                     <Command>
                       <CommandInput
                         data-testid="input-ccaa-search"
-                        placeholder="Buscar comunidad..."
+                        placeholder={t.ccaaSearch}
                       />
                       <CommandList className="max-h-60 overflow-y-auto">
-                        <CommandEmpty>No se encontró ninguna comunidad.</CommandEmpty>
+                        <CommandEmpty>{t.ccaaNotFound}</CommandEmpty>
                         <CommandGroup>
                           {ccaas.map((c) => (
                             <CommandItem
@@ -165,7 +231,7 @@ export default function IRPF() {
                   </PopoverContent>
                 </Popover>
               </div>
-              <Button type="submit" className="w-full">Calcular IRPF</Button>
+              <Button type="submit" className="w-full">{t.calculateBtn}</Button>
             </form>
           </CardContent>
         </Card>
@@ -176,7 +242,7 @@ export default function IRPF() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Card className="bg-primary/5 border-primary/20">
                   <CardContent className="p-6">
-                    <p className="text-sm font-medium text-gray-500 mb-1">Sueldo Neto Mensual (12 pagas)</p>
+                    <p className="text-sm font-medium text-gray-500 mb-1">{t.monthlyNet12}</p>
                     <p className="text-3xl font-bold text-primary">
                       {results.netoMensual12.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
                     </p>
@@ -184,7 +250,7 @@ export default function IRPF() {
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <p className="text-sm font-medium text-gray-500 mb-1">Sueldo Neto Anual</p>
+                    <p className="text-sm font-medium text-gray-500 mb-1">{t.annualNet}</p>
                     <p className="text-2xl font-semibold text-gray-900">
                       {results.netoAnual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
                     </p>
@@ -192,7 +258,7 @@ export default function IRPF() {
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <p className="text-sm font-medium text-gray-500 mb-1">Tipo Efectivo</p>
+                    <p className="text-sm font-medium text-gray-500 mb-1">{t.effectiveRate}</p>
                     <p className="text-2xl font-semibold text-gray-900">
                       {results.tipoEfectivo.toFixed(2)}%
                     </p>
@@ -202,7 +268,7 @@ export default function IRPF() {
 
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg">Comparativa Bruto vs Neto</CardTitle>
+                  <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
                   <div className="flex gap-1 rounded-lg border p-1">
                     {(["barras", "horizontal", "tarta", "radial"] as const).map((type) => (
                       <button
@@ -215,7 +281,7 @@ export default function IRPF() {
                             : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-100"
                         )}
                       >
-                        {type === "barras" ? "Barras" : type === "horizontal" ? "Horizontal" : type === "tarta" ? "Tarta" : "Radial"}
+                        {chartTypeLabels[type]}
                       </button>
                     ))}
                   </div>
@@ -225,28 +291,28 @@ export default function IRPF() {
                     <ResponsiveContainer width="100%" height="100%">
                       {chartType === "barras" ? (
                         <BarChart data={[{
-                          name: "Salario",
-                          Neto: results.netoAnual,
-                          Impuestos: results.retencion,
-                          SeguridadSocial: results.bruto * 0.0635
+                          name: locale === "en" ? "Salary" : "Salario",
+                          [t.net]: results.netoAnual,
+                          [t.taxes]: results.retencion,
+                          [t.socialSec]: results.bruto * 0.0635
                         }]}>
                           <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
                           <XAxis dataKey="name" />
                           <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
                           <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
                           <Legend />
-                          <Bar dataKey="Neto" stackId="a" fill="#0FA958" />
-                          <Bar dataKey="Impuestos" stackId="a" fill="#ef4444" />
-                          <Bar dataKey="SeguridadSocial" stackId="a" fill="#f59e0b" name="Seg. Social" />
+                          <Bar dataKey={t.net} stackId="a" fill="#0FA958" />
+                          <Bar dataKey={t.taxes} stackId="a" fill="#ef4444" />
+                          <Bar dataKey={t.socialSec} stackId="a" fill="#f59e0b" />
                         </BarChart>
                       ) : chartType === "horizontal" ? (
                         <BarChart
                           layout="vertical"
                           data={[{
-                            name: "Salario",
-                            Neto: results.netoAnual,
-                            Impuestos: results.retencion,
-                            SeguridadSocial: results.bruto * 0.0635
+                            name: locale === "en" ? "Salary" : "Salario",
+                            [t.net]: results.netoAnual,
+                            [t.taxes]: results.retencion,
+                            [t.socialSec]: results.bruto * 0.0635
                           }]}
                           margin={{ left: 10 }}
                         >
@@ -255,17 +321,17 @@ export default function IRPF() {
                           <YAxis type="category" dataKey="name" width={55} />
                           <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
                           <Legend />
-                          <Bar dataKey="Neto" stackId="a" fill="#0FA958" />
-                          <Bar dataKey="Impuestos" stackId="a" fill="#ef4444" />
-                          <Bar dataKey="SeguridadSocial" stackId="a" fill="#f59e0b" name="Seg. Social" />
+                          <Bar dataKey={t.net} stackId="a" fill="#0FA958" />
+                          <Bar dataKey={t.taxes} stackId="a" fill="#ef4444" />
+                          <Bar dataKey={t.socialSec} stackId="a" fill="#f59e0b" />
                         </BarChart>
                       ) : chartType === "tarta" ? (
                         <PieChart>
                           <Pie
                             data={[
-                              { name: "Neto", value: results.netoAnual },
-                              { name: "Impuestos", value: results.retencion },
-                              { name: "Seg. Social", value: results.bruto * 0.0635 },
+                              { name: t.net, value: results.netoAnual },
+                              { name: t.taxes, value: results.retencion },
+                              { name: t.socialSec, value: results.bruto * 0.0635 },
                             ]}
                             cx="50%"
                             cy="50%"
@@ -289,9 +355,9 @@ export default function IRPF() {
                           innerRadius={30}
                           outerRadius={120}
                           data={[
-                            { name: "Seg. Social", value: results.bruto * 0.0635, fill: "#f59e0b" },
-                            { name: "Impuestos", value: results.retencion, fill: "#ef4444" },
-                            { name: "Neto", value: results.netoAnual, fill: "#0FA958" },
+                            { name: t.socialSec, value: results.bruto * 0.0635, fill: "#f59e0b" },
+                            { name: t.taxes, value: results.retencion, fill: "#ef4444" },
+                            { name: t.net, value: results.netoAnual, fill: "#0FA958" },
                           ]}
                           startAngle={90}
                           endAngle={-270}
@@ -310,7 +376,7 @@ export default function IRPF() {
             <Card className="h-full flex items-center justify-center min-h-[400px] border-dashed">
               <CardContent className="text-center text-gray-500">
                 <Calculator className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                <p>Introduce tu salario bruto para calcular tu sueldo neto y retenciones.</p>
+                <p>{t.placeholder}</p>
               </CardContent>
             </Card>
           )}
@@ -320,19 +386,15 @@ export default function IRPF() {
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <div className="pt-12 mt-12 border-t">
-        <h2 className="text-2xl font-bold mb-6">Preguntas Frecuentes sobre el IRPF</h2>
+        <h2 className="text-2xl font-bold mb-6">{t.faqTitle}</h2>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>¿Qué es el IRPF?</AccordionTrigger>
-            <AccordionContent>
-              El IRPF (Impuesto sobre la Renta de las Personas Físicas) es un impuesto que pagan todos los residentes en España por los ingresos obtenidos durante un año (salarios, alquileres, inversiones, etc.).
-            </AccordionContent>
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>¿Qué diferencia hay entre salario bruto y neto?</AccordionTrigger>
-            <AccordionContent>
-              El salario bruto es el dinero total que la empresa te paga antes de descontar impuestos y cotizaciones. El salario neto es la cantidad final que recibes en tu cuenta bancaria tras aplicar las retenciones de IRPF y las cotizaciones a la Seguridad Social.
-            </AccordionContent>
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

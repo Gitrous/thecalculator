@@ -6,8 +6,65 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { ArrowLeft, Car } from "lucide-react";
+import { useLocale } from "@/lib/locale";
+
+const T = {
+  es: {
+    backHome: "Volver al inicio",
+    title: "Gasto Real del Coche",
+    subtitle: "Calcula el coste total de mantener tu vehículo, incluyendo gastos ocultos y coste por kilómetro.",
+    cardTitle: "Gastos del Vehículo",
+    kmLabel: "Km anuales",
+    financingLabel: "Letra/Financiación (€/mes)",
+    fuelLabel: "Combustible (€/mes)",
+    parkingLabel: "Aparcamiento/Garaje (€/mes)",
+    insuranceLabel: "Seguro (€/año)",
+    maintenanceLabel: "Mantenimiento (€/año)",
+    taxLabel: "Impuesto de circulación (€/año)",
+    MotLabel: "ITV (€/año)",
+    calculateBtn: "Calcular Gasto Total",
+    monthlyTotal: "Gasto Mensual Total",
+    perKm: "Coste por km",
+    breakdownTitle: "Desglose de Gastos Anuales",
+    financing: "Financiación",
+    fuel: "Combustible",
+    insurance: "Seguro",
+    maintenance: "Mantenimiento",
+    parking: "Aparcamiento",
+    other: "Otros (ITV, Impuestos)",
+    placeholder: "Introduce tus gastos para conocer el coste real de tu coche.",
+  },
+  en: {
+    backHome: "Back to home",
+    title: "Real Car Costs",
+    subtitle: "Calculate the total cost of owning your vehicle, including hidden costs and cost per kilometre.",
+    cardTitle: "Vehicle Expenses",
+    kmLabel: "Annual km",
+    financingLabel: "Finance/Loan payment (€/month)",
+    fuelLabel: "Fuel (€/month)",
+    parkingLabel: "Parking/Garage (€/month)",
+    insuranceLabel: "Insurance (€/year)",
+    maintenanceLabel: "Maintenance (€/year)",
+    taxLabel: "Vehicle tax (€/year)",
+    MotLabel: "MOT/Roadworthiness test (€/year)",
+    calculateBtn: "Calculate Total Cost",
+    monthlyTotal: "Total Monthly Cost",
+    perKm: "Cost per km",
+    breakdownTitle: "Annual Expense Breakdown",
+    financing: "Finance",
+    fuel: "Fuel",
+    insurance: "Insurance",
+    maintenance: "Maintenance",
+    parking: "Parking",
+    other: "Other (MOT, Taxes)",
+    placeholder: "Enter your expenses to find out the real cost of your car.",
+  },
+};
 
 export default function GastoCoche() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [km, setKm] = useState("15000");
   const [financiacion, setFinanciacion] = useState("200");
   const [seguro, setSeguro] = useState("600");
@@ -41,12 +98,12 @@ export default function GastoCoche() {
     const porKm = kmAno > 0 ? totalAnual / kmAno : 0;
 
     const breakdown = [
-      { name: "Financiación", value: costeFinanciacion, color: "#3b82f6" },
-      { name: "Combustible", value: costeCombustible, color: "#ef4444" },
-      { name: "Seguro", value: costeSeguro, color: "#f59e0b" },
-      { name: "Mantenimiento", value: costeMantenimiento, color: "#10b981" },
-      { name: "Aparcamiento", value: costeAparcamiento, color: "#8b5cf6" },
-      { name: "Otros (ITV, Impuestos)", value: costeImpuesto + costeItv, color: "#6b7280" }
+      { name: t.financing, value: costeFinanciacion, color: "#3b82f6" },
+      { name: t.fuel, value: costeCombustible, color: "#ef4444" },
+      { name: t.insurance, value: costeSeguro, color: "#f59e0b" },
+      { name: t.maintenance, value: costeMantenimiento, color: "#10b981" },
+      { name: t.parking, value: costeAparcamiento, color: "#8b5cf6" },
+      { name: t.other, value: costeImpuesto + costeItv, color: "#6b7280" }
     ].filter(item => item.value > 0);
 
     setResults({
@@ -59,62 +116,60 @@ export default function GastoCoche() {
 
   return (
     <div className="max-w-5xl mx-auto space-y-8">
-      <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
-        <ArrowLeft className="w-4 h-4 mr-1" /> Volver al inicio
+      <Link href={locale === "en" ? "/en" : "/"} className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary mb-4">
+        <ArrowLeft className="w-4 h-4 mr-1" /> {t.backHome}
       </Link>
 
       <div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50 flex items-center gap-3">
           <Car className="w-8 h-8 text-primary" />
-          Gasto Real del Coche
+          {t.title}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Calcula el coste total de mantener tu vehículo, incluyendo gastos ocultos y coste por kilómetro.
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         <Card>
           <CardHeader>
-            <CardTitle>Gastos del Vehículo</CardTitle>
+            <CardTitle>{t.cardTitle}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={calculate} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Km anuales</Label>
+                  <Label>{t.kmLabel}</Label>
                   <Input type="number" value={km} onChange={e => setKm(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>Letra/Financiación (€/mes)</Label>
+                  <Label>{t.financingLabel}</Label>
                   <Input type="number" value={financiacion} onChange={e => setFinanciacion(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Combustible (€/mes)</Label>
+                  <Label>{t.fuelLabel}</Label>
                   <Input type="number" value={combustible} onChange={e => setCombustible(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Aparcamiento/Garaje (€/mes)</Label>
+                  <Label>{t.parkingLabel}</Label>
                   <Input type="number" value={aparcamiento} onChange={e => setAparcamiento(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Seguro (€/año)</Label>
+                  <Label>{t.insuranceLabel}</Label>
                   <Input type="number" value={seguro} onChange={e => setSeguro(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Mantenimiento (€/año)</Label>
+                  <Label>{t.maintenanceLabel}</Label>
                   <Input type="number" value={mantenimiento} onChange={e => setMantenimiento(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>Impuesto de circulación (€/año)</Label>
+                  <Label>{t.taxLabel}</Label>
                   <Input type="number" value={impuesto} onChange={e => setImpuesto(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>ITV (€/año)</Label>
+                  <Label>{t.MotLabel}</Label>
                   <Input type="number" value={itv} onChange={e => setItv(e.target.value)} />
                 </div>
               </div>
-              <Button type="submit" className="w-full">Calcular Gasto Total</Button>
+              <Button type="submit" className="w-full">{t.calculateBtn}</Button>
             </form>
           </CardContent>
         </Card>
@@ -125,7 +180,7 @@ export default function GastoCoche() {
               <div className="grid grid-cols-2 gap-4">
                 <Card className="bg-red-50 border-red-100 dark:bg-red-950/30 dark:border-red-900/50">
                   <CardContent className="p-6">
-                    <p className="text-sm font-medium text-red-600 dark:text-red-400 mb-1">Gasto Mensual Total</p>
+                    <p className="text-sm font-medium text-red-600 dark:text-red-400 mb-1">{t.monthlyTotal}</p>
                     <p className="text-3xl font-bold text-red-700 dark:text-red-300">
                       {results.mensual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
                     </p>
@@ -133,7 +188,7 @@ export default function GastoCoche() {
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <p className="text-sm font-medium text-gray-500 mb-1">Coste por km</p>
+                    <p className="text-sm font-medium text-gray-500 mb-1">{t.perKm}</p>
                     <p className="text-3xl font-bold text-gray-900">
                       {results.porKm.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 3 })}
                     </p>
@@ -143,7 +198,7 @@ export default function GastoCoche() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Desglose de Gastos Anuales: {results.anual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}</CardTitle>
+                  <CardTitle className="text-lg">{t.breakdownTitle}: {results.anual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center">
                   <div className="h-[250px] w-full">
@@ -184,7 +239,7 @@ export default function GastoCoche() {
             <Card className="h-full flex items-center justify-center min-h-[300px] border-dashed">
               <CardContent className="text-center text-gray-500">
                 <Car className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                <p>Introduce tus gastos para conocer el coste real de tu coche.</p>
+                <p>{t.placeholder}</p>
               </CardContent>
             </Card>
           )}

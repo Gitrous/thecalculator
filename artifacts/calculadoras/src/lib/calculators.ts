@@ -29,6 +29,8 @@ export interface Category {
   id: CategoryId;
   name: string;
   description: string;
+  enName: string;
+  enDescription: string;
   icon: LucideIcon;
   /** Tailwind classes for the coloured badge/icon chip. */
   color: string;
@@ -52,6 +54,12 @@ export interface CalculatorMeta {
   seoTitle: string;
   /** SEO meta description. */
   seoDescription: string;
+  /** English metadata */
+  enTitle: string;
+  enDescription: string;
+  enShortLabel: string;
+  enSeoTitle: string;
+  enSeoDescription: string;
 }
 
 export const CATEGORIES: Category[] = [
@@ -59,6 +67,8 @@ export const CATEGORIES: Category[] = [
     id: "finanzas",
     name: "Finanzas",
     description: "Hipoteca, IRPF, inversiones, salario y presupuesto personal.",
+    enName: "Finance",
+    enDescription: "Mortgage, income tax, investments, salary and personal budget.",
     icon: Coins,
     color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
     featuredOnHome: true,
@@ -67,6 +77,8 @@ export const CATEGORIES: Category[] = [
     id: "hogar",
     name: "Hogar",
     description: "Coste del coche, consumo eléctrico y gastos del hogar.",
+    enName: "Home",
+    enDescription: "Car costs, electricity consumption and household expenses.",
     icon: House,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     featuredOnHome: true,
@@ -75,6 +87,8 @@ export const CATEGORIES: Category[] = [
     id: "trabajo",
     name: "Trabajo",
     description: "Control de jornada, horas extra y registro laboral.",
+    enName: "Work",
+    enDescription: "Time tracking, overtime and work records.",
     icon: Briefcase,
     color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
     featuredOnHome: true,
@@ -83,6 +97,8 @@ export const CATEGORIES: Category[] = [
     id: "educacion",
     name: "Educación",
     description: "Física, cinemática y conversores de unidades.",
+    enName: "Education",
+    enDescription: "Physics, kinematics and unit converters.",
     icon: GraduationCap,
     color: "text-cyan-600 bg-cyan-100 dark:bg-cyan-900/30",
     featuredOnHome: true,
@@ -91,6 +107,8 @@ export const CATEGORIES: Category[] = [
     id: "salud",
     name: "Salud",
     description: "Salud y bienestar: índice de masa corporal y peso ideal.",
+    enName: "Health",
+    enDescription: "Health and wellness: body mass index and ideal weight.",
     icon: HeartPulse,
     color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
     featuredOnHome: false,
@@ -111,6 +129,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Hipoteca: cuota, amortización e intereses",
     seoDescription:
       "Calcula la cuota mensual de tu hipoteca, la tabla de amortización completa y los intereses totales. Compara tipo fijo y variable.",
+    enTitle: "Mortgage Calculator",
+    enShortLabel: "Mortgage",
+    enSeoTitle: "Mortgage Calculator - Monthly Payment & Amortisation",
+    enSeoDescription: "Calculate your monthly mortgage payment, total interest and amortisation schedule. Free online mortgage calculator.",
+    enDescription: "Calculate your mortgage payment and see a full amortisation schedule.",
   },
   {
     slug: "prestamo-personal",
@@ -124,6 +147,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Préstamo Personal: cuota e intereses",
     seoDescription:
       "Calcula la cuota mensual de tu préstamo personal, el total de intereses y el cuadro de amortización mes a mes.",
+    enTitle: "Personal Loan Calculator",
+    enShortLabel: "Personal Loan",
+    enSeoTitle: "Personal Loan Calculator",
+    enSeoDescription: "Calculate your monthly personal loan payment and total interest.",
+    enDescription: "Calculate monthly payments and total cost of your personal loan.",
   },
   {
     slug: "porcentajes",
@@ -137,6 +165,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Porcentajes online",
     seoDescription:
       "Calcula porcentajes al instante: qué porcentaje es X de Y, cuánto es el X% de Y, la variación entre dos valores y subir o bajar un % a un número.",
+    enTitle: "Percentage Calculator",
+    enShortLabel: "Percentages",
+    enSeoTitle: "Percentage Calculator Online",
+    enSeoDescription: "Calculate percentages, percentage increase/decrease and find what percentage one number is of another.",
+    enDescription: "Calculate any percentage: what % of a number, % increase/decrease and more.",
   },
   {
     slug: "iva",
@@ -150,6 +183,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de IVA: sumar o quitar el IVA",
     seoDescription:
       "Suma o resta el IVA a cualquier precio. Tipos 21%, 10%, 4% y 0%. Ideal para autónomos, empresas y particulares.",
+    enTitle: "VAT Calculator",
+    enShortLabel: "VAT",
+    enSeoTitle: "VAT Calculator - Add or Remove VAT",
+    enSeoDescription: "Add or remove VAT from any amount. Supports 21%, 10% and 4% VAT rates.",
+    enDescription: "Add or remove VAT from any amount instantly.",
   },
   {
     slug: "irpf",
@@ -163,6 +201,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora IRPF por Comunidad Autónoma",
     seoDescription:
       "Calcula tu retención de IRPF y tu sueldo neto según tu comunidad autónoma. Tramos actualizados.",
+    enTitle: "Spanish Income Tax Calculator (IRPF)",
+    enShortLabel: "Income Tax (IRPF)",
+    enSeoTitle: "Spanish Income Tax Calculator (IRPF) 2024",
+    enSeoDescription: "Calculate your Spanish income tax (IRPF) withholding and net salary from gross pay.",
+    enDescription: "Calculate Spanish income tax (IRPF) and your net take-home pay.",
   },
   {
     slug: "interes-compuesto",
@@ -176,6 +219,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Interés Compuesto",
     seoDescription:
       "Proyecta el crecimiento de tus inversiones a largo plazo con aportaciones periódicas opcionales.",
+    enTitle: "Compound Interest Calculator",
+    enShortLabel: "Compound Interest",
+    enSeoTitle: "Compound Interest Calculator",
+    enSeoDescription: "Calculate compound interest growth over time. See how your savings or investments grow.",
+    enDescription: "See how compound interest grows your savings over time.",
   },
   {
     slug: "salario-neto",
@@ -189,6 +237,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Salario Neto en España",
     seoDescription:
       "Convierte tu salario bruto anual en el sueldo neto mensual estimado en España.",
+    enTitle: "Net Salary Calculator (Spain)",
+    enShortLabel: "Net Salary",
+    enSeoTitle: "Net Salary Calculator Spain 2024",
+    enSeoDescription: "Calculate your net take-home salary in Spain after IRPF and Social Security deductions.",
+    enDescription: "Calculate your net take-home pay after taxes and Social Security in Spain.",
   },
   {
     slug: "alquiler-vs-compra",
@@ -202,6 +255,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora Alquiler vs Compra de vivienda",
     seoDescription:
       "Compara si te sale más rentable alquilar o comprar vivienda según tu situación concreta.",
+    enTitle: "Rent vs Buy Calculator",
+    enShortLabel: "Rent vs Buy",
+    enSeoTitle: "Rent vs Buy Calculator - Is It Better to Rent or Buy?",
+    enSeoDescription: "Compare the long-term cost of renting vs buying a home. Find out which is better for your situation.",
+    enDescription: "Compare renting vs buying a home over the long term.",
   },
 
   // ── Hogar ─────────────────────────────────────────────────────────────────
@@ -217,6 +275,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Gasto de Coche anual",
     seoDescription:
       "Descubre el coste real anual de tu vehículo: combustible, seguro, mantenimiento, impuestos y más.",
+    enTitle: "Annual Car Cost Calculator",
+    enShortLabel: "Car Costs",
+    enSeoTitle: "Annual Car Cost Calculator",
+    enSeoDescription: "Calculate the true annual cost of your car: fuel, insurance, maintenance and taxes.",
+    enDescription: "Calculate the real annual cost of owning your car.",
   },
   {
     slug: "consumo-electrico",
@@ -230,6 +293,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Consumo Eléctrico y factura de la luz",
     seoDescription:
       "Estima tu factura de la luz por electrodoméstico y descubre qué aparatos consumen más en tu hogar.",
+    enTitle: "Electricity Consumption Calculator",
+    enShortLabel: "Electricity Usage",
+    enSeoTitle: "Electricity Consumption Calculator - Estimate Your Bill",
+    enSeoDescription: "Estimate your electricity bill by appliance and find out what uses the most energy.",
+    enDescription: "Estimate your electricity bill and find out what consumes most.",
   },
 
   // ── Trabajo ───────────────────────────────────────────────────────────────
@@ -245,6 +313,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Finiquito",
     seoDescription:
       "Calcula tu finiquito: vacaciones no disfrutadas, parte proporcional de pagas extra y días trabajados no cobrados.",
+    enTitle: "Severance Pay Calculator (Spain)",
+    enShortLabel: "Severance Pay",
+    enSeoTitle: "Spanish Severance Pay Calculator (Finiquito) 2024",
+    enSeoDescription: "Calculate your severance pay in Spain including pending holidays, pro-rata bonuses and unpaid days.",
+    enDescription: "Calculate your Spanish severance pay (finiquito).",
   },
   {
     slug: "letra-dni",
@@ -258,6 +331,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de la Letra del DNI y NIE",
     seoDescription:
       "Calcula la letra de tu DNI o NIE al instante. Introduce los dígitos y obtén la letra correcta del documento.",
+    enTitle: "Spanish DNI Letter Calculator",
+    enShortLabel: "DNI Letter",
+    enSeoTitle: "Spanish DNI / NIE Letter Calculator",
+    enSeoDescription: "Calculate the check letter of a Spanish DNI or NIE identification number instantly.",
+    enDescription: "Calculate the check letter for a Spanish DNI or NIE number.",
   },
   {
     slug: "autonomos",
@@ -271,6 +349,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Cuota de Autónomos 2025 (RETA)",
     seoDescription:
       "Calcula tu cuota mensual de autónomos según el sistema de tramos por ingresos reales 2025. Incluye la tarifa plana.",
+    enTitle: "Spanish Freelancer Tax Calculator",
+    enShortLabel: "Freelancer Tax",
+    enSeoTitle: "Spanish Freelancer (Autónomo) Social Security Calculator 2025",
+    enSeoDescription: "Calculate your monthly Spanish freelancer Social Security contribution (RETA) based on real income.",
+    enDescription: "Calculate your Spanish freelancer Social Security contribution (RETA) 2025.",
   },
   {
     slug: "dias-entre-fechas",
@@ -284,6 +367,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Días entre Fechas",
     seoDescription:
       "Calcula cuántos días, semanas, meses y días laborables hay entre dos fechas cualesquiera.",
+    enTitle: "Days Between Dates Calculator",
+    enShortLabel: "Days Between Dates",
+    enSeoTitle: "Days Between Dates Calculator",
+    enSeoDescription: "Calculate the number of days, weeks, months and working days between two dates.",
+    enDescription: "Calculate days, weeks, months and working days between two dates.",
   },
   {
     slug: "horas-trabajadas",
@@ -297,6 +385,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Horas Trabajadas y horas extra",
     seoDescription:
       "Registra entradas y salidas, calcula horas extra y controla tu jornada laboral.",
+    enTitle: "Work Hours Calculator",
+    enShortLabel: "Work Hours",
+    enSeoTitle: "Work Hours Calculator - Track Overtime",
+    enSeoDescription: "Track your work hours, calculate overtime and monitor your working day.",
+    enDescription: "Track work hours, calculate overtime and monitor your schedule.",
   },
 
   // ── Educación ─────────────────────────────────────────────────────────────
@@ -312,6 +405,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora del Teorema de Pitágoras",
     seoDescription:
       "Calcula la hipotenusa o un cateto de un triángulo rectángulo con el teorema de Pitágoras: a² + b² = c².",
+    enTitle: "Pythagorean Theorem Calculator",
+    enShortLabel: "Pythagorean Theorem",
+    enSeoTitle: "Pythagorean Theorem Calculator - Find Hypotenuse",
+    enSeoDescription: "Calculate the hypotenuse or any side of a right triangle using the Pythagorean theorem: a² + b² = c².",
+    enDescription: "Calculate the hypotenuse or any side of a right triangle.",
   },
   {
     slug: "regla-de-tres",
@@ -325,6 +423,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Regla de Tres directa e inversa",
     seoDescription:
       "Resuelve la regla de tres directa e inversa. Introduce tres valores y obtén el cuarto al instante.",
+    enTitle: "Rule of Three Calculator",
+    enShortLabel: "Rule of Three",
+    enSeoTitle: "Rule of Three Calculator - Direct and Inverse",
+    enSeoDescription: "Solve direct and inverse rule of three problems. Enter three values and find the fourth instantly.",
+    enDescription: "Solve direct and inverse rule of three problems instantly.",
   },
   {
     slug: "nota-media",
@@ -338,6 +441,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Nota Media (simple y ponderada)",
     seoDescription:
       "Calcula tu nota media simple o ponderada por créditos ECTS añadiendo todas tus asignaturas.",
+    enTitle: "Grade Average Calculator",
+    enShortLabel: "Grade Average",
+    enSeoTitle: "Grade Average Calculator - Simple and Weighted",
+    enSeoDescription: "Calculate your simple or credit-weighted grade average. Add all your subjects and get your GPA.",
+    enDescription: "Calculate your simple or weighted grade average.",
   },
   {
     slug: "mru",
@@ -351,6 +459,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora MRU (Movimiento Rectilíneo Uniforme)",
     seoDescription:
       "Resuelve problemas de Movimiento Rectilíneo Uniforme: distancia, velocidad y tiempo.",
+    enTitle: "Uniform Motion Calculator (ULM)",
+    enShortLabel: "Uniform Motion",
+    enSeoTitle: "Uniform Linear Motion Calculator (ULM / MRU)",
+    enSeoDescription: "Solve uniform linear motion problems: distance, velocity and time.",
+    enDescription: "Solve distance, velocity and time problems for uniform motion.",
   },
   {
     slug: "mrua",
@@ -364,6 +477,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora MRUA (Movimiento Rectilíneo Uniformemente Acelerado)",
     seoDescription:
       "Calcula posición, velocidad y aceleración en el movimiento rectilíneo uniformemente acelerado.",
+    enTitle: "Uniformly Accelerated Motion Calculator",
+    enShortLabel: "Accelerated Motion",
+    enSeoTitle: "Uniformly Accelerated Motion Calculator (UAM)",
+    enSeoDescription: "Calculate position, velocity and acceleration in uniformly accelerated linear motion.",
+    enDescription: "Calculate position, velocity and acceleration in accelerated motion.",
   },
   {
     slug: "conversor-unidades",
@@ -377,6 +495,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Conversor de Unidades online",
     seoDescription:
       "Convierte entre los sistemas métrico e imperial: longitud, masa, temperatura y volumen.",
+    enTitle: "Unit Converter",
+    enShortLabel: "Unit Converter",
+    enSeoTitle: "Unit Converter Online - Length, Mass, Temperature, Volume",
+    enSeoDescription: "Convert between metric and imperial units: length, mass, temperature and volume.",
+    enDescription: "Convert between metric and imperial: length, mass, temperature, volume.",
   },
 
   // ── Salud ─────────────────────────────────────────────────────────────────
@@ -392,6 +515,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de IMC (Índice de Masa Corporal)",
     seoDescription:
       "Calcula tu Índice de Masa Corporal (IMC) y descubre en qué rango de peso te encuentras según tu altura.",
+    enTitle: "BMI Calculator",
+    enShortLabel: "BMI",
+    enSeoTitle: "BMI Calculator - Body Mass Index",
+    enSeoDescription: "Calculate your Body Mass Index (BMI) and find out your weight category according to WHO standards.",
+    enDescription: "Calculate your Body Mass Index and find your weight category.",
   },
   {
     slug: "calorias",
@@ -405,6 +533,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Calorías Diarias y TMB (Tasa Metabólica Basal)",
     seoDescription:
       "Calcula cuántas calorías necesitas al día según tu peso, altura, edad, actividad y objetivo (perder peso, mantener o ganar músculo).",
+    enTitle: "Calorie & BMR Calculator",
+    enShortLabel: "Calories & BMR",
+    enSeoTitle: "Calorie Calculator - Daily Calorie Needs & BMR",
+    enSeoDescription: "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on activity level and goal.",
+    enDescription: "Calculate your BMR and daily calorie needs by activity and goal.",
   },
 
   // ── Finanzas (nuevas) ─────────────────────────────────────────────────────
@@ -420,6 +553,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Amortización Anticipada de Hipoteca",
     seoDescription:
       "Calcula el ahorro en intereses al amortizar tu hipoteca anticipadamente. Elige entre reducir la cuota mensual o acortar el plazo.",
+    enTitle: "Early Mortgage Repayment Calculator",
+    enShortLabel: "Early Repayment",
+    enSeoTitle: "Early Mortgage Repayment Calculator - Interest Saved",
+    enSeoDescription: "Calculate how much interest you save by making an early mortgage repayment. Choose between reducing payment or term.",
+    enDescription: "Calculate interest saved by repaying your mortgage early.",
   },
   {
     slug: "tae",
@@ -433,6 +571,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora TAE y TIN online",
     seoDescription:
       "Convierte entre TIN y TAE según la frecuencia de capitalización. Herramienta para comparar hipotecas, préstamos y depósitos bancarios.",
+    enTitle: "APR / Nominal Rate Converter",
+    enShortLabel: "APR / TIN",
+    enSeoTitle: "APR Calculator - Convert Between APR and Nominal Rate",
+    enSeoDescription: "Convert between APR (Annual Percentage Rate) and nominal interest rate for any compounding frequency.",
+    enDescription: "Convert between APR and nominal rate for any compounding frequency.",
   },
 
   // ── Trabajo (nuevas) ──────────────────────────────────────────────────────
@@ -448,6 +591,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Paro y Prestación por Desempleo 2025",
     seoDescription:
       "Calcula cuánto cobrarás de paro según tu salario y los meses cotizados. Incluye duración, cuantía y total de la prestación.",
+    enTitle: "Spanish Unemployment Benefit Calculator",
+    enShortLabel: "Unemployment Benefit",
+    enSeoTitle: "Spanish Unemployment Benefit Calculator 2025",
+    enSeoDescription: "Calculate your Spanish unemployment benefit (paro) amount and duration based on your salary and contributions.",
+    enDescription: "Calculate your Spanish unemployment benefit amount and duration.",
   },
   {
     slug: "pension",
@@ -461,6 +609,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Pensión de Jubilación 2024",
     seoDescription:
       "Estima tu pensión de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa del sistema de pensiones español.",
+    enTitle: "Spanish Retirement Pension Calculator",
+    enShortLabel: "Retirement Pension",
+    enSeoTitle: "Spanish Retirement Pension Calculator 2024",
+    enSeoDescription: "Estimate your Spanish state retirement pension based on years contributed and regulatory base.",
+    enDescription: "Estimate your Spanish state retirement pension.",
   },
 ];
 
@@ -482,4 +635,24 @@ export function getCalculator(
 /** Canonical site path for a calculator, e.g. "/calculadoras/finanzas/hipoteca". */
 export function calcPath(c: CalculatorMeta): string {
   return `/calculadoras/${c.category}/${c.slug}`;
+}
+
+export const EN_CATEGORY_SLUGS: Record<CategoryId, string> = {
+  finanzas: "finance",
+  hogar: "home",
+  trabajo: "work",
+  educacion: "education",
+  salud: "health",
+};
+
+export const EN_TO_ES_CATEGORY: Record<string, CategoryId> = {
+  finance: "finanzas",
+  home: "hogar",
+  work: "trabajo",
+  education: "educacion",
+  health: "salud",
+};
+
+export function enCalcPath(c: CalculatorMeta): string {
+  return `/en/calculators/${EN_CATEGORY_SLUGS[c.category]}/${c.slug}`;
 }

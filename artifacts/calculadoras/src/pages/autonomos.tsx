@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLocale } from "@/lib/locale";
 
 function eur(n: number): string {
   return n.toLocaleString("es-ES", {
@@ -19,15 +20,12 @@ function eur(n: number): string {
   });
 }
 
-// RETA 2025 – tramos por rendimientos netos mensuales (base mínima de cotización).
-// La cuota se estima aplicando el tipo de cotización general (~31,4%) a la base
-// mínima de cada tramo.
 const RATE = 0.314;
-const FLAT_RATE = 87.61; // Tarifa plana 2025 (primeros 12 meses).
+const FLAT_RATE = 87.61;
 
 interface Tramo {
-  max: number; // rendimiento neto mensual máximo del tramo (€)
-  base: number; // base mínima de cotización (€)
+  max: number;
+  base: number;
   label: string;
 }
 
@@ -53,7 +51,45 @@ function findTramo(net: number): Tramo {
   return TRAMOS.find((t) => net <= t.max) ?? TRAMOS[TRAMOS.length - 1];
 }
 
+const T = {
+  es: {
+    title: "Calculadora Cuota Autónomos 2025",
+    subtitle: "Estima tu cuota mensual al RETA según el sistema de tramos por rendimientos netos reales de 2025. Incluye la tarifa plana.",
+    cardTitle: "Datos",
+    netLabel: "Rendimiento neto mensual (€)",
+    flatLabel: "Aplicar tarifa plana (primeros 12 meses)",
+    feeLabel: "Cuota mensual estimada",
+    tramoLabel: "Tramo",
+    baseLabel: "Base mínima",
+    note: "Estimación sobre la base mínima de cada tramo aplicando el tipo general (~31,4%). Puedes cotizar por una base superior y la cuota real puede variar. Verifica los importes vigentes en la Seguridad Social.",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Qué son los rendimientos netos?",
+    a1: "Son los ingresos menos los gastos deducibles de la actividad, menos una deducción adicional del 7% (3% para autónomos societarios). El tramo se determina según ese rendimiento neto mensual.",
+    q2: "¿Cuánto dura la tarifa plana?",
+    a2: "En 2025 la tarifa plana es de 87,61 €/mes durante los primeros 12 meses, prorrogable otros 12 si los rendimientos netos quedan por debajo del SMI.",
+  },
+  en: {
+    title: "Spanish Freelancer Social Security Calculator 2025",
+    subtitle: "Estimate your monthly RETA contribution based on the 2025 income bracket system. Includes the flat rate.",
+    cardTitle: "Data",
+    netLabel: "Monthly net income (€)",
+    flatLabel: "Apply flat rate (first 12 months)",
+    feeLabel: "Estimated monthly contribution",
+    tramoLabel: "Income bracket",
+    baseLabel: "Minimum base",
+    note: "Estimate based on the minimum base for each bracket applying the general rate (~31.4%). You can contribute on a higher base and the actual fee may vary. Check the current amounts at the Social Security.",
+    faqTitle: "Frequently asked questions",
+    q1: "What is net income?",
+    a1: "It is income minus deductible business expenses, minus an additional 7% deduction (3% for company-based self-employed). The bracket is determined based on this monthly net income.",
+    q2: "How long does the flat rate last?",
+    a2: "In 2025 the flat rate is €87.61/month for the first 12 months, extendable for another 12 months if net income remains below the minimum wage.",
+  },
+};
+
 export default function Autonomos() {
+  const locale = useLocale();
+  const t = T[locale];
+
   const [net, setNet] = useState("1500");
   const [flat, setFlat] = useState(false);
 
@@ -67,22 +103,17 @@ export default function Autonomos() {
         <div className="bg-primary/10 p-2 rounded-lg">
           <UserCheck className="h-6 w-6 text-primary" />
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          Calculadora Cuota Autónomos 2025
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">
-        Estima tu cuota mensual al RETA según el sistema de tramos por
-        rendimientos netos reales de 2025. Incluye la tarifa plana.
-      </p>
+      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Datos</CardTitle>
+          <CardTitle>{t.cardTitle}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <Label htmlFor="net">Rendimiento neto mensual (€)</Label>
+            <Label htmlFor="net">{t.netLabel}</Label>
             <Input
               id="net"
               type="number"
@@ -93,7 +124,7 @@ export default function Autonomos() {
           </div>
           <div className="flex items-center gap-3">
             <Switch id="flat" checked={flat} onCheckedChange={setFlat} />
-            <Label htmlFor="flat">Aplicar tarifa plana (primeros 12 meses)</Label>
+            <Label htmlFor="flat">{t.flatLabel}</Label>
           </div>
         </CardContent>
       </Card>
@@ -101,16 +132,16 @@ export default function Autonomos() {
       <Card className="border-primary/30 bg-primary/5 mb-6">
         <CardContent className="pt-6">
           <div className="text-center mb-6">
-            <p className="text-sm text-muted-foreground mb-1">Cuota mensual estimada</p>
+            <p className="text-sm text-muted-foreground mb-1">{t.feeLabel}</p>
             <p className="text-4xl font-bold text-primary">{eur(fee)}</p>
           </div>
           <div className="grid grid-cols-2 gap-4 text-center">
             <div>
-              <p className="text-sm text-muted-foreground">Tramo</p>
+              <p className="text-sm text-muted-foreground">{t.tramoLabel}</p>
               <p className="text-lg font-semibold">{tramo.label}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Base mínima</p>
+              <p className="text-sm text-muted-foreground">{t.baseLabel}</p>
               <p className="text-lg font-semibold">{eur(tramo.base)}</p>
             </div>
           </div>
@@ -118,29 +149,19 @@ export default function Autonomos() {
       </Card>
 
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
-        Estimación sobre la base mínima de cada tramo aplicando el tipo general
-        (~31,4%). Puedes cotizar por una base superior y la cuota real puede
-        variar. Verifica los importes vigentes en la Seguridad Social.
+        {t.note}
       </div>
 
       <section className="mt-4">
-        <h2 className="text-xl font-semibold mb-4">Preguntas frecuentes</h2>
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible>
           <AccordionItem value="q1">
-            <AccordionTrigger>¿Qué son los rendimientos netos?</AccordionTrigger>
-            <AccordionContent>
-              Son los ingresos menos los gastos deducibles de la actividad, menos
-              una deducción adicional del 7% (3% para autónomos societarios). El
-              tramo se determina según ese rendimiento neto mensual.
-            </AccordionContent>
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
-            <AccordionTrigger>¿Cuánto dura la tarifa plana?</AccordionTrigger>
-            <AccordionContent>
-              En 2025 la tarifa plana es de 87,61 €/mes durante los primeros 12
-              meses, prorrogable otros 12 si los rendimientos netos quedan por
-              debajo del SMI.
-            </AccordionContent>
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

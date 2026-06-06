@@ -16,6 +16,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import { useLocale } from "@/lib/locale";
 
 interface Appliance {
   id: number;
@@ -33,7 +34,94 @@ interface Result {
 
 const COLORS = ["#0FA958", "#0C7A42", "#34d399", "#6ee7b7", "#a7f3d0", "#d1fae5"];
 
+const T = {
+  es: {
+    backHome: "Volver al inicio",
+    title: "Calculadora de Consumo Eléctrico",
+    subtitle: "Calcula el gasto eléctrico de tus electrodomésticos y encuentra oportunidades de ahorro.",
+    priceCardTitle: "Precio de la energía",
+    priceLabel: "Precio por kWh (€)",
+    priceHint: "Precio medio en España ~0.18 €/kWh",
+    appliancesCardTitle: "Electrodomésticos",
+    addBtn: "Añadir",
+    colAppliance: "Electrodoméstico",
+    colWatts: "Vatios (W)",
+    colHours: "Horas/día",
+    appliancePlaceholder: "Nombre",
+    dailyLabelDefault: "Lunes",
+    errPrice: "El precio del kWh debe ser un número positivo.",
+    errNoAppliances: "Añade al menos un electrodoméstico.",
+    errInvalidAppliance: "Al menos un electrodoméstico debe tener nombre, vatios y horas válidos.",
+    calculateBtn: "Calcular consumo",
+    dailyConsumption: "Consumo diario",
+    monthlyCost: "Coste mensual",
+    annualCost: "Coste anual",
+    chartTitle: "Consumo por electrodoméstico (kWh/día)",
+    tableTitle: "Desglose por electrodoméstico",
+    colKwh: "kWh/día",
+    colMonthCost: "€/mes",
+    colYearCost: "€/año",
+    dailyChartLabel: "Consumo diario",
+    howTitle: "Cómo funciona",
+    howText: "Esta calculadora estima el consumo eléctrico sumando el gasto de cada electrodoméstico según su potencia en vatios (W) y las horas de uso diarias. La fórmula es:",
+    formula: "kWh/día = (Vatios × Horas) / 1000",
+    howText2: "Multiplica por el precio del kWh para obtener el coste. El precio medio en España en 2024 ronda los 0,18 €/kWh, aunque varía según la tarifa contratada.",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Dónde encuentro la potencia de mis electrodomésticos?",
+    a1: "En la etiqueta energética del aparato, en el manual o buscando el modelo en internet. También puede aparecer en la placa que suele estar en la parte trasera o inferior del electrodoméstico.",
+    q2: "¿Qué electrodomésticos consumen más?",
+    a2: "Los más consumidores suelen ser: calefactores eléctricos (1000-3000 W), secadoras (2000-3000 W), lavavajillas (1200-2400 W), hornos eléctricos (2000-3000 W) y aires acondicionados (800-3000 W).",
+    q3: "¿Cómo puedo reducir mi factura eléctrica?",
+    a3: "Algunas formas de ahorrar: usar electrodomésticos en horas valle (normalmente de 10pm a 8am), aprovechar la luz natural, usar bombillas LED, desenchufar aparatos en standby y ajustar el termostato al mínimo necesario.",
+    q4: "¿El precio del kWh es siempre 0,18 €?",
+    a4: "No, el precio varía según la tarifa, el comercializador y la franja horaria. Con tarifa PVPC (mercado regulado) el precio fluctúa cada hora. Con tarifa fija, el precio es constante. Consulta tu factura para saber tu precio exacto.",
+  },
+  en: {
+    backHome: "Back to home",
+    title: "Electricity Consumption Calculator",
+    subtitle: "Calculate the electricity cost of your appliances and find savings opportunities.",
+    priceCardTitle: "Energy price",
+    priceLabel: "Price per kWh (€)",
+    priceHint: "Average price in Spain ~0.18 €/kWh",
+    appliancesCardTitle: "Appliances",
+    addBtn: "Add",
+    colAppliance: "Appliance",
+    colWatts: "Watts (W)",
+    colHours: "Hours/day",
+    appliancePlaceholder: "Name",
+    dailyLabelDefault: "Monday",
+    errPrice: "The kWh price must be a positive number.",
+    errNoAppliances: "Add at least one appliance.",
+    errInvalidAppliance: "At least one appliance must have a valid name, watts and hours.",
+    calculateBtn: "Calculate consumption",
+    dailyConsumption: "Daily consumption",
+    monthlyCost: "Monthly cost",
+    annualCost: "Annual cost",
+    chartTitle: "Consumption per appliance (kWh/day)",
+    tableTitle: "Breakdown by appliance",
+    colKwh: "kWh/day",
+    colMonthCost: "€/month",
+    colYearCost: "€/year",
+    dailyChartLabel: "Daily consumption",
+    howTitle: "How it works",
+    howText: "This calculator estimates electricity consumption by adding up the usage of each appliance based on its power in watts (W) and daily hours of use. The formula is:",
+    formula: "kWh/day = (Watts × Hours) / 1000",
+    howText2: "Multiply by the kWh price to get the cost. The average price in Spain in 2024 is around €0.18/kWh, although it varies depending on the contracted tariff.",
+    faqTitle: "Frequently asked questions",
+    q1: "Where can I find the power of my appliances?",
+    a1: "On the appliance's energy label, in the manual, or by searching for the model online. It may also appear on the plate usually located on the back or bottom of the appliance.",
+    q2: "Which appliances use the most electricity?",
+    a2: "The biggest consumers are usually: electric heaters (1000-3000 W), tumble dryers (2000-3000 W), dishwashers (1200-2400 W), electric ovens (2000-3000 W) and air conditioners (800-3000 W).",
+    q3: "How can I reduce my electricity bill?",
+    a3: "Some ways to save: use appliances during off-peak hours (usually 10pm to 8am), make the most of natural light, use LED bulbs, unplug devices on standby and set the thermostat to the minimum necessary.",
+    q4: "Is the kWh price always €0.18?",
+    a4: "No, the price varies depending on the tariff, the supplier and the time of day. With a PVPC tariff (regulated market) the price fluctuates every hour. With a fixed tariff, the price is constant. Check your bill for your exact price.",
+  },
+};
+
 export default function ConsumoElectrico() {
+  const locale = useLocale();
+  const t = T[locale];
   const [appliances, setAppliances] = useState<Appliance[]>([
     { id: 1, name: "Nevera", watts: "150", hoursPerDay: "24" },
     { id: 2, name: "Lavadora", watts: "2000", hoursPerDay: "1" },
@@ -63,8 +151,8 @@ export default function ConsumoElectrico() {
   const calculate = () => {
     const errs: string[] = [];
     const price = parseFloat(priceKwh);
-    if (isNaN(price) || price <= 0) errs.push("El precio del kWh debe ser un número positivo.");
-    if (appliances.length === 0) errs.push("Añade al menos un electrodoméstico.");
+    if (isNaN(price) || price <= 0) errs.push(t.errPrice);
+    if (appliances.length === 0) errs.push(t.errNoAppliances);
 
     const validAppliances = appliances.filter((a) => {
       const w = parseFloat(a.watts);
@@ -72,7 +160,7 @@ export default function ConsumoElectrico() {
       return a.name && !isNaN(w) && w > 0 && !isNaN(h) && h > 0 && h <= 24;
     });
     if (validAppliances.length === 0)
-      errs.push("Al menos un electrodoméstico debe tener nombre, vatios y horas válidos.");
+      errs.push(t.errInvalidAppliance);
 
     setErrors(errs);
     if (errs.length > 0) return;
@@ -94,9 +182,9 @@ export default function ConsumoElectrico() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-6">
-        <Link href="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
+        <Link href={locale === "en" ? "/en" : "/"} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
           <ArrowLeft className="h-4 w-4" />
-          Volver al inicio
+          {t.backHome}
         </Link>
       </div>
 
@@ -104,20 +192,18 @@ export default function ConsumoElectrico() {
         <div className="bg-primary/10 p-2 rounded-lg">
           <Zap className="h-6 w-6 text-primary" />
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Calculadora de Consumo Eléctrico</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">
-        Calcula el gasto eléctrico de tus electrodomésticos y encuentra oportunidades de ahorro.
-      </p>
+      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Precio de la energía</CardTitle>
+          <CardTitle>{t.priceCardTitle}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-end gap-4">
             <div className="flex-1">
-              <Label htmlFor="price-kwh">Precio por kWh (€)</Label>
+              <Label htmlFor="price-kwh">{t.priceLabel}</Label>
               <Input
                 id="price-kwh"
                 data-testid="input-price-kwh"
@@ -129,24 +215,24 @@ export default function ConsumoElectrico() {
                 className="mt-1"
               />
             </div>
-            <p className="text-xs text-muted-foreground pb-2">Precio medio en España ~0.18 €/kWh</p>
+            <p className="text-xs text-muted-foreground pb-2">{t.priceHint}</p>
           </div>
         </CardContent>
       </Card>
 
       <Card className="mb-6">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Electrodomésticos</CardTitle>
+          <CardTitle>{t.appliancesCardTitle}</CardTitle>
           <Button data-testid="button-add-appliance" variant="outline" size="sm" onClick={addAppliance}>
             <Plus className="h-4 w-4 mr-1" />
-            Añadir
+            {t.addBtn}
           </Button>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="grid grid-cols-12 gap-2 text-xs font-medium text-muted-foreground px-1 mb-1">
-            <span className="col-span-5">Electrodoméstico</span>
-            <span className="col-span-3">Vatios (W)</span>
-            <span className="col-span-3">Horas/día</span>
+            <span className="col-span-5">{t.colAppliance}</span>
+            <span className="col-span-3">{t.colWatts}</span>
+            <span className="col-span-3">{t.colHours}</span>
             <span className="col-span-1"></span>
           </div>
           {appliances.map((a) => (
@@ -154,7 +240,7 @@ export default function ConsumoElectrico() {
               <Input
                 data-testid={`input-appliance-name-${a.id}`}
                 className="col-span-5"
-                placeholder="Nombre"
+                placeholder={t.appliancePlaceholder}
                 value={a.name}
                 onChange={(e) => updateAppliance(a.id, "name", e.target.value)}
               />
@@ -199,7 +285,7 @@ export default function ConsumoElectrico() {
       )}
 
       <Button data-testid="button-calculate" onClick={calculate} className="w-full mb-8" size="lg">
-        Calcular consumo
+        {t.calculateBtn}
       </Button>
 
       {result && (
@@ -207,21 +293,21 @@ export default function ConsumoElectrico() {
           <div className="grid grid-cols-3 gap-4">
             <Card>
               <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">Consumo diario</p>
+                <p className="text-sm text-muted-foreground mb-1">{t.dailyConsumption}</p>
                 <p className="text-2xl font-bold text-primary">{fmt(result.daily)} kWh</p>
                 <p className="text-sm text-muted-foreground">{fmt(result.daily * parseFloat(priceKwh))} €/día</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">Coste mensual</p>
+                <p className="text-sm text-muted-foreground mb-1">{t.monthlyCost}</p>
                 <p className="text-2xl font-bold text-primary">{fmt(result.monthly * parseFloat(priceKwh))} €</p>
                 <p className="text-sm text-muted-foreground">{fmt(result.monthly)} kWh/mes</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">Coste anual</p>
+                <p className="text-sm text-muted-foreground mb-1">{t.annualCost}</p>
                 <p className="text-2xl font-bold text-primary">{fmt(result.annual * parseFloat(priceKwh))} €</p>
                 <p className="text-sm text-muted-foreground">{fmt(result.annual)} kWh/año</p>
               </CardContent>
@@ -230,7 +316,7 @@ export default function ConsumoElectrico() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Consumo por electrodoméstico (kWh/día)</CardTitle>
+              <CardTitle>{t.chartTitle}</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={280}>
@@ -239,7 +325,7 @@ export default function ConsumoElectrico() {
                   <XAxis dataKey="name" tick={{ fontSize: 12 }} angle={-30} textAnchor="end" />
                   <YAxis tick={{ fontSize: 12 }} unit=" kWh" />
                   <Tooltip
-                    formatter={(v: number) => [`${fmt(v)} kWh`, "Consumo diario"]}
+                    formatter={(v: number) => [`${fmt(v)} kWh`, t.dailyChartLabel]}
                   />
                   <Bar dataKey="kwh" radius={[4, 4, 0, 0]}>
                     {result.breakdown.map((_, i) => (
@@ -252,16 +338,16 @@ export default function ConsumoElectrico() {
           </Card>
 
           <Card>
-            <CardHeader><CardTitle>Desglose por electrodoméstico</CardTitle></CardHeader>
+            <CardHeader><CardTitle>{t.tableTitle}</CardTitle></CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b">
-                      <th className="text-left py-2">Electrodoméstico</th>
-                      <th className="text-right py-2">kWh/día</th>
-                      <th className="text-right py-2">€/mes</th>
-                      <th className="text-right py-2">€/año</th>
+                      <th className="text-left py-2">{t.colAppliance}</th>
+                      <th className="text-right py-2">{t.colKwh}</th>
+                      <th className="text-right py-2">{t.colMonthCost}</th>
+                      <th className="text-right py-2">{t.colYearCost}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -282,52 +368,32 @@ export default function ConsumoElectrico() {
       )}
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold mb-4">Cómo funciona</h2>
-        <p className="text-muted-foreground mb-4">
-          Esta calculadora estima el consumo eléctrico sumando el gasto de cada electrodoméstico
-          según su potencia en vatios (W) y las horas de uso diarias. La fórmula es:
-        </p>
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.howText}</p>
         <div className="bg-accent/50 rounded-lg p-4 font-mono text-sm mb-4">
-          kWh/día = (Vatios × Horas) / 1000
+          {t.formula}
         </div>
-        <p className="text-muted-foreground">
-          Multiplica por el precio del kWh para obtener el coste. El precio medio en España en 2024
-          ronda los 0,18 €/kWh, aunque varía según la tarifa contratada.
-        </p>
+        <p className="text-muted-foreground">{t.howText2}</p>
       </section>
 
       <section className="mt-10">
-        <h2 className="text-xl font-semibold mb-4">Preguntas frecuentes</h2>
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
-            <AccordionTrigger>¿Dónde encuentro la potencia de mis electrodomésticos?</AccordionTrigger>
-            <AccordionContent>
-              En la etiqueta energética del aparato, en el manual o buscando el modelo en internet. También puede
-              aparecer en la placa que suele estar en la parte trasera o inferior del electrodoméstico.
-            </AccordionContent>
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
-            <AccordionTrigger>¿Qué electrodomésticos consumen más?</AccordionTrigger>
-            <AccordionContent>
-              Los más consumidores suelen ser: calefactores eléctricos (1000-3000 W), secadoras (2000-3000 W),
-              lavavajillas (1200-2400 W), hornos eléctricos (2000-3000 W) y aires acondicionados (800-3000 W).
-            </AccordionContent>
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q3">
-            <AccordionTrigger>¿Cómo puedo reducir mi factura eléctrica?</AccordionTrigger>
-            <AccordionContent>
-              Algunas formas de ahorrar: usar electrodomésticos en horas valle (normalmente de 10pm a 8am),
-              aprovechar la luz natural, usar bombillas LED, desenchufar aparatos en standby y ajustar el
-              termostato al mínimo necesario.
-            </AccordionContent>
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
           <AccordionItem value="q4">
-            <AccordionTrigger>¿El precio del kWh es siempre 0,18 €?</AccordionTrigger>
-            <AccordionContent>
-              No, el precio varía según la tarifa, el comercializador y la franja horaria. Con tarifa PVPC
-              (mercado regulado) el precio fluctúa cada hora. Con tarifa fija, el precio es constante.
-              Consulta tu factura para saber tu precio exacto.
-            </AccordionContent>
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
