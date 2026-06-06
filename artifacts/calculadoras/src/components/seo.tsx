@@ -8,6 +8,8 @@ interface SeoProps {
   description: string;
   /** Path beginning with "/", e.g. "/calculadoras/finanzas/hipoteca". */
   path: string;
+  /** Optional JSON-LD structured data object. */
+  jsonLd?: Record<string, unknown>;
 }
 
 function setMeta(selector: string, attr: "name" | "property", key: string, content: string) {
@@ -36,7 +38,7 @@ function setCanonical(href: string) {
  * current page. Restores nothing on unmount — every page that needs custom SEO
  * renders its own <Seo/>, overwriting the previous values.
  */
-export function Seo({ title, description, path }: SeoProps) {
+export function Seo({ title, description, path, jsonLd }: SeoProps) {
   useEffect(() => {
     const fullTitle = `${title} | ${SUFFIX}`;
     const url = `${SITE}${path}`;
@@ -50,7 +52,21 @@ export function Seo({ title, description, path }: SeoProps) {
     setMeta('meta[property="og:url"]', "property", "og:url", url);
     setMeta('meta[name="twitter:title"]', "name", "twitter:title", fullTitle);
     setMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
-  }, [title, description, path]);
+
+    const scriptId = "json-ld-schema";
+    let script = document.head.querySelector<HTMLScriptElement>(`#${scriptId}`);
+    if (jsonLd) {
+      if (!script) {
+        script = document.createElement("script");
+        script.id = scriptId;
+        script.type = "application/ld+json";
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(jsonLd);
+    } else if (script) {
+      script.remove();
+    }
+  }, [title, description, path, jsonLd]);
 
   return null;
 }

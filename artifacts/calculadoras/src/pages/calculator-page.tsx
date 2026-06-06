@@ -1,7 +1,7 @@
 import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
 import { ChevronRight } from "lucide-react";
-import { getCalculator, getCategory } from "@/lib/calculators";
+import { getCalculator, getCategory, type CategoryId } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +27,14 @@ import MRUA from "@/pages/mrua";
 import ConversorUnidades from "@/pages/conversor-unidades";
 import Pitagoras from "@/pages/pitagoras";
 import Imc from "@/pages/imc";
+
+const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
+  finanzas: "FinanceApplication",
+  hogar: "UtilitiesApplication",
+  trabajo: "BusinessApplication",
+  educacion: "EducationApplication",
+  salud: "HealthApplication",
+};
 
 /** Maps "categoria/slug" to the page component implementing the calculator. */
 const REGISTRY: Record<string, ComponentType> = {
@@ -62,12 +70,26 @@ export default function CalculatorPage() {
 
   if (!calc || !category || !Component) return <NotFound />;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: calc.seoTitle,
+    url: `https://thecalculator.tech/calculadoras/${categoria}/${slug}`,
+    description: calc.seoDescription,
+    applicationCategory: CATEGORY_APP_TYPE[category.id as CategoryId],
+    operatingSystem: "Web",
+    inLanguage: "es",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  };
+
   return (
     <div className="max-w-5xl mx-auto">
       <Seo
         title={calc.seoTitle}
         description={calc.seoDescription}
         path={`/calculadoras/${categoria}/${slug}`}
+        jsonLd={jsonLd}
       />
 
       <nav className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-6">
