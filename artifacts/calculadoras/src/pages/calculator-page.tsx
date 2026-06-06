@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
 import { ChevronRight } from "lucide-react";
@@ -79,6 +80,16 @@ export default function CalculatorPage() {
   const calc = getCalculator(categoria, slug);
   const category = getCategory(categoria);
   const Component = REGISTRY[`${categoria}/${slug}`];
+
+  useEffect(() => {
+    if (!calc) return;
+    try {
+      const key = `${categoria}/${slug}`;
+      const current: string[] = JSON.parse(localStorage.getItem("calc_recent") ?? "[]");
+      const updated = [key, ...current.filter((k) => k !== key)].slice(0, 5);
+      localStorage.setItem("calc_recent", JSON.stringify(updated));
+    } catch {}
+  }, [categoria, slug, calc]);
 
   if (!calc || !category || !Component) return <NotFound />;
 
