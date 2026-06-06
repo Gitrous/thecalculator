@@ -5,7 +5,7 @@ export const AD_CLIENT = "ca-pub-1123812992313934";
 // Replace the placeholder strings with the real slot IDs from your AdSense dashboard.
 export const AD_SLOTS = {
   /** Main unit shown after the calculator result on every page. */
-  afterResult: "XXXXXXXXXX",
+  afterResult: "6084121250",
   /** Secondary unit shown before the FAQs on long calculators (IRPF, hipoteca…). */
-  midContent: "YYYYYYYYYY",
+  midContent: "7373152194",
 };
