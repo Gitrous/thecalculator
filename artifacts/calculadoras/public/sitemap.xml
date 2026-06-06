@@ -182,5 +182,39 @@
     <priority>0.7</priority>
     <lastmod>2026-06-06</lastmod>
   </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/salud/calorias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+
+  <!-- Finanzas nuevas -->
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/finanzas/amortizacion-anticipada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/finanzas/tae</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+
+  <!-- Trabajo nuevas -->
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/trabajo/paro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/trabajo/pension</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-06</lastmod>
+  </url>
 
 </urlset>

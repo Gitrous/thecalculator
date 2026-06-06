@@ -19,6 +19,7 @@ import {
   Activity,
   ArrowRightLeft,
   HeartPulse,
+  Flame,
   type LucideIcon,
 } from "lucide-react";
 
@@ -391,6 +392,75 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de IMC (Índice de Masa Corporal)",
     seoDescription:
       "Calcula tu Índice de Masa Corporal (IMC) y descubre en qué rango de peso te encuentras según tu altura.",
+  },
+  {
+    slug: "calorias",
+    category: "salud",
+    title: "Calculadora de Calorías y TMB",
+    description:
+      "Calcula tu Tasa Metabólica Basal y las calorías diarias que necesitas según tu actividad y objetivo.",
+    shortLabel: "Calorías y TMB",
+    icon: Flame,
+    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    seoTitle: "Calculadora de Calorías Diarias y TMB (Tasa Metabólica Basal)",
+    seoDescription:
+      "Calcula cuántas calorías necesitas al día según tu peso, altura, edad, actividad y objetivo (perder peso, mantener o ganar músculo).",
+  },
+
+  // ── Finanzas (nuevas) ─────────────────────────────────────────────────────
+  {
+    slug: "amortizacion-anticipada",
+    category: "finanzas",
+    title: "Calculadora de Amortización Anticipada de Hipoteca",
+    description:
+      "Calcula cuánto ahorras amortizando anticipadamente tu hipoteca y elige entre reducir cuota o plazo.",
+    shortLabel: "Amortización Anticipada",
+    icon: Building,
+    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    seoTitle: "Calculadora de Amortización Anticipada de Hipoteca",
+    seoDescription:
+      "Calcula el ahorro en intereses al amortizar tu hipoteca anticipadamente. Elige entre reducir la cuota mensual o acortar el plazo.",
+  },
+  {
+    slug: "tae",
+    category: "finanzas",
+    title: "Calculadora TAE / TIN",
+    description:
+      "Convierte entre TIN y TAE según la frecuencia de capitalización. Compara hipotecas, préstamos y depósitos.",
+    shortLabel: "TAE / TIN",
+    icon: Percent,
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
+    seoTitle: "Calculadora TAE y TIN online",
+    seoDescription:
+      "Convierte entre TIN y TAE según la frecuencia de capitalización. Herramienta para comparar hipotecas, préstamos y depósitos bancarios.",
+  },
+
+  // ── Trabajo (nuevas) ──────────────────────────────────────────────────────
+  {
+    slug: "paro",
+    category: "trabajo",
+    title: "Calculadora de Paro (Prestación por Desempleo)",
+    description:
+      "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario.",
+    shortLabel: "Paro / Desempleo",
+    icon: Briefcase,
+    color: "text-red-600 bg-red-100 dark:bg-red-900/30",
+    seoTitle: "Calculadora de Paro y Prestación por Desempleo 2025",
+    seoDescription:
+      "Calcula cuánto cobrarás de paro según tu salario y los meses cotizados. Incluye duración, cuantía y total de la prestación.",
+  },
+  {
+    slug: "pension",
+    category: "trabajo",
+    title: "Calculadora de Pensión de Jubilación",
+    description:
+      "Estima tu pensión mensual según los años cotizados y tu base reguladora.",
+    shortLabel: "Pensión de Jubilación",
+    icon: Landmark,
+    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    seoTitle: "Calculadora de Pensión de Jubilación 2024",
+    seoDescription:
+      "Estima tu pensión de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa del sistema de pensiones español.",
   },
 ];
 

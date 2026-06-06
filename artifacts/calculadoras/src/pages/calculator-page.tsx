@@ -27,6 +27,11 @@ import MRUA from "@/pages/mrua";
 import ConversorUnidades from "@/pages/conversor-unidades";
 import Pitagoras from "@/pages/pitagoras";
 import Imc from "@/pages/imc";
+import Calorias from "@/pages/calorias";
+import AmortizacionAnticipada from "@/pages/amortizacion-anticipada";
+import Tae from "@/pages/tae";
+import Paro from "@/pages/paro";
+import Pension from "@/pages/pension";
 
 const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
   finanzas: "FinanceApplication",
@@ -60,6 +65,11 @@ const REGISTRY: Record<string, ComponentType> = {
   "educacion/mrua": MRUA,
   "educacion/conversor-unidades": ConversorUnidades,
   "salud/imc": Imc,
+  "salud/calorias": Calorias,
+  "finanzas/amortizacion-anticipada": AmortizacionAnticipada,
+  "finanzas/tae": Tae,
+  "trabajo/paro": Paro,
+  "trabajo/pension": Pension,
 };
 
 export default function CalculatorPage() {
