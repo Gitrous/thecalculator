@@ -267,9 +267,9 @@ export default function IRPF() {
               </div>
 
               <Card>
-                <CardHeader className="flex flex-row items-center justify-between">
+                <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
-                  <div className="flex gap-1 rounded-lg border p-1">
+                  <div className="flex flex-wrap gap-1 rounded-lg border p-1">
                     {(["barras", "horizontal", "tarta", "radial"] as const).map((type) => (
                       <button
                         key={type}

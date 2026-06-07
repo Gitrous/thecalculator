@@ -22,6 +22,15 @@ Guía para Claude Code en este repositorio.
 - App principal (web de calculadoras): `artifacts/calculadoras/` — Vite + React
   + wouter (SPA), Tailwind. Páginas en `src/pages/`, datos en `src/lib/`.
 - También hay `artifacts/api-server/` y `artifacts/mockup-sandbox/`.
+- El sitio tiene versión en español (por defecto, `/`) e inglés (`/en/...`).
+  **Todo cambio en la versión española (nueva calculadora, copy, sección,
+  funcionalidad, sitemap, JSON-LD...) debe replicarse también en la versión
+  inglesa** para mantener la paridad entre ambos idiomas. Revisar al menos:
+  - `src/lib/calculators.ts` — campos `en*` (enTitle, enShortLabel,
+    enSeoTitle, enSeoDescription, etc.)
+  - El texto/rama en inglés dentro del componente de página (la mayoría
+    bifurca con `useLocale()` / `isEn`)
+  - `public/sitemap.xml` — entradas ES y EN con `hreflang` cruzados
 
 ## Build / verificación
 

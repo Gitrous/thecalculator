@@ -88,6 +88,7 @@ function TriangleViz({ a, b, c, calculated }: TriangleVizProps) {
   const [dragging, setDragging] = useState(false);
   const lastMouse = useRef({ x: 0, y: 0 });
   const svgRef = useRef<SVGSVGElement>(null);
+  const pinch = useRef<{ dist: number; cx: number; cy: number } | null>(null);
 
   // Non-passive wheel listener so we can preventDefault and avoid page scroll
   useEffect(() => {
@@ -127,6 +128,61 @@ function TriangleViz({ a, b, c, calculated }: TriangleVizProps) {
   };
 
   const onMouseUp = () => setDragging(false);
+
+  function touchDist(t: React.TouchList) {
+    const dx = t[0].clientX - t[1].clientX;
+    const dy = t[0].clientY - t[1].clientY;
+    return Math.hypot(dx, dy);
+  }
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      setDragging(false);
+      const rect = svgRef.current!.getBoundingClientRect();
+      const cx = ((e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left) / rect.width * W;
+      const cy = ((e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top) / rect.height * H;
+      pinch.current = { dist: touchDist(e.touches), cx, cy };
+    } else if (e.touches.length === 1) {
+      pinch.current = null;
+      setDragging(true);
+      lastMouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    const rect = svgRef.current!.getBoundingClientRect();
+    if (e.touches.length === 2 && pinch.current) {
+      e.preventDefault();
+      const { dist, cx, cy } = pinch.current;
+      const factor = touchDist(e.touches) / dist;
+      setView(v => {
+        const ns = Math.max(0.3, Math.min(8, v.scale * factor));
+        return {
+          scale: ns,
+          x: cx - (cx - v.x) * (ns / v.scale),
+          y: cy - (cy - v.y) * (ns / v.scale),
+        };
+      });
+      pinch.current = { dist: touchDist(e.touches), cx, cy };
+    } else if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      const dx = (e.touches[0].clientX - lastMouse.current.x) / rect.width * W;
+      const dy = (e.touches[0].clientY - lastMouse.current.y) / rect.height * H;
+      lastMouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      setView(v => ({ ...v, x: v.x + dx, y: v.y + dy }));
+    }
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (e.touches.length === 0) {
+      setDragging(false);
+      pinch.current = null;
+    } else if (e.touches.length === 1) {
+      pinch.current = null;
+      setDragging(true);
+      lastMouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  };
 
   const ra = a ?? 3;
   const rb = b ?? 4;
@@ -180,12 +236,15 @@ function TriangleViz({ a, b, c, calculated }: TriangleVizProps) {
       ref={svgRef}
       viewBox={`0 0 ${W} ${H}`}
       className="w-full h-full select-none"
-      style={{ cursor: dragging ? "grabbing" : "grab" }}
+      style={{ cursor: dragging ? "grabbing" : "grab", touchAction: "none" }}
       aria-label="Triángulo rectángulo"
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       {/* Reset button */}
       <g
