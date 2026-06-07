@@ -34,22 +34,24 @@ function Router() {
 
   return (
     <LocaleContext.Provider value={locale}>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/en" component={Home} />
+      <Layout>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/en" component={Home} />
 
-        {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
-          <Route key={from} path={`/calculadoras/${from}`}>
-            <Redirect to={to} replace />
-          </Route>
-        ))}
+          {Object.entries(LEGACY_REDIRECTS).map(([from, to]) => (
+            <Route key={from} path={`/calculadoras/${from}`}>
+              <Redirect to={to} replace />
+            </Route>
+          ))}
 
-        <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
-        <Route path="/calculadoras/:categoria" component={Category} />
-        <Route path="/en/calculators/:categoria/:slug" component={CalculatorPage} />
-        <Route path="/en/calculators/:categoria" component={Category} />
-        <Route component={NotFound} />
-      </Switch>
+          <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
+          <Route path="/calculadoras/:categoria" component={Category} />
+          <Route path="/en/calculators/:categoria/:slug" component={CalculatorPage} />
+          <Route path="/en/calculators/:categoria" component={Category} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
     </LocaleContext.Provider>
   );
 }
@@ -60,9 +62,7 @@ function App() {
       <ThemeProvider>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Layout>
-              <Router />
-            </Layout>
+            <Router />
           </WouterRouter>
           <Toaster />
         </TooltipProvider>
