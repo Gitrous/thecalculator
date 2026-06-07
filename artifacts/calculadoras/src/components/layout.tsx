@@ -6,6 +6,7 @@ import {
   getCalculatorsByCategory,
   calcPath,
   enCalcPath,
+  localeSwitchPath,
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { useLocale } from "@/lib/locale";
@@ -15,8 +16,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const isEn = locale === "en";
 
-  // Language toggle: swap between /en and /
-  const langToggleHref = isEn ? "/" : "/en";
+  // Language toggle: stay on the equivalent page in the other locale
+  const langToggleHref = localeSwitchPath(location, isEn);
 
   const footerDesc = isEn
     ? "Free tools for finance, home, work, education and health."

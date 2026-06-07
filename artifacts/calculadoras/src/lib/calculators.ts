@@ -656,3 +656,24 @@ export const EN_TO_ES_CATEGORY: Record<string, CategoryId> = {
 export function enCalcPath(c: CalculatorMeta): string {
   return `/en/calculators/${EN_CATEGORY_SLUGS[c.category]}/${c.slug}`;
 }
+
+/** Equivalent path in the other locale, preserving category/calculator when possible. */
+export function localeSwitchPath(location: string, currentlyEn: boolean): string {
+  if (currentlyEn) {
+    const m = location.match(/^\/en\/calculators\/([^/]+)(?:\/([^/]+))?/);
+    if (m) {
+      const [, enCat, slug] = m;
+      const esCat = EN_TO_ES_CATEGORY[enCat];
+      if (esCat) return slug ? `/calculadoras/${esCat}/${slug}` : `/calculadoras/${esCat}`;
+    }
+    return "/";
+  }
+
+  const m = location.match(/^\/calculadoras\/([^/]+)(?:\/([^/]+))?/);
+  if (m) {
+    const [, esCat, slug] = m;
+    const enCat = EN_CATEGORY_SLUGS[esCat as CategoryId];
+    if (enCat) return slug ? `/en/calculators/${enCat}/${slug}` : `/en/calculators/${enCat}`;
+  }
+  return "/en";
+}
