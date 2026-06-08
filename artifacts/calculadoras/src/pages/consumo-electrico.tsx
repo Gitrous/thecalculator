@@ -41,7 +41,7 @@ const T = {
     subtitle: "Calcula el gasto eléctrico de tus electrodomésticos y encuentra oportunidades de ahorro.",
     priceCardTitle: "Precio de la energía",
     priceLabel: "Precio por kWh (€)",
-    priceHint: "Precio medio en España ~0.18 €/kWh",
+    priceHint: "Precio medio en España ~0.12 €/kWh",
     appliancesCardTitle: "Electrodomésticos",
     addBtn: "Añadir",
     colAppliance: "Electrodoméstico",
@@ -65,7 +65,7 @@ const T = {
     howTitle: "Cómo funciona",
     howText: "Esta calculadora estima el consumo eléctrico sumando el gasto de cada electrodoméstico según su potencia en vatios (W) y las horas de uso diarias. La fórmula es:",
     formula: "kWh/día = (Vatios × Horas) / 1000",
-    howText2: "Multiplica por el precio del kWh para obtener el coste. El precio medio en España en 2024 ronda los 0,18 €/kWh, aunque varía según la tarifa contratada.",
+    howText2: "Multiplica por el precio del kWh para obtener el coste. El precio medio en España en 2026 ronda los 0,12 €/kWh, aunque varía según la tarifa contratada.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Dónde encuentro la potencia de mis electrodomésticos?",
     a1: "En la etiqueta energética del aparato, en el manual o buscando el modelo en internet. También puede aparecer en la placa que suele estar en la parte trasera o inferior del electrodoméstico.",
@@ -73,7 +73,7 @@ const T = {
     a2: "Los más consumidores suelen ser: calefactores eléctricos (1000-3000 W), secadoras (2000-3000 W), lavavajillas (1200-2400 W), hornos eléctricos (2000-3000 W) y aires acondicionados (800-3000 W).",
     q3: "¿Cómo puedo reducir mi factura eléctrica?",
     a3: "Algunas formas de ahorrar: usar electrodomésticos en horas valle (normalmente de 10pm a 8am), aprovechar la luz natural, usar bombillas LED, desenchufar aparatos en standby y ajustar el termostato al mínimo necesario.",
-    q4: "¿El precio del kWh es siempre 0,18 €?",
+    q4: "¿El precio del kWh es siempre 0,12 €?",
     a4: "No, el precio varía según la tarifa, el comercializador y la franja horaria. Con tarifa PVPC (mercado regulado) el precio fluctúa cada hora. Con tarifa fija, el precio es constante. Consulta tu factura para saber tu precio exacto.",
   },
   en: {
@@ -82,7 +82,7 @@ const T = {
     subtitle: "Calculate the electricity cost of your appliances and find savings opportunities.",
     priceCardTitle: "Energy price",
     priceLabel: "Price per kWh (€)",
-    priceHint: "Average price in Spain ~0.18 €/kWh",
+    priceHint: "Average price in Spain ~0.12 €/kWh",
     appliancesCardTitle: "Appliances",
     addBtn: "Add",
     colAppliance: "Appliance",
@@ -106,7 +106,7 @@ const T = {
     howTitle: "How it works",
     howText: "This calculator estimates electricity consumption by adding up the usage of each appliance based on its power in watts (W) and daily hours of use. The formula is:",
     formula: "kWh/day = (Watts × Hours) / 1000",
-    howText2: "Multiply by the kWh price to get the cost. The average price in Spain in 2024 is around €0.18/kWh, although it varies depending on the contracted tariff.",
+    howText2: "Multiply by the kWh price to get the cost. The average price in Spain in 2026 is around €0.12/kWh, although it varies depending on the contracted tariff.",
     faqTitle: "Frequently asked questions",
     q1: "Where can I find the power of my appliances?",
     a1: "On the appliance's energy label, in the manual, or by searching for the model online. It may also appear on the plate usually located on the back or bottom of the appliance.",
@@ -114,7 +114,7 @@ const T = {
     a2: "The biggest consumers are usually: electric heaters (1000-3000 W), tumble dryers (2000-3000 W), dishwashers (1200-2400 W), electric ovens (2000-3000 W) and air conditioners (800-3000 W).",
     q3: "How can I reduce my electricity bill?",
     a3: "Some ways to save: use appliances during off-peak hours (usually 10pm to 8am), make the most of natural light, use LED bulbs, unplug devices on standby and set the thermostat to the minimum necessary.",
-    q4: "Is the kWh price always €0.18?",
+    q4: "Is the kWh price always €0.12?",
     a4: "No, the price varies depending on the tariff, the supplier and the time of day. With a PVPC tariff (regulated market) the price fluctuates every hour. With a fixed tariff, the price is constant. Check your bill for your exact price.",
   },
 };
@@ -127,7 +127,7 @@ export default function ConsumoElectrico() {
     { id: 2, name: "Lavadora", watts: "2000", hoursPerDay: "1" },
     { id: 3, name: "Televisor", watts: "100", hoursPerDay: "4" },
   ]);
-  const [priceKwh, setPriceKwh] = useState("0.18");
+  const [priceKwh, setPriceKwh] = useState("0.12");
   const [result, setResult] = useState<Result | null>(null);
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -211,7 +211,7 @@ export default function ConsumoElectrico() {
                 step="0.01"
                 value={priceKwh}
                 onChange={(e) => setPriceKwh(e.target.value)}
-                placeholder="0.18"
+                placeholder="0.12"
                 className="mt-1"
               />
             </div>

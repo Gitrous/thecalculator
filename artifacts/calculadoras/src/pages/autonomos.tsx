@@ -21,7 +21,7 @@ function eur(n: number): string {
 }
 
 const RATE = 0.314;
-const FLAT_RATE = 87.61;
+const FLAT_RATE = 88.64;
 
 interface Tramo {
   max: number;
@@ -53,8 +53,8 @@ function findTramo(net: number): Tramo {
 
 const T = {
   es: {
-    title: "Calculadora Cuota Autónomos 2025",
-    subtitle: "Estima tu cuota mensual al RETA según el sistema de tramos por rendimientos netos reales de 2025. Incluye la tarifa plana.",
+    title: "Calculadora Cuota Autónomos 2026",
+    subtitle: "Estima tu cuota mensual al RETA según el sistema de tramos por rendimientos netos reales de 2026. Incluye la tarifa plana.",
     cardTitle: "Datos",
     netLabel: "Rendimiento neto mensual (€)",
     flatLabel: "Aplicar tarifa plana (primeros 12 meses)",
@@ -66,11 +66,11 @@ const T = {
     q1: "¿Qué son los rendimientos netos?",
     a1: "Son los ingresos menos los gastos deducibles de la actividad, menos una deducción adicional del 7% (3% para autónomos societarios). El tramo se determina según ese rendimiento neto mensual.",
     q2: "¿Cuánto dura la tarifa plana?",
-    a2: "En 2025 la tarifa plana es de 87,61 €/mes durante los primeros 12 meses, prorrogable otros 12 si los rendimientos netos quedan por debajo del SMI.",
+    a2: "En 2026 la tarifa plana es de 80 €/mes de cuota base más el MEI (0,9%), unos 88,64 €/mes en total, durante los primeros 12 meses, prorrogable otros 12 si los rendimientos netos quedan por debajo del SMI (1.221 €/mes en 2026).",
   },
   en: {
-    title: "Spanish Freelancer Social Security Calculator 2025",
-    subtitle: "Estimate your monthly RETA contribution based on the 2025 income bracket system. Includes the flat rate.",
+    title: "Spanish Freelancer Social Security Calculator 2026",
+    subtitle: "Estimate your monthly RETA contribution based on the 2026 income bracket system. Includes the flat rate.",
     cardTitle: "Data",
     netLabel: "Monthly net income (€)",
     flatLabel: "Apply flat rate (first 12 months)",
@@ -82,7 +82,7 @@ const T = {
     q1: "What is net income?",
     a1: "It is income minus deductible business expenses, minus an additional 7% deduction (3% for company-based self-employed). The bracket is determined based on this monthly net income.",
     q2: "How long does the flat rate last?",
-    a2: "In 2025 the flat rate is €87.61/month for the first 12 months, extendable for another 12 months if net income remains below the minimum wage.",
+    a2: "In 2026 the flat rate is €80/month base fee plus the MEI (0.9%), about €88.64/month in total, for the first 12 months, extendable for another 12 months if net income stays below the minimum wage (€1,221/month in 2026).",
   },
 };
 

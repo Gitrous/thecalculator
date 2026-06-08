@@ -22,7 +22,7 @@ function eur(n: number) {
   return n.toLocaleString("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 2 });
 }
 
-// IPREM mensual 2024/2025 (€/mes)
+// IPREM mensual 2026 (congelado desde 2022, Ley 31/2022) (€/mes)
 const IPREM = 600;
 
 // Duración de la prestación según días cotizados
@@ -47,7 +47,7 @@ function getDuracion(diasCotizados: number): number {
 
 const T = {
   es: {
-    title: "Calculadora de Prestación por Desempleo (Paro) 2025",
+    title: "Calculadora de Prestación por Desempleo (Paro) 2026",
     subtitle: "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario y los meses cotizados.",
     cardTitle: "Tus datos",
     salaryLabel: "Salario bruto mensual (€)",
@@ -87,7 +87,7 @@ const T = {
     a4: (<>En algunos casos sí, mediante la <strong>compatibilización</strong> del paro con un trabajo a tiempo parcial, o capitalizando el paro como autónomo. En general, un trabajo a jornada completa suspende o extingue la prestación.</>),
   },
   en: {
-    title: "Spanish Unemployment Benefit Calculator 2025",
+    title: "Spanish Unemployment Benefit Calculator 2026",
     subtitle: "Calculate how much unemployment benefit you will receive, for how long, and the total amount based on your salary and contributions.",
     cardTitle: "Your data",
     salaryLabel: "Monthly gross salary (€)",
