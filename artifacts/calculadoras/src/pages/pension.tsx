@@ -24,12 +24,12 @@ function getPorcentaje(anios: number): number {
   return Math.min(pct, 100);
 }
 
-const PENSION_MAX = 3175.04;
-const PENSION_MIN_65 = 959.3;
+const PENSION_MAX = 3359.6;
+const PENSION_MIN_65 = 936.2;
 
 const T = {
   es: {
-    title: "Calculadora de Pensión de Jubilación 2024",
+    title: "Calculadora de Pensión de Jubilación 2026",
     subtitle: "Estima tu pensión mensual de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa basada en el sistema español.",
     cardTitle: "Tus datos",
     yearsLabel: "Años cotizados",
@@ -45,19 +45,19 @@ const T = {
     yearsNeeded: (n: number) => `${n} años`,
     progressTitle: "Progreso hacia la pensión completa",
     progressReached: (pct: string) => `${pct}% alcanzado`,
-    maxPension: "Pensión máxima (2024)",
+    maxPension: "Pensión máxima (2026)",
     minPension: "Pensión mínima (≥ 65 años)",
     note: (<><strong>Nota:</strong> Esta es una estimación orientativa. La pensión real depende de las bases de cotización año a año (media de los últimos 300 meses), la edad de jubilación, posibles coeficientes reductores por jubilación anticipada y la normativa vigente en el momento del retiro.</>),
     faqTitle: "Preguntas frecuentes",
     q1: "¿A qué edad me puedo jubilar en España?",
-    a1: (<>La edad ordinaria en 2024 es <strong>65 años</strong> si tienes 38 años y 3 meses o más cotizados, o <strong>66 años y 6 meses</strong> si cotizaste menos. Esta edad aumentará hasta 67 años en 2027. Existe jubilación anticipada voluntaria (2 años antes) e involuntaria (4 años antes) con coeficientes reductores.</>),
+    a1: (<>La edad ordinaria en 2026 es <strong>65 años</strong> si tienes 38 años y 3 meses o más cotizados, o <strong>66 años y 10 meses</strong> si cotizaste menos. Esta edad aumentará hasta 67 años en 2027. Existe jubilación anticipada voluntaria (2 años antes) e involuntaria (4 años antes) con coeficientes reductores.</>),
     q2: "¿Qué es la base reguladora?",
     a2: "Es la media de las bases de cotización de los últimos 25 años (300 mensualidades), actualizadas por el IPC excepto los 24 meses anteriores a la jubilación. Cuanto más alta sea tu base de cotización histórica, mayor será tu pensión.",
     q3: "¿Los autónomos tienen la misma pensión?",
-    a3: "Los autónomos cotizan por la base elegida dentro de los tramos del RETA. Históricamente cotizaban por la mínima, lo que generaba pensiones bajas. Con el sistema 2023-2025 la cotización se acerca a los ingresos reales, mejorando la futura pensión de nuevos autónomos.",
+    a3: "Los autónomos cotizan por la base elegida dentro de los tramos del RETA. Históricamente cotizaban por la mínima, lo que generaba pensiones bajas. Desde 2023 rige un sistema de cotización por ingresos reales (con tramos que se revisan cada año, también en 2026), que acerca la cotización a los ingresos reales y mejora la futura pensión de los nuevos autónomos.",
   },
   en: {
-    title: "Spanish Retirement Pension Calculator 2024",
+    title: "Spanish Retirement Pension Calculator 2026",
     subtitle: "Estimate your monthly retirement pension based on years contributed and your regulatory base. Indicative calculator based on the Spanish pension system.",
     cardTitle: "Your data",
     yearsLabel: "Years contributed",
@@ -73,16 +73,16 @@ const T = {
     yearsNeeded: (n: number) => `${n} years`,
     progressTitle: "Progress towards full pension",
     progressReached: (pct: string) => `${pct}% achieved`,
-    maxPension: "Maximum pension (2024)",
+    maxPension: "Maximum pension (2026)",
     minPension: "Minimum pension (≥ 65 years)",
     note: (<><strong>Note:</strong> This is an indicative estimate. The actual pension depends on the contribution bases year by year (average of the last 300 months), the retirement age, possible reduction coefficients for early retirement and the regulations in force at the time of retirement.</>),
     faqTitle: "Frequently asked questions",
     q1: "At what age can I retire in Spain?",
-    a1: (<>The ordinary age in 2024 is <strong>65 years</strong> if you have 38 years and 3 months or more contributed, or <strong>66 years and 6 months</strong> if you contributed less. This age will increase to 67 years in 2027. Voluntary early retirement (2 years before) and involuntary early retirement (4 years before) are available with reduction coefficients.</>),
+    a1: (<>The ordinary age in 2026 is <strong>65 years</strong> if you have 38 years and 3 months or more contributed, or <strong>66 years and 10 months</strong> if you contributed less. This age will increase to 67 years in 2027. Voluntary early retirement (2 years before) and involuntary early retirement (4 years before) are available with reduction coefficients.</>),
     q2: "What is the regulatory base?",
     a2: "It is the average of the contribution bases over the last 25 years (300 monthly payments), updated by the CPI except for the 24 months prior to retirement. The higher your historical contribution base, the higher your pension.",
     q3: "Do the self-employed get the same pension?",
-    a3: "The self-employed contribute on the chosen base within the RETA brackets. Historically they contributed at the minimum, which generated low pensions. With the 2023-2025 system, contributions approach real income, improving the future pension of new self-employed workers.",
+    a3: "The self-employed contribute on the chosen base within the RETA brackets. Historically they contributed at the minimum, which generated low pensions. Since 2023 a real-income contribution system has been in force (with brackets reviewed every year, including 2026), bringing contributions closer to real income and improving the future pension of new self-employed workers.",
   },
 };
 
@@ -101,7 +101,7 @@ export default function Pension() {
   const pensionBruta = Math.min((b * porcentaje) / 100, PENSION_MAX);
   const pensionAnual = pensionBruta * 14;
 
-  const aniosFull = 37;
+  const aniosFull = 36.5;
 
   return (
     <div>
