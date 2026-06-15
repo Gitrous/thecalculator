@@ -285,6 +285,8 @@ export default function Calorias() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

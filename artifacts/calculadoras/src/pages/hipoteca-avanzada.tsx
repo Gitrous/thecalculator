@@ -356,6 +356,8 @@ export default function HipotecaAvanzada() {
           </AccordionItem>
         </Accordion>
       </div>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

@@ -189,6 +189,8 @@ export default function NotaMedia() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

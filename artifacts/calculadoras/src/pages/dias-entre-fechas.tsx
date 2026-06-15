@@ -143,6 +143,8 @@ export default function DiasEntreFechas() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

@@ -156,6 +156,8 @@ export default function Imc() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

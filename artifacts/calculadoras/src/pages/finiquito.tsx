@@ -157,6 +157,8 @@ export default function Finiquito() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }

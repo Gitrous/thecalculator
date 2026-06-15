@@ -8,4 +8,6 @@ export const AD_SLOTS = {
   afterResult: "6084121250",
   /** Secondary unit shown before the FAQs on long calculators (IRPF, hipoteca…). */
   midContent: "7373152194",
+  /** Third unit shown after the FAQ accordion. */
+  belowFaq: "3567510807",
 };

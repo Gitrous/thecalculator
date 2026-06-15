@@ -364,6 +364,8 @@ export default function InteresCompuesto() {
           </AccordionItem>
         </Accordion>
       </div>
+
+      <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );
 }
