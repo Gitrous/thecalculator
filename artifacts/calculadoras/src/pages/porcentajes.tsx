@@ -10,6 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 type Mode = "percentOf" | "isWhatPercent" | "change" | "applyChange";
@@ -174,6 +176,8 @@ export default function Porcentajes() {
           </CardContent>
         </Card>
       )}
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

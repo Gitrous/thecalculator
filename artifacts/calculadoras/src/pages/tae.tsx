@@ -16,6 +16,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 function pct(n: number) {
@@ -219,6 +221,8 @@ export default function Tae() {
           </div>
         </CardContent>
       </Card>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

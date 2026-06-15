@@ -8,6 +8,8 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Coins, TrendingUp } from "lucide-react";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 /**
@@ -342,6 +344,8 @@ export default function InteresCompuesto() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <div className="pt-12 mt-12 border-t">
         <h2 className="text-2xl font-bold mb-6">{t.faqTitle}</h2>

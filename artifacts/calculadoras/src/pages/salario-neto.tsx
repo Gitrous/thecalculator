@@ -6,7 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Briefcase } from "lucide-react";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const T = {
@@ -30,6 +33,13 @@ const T = {
     incomeTax: "IRPF",
     socialSec: "Seguridad Social",
     placeholder: "Calcula tu sueldo neto completando el formulario.",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Cuál es la diferencia entre salario bruto y salario neto?",
+    a1: "El salario bruto es el importe total acordado con la empresa antes de cualquier deducción. El salario neto es lo que realmente recibes en tu cuenta bancaria después de descontar la retención de IRPF (impuesto sobre la renta) y la cotización a la Seguridad Social por parte del trabajador.",
+    q2: "¿Qué porcentaje se descuenta por Seguridad Social al trabajador?",
+    a2: "En 2024, la cotización del trabajador a la Seguridad Social es aproximadamente del 6,35 % del salario bruto (4,70 % por contingencias comunes, 1,55 % por desempleo y 0,10 % por formación profesional). Para contratos temporales el porcentaje es ligeramente superior.",
+    q3: "¿Por qué el tipo de IRPF varía entre personas con el mismo sueldo?",
+    a3: "El IRPF es un impuesto progresivo y personalizado. Depende de factores como la comunidad autónoma de residencia, la situación familiar (hijos, discapacidad), si tienes rentas de varios pagadores o si aplicas deducciones específicas. Por eso dos personas con el mismo salario bruto pueden tener retenciones distintas.",
   },
   en: {
     backHome: "Back to home",
@@ -51,6 +61,13 @@ const T = {
     incomeTax: "Income Tax",
     socialSec: "Social Security",
     placeholder: "Calculate your net salary by completing the form.",
+    faqTitle: "Frequently asked questions",
+    q1: "What is the difference between gross and net salary?",
+    a1: "Gross salary is the total amount agreed with your employer before any deductions. Net salary is what you actually receive in your bank account after deducting income tax (IRPF) withholding and the employee's Social Security contributions.",
+    q2: "What percentage is deducted for Social Security contributions?",
+    a2: "In 2024, the employee's Social Security contribution is approximately 6.35% of gross salary (4.70% for common contingencies, 1.55% for unemployment and 0.10% for vocational training). The percentage is slightly higher for temporary contracts.",
+    q3: "Why does the income tax rate vary between people with the same salary?",
+    a3: "Income tax (IRPF) is a progressive and personalised tax. It depends on factors such as your autonomous community of residence, family situation (children, disability), whether you have income from multiple payers, or whether specific deductions apply. That is why two people with the same gross salary can have different withholding rates.",
   },
 };
 
@@ -234,6 +251,26 @@ export default function SalarioNeto() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
+
+      <section className="mt-4">
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="q1">
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q2">
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
     </div>
   );
 }

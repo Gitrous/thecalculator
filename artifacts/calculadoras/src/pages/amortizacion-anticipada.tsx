@@ -16,6 +16,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 function eur(n: number) {
@@ -284,6 +286,8 @@ export default function AmortizacionAnticipada() {
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
         {t.note}
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

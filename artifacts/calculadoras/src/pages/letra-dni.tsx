@@ -9,6 +9,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -126,6 +128,8 @@ export default function LetraDni() {
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
         <p className="text-muted-foreground mb-4">{t.howText}</p>
       </section>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

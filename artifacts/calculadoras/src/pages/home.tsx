@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Search, X, Clock } from "lucide-react";
 import {
@@ -11,6 +11,8 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const RECENT_KEY = "calc_recent";
@@ -160,36 +162,39 @@ export default function Home() {
 
       {/* ── Categorised sections ───────────────────────────────────────────── */}
       {!isSearching &&
-        featured.map((cat) => {
+        featured.map((cat, index) => {
           const Icon = cat.icon;
           const catHref = isEn
             ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
             : `/calculadoras/${cat.id}`;
           return (
-            <section key={cat.id} id={cat.id}>
-              <div className="flex items-center gap-3 mb-6">
-                <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center ${cat.color}`}
-                >
-                  <Icon className="w-5 h-5" />
+            <React.Fragment key={cat.id}>
+              <section id={cat.id}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center ${cat.color}`}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <Link href={catHref}>
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-50 hover:text-primary transition-colors cursor-pointer">
+                        {isEn ? cat.enName : cat.name}
+                      </h2>
+                    </Link>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {isEn ? cat.enDescription : cat.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <Link href={catHref}>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-50 hover:text-primary transition-colors cursor-pointer">
-                      {isEn ? cat.enName : cat.name}
-                    </h2>
-                  </Link>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {isEn ? cat.enDescription : cat.description}
-                  </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {getCalculatorsByCategory(cat.id).map((calc) => (
+                    <CalculatorCard key={calc.slug} calc={calc} />
+                  ))}
                 </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {getCalculatorsByCategory(cat.id).map((calc) => (
-                  <CalculatorCard key={calc.slug} calc={calc} />
-                ))}
-              </div>
-            </section>
+              </section>
+              {index === 1 && <AdUnit slot={AD_SLOTS.midContent} className="my-4" />}
+            </React.Fragment>
           );
         })}
     </div>

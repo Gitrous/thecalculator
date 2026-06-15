@@ -5,7 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Car } from "lucide-react";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const T = {
@@ -33,6 +36,13 @@ const T = {
     parking: "Aparcamiento",
     other: "Otros (ITV, Impuestos)",
     placeholder: "Introduce tus gastos para conocer el coste real de tu coche.",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Qué gastos incluye el coste real del coche?",
+    a1: "El coste real incluye todos los gastos directos e indirectos: financiación o amortización del vehículo, combustible, seguro, mantenimiento y revisiones, aparcamiento o garaje, impuesto de circulación e ITV. Muchos conductores solo cuentan el combustible y el seguro, infravalorando el verdadero coste.",
+    q2: "¿Cuánto cuesta de media mantener un coche en España?",
+    a2: "Según la OCU y la DGT, el coste medio de mantenimiento de un turismo en España oscila entre 3.500 € y 6.500 € al año, dependiendo del modelo, los kilómetros recorridos y si el vehículo está financiado. El coste por kilómetro suele estar entre 0,20 € y 0,45 €.",
+    q3: "¿Cuándo sale a cuenta tener coche frente al transporte público?",
+    a3: "El vehículo propio resulta más económico cuando se recorren muchos kilómetros al año (más de 15.000-20.000), se vive en una zona con mala red de transporte público o se comparten trayectos. En ciudades con buenas redes de metro y autobús, el abono de transporte puede ser hasta 4 veces más barato.",
   },
   en: {
     backHome: "Back to home",
@@ -58,6 +68,13 @@ const T = {
     parking: "Parking",
     other: "Other (MOT, Taxes)",
     placeholder: "Enter your expenses to find out the real cost of your car.",
+    faqTitle: "Frequently asked questions",
+    q1: "What expenses make up the real cost of a car?",
+    a1: "The real cost includes all direct and indirect expenses: financing or depreciation, fuel, insurance, maintenance and servicing, parking or garage fees, road tax and MOT. Many drivers only count fuel and insurance, underestimating the true cost.",
+    q2: "How much does it cost on average to run a car in Spain?",
+    a2: "According to the OCU and DGT, the average cost of running a standard car in Spain ranges from €3,500 to €6,500 per year, depending on the model, kilometres driven and whether the vehicle is financed. The cost per kilometre is typically between €0.20 and €0.45.",
+    q3: "When is owning a car cheaper than public transport?",
+    a3: "A private vehicle is more economical when you cover a lot of kilometres per year (more than 15,000–20,000), you live in an area with poor public transport, or you share journeys. In cities with good metro and bus networks, a transit pass can be up to four times cheaper.",
   },
 };
 
@@ -245,6 +262,26 @@ export default function GastoCoche() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
+
+      <section className="mt-4">
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="q1">
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q2">
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
     </div>
   );
 }

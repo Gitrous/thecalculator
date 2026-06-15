@@ -16,6 +16,8 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 interface Appliance {
@@ -375,6 +377,8 @@ export default function ConsumoElectrico() {
         </div>
         <p className="text-muted-foreground">{t.howText2}</p>
       </section>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

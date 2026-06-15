@@ -16,6 +16,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const ACTIVITY_LEVELS_ES = [
@@ -263,6 +265,8 @@ export default function Calorias() {
           </Card>
         </>
       )}
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

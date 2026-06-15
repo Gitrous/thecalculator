@@ -8,6 +8,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Home } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
 
 const T = {
@@ -36,6 +38,13 @@ const T = {
     netBuyCost: "Coste Neto Compra",
     netRentCost: "Coste Neto Alquiler",
     placeholder: "Introduce los datos para comparar ambas opciones a largo plazo.",
+    faqTitle: "Preguntas frecuentes",
+    q1: "¿Qué es el punto de equilibrio entre alquilar y comprar?",
+    a1: "El punto de equilibrio (break-even) es el año a partir del cual el coste neto acumulado de comprar una vivienda es menor que el de alquilar e invertir la diferencia. Antes de ese punto, el alquiler puede ser financieramente más ventajoso; después, la compra empieza a rentabilizarse gracias a la acumulación de patrimonio.",
+    q2: "¿Qué gastos ocultos tiene comprar una vivienda?",
+    a2: "Además del precio de compra, hay que contar con: impuestos (ITP del 6-10 % en segunda mano, o IVA del 10 % en obra nueva), gastos de notaría, registro de la propiedad, gestoría, tasación del inmueble y posible comisión de apertura de la hipoteca. En total pueden suponer entre el 10 % y el 15 % del precio de compra.",
+    q3: "¿Es mejor alquilar o comprar en España?",
+    a3: "Depende de tu situación personal: horizonte temporal, capacidad de ahorro para la entrada, estabilidad laboral y expectativas de movilidad geográfica. En general, la compra tiende a ser más ventajosa a largo plazo (más de 10-15 años) en mercados donde el precio de la vivienda sube moderadamente. El alquiler da más flexibilidad y permite invertir la diferencia para obtener rentabilidad alternativa.",
   },
   en: {
     backHome: "Back to home",
@@ -62,6 +71,13 @@ const T = {
     netBuyCost: "Net Buy Cost",
     netRentCost: "Net Rent Cost",
     placeholder: "Enter the data to compare both options over the long term.",
+    faqTitle: "Frequently asked questions",
+    q1: "What is the break-even point between renting and buying?",
+    a1: "The break-even point is the year from which the cumulative net cost of buying a home becomes lower than renting and investing the difference. Before that point, renting may be financially more advantageous; after it, buying starts to pay off thanks to wealth accumulation.",
+    q2: "What hidden costs does buying a home involve?",
+    a2: "In addition to the purchase price, you must account for: taxes (transfer tax of 6–10% for second-hand properties, or 10% VAT for new builds), notary fees, land registry fees, administrative costs, property valuation and a possible mortgage arrangement fee. In total these can add 10–15% on top of the purchase price.",
+    q3: "Is it better to rent or buy in Spain?",
+    a3: "It depends on your personal situation: time horizon, ability to save for a deposit, job stability and expectations of geographical mobility. In general, buying tends to be more advantageous in the long term (more than 10–15 years) in markets where property prices rise moderately. Renting gives more flexibility and lets you invest the difference to obtain an alternative return.",
   },
 };
 
@@ -285,6 +301,26 @@ export default function AlquilerVsCompra() {
           )}
         </div>
       </div>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
+
+      <section className="mt-4">
+        <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="q1">
+            <AccordionTrigger>{t.q1}</AccordionTrigger>
+            <AccordionContent>{t.a1}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q2">
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
     </div>
   );
 }

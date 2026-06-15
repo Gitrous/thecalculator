@@ -17,6 +17,8 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 
 interface Result {
   v0: number;
@@ -274,6 +276,8 @@ export default function MRUA() {
           <p>v² = v₀² + 2 · a · d</p>
         </div>
       </section>
+
+      <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{tr.faqTitle}</h2>

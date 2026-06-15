@@ -7,6 +7,8 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { AdUnit } from "@/components/ad-unit";
+import { AD_SLOTS } from "@/lib/ads";
 import { Seo } from "@/components/seo";
 import NotFound from "@/pages/not-found";
 import { useLocale } from "@/lib/locale";
@@ -77,6 +79,8 @@ export default function Category() {
           <CalculatorCard key={calc.slug} calc={calc} />
         ))}
       </div>
+
+      <AdUnit slot={AD_SLOTS.afterResult} className="mt-10" />
     </div>
   );
 }
