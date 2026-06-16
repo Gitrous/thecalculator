@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CookieConsent } from "@/components/cookie-consent";
 import {
   CATEGORIES,
   getCalculatorsByCategory,
@@ -152,6 +153,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      <CookieConsent />
     </div>
   );
 }
