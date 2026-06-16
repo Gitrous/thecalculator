@@ -657,8 +657,23 @@ export function enCalcPath(c: CalculatorMeta): string {
   return `/en/calculators/${EN_CATEGORY_SLUGS[c.category]}/${c.slug}`;
 }
 
+/** Static legal pages: equivalent path in the other locale. */
+const LEGAL_LOCALE_PATHS: Record<string, string> = {
+  "/privacidad": "/en/privacy",
+  "/en/privacy": "/privacidad",
+  "/cookies": "/en/cookies",
+  "/en/cookies": "/cookies",
+  "/aviso-legal": "/en/legal-notice",
+  "/en/legal-notice": "/aviso-legal",
+  "/contacto": "/en/contact",
+  "/en/contact": "/contacto",
+};
+
 /** Equivalent path in the other locale, preserving category/calculator when possible. */
 export function localeSwitchPath(location: string, currentlyEn: boolean): string {
+  const legal = LEGAL_LOCALE_PATHS[location];
+  if (legal) return legal;
+
   if (currentlyEn) {
     const m = location.match(/^\/en\/calculators\/([^/]+)(?:\/([^/]+))?/);
     if (m) {

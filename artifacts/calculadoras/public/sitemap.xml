@@ -284,6 +284,40 @@
     <lastmod>2026-06-06</lastmod>
   </url>
 
+  <!-- Páginas legales ES -->
+  <url>
+    <loc>https://thecalculator.tech/privacidad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/privacidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/cookies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/cookies"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/aviso-legal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/aviso-legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/legal-notice"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+
   <!-- ═══════════════════════════════════════════════
        ENGLISH
        ═══════════════════════════════════════════════ -->
@@ -564,6 +598,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-06</lastmod>
+  </url>
+
+  <!-- Legal pages EN -->
+  <url>
+    <loc>https://thecalculator.tech/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/privacidad"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/cookies"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/aviso-legal"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/contacto"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-06-16</lastmod>
   </url>
 
 </urlset>

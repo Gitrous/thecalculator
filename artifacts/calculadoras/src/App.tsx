@@ -10,6 +10,10 @@ import { LocaleContext, type Locale } from "@/lib/locale";
 import Home from "@/pages/home";
 import Category from "@/pages/category";
 import CalculatorPage from "@/pages/calculator-page";
+import Privacidad from "@/pages/privacidad";
+import Cookies from "@/pages/cookies";
+import AvisoLegal from "@/pages/aviso-legal";
+import Contacto from "@/pages/contacto";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +48,16 @@ function Router() {
               <Redirect to={to} replace />
             </Route>
           ))}
+
+          {/* Páginas legales (ES / EN) */}
+          <Route path="/privacidad" component={Privacidad} />
+          <Route path="/en/privacy" component={Privacidad} />
+          <Route path="/cookies" component={Cookies} />
+          <Route path="/en/cookies" component={Cookies} />
+          <Route path="/aviso-legal" component={AvisoLegal} />
+          <Route path="/en/legal-notice" component={AvisoLegal} />
+          <Route path="/contacto" component={Contacto} />
+          <Route path="/en/contact" component={Contacto} />
 
           <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
           <Route path="/calculadoras/:categoria" component={Category} />

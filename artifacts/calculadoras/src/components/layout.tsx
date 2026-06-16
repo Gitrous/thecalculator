@@ -30,6 +30,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
     ? `© ${new Date().getFullYear()} Online Calculators. All rights reserved.`
     : `© ${new Date().getFullYear()} Simuladores y Calculadoras Online. Todos los derechos reservados.`;
 
+  const legalLinks = isEn
+    ? [
+        { href: "/en/privacy", label: "Privacy Policy" },
+        { href: "/en/cookies", label: "Cookie Policy" },
+        { href: "/en/legal-notice", label: "Legal Notice" },
+        { href: "/en/contact", label: "Contact" },
+      ]
+    : [
+        { href: "/privacidad", label: "Privacidad" },
+        { href: "/cookies", label: "Cookies" },
+        { href: "/aviso-legal", label: "Aviso legal" },
+        { href: "/contacto", label: "Contacto" },
+      ];
+
   return (
     <div className="min-h-[100dvh] flex flex-col bg-gray-50 dark:bg-zinc-950">
       <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 no-print">
@@ -122,8 +136,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
               );
             })}
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-zinc-800 text-center text-sm text-gray-500">
-            {copyright}
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-zinc-800">
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <p className="text-center text-sm text-gray-500">{copyright}</p>
           </div>
         </div>
       </footer>
