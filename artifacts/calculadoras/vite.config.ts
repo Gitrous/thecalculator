@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { ssgPlugin } from "./vite-plugin-ssg";
 
 // PORT is only used by the dev/preview server. Production builds (e.g. on
 // Cloudflare Pages) don't provide it and don't need it, so default instead of
@@ -25,6 +26,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
+    ssgPlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
