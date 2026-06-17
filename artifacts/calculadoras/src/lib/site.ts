@@ -5,4 +5,4 @@ export const SITE_DOMAIN = "thecalculator.tech";
 export const SITE_URL = "https://thecalculator.tech";
 
 // Email de contacto que aparece en aviso legal, privacidad y contacto.
-export const CONTACT_EMAIL = "gsguillex992@gmail.com";
+export const CONTACT_EMAIL = "gsguille992@gmail.com";
