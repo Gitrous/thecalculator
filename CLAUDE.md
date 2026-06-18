@@ -13,7 +13,14 @@ Guía para Claude Code en este repositorio.
     actualiza `dist/public/` y el servidor existente ya sirve los nuevos
     ficheros. Solo arranca uno nuevo (`pnpm exec vite preview --config
     vite.config.ts`) si no hay ninguno en marcha.
-  - **`g`** → haz `git add` + `git commit` + `git push origin main`.
+  - **`g`** → haz `git add` + `git commit` + `git push origin main`. Después
+    del push, **monitoriza el estado del despliegue en Cloudflare Pages** usando
+    `gh run list --limit 1` o comprobando periódicamente con
+    `curl -s -o /dev/null -w "%{http_code}" https://thecalculator.tech` hasta
+    que el sitio responda con 200 y el contenido haya cambiado. Cuando el
+    despliegue esté listo, **avisa al usuario** con un mensaje del tipo:
+    `✅ Live en https://thecalculator.tech`. El build de Cloudflare tarda
+    habitualmente entre 1 y 3 minutos.
 - Mensajes de commit en imperativo y descriptivos; terminar con la línea
   `Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>`.
 
