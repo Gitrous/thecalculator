@@ -5,6 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -12,54 +19,47 @@ import {
 } from "@/components/ui/accordion";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
+import { COUNTRIES, getCountry, fmtCurrency } from "@/lib/countries";
 import { useLocale } from "@/lib/locale";
-
-const RATES = [21, 10, 4, 0];
-
-function eur(n: number): string {
-  return n.toLocaleString("es-ES", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 2,
-  });
-}
 
 const T = {
   es: {
-    title: "Calculadora de IVA",
-    subtitle: "Suma o resta el IVA a cualquier precio. Tipos del 21%, 10%, 4% y 0%.",
+    title: "Calculadora de IVA / Impuesto Indirecto",
+    subtitle: "Suma o resta el impuesto indirecto (IVA, GST, Sales Tax…) a cualquier precio según el país.",
     cardTitle: "Datos",
-    addVat: "Añadir IVA",
-    removeVat: "Quitar IVA",
-    labelAdd: "Importe sin IVA (base)",
-    labelRemove: "Importe con IVA (total)",
-    vatType: "Tipo de IVA",
+    countryLabel: "País",
+    addVat: "Añadir impuesto",
+    removeVat: "Quitar impuesto",
+    labelAdd: "Importe sin impuesto (base)",
+    labelRemove: "Importe con impuesto (total)",
+    vatType: "Tipo de impuesto",
     taxBase: "Base imponible",
-    vatAmount: "IVA",
+    vatAmount: "Impuesto",
     total: "Total",
     faqTitle: "Preguntas frecuentes",
-    q1: "¿Qué tipos de IVA hay en España?",
-    a1: "El tipo general es del 21%, el reducido del 10% (hostelería, transporte…), el superreducido del 4% (alimentos básicos, medicamentos, libros) y el 0% para algunos productos exentos.",
-    q2: "¿Cómo se quita el IVA de un precio final?",
-    a2: "Se divide el precio con IVA entre (1 + tipo/100). Por ejemplo, con un 21%: base = total / 1,21.",
+    q1: "¿Qué diferencia hay entre IVA, GST y Sales Tax?",
+    a1: "El IVA (Impuesto sobre el Valor Añadido) es un impuesto que se aplica en cada fase de la cadena de producción y distribución, común en Europa, Latinoamérica y Asia. El GST (Goods and Services Tax) es equivalente al IVA y se usa en países como Canadá, Australia, India o Singapur. El Sales Tax estadounidense solo se aplica en la venta final al consumidor y varía por estado.",
+    q2: "¿Cómo se quita el impuesto de un precio final?",
+    a2: "Se divide el precio con impuesto entre (1 + tipo/100). Por ejemplo, con un 21%: base = total / 1,21.",
   },
   en: {
-    title: "VAT Calculator",
-    subtitle: "Add or remove VAT from any price. Rates of 21%, 10%, 4% and 0%.",
+    title: "VAT / Indirect Tax Calculator",
+    subtitle: "Add or remove indirect tax (VAT, GST, Sales Tax…) from any price based on the country.",
     cardTitle: "Data",
-    addVat: "Add VAT",
-    removeVat: "Remove VAT",
-    labelAdd: "Amount without VAT (base)",
-    labelRemove: "Amount with VAT (total)",
-    vatType: "VAT rate",
+    countryLabel: "Country",
+    addVat: "Add tax",
+    removeVat: "Remove tax",
+    labelAdd: "Amount without tax (base)",
+    labelRemove: "Amount with tax (total)",
+    vatType: "Tax rate",
     taxBase: "Tax base",
-    vatAmount: "VAT",
+    vatAmount: "Tax",
     total: "Total",
     faqTitle: "Frequently asked questions",
-    q1: "What VAT rates are there in Spain?",
-    a1: "The standard rate is 21%, the reduced rate is 10% (hospitality, transport…), the super-reduced rate is 4% (basic food, medicines, books) and 0% for some exempt products.",
-    q2: "How do you remove VAT from a final price?",
-    a2: "Divide the price with VAT by (1 + rate/100). For example, at 21%: base = total / 1.21.",
+    q1: "What is the difference between VAT, GST and Sales Tax?",
+    a1: "VAT (Value Added Tax) is applied at each stage of the production and distribution chain, common in Europe, Latin America and Asia. GST (Goods and Services Tax) is equivalent to VAT and is used in countries like Canada, Australia, India or Singapore. US Sales Tax is only applied at the final sale to the consumer and varies by state.",
+    q2: "How do you remove the tax from a final price?",
+    a2: "Divide the price with tax by (1 + rate/100). For example, at 21%: base = total / 1.21.",
   },
 };
 
@@ -67,27 +67,39 @@ export default function Iva() {
   const locale = useLocale();
   const t = T[locale];
 
+  const [countryCode, setCountryCode] = useState("es");
   const [amount, setAmount] = useState("");
-  const [rate, setRate] = useState(21);
   const [mode, setMode] = useState<"add" | "remove">("add");
+
+  const country = getCountry(countryCode);
+  const [rate, setRate] = useState(country.vatRates[0]);
+
+  const handleCountryChange = (code: string) => {
+    const c = getCountry(code);
+    setCountryCode(code);
+    setRate(c.vatRates[0]);
+  };
 
   const value = parseFloat(amount);
   const valid = !isNaN(value) && value >= 0;
 
   let base = 0;
-  let iva = 0;
+  let tax = 0;
   let total = 0;
   if (valid) {
     if (mode === "add") {
       base = value;
-      iva = (value * rate) / 100;
-      total = base + iva;
+      tax = (value * rate) / 100;
+      total = base + tax;
     } else {
       total = value;
       base = value / (1 + rate / 100);
-      iva = total - base;
+      tax = total - base;
     }
   }
+
+  const fmt = (n: number) => fmtCurrency(n, country.currency, country.numberLocale);
+  const vatName = locale === "es" ? country.vatNameEs : country.vatNameEn;
 
   return (
     <div>
@@ -104,24 +116,35 @@ export default function Iva() {
           <CardTitle>{t.cardTitle}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          {/* Country selector */}
+          <div>
+            <Label>{t.countryLabel}</Label>
+            <Select value={countryCode} onValueChange={handleCountryChange}>
+              <SelectTrigger className="mt-1">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRIES.map((c) => (
+                  <SelectItem key={c.code} value={c.code}>
+                    {locale === "es" ? c.nameEs : c.nameEn}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="flex gap-2">
-            <Button
-              variant={mode === "add" ? "default" : "outline"}
-              onClick={() => setMode("add")}
-            >
+            <Button variant={mode === "add" ? "default" : "outline"} onClick={() => setMode("add")}>
               {t.addVat}
             </Button>
-            <Button
-              variant={mode === "remove" ? "default" : "outline"}
-              onClick={() => setMode("remove")}
-            >
+            <Button variant={mode === "remove" ? "default" : "outline"} onClick={() => setMode("remove")}>
               {t.removeVat}
             </Button>
           </div>
 
           <div>
             <Label htmlFor="amount">
-              {mode === "add" ? t.labelAdd : t.labelRemove}
+              {mode === "add" ? t.labelAdd : t.labelRemove} ({country.currencySymbol})
             </Label>
             <Input
               id="amount"
@@ -129,14 +152,14 @@ export default function Iva() {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               className="mt-1"
-              placeholder="0,00 €"
+              placeholder="0"
             />
           </div>
 
           <div>
-            <Label>{t.vatType}</Label>
+            <Label>{t.vatType} — {vatName}</Label>
             <div className="flex gap-2 flex-wrap mt-1">
-              {RATES.map((r) => (
+              {country.vatRates.map((r) => (
                 <Button
                   key={r}
                   variant={rate === r ? "default" : "outline"}
@@ -157,15 +180,15 @@ export default function Iva() {
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <p className="text-sm text-muted-foreground">{t.taxBase}</p>
-                <p className="text-xl font-bold">{eur(base)}</p>
+                <p className="text-xl font-bold">{fmt(base)}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.vatAmount} ({rate}%)</p>
-                <p className="text-xl font-bold">{eur(iva)}</p>
+                <p className="text-xl font-bold">{fmt(tax)}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.total}</p>
-                <p className="text-xl font-bold text-primary">{eur(total)}</p>
+                <p className="text-xl font-bold text-primary">{fmt(total)}</p>
               </div>
             </div>
           </CardContent>

@@ -4,11 +4,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Car } from "lucide-react";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
+import { COUNTRIES, getCountry, fmtCurrency } from "@/lib/countries";
 import { useLocale } from "@/lib/locale";
 
 const T = {
@@ -17,14 +25,15 @@ const T = {
     title: "Gasto Real del Coche",
     subtitle: "Calcula el coste total de mantener tu vehículo, incluyendo gastos ocultos y coste por kilómetro.",
     cardTitle: "Gastos del Vehículo",
+    countryLabel: "País",
     kmLabel: "Km anuales",
-    financingLabel: "Letra/Financiación (€/mes)",
-    fuelLabel: "Combustible (€/mes)",
-    parkingLabel: "Aparcamiento/Garaje (€/mes)",
-    insuranceLabel: "Seguro (€/año)",
-    maintenanceLabel: "Mantenimiento (€/año)",
-    taxLabel: "Impuesto de circulación (€/año)",
-    MotLabel: "ITV (€/año)",
+    financingLabel: "Letra/Financiación (moneda/mes)",
+    fuelLabel: "Combustible (moneda/mes)",
+    parkingLabel: "Aparcamiento/Garaje (moneda/mes)",
+    insuranceLabel: "Seguro (moneda/año)",
+    maintenanceLabel: "Mantenimiento (moneda/año)",
+    taxLabel: "Impuesto de circulación (moneda/año)",
+    MotLabel: "ITV/Revisión técnica (moneda/año)",
     calculateBtn: "Calcular Gasto Total",
     monthlyTotal: "Gasto Mensual Total",
     perKm: "Coste por km",
@@ -49,14 +58,15 @@ const T = {
     title: "Real Car Costs",
     subtitle: "Calculate the total cost of owning your vehicle, including hidden costs and cost per kilometre.",
     cardTitle: "Vehicle Expenses",
+    countryLabel: "Country",
     kmLabel: "Annual km",
-    financingLabel: "Finance/Loan payment (€/month)",
-    fuelLabel: "Fuel (€/month)",
-    parkingLabel: "Parking/Garage (€/month)",
-    insuranceLabel: "Insurance (€/year)",
-    maintenanceLabel: "Maintenance (€/year)",
-    taxLabel: "Vehicle tax (€/year)",
-    MotLabel: "MOT/Roadworthiness test (€/year)",
+    financingLabel: "Finance/Loan payment (currency/month)",
+    fuelLabel: "Fuel (currency/month)",
+    parkingLabel: "Parking/Garage (currency/month)",
+    insuranceLabel: "Insurance (currency/year)",
+    maintenanceLabel: "Maintenance (currency/year)",
+    taxLabel: "Vehicle tax (currency/year)",
+    MotLabel: "MOT/Roadworthiness test (currency/year)",
     calculateBtn: "Calculate Total Cost",
     monthlyTotal: "Total Monthly Cost",
     perKm: "Cost per km",
@@ -81,6 +91,11 @@ const T = {
 export default function GastoCoche() {
   const locale = useLocale();
   const t = T[locale];
+
+  const [countryCode, setCountryCode] = useState("es");
+  const country = getCountry(countryCode);
+  const fmt = (n: number) => fmtCurrency(n, country.currency, country.numberLocale);
+  const sym = country.currencySymbol;
 
   const [km, setKm] = useState("15000");
   const [financiacion, setFinanciacion] = useState("200");
@@ -152,37 +167,52 @@ export default function GastoCoche() {
           </CardHeader>
           <CardContent>
             <form onSubmit={calculate} className="space-y-6">
+              <div className="space-y-2">
+                <Label>{t.countryLabel}</Label>
+                <Select value={countryCode} onValueChange={(v) => { setCountryCode(v); setResults(null); }}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {COUNTRIES.map((c) => (
+                      <SelectItem key={c.code} value={c.code}>
+                        {locale === "es" ? c.nameEs : c.nameEn}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>{t.kmLabel}</Label>
                   <Input type="number" value={km} onChange={e => setKm(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.financingLabel}</Label>
+                  <Label>{locale === "es" ? `Financiación (${sym}/mes)` : `Finance (${sym}/month)`}</Label>
                   <Input type="number" value={financiacion} onChange={e => setFinanciacion(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.fuelLabel}</Label>
+                  <Label>{locale === "es" ? `Combustible (${sym}/mes)` : `Fuel (${sym}/month)`}</Label>
                   <Input type="number" value={combustible} onChange={e => setCombustible(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.parkingLabel}</Label>
+                  <Label>{locale === "es" ? `Aparcamiento (${sym}/mes)` : `Parking (${sym}/month)`}</Label>
                   <Input type="number" value={aparcamiento} onChange={e => setAparcamiento(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.insuranceLabel}</Label>
+                  <Label>{locale === "es" ? `Seguro (${sym}/año)` : `Insurance (${sym}/year)`}</Label>
                   <Input type="number" value={seguro} onChange={e => setSeguro(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.maintenanceLabel}</Label>
+                  <Label>{locale === "es" ? `Mantenimiento (${sym}/año)` : `Maintenance (${sym}/year)`}</Label>
                   <Input type="number" value={mantenimiento} onChange={e => setMantenimiento(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.taxLabel}</Label>
+                  <Label>{locale === "es" ? `Impuesto circulación (${sym}/año)` : `Vehicle tax (${sym}/year)`}</Label>
                   <Input type="number" value={impuesto} onChange={e => setImpuesto(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.MotLabel}</Label>
+                  <Label>{locale === "es" ? `ITV/Revisión (${sym}/año)` : `MOT/Test (${sym}/year)`}</Label>
                   <Input type="number" value={itv} onChange={e => setItv(e.target.value)} />
                 </div>
               </div>
@@ -199,7 +229,7 @@ export default function GastoCoche() {
                   <CardContent className="p-6">
                     <p className="text-sm font-medium text-red-600 dark:text-red-400 mb-1">{t.monthlyTotal}</p>
                     <p className="text-3xl font-bold text-red-700 dark:text-red-300">
-                      {results.mensual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
+                      {fmt(results.mensual)}
                     </p>
                   </CardContent>
                 </Card>
@@ -207,7 +237,7 @@ export default function GastoCoche() {
                   <CardContent className="p-6">
                     <p className="text-sm font-medium text-gray-500 mb-1">{t.perKm}</p>
                     <p className="text-3xl font-bold text-gray-900">
-                      {results.porKm.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 3 })}
+                      {fmtCurrency(results.porKm, country.currency, country.numberLocale)}
                     </p>
                   </CardContent>
                 </Card>
@@ -215,7 +245,7 @@ export default function GastoCoche() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">{t.breakdownTitle}: {results.anual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}</CardTitle>
+                  <CardTitle className="text-lg">{t.breakdownTitle}: {fmt(results.anual)}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center">
                   <div className="h-[250px] w-full">
@@ -232,7 +262,7 @@ export default function GastoCoche() {
                             <Cell key={`cell-${index}`} fill={entry.color} />
                           ))}
                         </Pie>
-                        <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} />
+                        <Tooltip formatter={(value: number) => fmt(value)} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -243,9 +273,7 @@ export default function GastoCoche() {
                           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
                           <span className="text-gray-600">{item.name}</span>
                         </div>
-                        <span className="font-semibold">
-                          {item.value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
-                        </span>
+                        <span className="font-semibold">{fmt(item.value)}</span>
                       </div>
                     ))}
                   </div>

@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Trash2, Zap } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { COUNTRIES, getCountry, fmtCurrency } from "@/lib/countries";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -42,8 +50,9 @@ const T = {
     title: "Calculadora de Consumo Eléctrico",
     subtitle: "Calcula el gasto eléctrico de tus electrodomésticos y encuentra oportunidades de ahorro.",
     priceCardTitle: "Precio de la energía",
-    priceLabel: "Precio por kWh (€)",
-    priceHint: "Precio medio en España ~0.12 €/kWh",
+    countryLabel: "País",
+    priceLabel: "Precio por kWh",
+    priceHint: "Precio medio orientativo según el país seleccionado",
     appliancesCardTitle: "Electrodomésticos",
     addBtn: "Añadir",
     colAppliance: "Electrodoméstico",
@@ -83,8 +92,9 @@ const T = {
     title: "Electricity Consumption Calculator",
     subtitle: "Calculate the electricity cost of your appliances and find savings opportunities.",
     priceCardTitle: "Energy price",
-    priceLabel: "Price per kWh (€)",
-    priceHint: "Average price in Spain ~0.12 €/kWh",
+    countryLabel: "Country",
+    priceLabel: "Price per kWh",
+    priceHint: "Indicative average price for the selected country",
     appliancesCardTitle: "Appliances",
     addBtn: "Add",
     colAppliance: "Appliance",
@@ -124,12 +134,22 @@ const T = {
 export default function ConsumoElectrico() {
   const locale = useLocale();
   const t = T[locale];
+  const [countryCode, setCountryCode] = useState("es");
   const [appliances, setAppliances] = useState<Appliance[]>([
     { id: 1, name: "Nevera", watts: "150", hoursPerDay: "24" },
     { id: 2, name: "Lavadora", watts: "2000", hoursPerDay: "1" },
     { id: 3, name: "Televisor", watts: "100", hoursPerDay: "4" },
   ]);
-  const [priceKwh, setPriceKwh] = useState("0.12");
+
+  const country = getCountry(countryCode);
+  const [priceKwh, setPriceKwh] = useState(String(country.electricityKwh));
+
+  const handleCountryChange = (code: string) => {
+    const c = getCountry(code);
+    setCountryCode(code);
+    setPriceKwh(String(c.electricityKwh));
+    setResult(null);
+  };
   const [result, setResult] = useState<Result | null>(null);
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -180,6 +200,10 @@ export default function ConsumoElectrico() {
 
   const fmt = (n: number, dec = 2) =>
     n.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  const fmtMoney = (n: number) => fmtCurrency(n, country.currency, country.numberLocale);
+  const sym = country.currencySymbol;
+  const perMonth = locale === "es" ? "/mes" : "/month";
+  const perYear = locale === "es" ? "/año" : "/year";
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -202,10 +226,27 @@ export default function ConsumoElectrico() {
         <CardHeader>
           <CardTitle>{t.priceCardTitle}</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
+          <div>
+            <Label>{t.countryLabel}</Label>
+            <Select value={countryCode} onValueChange={handleCountryChange}>
+              <SelectTrigger className="mt-1">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRIES.map((c) => (
+                  <SelectItem key={c.code} value={c.code}>
+                    {locale === "es" ? c.nameEs : c.nameEn}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
           <div className="flex items-end gap-4">
             <div className="flex-1">
-              <Label htmlFor="price-kwh">{t.priceLabel}</Label>
+              <Label htmlFor="price-kwh">
+                {t.priceLabel} ({country.currencySymbol}/kWh)
+              </Label>
               <Input
                 id="price-kwh"
                 data-testid="input-price-kwh"
@@ -213,7 +254,6 @@ export default function ConsumoElectrico() {
                 step="0.01"
                 value={priceKwh}
                 onChange={(e) => setPriceKwh(e.target.value)}
-                placeholder="0.12"
                 className="mt-1"
               />
             </div>
@@ -297,21 +337,21 @@ export default function ConsumoElectrico() {
               <CardContent className="pt-6 text-center">
                 <p className="text-sm text-muted-foreground mb-1">{t.dailyConsumption}</p>
                 <p className="text-2xl font-bold text-primary">{fmt(result.daily)} kWh</p>
-                <p className="text-sm text-muted-foreground">{fmt(result.daily * parseFloat(priceKwh))} €/día</p>
+                <p className="text-sm text-muted-foreground">{fmtMoney(result.daily * parseFloat(priceKwh))}{locale === "es" ? "/día" : "/day"}</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
                 <p className="text-sm text-muted-foreground mb-1">{t.monthlyCost}</p>
-                <p className="text-2xl font-bold text-primary">{fmt(result.monthly * parseFloat(priceKwh))} €</p>
-                <p className="text-sm text-muted-foreground">{fmt(result.monthly)} kWh/mes</p>
+                <p className="text-2xl font-bold text-primary">{fmtMoney(result.monthly * parseFloat(priceKwh))}</p>
+                <p className="text-sm text-muted-foreground">{fmt(result.monthly)} kWh{perMonth}</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
                 <p className="text-sm text-muted-foreground mb-1">{t.annualCost}</p>
-                <p className="text-2xl font-bold text-primary">{fmt(result.annual * parseFloat(priceKwh))} €</p>
-                <p className="text-sm text-muted-foreground">{fmt(result.annual)} kWh/año</p>
+                <p className="text-2xl font-bold text-primary">{fmtMoney(result.annual * parseFloat(priceKwh))}</p>
+                <p className="text-sm text-muted-foreground">{fmt(result.annual)} kWh{perYear}</p>
               </CardContent>
             </Card>
           </div>
@@ -348,8 +388,8 @@ export default function ConsumoElectrico() {
                     <tr className="border-b">
                       <th className="text-left py-2">{t.colAppliance}</th>
                       <th className="text-right py-2">{t.colKwh}</th>
-                      <th className="text-right py-2">{t.colMonthCost}</th>
-                      <th className="text-right py-2">{t.colYearCost}</th>
+                      <th className="text-right py-2">{sym}{perMonth}</th>
+                      <th className="text-right py-2">{sym}{perYear}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -357,8 +397,8 @@ export default function ConsumoElectrico() {
                       <tr key={i} className="border-b last:border-0">
                         <td className="py-2 font-medium">{b.name}</td>
                         <td className="text-right py-2">{fmt(b.kwh)}</td>
-                        <td className="text-right py-2">{fmt(b.cost * 30)}</td>
-                        <td className="text-right py-2">{fmt(b.cost * 365)}</td>
+                        <td className="text-right py-2">{fmtMoney(b.cost * 30)}</td>
+                        <td className="text-right py-2">{fmtMoney(b.cost * 365)}</td>
                       </tr>
                     ))}
                   </tbody>
