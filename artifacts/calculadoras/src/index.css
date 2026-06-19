@@ -174,3 +174,48 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* ── Mesh background — light & dark adaptive ─────────────────────────────── */
+.mesh-bg {
+  background-color: #f9fafb; /* gray-50 in light */
+}
+.dark .mesh-bg {
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(at 40% 20%, hsla(228,100%,74%,0.12) 0px, transparent 50%),
+    radial-gradient(at 80% 0%,  hsla(189,100%,56%,0.12) 0px, transparent 50%),
+    radial-gradient(at 0%  50%, hsla(355,100%,93%,0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340,100%,76%,0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%,77%,0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 100%,hsla(242,100%,70%,0.12) 0px, transparent 50%),
+    radial-gradient(at 0%  0%,  hsla(343,100%,76%,0.08) 0px, transparent 50%);
+}
+
+/* ── Glassmorphism card — light & dark adaptive ──────────────────────────── */
+.glass-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.dark .glass-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+/* ── Gradient hero text ──────────────────────────────────────────────────── */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #60A5FA, #34D399);
+}

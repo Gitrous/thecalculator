@@ -46,29 +46,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
       ];
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-gray-50 dark:bg-zinc-950">
-      <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 no-print">
+    <div className="min-h-[100dvh] flex flex-col mesh-bg">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/90 dark:bg-black/20 border-gray-200 dark:border-white/10 backdrop-blur-md no-print">
         <div className="container mx-auto px-4 h-16 grid grid-cols-3 items-center">
           <div />
           <Link href={homeHref} className="flex items-center justify-center gap-2">
             <img src="/favicon.svg" alt="Logo" className="h-9 w-9" />
-            <span className="hidden sm:inline-block font-semibold text-lg tracking-tight text-gray-900 dark:text-gray-100">
+            <span className="hidden sm:inline-block font-semibold text-lg tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
           </Link>
           <div className="flex items-center justify-end gap-3">
-            <nav className="hidden md:flex gap-6">
-              <Link
-                href={homeHref}
-                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary"
-              >
-                {homeLabel}
-              </Link>
-            </nav>
             {/* Language toggle */}
             <Link
               href={langToggleHref}
-              className="text-xs font-semibold px-2 py-1 rounded border border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-gray-400 hover:text-primary hover:border-primary transition-colors"
+              className="text-xs font-semibold px-2 py-1 rounded border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/70 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white/40 transition-colors"
             >
               {isEn ? "ES" : "EN"}
             </Link>
@@ -79,13 +71,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
 
-      <footer className="bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800 py-12 mt-auto no-print">
+      <footer className="bg-white dark:bg-black/40 border-t border-gray-200 dark:border-white/5 py-12 mt-auto no-print">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-4">
                 <img src="/favicon.svg" alt="Logo" className="h-6 w-6" />
-                <span className="font-semibold text-gray-900 dark:text-gray-100">
+                <span className="font-semibold text-gray-900 dark:text-white">
                   {isEn ? "Online Calculators" : "Simuladores Online"}
                 </span>
               </div>

@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Anti-flash: apply dark class before first paint -->
+    <!-- Anti-flash: dark by default, respect explicit light choice -->
     <script>
       (function () {
         try {
-          var t = localStorage.getItem("theme");
-          var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          if (t === "dark" || (!t && d) || (t === "system" && d)) {
+          if (localStorage.getItem("theme") !== "light") {
             document.documentElement.classList.add("dark");
           }
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
       })();
     </script>
 
