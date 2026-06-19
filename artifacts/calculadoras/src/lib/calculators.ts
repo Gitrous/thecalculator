@@ -1,25 +1,37 @@
 import {
   Building,
-  Landmark,
   Percent,
   Receipt,
-  Calculator,
   Coins,
   Briefcase,
   House,
   Car,
   Zap,
-  FileText,
   IdCard,
   UserCheck,
   CalendarDays,
   Clock,
   GitCompare,
   GraduationCap,
-  Activity,
   ArrowRightLeft,
   HeartPulse,
   Flame,
+  // nuevos iconos únicos por calculadora
+  CreditCard,
+  Wallet,
+  TrendingUp,
+  TrendingDown,
+  Banknote,
+  Scale,
+  BarChart2,
+  FileCheck,
+  Umbrella,
+  Triangle,
+  Gauge,
+  Rocket,
+  Activity,
+  BookOpen,
+  DollarSign,
   type LucideIcon,
 } from "lucide-react";
 
@@ -142,7 +154,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula la cuota mensual de tu préstamo, el total de intereses y el cuadro de amortización mes a mes.",
     shortLabel: "Préstamo Personal",
-    icon: Landmark,
+    icon: CreditCard,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora de Préstamo Personal: cuota e intereses",
     seoDescription:
@@ -196,7 +208,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Retención y sueldo neto por país y comunidad autónoma. Tramos 2026 actualizados.",
     shortLabel: "IRPF",
-    icon: Calculator,
+    icon: Wallet,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora IRPF por Comunidad Autónoma",
     seoDescription:
@@ -214,7 +226,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Proyecta el crecimiento de tus inversiones con aportes periódicos opcionales.",
     shortLabel: "Interés Compuesto",
-    icon: Coins,
+    icon: TrendingUp,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora de Interés Compuesto",
     seoDescription:
@@ -232,7 +244,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Convierte tu salario bruto anual en neto mensual estimado en España.",
     shortLabel: "Salario Neto",
-    icon: Briefcase,
+    icon: Banknote,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora de Salario Neto en España",
     seoDescription:
@@ -250,7 +262,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Compara si es más rentable alquilar o comprar vivienda en tu caso concreto.",
     shortLabel: "Alquiler vs Compra",
-    icon: House,
+    icon: Scale,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora Alquiler vs Compra de vivienda",
     seoDescription:
@@ -308,7 +320,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula el finiquito que te corresponde: indemnización, vacaciones pendientes, pagas extra y días no cobrados.",
     shortLabel: "Finiquito",
-    icon: FileText,
+    icon: FileCheck,
     color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
     seoTitle: "Calculadora de Finiquito",
     seoDescription:
@@ -400,7 +412,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula la hipotenusa o un cateto de un triángulo rectángulo aplicando el teorema de Pitágoras: a² + b² = c².",
     shortLabel: "Pitágoras",
-    icon: Calculator,
+    icon: Triangle,
     color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
     seoTitle: "Calculadora del Teorema de Pitágoras",
     seoDescription:
@@ -436,7 +448,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula tu nota media simple o ponderada por créditos ECTS. Añade todas tus asignaturas.",
     shortLabel: "Nota Media",
-    icon: GraduationCap,
+    icon: BookOpen,
     color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
     seoTitle: "Calculadora de Nota Media (simple y ponderada)",
     seoDescription:
@@ -454,7 +466,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Resuelve problemas de Movimiento Rectilíneo Uniforme: distancia, velocidad y tiempo.",
     shortLabel: "MRU",
-    icon: Activity,
+    icon: Gauge,
     color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
     seoTitle: "Calculadora MRU (Movimiento Rectilíneo Uniforme)",
     seoDescription:
@@ -472,7 +484,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula posición, velocidad y aceleración en movimiento rectilíneo acelerado.",
     shortLabel: "MRUA",
-    icon: Activity,
+    icon: Rocket,
     color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
     seoTitle: "Calculadora MRUA (Movimiento Rectilíneo Uniformemente Acelerado)",
     seoDescription:
@@ -510,7 +522,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula tu Índice de Masa Corporal y descubre en qué rango de peso te encuentras según tu altura.",
     shortLabel: "IMC",
-    icon: HeartPulse,
+    icon: Activity,
     color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
     seoTitle: "Calculadora de IMC (Índice de Masa Corporal)",
     seoDescription:
@@ -548,7 +560,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula cuánto ahorras amortizando anticipadamente tu hipoteca y elige entre reducir cuota o plazo.",
     shortLabel: "Amortización Anticipada",
-    icon: Building,
+    icon: TrendingDown,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora de Amortización Anticipada de Hipoteca",
     seoDescription:
@@ -566,7 +578,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Convierte entre TIN y TAE según la frecuencia de capitalización. Compara hipotecas, préstamos y depósitos.",
     shortLabel: "TAE / TIN",
-    icon: Percent,
+    icon: BarChart2,
     color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
     seoTitle: "Calculadora TAE y TIN online",
     seoDescription:
@@ -586,7 +598,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario.",
     shortLabel: "Paro / Desempleo",
-    icon: Briefcase,
+    icon: DollarSign,
     color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
     seoTitle: "Calculadora de Paro y Prestación por Desempleo 2026",
     seoDescription:
@@ -604,7 +616,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description:
       "Estima tu pensión mensual según los años cotizados y tu base reguladora.",
     shortLabel: "Pensión de Jubilación",
-    icon: Landmark,
+    icon: Umbrella,
     color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
     seoTitle: "Calculadora de Pensión de Jubilación 2026",
     seoDescription:
