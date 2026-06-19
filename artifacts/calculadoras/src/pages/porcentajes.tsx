@@ -41,9 +41,11 @@ const T = {
     resultLabel: "Resultado",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cómo se calcula el X% de una cantidad?",
-    a1: "Se divide el porcentaje entre 100 y se multiplica por la cantidad. Por ejemplo, el 20% de 150 es (20 / 100) × 150 = 30.",
+    a1: "Se divide el porcentaje entre 100 y se multiplica por la cantidad. Por ejemplo, el 20% de 150 es (20 / 100) × 150 = 30. Esta operación es la base de los descuentos comerciales: si una camiseta vale 60 € y hay un 15% de descuento, el ahorro es (15 / 100) × 60 = 9 € y el precio final es 51 €.",
     q2: "¿Cómo calcular la variación porcentual?",
-    a2: "Se resta el valor inicial al final, se divide entre el inicial y se multiplica por 100: ((final − inicial) / inicial) × 100.",
+    a2: "Se resta el valor inicial al final, se divide entre el valor inicial y se multiplica por 100: ((final − inicial) / inicial) × 100. Si un producto pasó de 200 € a 250 €, la variación es ((250 − 200) / 200) × 100 = 25%. Un resultado negativo indica una bajada. Esta fórmula se usa en finanzas para calcular rentabilidades, IPC y variaciones de precio.",
+    q3: "¿Cuándo usar cada tipo de cálculo?",
+    a3: "Usa «el X% de Y» para aplicar descuentos, impuestos (IVA, IRPF) o comisiones. Usa «X es qué % de Y» cuando necesitas saber qué parte representa un valor respecto a un total, como la tasa de error en un proceso o el porcentaje de aciertos en un examen. Usa «variación %» para comparar dos cifras en el tiempo, como el crecimiento de ventas o la inflación.",
   },
   en: {
     title: "Percentage Calculator",
@@ -65,9 +67,11 @@ const T = {
     resultLabel: "Result",
     faqTitle: "Frequently asked questions",
     q1: "How do you calculate X% of an amount?",
-    a1: "Divide the percentage by 100 and multiply by the amount. For example, 20% of 150 is (20 / 100) × 150 = 30.",
+    a1: "Divide the percentage by 100 and multiply by the amount. For example, 20% of 150 is (20 / 100) × 150 = 30. This operation is the basis of commercial discounts: if a shirt costs €60 and there is a 15% discount, the saving is (15 / 100) × 60 = €9 and the final price is €51.",
     q2: "How do you calculate the percentage change?",
-    a2: "Subtract the initial value from the final, divide by the initial and multiply by 100: ((final − initial) / initial) × 100.",
+    a2: "Subtract the initial value from the final, divide by the initial value and multiply by 100: ((final − initial) / initial) × 100. If a product went from €200 to €250, the change is ((250 − 200) / 200) × 100 = 25%. A negative result indicates a decrease. This formula is used in finance to calculate returns, CPI and price variations.",
+    q3: "When should I use each type of calculation?",
+    a3: "Use 'X% of Y' to apply discounts, taxes (VAT, income tax) or commissions. Use 'X is what % of Y' when you need to know what proportion a value represents of a total, such as the error rate in a process or the percentage of correct answers in a test. Use '% change' to compare two figures over time, such as sales growth or inflation.",
   },
 };
 
@@ -189,6 +193,10 @@ export default function Porcentajes() {
           <AccordionItem value="q2">
             <AccordionTrigger>{t.q2}</AccordionTrigger>
             <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

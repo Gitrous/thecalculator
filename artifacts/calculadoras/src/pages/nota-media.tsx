@@ -40,7 +40,11 @@ const T = {
     avgLabel: (type: string) => `Nota media ${type}`,
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué es la media ponderada por créditos?",
-    a1: "Cada asignatura pesa según sus créditos ECTS. Se multiplica la nota por los créditos, se suman todos y se divide entre el total de créditos. Es la media oficial del expediente universitario.",
+    a1: "Cada asignatura pesa según sus créditos ECTS en lugar de contar igual. Por ejemplo, una asignatura de 6 créditos con un 9 contribuye más al promedio que una de 3 créditos con un 9. Se calcula multiplicando cada nota por sus créditos, sumando todos los productos y dividiéndolos entre el total de créditos cursados.",
+    q2: "¿Cuándo conviene usar la media simple?",
+    a2: "La media simple —suma de notas dividida entre el número de asignaturas— es útil cuando todas las materias tienen el mismo peso o cuando solo quieres una referencia rápida. Sin embargo, para becas, solicitudes de máster u oposiciones, lo habitual es pedir la nota media oficial del expediente, que siempre es la ponderada por créditos ECTS.",
+    q3: "¿Cómo puede afectar la nota media a tu carrera?",
+    a3: "La nota media importa en convocatorias de becas (como las del MEC, que suelen exigir un mínimo de 6,5 o 7), en el acceso a másteres con plazas limitadas y en oposiciones que valoran el expediente académico. Mejorar una asignatura de muchos créditos tiene mayor impacto que subir una de pocos, por eso merece la pena identificar las de más peso antes de ir a recuperación.",
   },
   en: {
     title: "Grade Average Calculator",
@@ -57,7 +61,11 @@ const T = {
     avgLabel: (type: string) => `${type.charAt(0).toUpperCase() + type.slice(1)} average`,
     faqTitle: "Frequently asked questions",
     q1: "What is the credit-weighted average?",
-    a1: "Each subject is weighted according to its ECTS credits. The grade is multiplied by the credits, all results are summed and divided by the total credits. This is the official university transcript average.",
+    a1: "Each subject is weighted by its ECTS credits rather than counting equally. For example, a 6-credit subject with a grade of 9 contributes more to the average than a 3-credit subject with a 9. It is calculated by multiplying each grade by its credits, adding all the products, and dividing by the total credits taken.",
+    q2: "When should I use the simple average?",
+    a2: "The simple average—the sum of grades divided by the number of subjects—is useful when all subjects carry the same weight or when you just want a quick reference. However, for scholarship applications, master's programmes or public-sector exams, the official transcript average is always the credit-weighted one.",
+    q3: "How does the grade average affect your career?",
+    a3: "Your transcript average matters for scholarship applications (government grants typically require a minimum of 6.5 or 7), access to oversubscribed master's programmes, and public-sector exams that reward academic records. Improving a high-credit subject has more impact than raising a low-credit one, so it is worth identifying the heaviest subjects before a resit.",
   },
 };
 
@@ -186,6 +194,14 @@ export default function NotaMedia() {
           <AccordionItem value="q1">
             <AccordionTrigger>{t.q1}</AccordionTrigger>
             <AccordionContent>{t.a1}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q2">
+            <AccordionTrigger>{t.q2}</AccordionTrigger>
+            <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

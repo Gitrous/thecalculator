@@ -36,9 +36,11 @@ const T = {
     businessLabel: "Días laborables",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Se incluyen los dos extremos?",
-    a1: "El cálculo cuenta los días transcurridos entre ambas fechas. Si necesitas incluir el primer y el último día, suma uno al total.",
+    a1: "El cálculo usa la diferencia estricta entre ambas fechas: si el inicio y el final son el mismo día, el resultado es 0. Para contar el propio día de inicio y el de fin —como en plazos legales o estancias en alojamiento—, suma 1 al total. Por ejemplo, del 1 al 7 de enero transcurren 6 días; si quieres contar ambos extremos, son 7 noches o 7 días naturales.",
     q2: "¿Los días laborables tienen en cuenta festivos?",
-    a2: "Se excluyen sábados y domingos, pero no los festivos locales o nacionales, que varían según la comunidad autónoma.",
+    a2: "Se excluyen sábados y domingos, pero no los festivos locales o nacionales, ya que estos varían según la comunidad autónoma y el municipio. Si necesitas el cómputo exacto con festivos —para un contrato, una baja laboral o un plazo administrativo—, consulta el calendario laboral oficial de tu provincia. El resultado de esta calculadora es una estimación de días hábiles sin festivos.",
+    q3: "¿Para qué se usa habitualmente?",
+    a3: "Este cálculo es útil en muchos contextos: saber cuántos días quedan para un evento, comprobar si un plazo legal ha vencido (los recursos administrativos suelen tener 15 o 30 días hábiles), calcular el período de prueba de un contrato laboral, estimar el tiempo entre dos hitos de un proyecto o verificar cuántos días de vacaciones han transcurrido.",
   },
   en: {
     title: "Days Between Dates Calculator",
@@ -52,9 +54,11 @@ const T = {
     businessLabel: "Working days",
     faqTitle: "Frequently asked questions",
     q1: "Are both endpoints included?",
-    a1: "The calculation counts the days elapsed between the two dates. If you need to include both the first and last day, add one to the total.",
+    a1: "The calculation uses the strict difference between the two dates: if the start and end are the same day, the result is 0. To count the start day and the end day themselves—as in legal deadlines or accommodation stays—add 1 to the total. For example, from 1 January to 7 January is 6 days elapsed; if you want to count both endpoints, that is 7 nights or 7 calendar days.",
     q2: "Do working days account for public holidays?",
-    a2: "Saturdays and Sundays are excluded, but not local or national public holidays, which vary by region.",
+    a2: "Saturdays and Sundays are excluded, but not local or national public holidays, which vary by region and municipality. If you need the exact count including public holidays—for a contract, sick leave or an administrative deadline—consult the official labour calendar for your province. The result of this calculator is an estimate of working days without holidays.",
+    q3: "What is it typically used for?",
+    a3: "This calculation is useful in many situations: finding out how many days are left until an event, checking whether a legal deadline has passed (administrative appeals usually allow 15 or 30 working days), calculating the probationary period of a contract, estimating the time between two project milestones, or verifying how many holiday days have elapsed.",
   },
 };
 
@@ -140,6 +144,10 @@ export default function DiasEntreFechas() {
           <AccordionItem value="q2">
             <AccordionTrigger>{t.q2}</AccordionTrigger>
             <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
