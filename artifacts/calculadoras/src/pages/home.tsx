@@ -61,6 +61,9 @@ export default function Home() {
     : "Más de 25 herramientas gratuitas para finanzas, hogar, trabajo, educación y salud. Sin registro.";
   const searchPlaceholder = isEn ? "Search a calculator…" : "Busca una calculadora…";
   const recentLabel = isEn ? "Recently used" : "Usadas recientemente";
+  const aboutText = isEn
+    ? "TheCalculator is a free online tool suite designed to answer the most common financial, work, education and health questions. Every calculator runs entirely in your browser—no registration, no subscription, nothing to install—and shows the calculation method alongside the result so you can understand how each figure is reached, not just copy it. Tax brackets, Social Security rates and labour regulations are updated every year to reflect current legislation."
+    : "TheCalculator es una web de herramientas de cálculo gratuitas diseñadas para responder a las preguntas financieras, laborales, educativas y de salud más habituales. Todas las calculadoras funcionan directamente en el navegador —sin registro, sin suscripción y sin instalar nada— y muestran el procedimiento junto con el resultado para que puedas entender cómo se llega a cada cifra, no solo copiarla. Los datos fiscales, de cotización y laborales se actualizan cada año para reflejar la legislación vigente.";
 
   return (
     <div className="max-w-6xl mx-auto space-y-16">
@@ -114,6 +117,13 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* ── About ──────────────────────────────────────────────────────────── */}
+      {!isSearching && (
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto text-center -mt-8">
+          {aboutText}
+        </p>
+      )}
 
       {/* ── Search results ─────────────────────────────────────────────────── */}
       {isSearching && (
