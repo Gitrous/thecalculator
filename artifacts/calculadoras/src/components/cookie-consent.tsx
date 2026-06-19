@@ -49,8 +49,8 @@ export function CookieConsent() {
   const policyHref = isEn ? "/en/cookies" : "/cookies";
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[100] no-print">
-      <div className="mx-auto max-w-4xl m-3 sm:m-4 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-xl p-4 sm:p-5">
+    <div className="fixed inset-x-0 bottom-0 z-[100] no-print flex justify-center p-4 sm:p-6">
+      <div className="w-full max-w-xl rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-xl p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <p className="flex-1 text-sm text-gray-600 dark:text-gray-300">
             {isEn ? (
