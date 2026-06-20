@@ -161,6 +161,17 @@ export default function CalculatorPage() {
         <span className="text-gray-900 dark:text-gray-200">{shortLabel}</span>
       </nav>
 
+      {/* Category chip */}
+      {(() => {
+        const CatIcon = category.icon;
+        return (
+          <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-4 ${category.color}`}>
+            <CatIcon className="w-3.5 h-3.5" />
+            {isEn ? category.enName : category.name}
+          </div>
+        );
+      })()}
+
       <Component />
       <AdUnit slot={AD_SLOTS.afterResult} className="mt-10" />
 

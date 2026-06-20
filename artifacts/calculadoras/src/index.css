@@ -217,6 +217,28 @@
   border-color: rgba(255, 255, 255, 0.20);
 }
 
+/* ── Button hover/active lift ────────────────────────────────────────────── */
+.hover-elevate {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-elevate:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.active-elevate-2:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+/* ── Input focus ring ────────────────────────────────────────────────────── */
+input:not([type="range"]):not([type="radio"]):not([type="checkbox"]):focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 0 3px rgba(15, 185, 100, 0.15);
+}
+
 /* ── Gradient hero text ──────────────────────────────────────────────────── */
 .text-gradient {
   background-clip: text;
