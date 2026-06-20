@@ -10,7 +10,7 @@ import {
   localeSwitchPath,
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
-import { Mail } from "lucide-react";
+import { Mail, ChevronDown } from "lucide-react";
 import { useLocale } from "@/lib/locale";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -59,12 +59,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
           {/* Center: nav */}
           <div className="flex items-center justify-center gap-6">
-            <Link
-              href={homeHref}
-              className="text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors"
-            >
-              {isEn ? "Calculators" : "Calculadoras"}
-            </Link>
+            {/* Calculadoras dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors">
+                {isEn ? "Calculators" : "Calculadoras"}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                <div className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/10 rounded-xl shadow-xl p-2 min-w-[190px]">
+                  {CATEGORIES.map((cat) => {
+                    const CatIcon = cat.icon;
+                    const catHref = isEn
+                      ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
+                      : `/calculadoras/${cat.id}`;
+                    return (
+                      <Link
+                        key={cat.id}
+                        href={catHref}
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <div className={`w-6 h-6 rounded flex items-center justify-center shrink-0 ${cat.color}`}>
+                          <CatIcon className="w-3.5 h-3.5" />
+                        </div>
+                        {isEn ? cat.enName : cat.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
             <Link
               href={isEn ? "/en/contact" : "/contacto"}
               className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-white/50 hover:text-primary dark:hover:text-white transition-colors"
