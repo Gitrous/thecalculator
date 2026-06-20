@@ -279,7 +279,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                {index === 1 && <AdUnit slot={AD_SLOTS.midContent} className="lg:col-span-3 my-2" />}
+                {index === 2 && <AdUnit slot={AD_SLOTS.midContent} className="lg:col-span-3 my-2" />}
               </React.Fragment>
             );
           })}

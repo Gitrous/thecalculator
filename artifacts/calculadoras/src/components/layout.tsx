@@ -26,10 +26,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   const homeHref = isEn ? "/en" : "/";
   const homeLabel = isEn ? "Home" : "Inicio";
-  const siteTitle = isEn ? "Online Calculators" : "Simuladores y Calculadoras";
+  const siteTitle = "thecalculator.tech";
   const copyright = isEn
-    ? `© ${new Date().getFullYear()} Online Calculators. All rights reserved.`
-    : `© ${new Date().getFullYear()} Simuladores y Calculadoras Online. Todos los derechos reservados.`;
+    ? `© ${new Date().getFullYear()} thecalculator.tech. All rights reserved.`
+    : `© ${new Date().getFullYear()} thecalculator.tech. Todos los derechos reservados.`;
 
   const legalLinks = isEn
     ? [
@@ -78,7 +78,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center gap-2 mb-4">
                 <img src="/favicon.svg" alt="Logo" className="h-6 w-6" />
                 <span className="font-semibold text-gray-900 dark:text-white">
-                  {isEn ? "Online Calculators" : "Simuladores Online"}
+                  thecalculator.tech
                 </span>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
