@@ -50,13 +50,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-[100dvh] flex flex-col mesh-bg">
       <header className="sticky top-0 z-50 w-full border-b bg-white/90 dark:bg-black/20 border-gray-200 dark:border-white/10 backdrop-blur-md no-print">
         <div className="container mx-auto px-4 h-16 grid grid-cols-3 items-center">
-          <div />
-          <div className="flex items-center justify-center gap-4">
-            <Link href={homeHref} className="logo-link flex items-center gap-2">
-              <img src="/favicon.svg" alt="Logo" className="logo-icon h-11 w-11" />
-              <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
-                {siteTitle}
-              </span>
+          {/* Left: logo */}
+          <Link href={homeHref} className="logo-link flex items-center gap-2">
+            <img src="/favicon.svg" alt="Logo" className="logo-icon h-11 w-11" />
+            <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
+              {siteTitle}
+            </span>
+          </Link>
+          {/* Center: nav */}
+          <div className="flex items-center justify-center gap-6">
+            <Link
+              href={homeHref}
+              className="text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors"
+            >
+              {isEn ? "Calculators" : "Calculadoras"}
             </Link>
             <Link
               href={isEn ? "/en/contact" : "/contacto"}
