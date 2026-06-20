@@ -62,8 +62,8 @@ const INNER_GRID: Record<string, string> = {
 const IS_COMPACT: Record<string, boolean> = {
   finanzas:  false,
   trabajo:   false,
-  educacion: true,
-  hogar:     true,
+  educacion: false,
+  hogar:     false,
   salud:     false,
 };
 
