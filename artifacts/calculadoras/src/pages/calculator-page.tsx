@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowRight } from "lucide-react";
 import {
   getCalculator,
   getCategory,
@@ -177,11 +177,15 @@ export default function CalculatorPage() {
 
       {/* Related calculators */}
       {(() => {
-        const siblings = getCalculatorsByCategory(categoryId).filter((c) => c.slug !== slug).slice(0, 6);
+        const siblings = getCalculatorsByCategory(categoryId).filter((c) => c.slug !== slug).slice(0, 5);
         if (siblings.length === 0) return null;
         const label = isEn
           ? `Other ${category.enName} calculators`
           : `Otras calculadoras de ${category.name.toLowerCase()}`;
+        const seeAllLabel = isEn ? "See all" : "Ver todas";
+        const catHref = isEn
+          ? `/en/calculators/${EN_CATEGORY_SLUGS[category.id]}`
+          : `/calculadoras/${category.id}`;
         return (
           <section className="mt-12 pt-8 border-t border-gray-200 dark:border-white/10">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">{label}</h2>
@@ -207,6 +211,18 @@ export default function CalculatorPage() {
                   </Link>
                 );
               })}
+              {/* Ver todas */}
+              <Link
+                href={catHref}
+                className="flex flex-col items-center justify-center gap-3 p-5 rounded-xl border-2 border-dashed border-gray-200 dark:border-white/10 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-white/10 group-hover:bg-primary/10 transition-colors">
+                  <ArrowRight className="w-5 h-5 text-gray-400 dark:text-white/40 group-hover:text-primary transition-colors" />
+                </div>
+                <span className="text-sm font-semibold text-gray-500 dark:text-white/40 group-hover:text-primary transition-colors">
+                  {seeAllLabel}
+                </span>
+              </Link>
             </div>
           </section>
         );
