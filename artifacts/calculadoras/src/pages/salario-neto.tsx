@@ -11,7 +11,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, PieChart, Pie, Cell, RadialBarChart, RadialBar } from "recharts";
+import { cn } from "@/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Briefcase } from "lucide-react";
 import { AdUnit } from "@/components/ad-unit";
@@ -40,6 +41,10 @@ const T = {
     socialSec: "Seguridad Social",
     placeholder: "Calcula tu sueldo neto completando el formulario.",
     approxNote: "Cálculo orientativo basado en tramos nacionales simplificados. No incluye deducciones autonómicas, personales ni regímenes especiales.",
+    bars: "Barras",
+    horizontal: "Horizontal",
+    pie: "Tarta",
+    radial: "Radial",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cuál es la diferencia entre salario bruto y salario neto?",
     a1: "El salario bruto es el importe total acordado antes de deducciones. El neto es lo que recibes en cuenta después de descontar el impuesto sobre la renta y las cotizaciones sociales del trabajador.",
@@ -68,6 +73,10 @@ const T = {
     socialSec: "Social Security",
     placeholder: "Calculate your net salary by completing the form.",
     approxNote: "Indicative calculation based on simplified national brackets. Does not include regional, personal deductions or special regimes.",
+    bars: "Bars",
+    horizontal: "Horizontal",
+    pie: "Pie",
+    radial: "Radial",
     faqTitle: "Frequently asked questions",
     q1: "What is the difference between gross and net salary?",
     a1: "Gross salary is the total amount agreed before any deductions. Net salary is what you actually receive in your account after deducting income tax and employee social contributions.",
@@ -101,6 +110,7 @@ export default function SalarioNeto() {
     ss: number;
     tax: number;
   } | null>(null);
+  const [chartType, setChartType] = useState<"barras" | "horizontal" | "tarta" | "radial">("tarta");
 
   const calculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -221,32 +231,70 @@ export default function SalarioNeto() {
               </div>
 
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <CardTitle className="text-lg">{t.breakdownTitle} — {fmt(parseFloat(bruto))}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="h-[220px] w-full md:w-1/2">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie data={pieData} innerRadius={55} outerRadius={75} paddingAngle={5} dataKey="value">
-                          {pieData.map((entry, i) => (
-                            <Cell key={i} fill={entry.color} />
-                          ))}
-                        </Pie>
-                        <Tooltip formatter={(v: number) => fmt(v)} />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <div className="w-full md:w-1/2 space-y-3">
-                    {pieData.map((item) => (
-                      <div key={item.name} className="flex justify-between items-center">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
-                          <span className="text-sm font-medium">{item.name}</span>
-                        </div>
-                        <span className="font-semibold text-sm">{fmt(item.value)}</span>
-                      </div>
+                  <div className="flex flex-wrap gap-1 rounded-lg border p-1">
+                    {(["barras", "horizontal", "tarta", "radial"] as const).map((type) => (
+                      <button
+                        key={type}
+                        onClick={() => setChartType(type)}
+                        className={cn(
+                          "px-3 py-1 text-xs rounded-md transition-colors capitalize",
+                          chartType === type
+                            ? "bg-primary text-primary-foreground font-medium"
+                            : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-100"
+                        )}
+                      >
+                        {t[type === "barras" ? "bars" : type === "tarta" ? "pie" : type]}
+                      </button>
                     ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-[300px] w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      {chartType === "barras" ? (
+                        <BarChart data={[{ name: locale === "en" ? "Salary" : "Salario", [t.netSalary]: results!.netoAnual, [t.incomeTax]: results!.tax, [t.socialSec]: results!.ss }]}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis dataKey="name" />
+                          <YAxis tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
+                          <Tooltip formatter={(v: number) => fmt(v)} />
+                          <Legend />
+                          <Bar dataKey={t.netSalary} stackId="a" fill="#0FA958" />
+                          <Bar dataKey={t.incomeTax} stackId="a" fill="#ef4444" />
+                          <Bar dataKey={t.socialSec} stackId="a" fill="#f59e0b" />
+                        </BarChart>
+                      ) : chartType === "horizontal" ? (
+                        <BarChart layout="vertical" data={[{ name: locale === "en" ? "Salary" : "Salario", [t.netSalary]: results!.netoAnual, [t.incomeTax]: results!.tax, [t.socialSec]: results!.ss }]} margin={{ left: 10 }}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis type="number" tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`} />
+                          <YAxis type="category" dataKey="name" width={55} />
+                          <Tooltip formatter={(v: number) => fmt(v)} />
+                          <Legend />
+                          <Bar dataKey={t.netSalary} stackId="a" fill="#0FA958" />
+                          <Bar dataKey={t.incomeTax} stackId="a" fill="#ef4444" />
+                          <Bar dataKey={t.socialSec} stackId="a" fill="#f59e0b" />
+                        </BarChart>
+                      ) : chartType === "tarta" ? (
+                        <PieChart>
+                          <Pie data={pieData} cx="50%" cy="50%" innerRadius={60} outerRadius={110} dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`} labelLine>
+                            {pieData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                          </Pie>
+                          <Tooltip formatter={(v: number, _n: string, props: { payload?: { name?: string } }) => [fmt(v), props.payload?.name ?? _n]} />
+                          <Legend />
+                        </PieChart>
+                      ) : (
+                        <RadialBarChart cx="50%" cy="50%" innerRadius={30} outerRadius={120} data={[
+                          { name: t.socialSec, value: results!.ss, fill: "#f59e0b" },
+                          { name: t.incomeTax, value: results!.tax, fill: "#ef4444" },
+                          { name: t.netSalary, value: results!.netoAnual, fill: "#0FA958" },
+                        ]} startAngle={90} endAngle={-270}>
+                          <RadialBar dataKey="value" label={{ position: "insideStart", fill: "#fff", fontSize: 11 }} />
+                          <Tooltip formatter={(v: number, _n: string, props: { payload?: { name?: string } }) => [fmt(v), props.payload?.name ?? _n]} />
+                          <Legend />
+                        </RadialBarChart>
+                      )}
+                    </ResponsiveContainer>
                   </div>
                 </CardContent>
               </Card>
