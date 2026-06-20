@@ -58,8 +58,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
           </div>
           <Link href={homeHref} className="logo-link flex items-center justify-center gap-2">
-            <img src="/favicon.svg" alt="Logo" className="logo-icon h-9 w-9" />
-            <span className="logo-text hidden sm:inline-block font-semibold text-lg tracking-tight text-gray-900 dark:text-white">
+            <img src="/favicon.svg" alt="Logo" className="logo-icon h-11 w-11" />
+            <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
           </Link>
@@ -76,7 +76,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
+      <main className="flex-1 container mx-auto px-4 py-8">
+        <div key={location} className="page-enter">{children}</div>
+      </main>
 
       <footer className="bg-white dark:bg-black/40 border-t border-gray-200 dark:border-white/5 py-12 mt-auto no-print">
         <div className="container mx-auto px-4">
