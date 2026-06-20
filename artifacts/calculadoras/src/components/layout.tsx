@@ -62,7 +62,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               href={langToggleHref}
               className="text-xs font-semibold px-2 py-1 rounded border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/70 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white/40 transition-colors"
             >
-              {isEn ? "ES" : "EN"}
+              {isEn ? "Español" : "English"}
             </Link>
             <ThemeToggle />
           </div>
