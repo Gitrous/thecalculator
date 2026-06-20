@@ -149,8 +149,8 @@ export default function HipotecaAvanzada() {
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        <Card className="md:col-span-1">
+      <div className="flex flex-col md:flex-row gap-8 items-start">
+        <Card className="w-full md:w-72 shrink-0">
           <CardHeader>
             <CardTitle>{t.cardTitle}</CardTitle>
           </CardHeader>
@@ -221,7 +221,7 @@ export default function HipotecaAvanzada() {
           </CardContent>
         </Card>
 
-        <div className="md:col-span-2 space-y-8">
+        <div className="flex-1 min-w-0 space-y-8">
           {results && (
             <div className="space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
