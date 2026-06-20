@@ -177,7 +177,9 @@
 
 /* ── Mesh background — light & dark adaptive ─────────────────────────────── */
 .mesh-bg {
-  background-color: #f9fafb; /* gray-50 in light */
+  background-color: #f9fafb;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 .dark .mesh-bg {
   background-color: #0f172a;
@@ -194,12 +196,15 @@
 /* ── Glassmorphism card — light & dark adaptive ──────────────────────────── */
 .glass-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
 }
 .glass-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
 }
 .dark .glass-card {
   background: rgba(255, 255, 255, 0.05);
