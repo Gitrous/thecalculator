@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -22,14 +21,83 @@ function eur(n: number): string {
   });
 }
 
+interface SliderFieldProps {
+  label: string;
+  value: number;
+  unit: string;
+  min: number;
+  max: number;
+  step: number;
+  minLabel: string;
+  maxLabel: string;
+  format?: (v: number) => string;
+  onChange: (v: number) => void;
+}
+
+function SliderField({ label, value, unit, min, max, step, minLabel, maxLabel, format, onChange }: SliderFieldProps) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const displayVal = format ? format(value) : value.toLocaleString("es-ES");
+
+  const startEditing = () => {
+    setDraft(String(value));
+    setEditing(true);
+    setTimeout(() => inputRef.current?.select(), 0);
+  };
+
+  const commitEdit = () => {
+    const v = parseFloat(draft.replace(",", "."));
+    if (!isNaN(v)) onChange(Math.min(max, Math.max(min, v)));
+    setEditing(false);
+  };
+
+  return (
+    <div className="space-y-3">
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-medium text-gray-600 dark:text-white/60">{label}</span>
+        {editing ? (
+          <input
+            ref={inputRef}
+            type="number"
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            onBlur={commitEdit}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") commitEdit();
+              if (e.key === "Escape") setEditing(false);
+            }}
+            className="w-28 text-right text-sm font-semibold text-primary border border-primary rounded-lg px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white dark:bg-white/10 dark:text-white"
+          />
+        ) : (
+          <button
+            onClick={startEditing}
+            title="Haz clic para editar"
+            className="text-sm font-semibold text-primary hover:bg-primary/10 rounded-lg px-2 py-0.5 transition-colors cursor-text"
+          >
+            {displayVal} {unit}
+          </button>
+        )}
+      </div>
+      <Slider min={min} max={max} step={step} value={[value]} onValueChange={([v]) => onChange(v)} />
+      <div className="flex justify-between text-xs text-gray-400 dark:text-white/30">
+        <span>{minLabel}</span>
+        <span>{maxLabel}</span>
+      </div>
+    </div>
+  );
+}
+
 const T = {
   es: {
     title: "Calculadora de Préstamo Personal",
     subtitle: "Calcula la cuota mensual de tu préstamo, los intereses totales y el coste final con el sistema de amortización francés.",
     cardTitle: "Datos del préstamo",
-    amountLabel: "Importe (€)",
-    rateLabel: "Interés anual (TIN %)",
-    yearsLabel: "Plazo (años)",
+    amountLabel: "Importe del préstamo",
+    rateLabel: "Interés anual (TIN)",
+    yearsLabel: "Plazo",
+    calculateBtn: "Calcular préstamo",
     monthlyLabel: "Cuota mensual",
     capitalLabel: "Capital",
     interestLabel: "Intereses",
@@ -44,9 +112,10 @@ const T = {
     title: "Personal Loan Calculator",
     subtitle: "Calculate your monthly loan payment, total interest and final cost using the French amortisation system.",
     cardTitle: "Loan details",
-    amountLabel: "Amount (€)",
-    rateLabel: "Annual interest rate (TIN %)",
-    yearsLabel: "Term (years)",
+    amountLabel: "Loan amount",
+    rateLabel: "Annual interest rate (TIN)",
+    yearsLabel: "Term",
+    calculateBtn: "Calculate loan",
     monthlyLabel: "Monthly payment",
     capitalLabel: "Principal",
     interestLabel: "Interest",
@@ -62,24 +131,22 @@ const T = {
 export default function PrestamoPersonal() {
   const locale = useLocale();
   const t = T[locale];
-  const [amount, setAmount] = useState("10000");
-  const [rate, setRate] = useState("7");
-  const [years, setYears] = useState("5");
+  const isEs = locale === "es";
 
-  const P = parseFloat(amount);
-  const annual = parseFloat(rate);
-  const n = Math.round(parseFloat(years) * 12);
+  const [amount, setAmount] = useState(10000);
+  const [rate, setRate] = useState(7);
+  const [years, setYears] = useState(5);
+  const [calculated, setCalculated] = useState(false);
 
-  const valid = P > 0 && annual >= 0 && n > 0;
+  const n = Math.round(years * 12);
+  const valid = amount > 0 && rate >= 0 && n > 0;
 
-  let monthly = 0;
-  let total = 0;
-  let interest = 0;
-  if (valid) {
-    const i = annual / 100 / 12;
-    monthly = i === 0 ? P / n : (P * i) / (1 - Math.pow(1 + i, -n));
+  let monthly = 0, total = 0, interest = 0;
+  if (valid && calculated) {
+    const i = rate / 100 / 12;
+    monthly = i === 0 ? amount / n : (amount * i) / (1 - Math.pow(1 + i, -n));
     total = monthly * n;
-    interest = total - P;
+    interest = total - amount;
   }
 
   return (
@@ -96,41 +163,48 @@ export default function PrestamoPersonal() {
         <CardHeader>
           <CardTitle>{t.cardTitle}</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <Label htmlFor="amount">{t.amountLabel}</Label>
-            <Input
-              id="amount"
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="mt-1"
-            />
-          </div>
-          <div>
-            <Label htmlFor="rate">{t.rateLabel}</Label>
-            <Input
-              id="rate"
-              type="number"
-              value={rate}
-              onChange={(e) => setRate(e.target.value)}
-              className="mt-1"
-            />
-          </div>
-          <div>
-            <Label htmlFor="years">{t.yearsLabel}</Label>
-            <Input
-              id="years"
-              type="number"
-              value={years}
-              onChange={(e) => setYears(e.target.value)}
-              className="mt-1"
-            />
-          </div>
+        <CardContent className="space-y-8">
+          <SliderField
+            label={t.amountLabel}
+            value={amount}
+            unit="€"
+            min={500}
+            max={100000}
+            step={500}
+            minLabel="500 €"
+            maxLabel="100.000 €"
+            onChange={(v) => setAmount(v)}
+          />
+          <SliderField
+            label={t.rateLabel}
+            value={rate}
+            unit="%"
+            min={0}
+            max={20}
+            step={0.1}
+            minLabel="0 %"
+            maxLabel="20 %"
+            format={(v) => v.toFixed(1)}
+            onChange={(v) => setRate(v)}
+          />
+          <SliderField
+            label={t.yearsLabel}
+            value={years}
+            unit={isEs ? "años" : "yr"}
+            min={1}
+            max={10}
+            step={1}
+            minLabel={isEs ? "1 año" : "1 yr"}
+            maxLabel={isEs ? "10 años" : "10 yr"}
+            onChange={(v) => setYears(v)}
+          />
+          <Button className="w-full" onClick={() => setCalculated(true)}>
+            {t.calculateBtn}
+          </Button>
         </CardContent>
       </Card>
 
-      {valid && (
+      {calculated && valid && (
         <Card className="border-primary/30 bg-primary/5 mb-8">
           <CardContent className="pt-6">
             <div className="text-center mb-6">
@@ -140,7 +214,7 @@ export default function PrestamoPersonal() {
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <p className="text-sm text-muted-foreground">{t.capitalLabel}</p>
-                <p className="text-lg font-semibold">{eur(P)}</p>
+                <p className="text-lg font-semibold">{eur(amount)}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.interestLabel}</p>
