@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -100,25 +100,17 @@ export default function HipotecaAvanzada() {
   const locale = useLocale();
   const t = T[locale];
 
-  const [capital, setCapital] = useState("150000");
-  const [interestRate, setInterestRate] = useState("3.5");
-  const [years, setYears] = useState("25");
+  const [capital, setCapital] = useState(150000);
+  const [interestRate, setInterestRate] = useState(3.5);
+  const [years, setYears] = useState(25);
   const [mortgageType, setMortgageType] = useState("fijo");
-  const [results, setResults] = useState<{
-    monthlyPayment: number;
-    totalPayment: number;
-    totalInterest: number;
-    schedule: AmortizationRow[];
-  } | null>(null);
   const [showFullSchedule, setShowFullSchedule] = useState(false);
 
-  const calculateMortgage = (e: React.FormEvent) => {
-    e.preventDefault();
-    const p = parseFloat(capital);
-    const r = parseFloat(interestRate) / 100 / 12;
-    const n = parseFloat(years) * 12;
-
-    if (isNaN(p) || isNaN(r) || isNaN(n) || p <= 0 || n <= 0) return;
+  const results = useMemo(() => {
+    const p = capital;
+    const r = interestRate / 100 / 12;
+    const n = years * 12;
+    if (p <= 0 || n <= 0) return null;
 
     let monthlyPayment = 0;
     if (r === 0) {
@@ -137,23 +129,11 @@ export default function HipotecaAvanzada() {
       balance -= principalPayment;
       if (balance < 0) balance = 0;
       totalInterest += interestPayment;
-
-      schedule.push({
-        month: i,
-        payment: monthlyPayment,
-        principal: principalPayment,
-        interest: interestPayment,
-        balance: balance,
-      });
+      schedule.push({ month: i, payment: monthlyPayment, principal: principalPayment, interest: interestPayment, balance });
     }
 
-    setResults({
-      monthlyPayment,
-      totalPayment: p + totalInterest,
-      totalInterest,
-      schedule,
-    });
-  };
+    return { monthlyPayment, totalPayment: p + totalInterest, totalInterest, schedule };
+  }, [capital, interestRate, years]);
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -174,67 +154,76 @@ export default function HipotecaAvanzada() {
           <CardHeader>
             <CardTitle>{t.cardTitle}</CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={calculateMortgage} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="capital">{t.capitalLabel}</Label>
-                <Input
-                  id="capital"
-                  type="number"
-                  value={capital}
-                  onChange={(e) => setCapital(e.target.value)}
-                  required
-                  min="1"
-                />
+          <CardContent className="space-y-7">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <Label>{t.capitalLabel}</Label>
+                <span className="text-sm font-semibold text-primary">
+                  {capital.toLocaleString('es-ES')} €
+                </span>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="interest">{t.rateLabel}</Label>
-                <Input
-                  id="interest"
-                  type="number"
-                  step="0.01"
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(e.target.value)}
-                  required
-                  min="0"
-                />
+              <Slider
+                min={10000} max={1000000} step={5000}
+                value={[capital]}
+                onValueChange={([v]) => setCapital(v)}
+              />
+              <div className="flex justify-between text-xs text-gray-400">
+                <span>10.000 €</span><span>1.000.000 €</span>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="years">{t.yearsLabel}</Label>
-                <Input
-                  id="years"
-                  type="number"
-                  value={years}
-                  onChange={(e) => setYears(e.target.value)}
-                  required
-                  min="1"
-                  max="50"
-                />
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <Label>{t.rateLabel}</Label>
+                <span className="text-sm font-semibold text-primary">{interestRate.toFixed(1)} %</span>
               </div>
-              <div className="space-y-3">
-                <Label>{t.typeLabel}</Label>
-                <RadioGroup value={mortgageType} onValueChange={setMortgageType} className="flex gap-4">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="fijo" id="fijo" />
-                    <Label htmlFor="fijo" className="font-normal cursor-pointer">{t.fixed}</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="variable" id="variable" />
-                    <Label htmlFor="variable" className="font-normal cursor-pointer">{t.variable}</Label>
-                  </div>
-                </RadioGroup>
-                {mortgageType === 'variable' && (
-                  <p className="text-xs text-amber-600 mt-1">{t.variableNote}</p>
-                )}
+              <Slider
+                min={0} max={15} step={0.1}
+                value={[interestRate]}
+                onValueChange={([v]) => setInterestRate(v)}
+              />
+              <div className="flex justify-between text-xs text-gray-400">
+                <span>0 %</span><span>15 %</span>
               </div>
-              <Button type="submit" className="w-full">{t.calculateBtn}</Button>
-            </form>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <Label>{t.yearsLabel}</Label>
+                <span className="text-sm font-semibold text-primary">{years} {locale === 'en' ? 'yr' : 'años'}</span>
+              </div>
+              <Slider
+                min={1} max={40} step={1}
+                value={[years]}
+                onValueChange={([v]) => setYears(v)}
+              />
+              <div className="flex justify-between text-xs text-gray-400">
+                <span>1</span><span>40</span>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Label>{t.typeLabel}</Label>
+              <RadioGroup value={mortgageType} onValueChange={setMortgageType} className="flex gap-4">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="fijo" id="fijo" />
+                  <Label htmlFor="fijo" className="font-normal cursor-pointer">{t.fixed}</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="variable" id="variable" />
+                  <Label htmlFor="variable" className="font-normal cursor-pointer">{t.variable}</Label>
+                </div>
+              </RadioGroup>
+              {mortgageType === 'variable' && (
+                <p className="text-xs text-amber-600 mt-1">{t.variableNote}</p>
+              )}
+            </div>
           </CardContent>
         </Card>
 
         <div className="md:col-span-2 space-y-8">
-          {results ? (
-            <div className="space-y-8 animate-in fade-in zoom-in duration-500">
+          {results && (
+            <div className="space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Card className="bg-primary/5 border-primary/20">
                   <CardContent className="p-6">
@@ -247,7 +236,7 @@ export default function HipotecaAvanzada() {
                 <Card>
                   <CardContent className="p-6">
                     <p className="text-sm font-medium text-gray-500 mb-1">{t.totalInterest}</p>
-                    <p className="text-2xl font-semibold text-gray-900">
+                    <p className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
                       {results.totalInterest.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
                     </p>
                   </CardContent>
@@ -255,7 +244,7 @@ export default function HipotecaAvanzada() {
                 <Card>
                   <CardContent className="p-6">
                     <p className="text-sm font-medium text-gray-500 mb-1">{t.totalPayment}</p>
-                    <p className="text-2xl font-semibold text-gray-900">
+                    <p className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
                       {results.totalPayment.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
                     </p>
                   </CardContent>
@@ -326,13 +315,6 @@ export default function HipotecaAvanzada() {
                 </CardContent>
               </Card>
             </div>
-          ) : (
-            <Card className="h-full flex items-center justify-center min-h-[400px] border-dashed">
-              <CardContent className="text-center text-gray-500">
-                <Calculator className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                <p>{t.placeholder}</p>
-              </CardContent>
-            </Card>
           )}
         </div>
       </div>
