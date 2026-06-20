@@ -166,31 +166,33 @@ export default function CalculatorPage() {
 
       {/* Related calculators */}
       {(() => {
-        const siblings = getCalculatorsByCategory(categoryId).filter((c) => c.slug !== slug);
+        const siblings = getCalculatorsByCategory(categoryId).filter((c) => c.slug !== slug).slice(0, 6);
         if (siblings.length === 0) return null;
         const label = isEn
           ? `Other ${category.enName} calculators`
           : `Otras calculadoras de ${category.name.toLowerCase()}`;
         return (
           <section className="mt-12 pt-8 border-t border-gray-200 dark:border-white/10">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{label}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">{label}</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {siblings.map((c) => {
                 const href = isEn ? enCalcPath(c) : calcPath(c);
                 const title = isEn ? c.enShortLabel : c.shortLabel;
                 const desc = isEn ? c.enDescription : c.description;
-                const CatIcon = category.icon;
+                const CalcIcon = c.icon;
                 return (
                   <Link
                     key={c.slug}
                     href={href}
-                    className="flex flex-col gap-1 p-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
+                    className="flex flex-col gap-3 p-5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <CatIcon className="w-4 h-4 text-primary shrink-0" />
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">{title}</span>
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${category.color}`}>
+                      <CalcIcon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-white/50 line-clamp-2">{desc}</span>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-semibold text-gray-900 dark:text-white leading-tight">{title}</span>
+                      <span className="text-xs text-gray-500 dark:text-white/50 line-clamp-2">{desc}</span>
+                    </div>
                   </Link>
                 );
               })}
