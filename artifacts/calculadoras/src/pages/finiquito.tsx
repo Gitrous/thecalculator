@@ -36,10 +36,12 @@ const T = {
     bonusLabel: "Pagas extra",
     note: "Cálculo orientativo en bruto. No incluye la indemnización por despido (que depende del tipo de despido y la antigüedad) ni retenciones de IRPF. Consulta tu convenio o un asesor laboral para el importe exacto.",
     faqTitle: "Preguntas frecuentes",
-    q1: "¿El finiquito incluye la indemnización?",
-    a1: "No necesariamente. El finiquito son las cantidades pendientes (vacaciones, días trabajados, pagas extra). La indemnización por despido improcedente u objetivo se calcula y paga aparte.",
-    q2: "¿Las pagas extra van prorrateadas?",
-    a2: "Si tu nómina ya incluye las pagas prorrateadas cada mes, no se suman de nuevo en el finiquito. Pon 0 meses en ese caso.",
+    q1: "¿El finiquito incluye la indemnización por despido?",
+    a1: "No. Son dos conceptos distintos. El finiquito recoge las cantidades que la empresa te debe en el momento de la extinción del contrato: los días de vacaciones no disfrutadas, los salarios devengados y no cobrados del mes en curso y la parte proporcional de las pagas extraordinarias. La indemnización por despido, en cambio, es una compensación adicional que solo corresponde en determinados tipos de extinción: 33 días por año trabajado en despido improcedente y 20 días en despido por causas objetivas (económicas, técnicas, etc.). Puedes firmar el finiquito sin renunciar a reclamar la indemnización si no estás de acuerdo con el motivo del despido.",
+    q2: "¿Las pagas extra van prorrateadas en mi nómina?",
+    a2: "Depende de tu contrato y convenio colectivo. Algunas empresas pagan dos pagas extra íntegras (normalmente en julio y diciembre) mientras que otras las prorratean mensualmente, es decir, dividen el importe total entre 12 meses y lo incluyen en cada nómina. Si tus pagas ya están prorrateadas, debes introducir 0 meses en esta calculadora para evitar contarlas dos veces. Puedes comprobarlo mirando tu nómina: si aparece un concepto como 'parte proporcional pagas extra' o 'prorrata pagas', ya están incluidas.",
+    q3: "¿Cuándo debe pagar la empresa el finiquito?",
+    a3: "El finiquito debe abonarse en el momento de la firma o, como máximo, el último día de trabajo. En la práctica, muchas empresas lo liquidan en la siguiente fecha de pago de nóminas. Si la empresa se retrasa, el trabajador tiene derecho a reclamar un recargo del 10% anual sobre las cantidades pendientes. El finiquito se firma en presencia del trabajador, que puede pedir que un representante sindical esté presente antes de firmarlo. Nunca firmes un finiquito sin leerlo y verificar que los importes son correctos.",
   },
   en: {
     title: "Severance Pay Calculator (Spain)",
@@ -56,9 +58,11 @@ const T = {
     note: "Indicative gross estimate. Does not include severance indemnity (which depends on the type of dismissal and seniority) or income tax withholding. Consult your collective agreement or a labour adviser for the exact amount.",
     faqTitle: "Frequently asked questions",
     q1: "Does severance pay include the dismissal indemnity?",
-    a1: "Not necessarily. Severance pay (finiquito) covers pending amounts (holidays, worked days, bonus payments). The dismissal indemnity for unfair or objective dismissal is calculated and paid separately.",
+    a1: "No — they are two separate concepts. Severance pay (finiquito) covers amounts the company owes you at the time the contract ends: unused holiday days, wages accrued but not yet paid in the current month, and the pro-rata share of bonus payments. The dismissal indemnity, by contrast, is additional compensation that only applies in certain types of termination: 33 days per year worked for unfair dismissal and 20 days for objective dismissal (economic, technical, etc.). You can sign the severance document without waiving your right to claim the indemnity if you disagree with the reason for dismissal.",
     q2: "Are bonus payments already pro-rated in my salary?",
-    a2: "If your payslip already includes pro-rated bonus payments each month, they are not added again in the severance pay. Enter 0 months in that case.",
+    a2: "It depends on your contract and collective agreement. Some companies pay two full bonus payments (typically in July and December), while others spread them across monthly pay by dividing the total amount by 12. If your bonuses are already pro-rated, enter 0 months in this calculator to avoid counting them twice. You can check your payslip: if you see a line such as 'pro-rata bonus' or 'parte proporcional pagas extra', they are already included in your monthly pay.",
+    q3: "When does the company have to pay severance?",
+    a3: "Severance pay must be settled on the day of signing or, at the latest, on the last working day. In practice, many companies process it on the next regular payroll date. If the company delays payment, the worker is entitled to claim a surcharge of 10% per year on the outstanding amounts. The severance document is signed in the presence of the worker, who may request that a trade union representative is present before signing. Never sign a severance document without reading it carefully and verifying that the amounts are correct.",
   },
 };
 
@@ -154,6 +158,10 @@ export default function Finiquito() {
           <AccordionItem value="q2">
             <AccordionTrigger>{t.q2}</AccordionTrigger>
             <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

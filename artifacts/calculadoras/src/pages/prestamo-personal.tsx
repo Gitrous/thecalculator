@@ -104,9 +104,11 @@ const T = {
     totalLabel: "Total a pagar",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué diferencia hay entre TIN y TAE?",
-    a1: "El TIN es el tipo de interés nominal que se aplica al capital. La TAE incluye además comisiones y gastos, por lo que refleja mejor el coste real del préstamo. Esta calculadora usa el TIN.",
-    q2: "¿Cómo se calcula la cuota?",
-    a2: "Con el sistema francés (cuota constante): cuota = C · i / (1 − (1+i)^−n), donde C es el capital, i el interés mensual y n el número de meses.",
+    a1: "El TIN (Tipo de Interés Nominal) es el interés puro que el banco aplica al capital prestado, sin incluir comisiones ni gastos adicionales. La TAE (Tasa Anual Equivalente) es el indicador más completo: incorpora el TIN más todas las comisiones asociadas al préstamo (apertura, estudio, seguros vinculados, etc.) y se expresa en términos anuales. A la hora de comparar préstamos entre entidades, siempre debes fijarte en la TAE, no en el TIN, ya que un préstamo con TIN bajo puede ser más caro que otro si tiene muchas comisiones. Esta calculadora usa el TIN para el cálculo de la cuota mensual.",
+    q2: "¿Cómo se calcula la cuota mensual?",
+    a2: "Esta calculadora usa el sistema de amortización francés, el más habitual en España para préstamos al consumo. La fórmula es: cuota = C · i / (1 − (1+i)^−n), donde C es el capital prestado, i es el tipo de interés mensual (TIN anual dividido entre 12) y n es el número total de cuotas (años × 12). Con este sistema, la cuota es constante todos los meses, pero la proporción entre capital e intereses varía: al principio se pagan más intereses y menos capital, y hacia el final del préstamo ocurre lo contrario.",
+    q3: "¿Qué pasa si dejo de pagar el préstamo?",
+    a3: "Si dejas de pagar una cuota, el banco te cobrará intereses de demora (que en España no pueden superar 2,5 veces el interés legal del dinero, según la Ley de Crédito al Consumo). Si el impago se prolonga varios meses, la entidad puede dar por vencido el préstamo anticipadamente y reclamarte el total de la deuda pendiente. Además, tus datos podrán incluirse en ficheros de morosidad como ASNEF, lo que dificultará obtener financiación futura. Si prevés dificultades de pago, contacta con el banco antes de que se produzca el impago: muchas entidades ofrecen periodos de carencia o refinanciación.",
   },
   en: {
     title: "Personal Loan Calculator",
@@ -121,10 +123,12 @@ const T = {
     interestLabel: "Interest",
     totalLabel: "Total to pay",
     faqTitle: "Frequently asked questions",
-    q1: "What is the difference between TIN and TAE?",
-    a1: "TIN is the nominal interest rate applied to the principal. TAE also includes fees and charges, so it better reflects the real cost of the loan. This calculator uses TIN.",
+    q1: "What is the difference between the nominal rate and APR?",
+    a1: "The nominal interest rate (TIN) is the pure interest the bank charges on the borrowed capital, excluding fees and additional costs. The Annual Percentage Rate (APR or TAE) is the more complete indicator: it incorporates the nominal rate plus all associated charges (arrangement fees, processing fees, linked insurance, etc.) and is expressed on an annual basis. When comparing loans from different lenders, always look at the APR rather than the nominal rate, since a loan with a low nominal rate can end up more expensive if it carries many fees. This calculator uses the nominal rate to compute the monthly payment.",
     q2: "How is the monthly payment calculated?",
-    a2: "Using the French system (constant payment): payment = C · i / (1 − (1+i)^−n), where C is the principal, i the monthly interest rate and n the number of months.",
+    a2: "This calculator uses the French amortisation system, the most common method for consumer loans in Spain. The formula is: payment = C · i / (1 − (1+i)^−n), where C is the loan principal, i is the monthly interest rate (annual rate divided by 12) and n is the total number of instalments (years × 12). With this system, the monthly payment is constant throughout the loan, but the split between principal and interest changes over time: in the early months you pay mostly interest and little principal, while towards the end the opposite is true.",
+    q3: "What happens if I stop paying the loan?",
+    a3: "If you miss a payment, the bank will charge default interest (which in Spain cannot exceed 2.5 times the legal interest rate, under the Consumer Credit Act). If missed payments continue for several months, the lender may accelerate the loan and demand the full outstanding balance immediately. Your details may also be listed in credit blacklists such as ASNEF, making it harder to obtain financing in the future. If you foresee payment difficulties, contact the bank before missing a payment — many lenders offer payment holidays or refinancing options.",
   },
 };
 
@@ -241,6 +245,10 @@ export default function PrestamoPersonal() {
           <AccordionItem value="q2">
             <AccordionTrigger>{t.q2}</AccordionTrigger>
             <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

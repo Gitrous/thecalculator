@@ -40,9 +40,11 @@ const T = {
     healthyRange: "Peso saludable para tu altura:",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cómo se calcula el IMC?",
-    a1: "El IMC se obtiene dividiendo el peso en kilos entre el cuadrado de la altura en metros: IMC = peso / altura². Un valor entre 18,5 y 24,9 se considera peso normal.",
-    q2: "¿Es fiable el IMC?",
-    a2: "Es una referencia general para la población adulta, pero no distingue masa muscular de grasa ni tiene en cuenta la edad o el sexo. No sustituye una valoración médica.",
+    a1: "El IMC (Índice de Masa Corporal) se obtiene dividiendo el peso en kilogramos entre el cuadrado de la altura en metros: IMC = kg / m². Por ejemplo, una persona de 70 kg y 1,75 m tiene un IMC de 70 / (1,75 × 1,75) = 22,9, que corresponde a peso normal. Esta fórmula fue desarrollada por el matemático belga Adolphe Quetelet en el siglo XIX y adoptada por la OMS como indicador de referencia.",
+    q2: "¿Es fiable el IMC para todas las personas?",
+    a2: "El IMC es útil como indicador poblacional, pero tiene limitaciones importantes a nivel individual: no distingue entre masa muscular y grasa corporal, no tiene en cuenta la distribución de la grasa (que influye en el riesgo cardiovascular), y puede clasificar incorrectamente a deportistas con mucho músculo o a personas mayores con poca masa muscular. Para una evaluación más precisa, los profesionales de la salud combinan el IMC con la circunferencia de cintura, el porcentaje de grasa corporal y otros factores clínicos.",
+    q3: "¿Qué significa cada categoría de la OMS?",
+    a3: "La Organización Mundial de la Salud establece cinco categorías: Bajo peso (IMC < 18,5) puede indicar desnutrición o problemas de salud subyacentes. Peso normal (18,5–24,9) se asocia con el menor riesgo de enfermedades relacionadas con el peso. Sobrepeso (25–29,9) aumenta el riesgo de hipertensión, diabetes tipo 2 y enfermedades cardiovasculares. Obesidad grado I (30–34,9) y Obesidad grado II (35–39,9) implican un riesgo moderado-alto. Obesidad grado III (≥ 40), también llamada obesidad mórbida, se asocia con riesgo muy elevado y puede requerir intervención médica especializada.",
   },
   en: {
     title: "BMI Calculator",
@@ -54,9 +56,11 @@ const T = {
     healthyRange: "Healthy weight for your height:",
     faqTitle: "Frequently asked questions",
     q1: "How is BMI calculated?",
-    a1: "BMI is calculated by dividing weight in kilograms by the square of height in metres: BMI = weight / height². A value between 18.5 and 24.9 is considered normal weight.",
-    q2: "Is BMI reliable?",
-    a2: "It is a general reference for the adult population, but it does not distinguish muscle mass from fat, nor does it account for age or sex. It is not a substitute for a medical assessment.",
+    a1: "BMI (Body Mass Index) is calculated by dividing weight in kilograms by the square of height in metres: BMI = kg / m². For example, a person weighing 70 kg and 1.75 m tall has a BMI of 70 / (1.75 × 1.75) = 22.9, which falls in the normal weight range. The formula was developed by Belgian mathematician Adolphe Quetelet in the 19th century and later adopted by the WHO as a standard reference indicator.",
+    q2: "Is BMI reliable for everyone?",
+    a2: "BMI is useful as a population-level indicator, but it has significant limitations at the individual level: it does not distinguish between muscle mass and body fat, it does not account for fat distribution (which influences cardiovascular risk), and it can misclassify athletes with high muscle mass or older people with low muscle mass. For a more accurate assessment, healthcare professionals combine BMI with waist circumference, body fat percentage and other clinical factors.",
+    q3: "What does each WHO category mean?",
+    a3: "The World Health Organisation defines five categories: Underweight (BMI < 18.5) may indicate malnutrition or underlying health problems. Normal weight (18.5–24.9) is associated with the lowest risk of weight-related disease. Overweight (25–29.9) increases the risk of hypertension, type 2 diabetes and cardiovascular disease. Obesity class I (30–34.9) and Obesity class II (35–39.9) carry a moderate-to-high risk. Obesity class III (≥ 40), also called morbid obesity, is associated with very high risk and may require specialist medical intervention.",
   },
 };
 
@@ -153,6 +157,10 @@ export default function Imc() {
           <AccordionItem value="q2">
             <AccordionTrigger>{t.q2}</AccordionTrigger>
             <AccordionContent>{t.a2}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q3">
+            <AccordionTrigger>{t.q3}</AccordionTrigger>
+            <AccordionContent>{t.a3}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
