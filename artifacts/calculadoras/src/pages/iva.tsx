@@ -39,6 +39,14 @@ const T = {
     rateApplied: "Tipo Aplicado",
     totalLabel: "Total a Pagar",
     totalDesc: "Importe total con impuestos incluidos.",
+    howTitle: "Qué es el IVA y cómo se calcula",
+    how1:
+      "El IVA (Impuesto sobre el Valor Añadido) es un impuesto indirecto que grava el consumo y se añade al precio de la mayoría de bienes y servicios. Quien lo soporta es el consumidor final, pero son las empresas y autónomos quienes lo recaudan en cada factura y lo ingresan en Hacienda.",
+    how2:
+      "Para añadir el IVA a un precio se multiplica la base imponible por el tipo: IVA = base × (tipo / 100), y el total es base + IVA. Para el cálculo inverso, averiguar la base a partir de un precio que ya incluye IVA, se divide entre (1 + tipo/100). Esta calculadora hace las dos operaciones según la acción que elijas.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Una factura con base de 100 € al 21% tiene 21 € de IVA y un total de 121 €. Al revés: si un producto cuesta 121 € con IVA incluido, su base es 121 / 1,21 = 100 € y el IVA son 21 €.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué diferencia hay entre IVA general, reducido y superreducido?",
     a1: "En España existen tres tipos de IVA vigentes. El tipo general (21%) se aplica a la mayoría de bienes y servicios: electrónica, ropa, hostelería, servicios profesionales, bricolaje y peluquería, entre otros. El tipo reducido (10%) se aplica a alimentos no esenciales, transporte de viajeros, viviendas nuevas y espectáculos culturales. El tipo superreducido (4%) se reserva a productos de primera necesidad: pan, leche, frutas, verduras, libros, periódicos, medicamentos con receta y prótesis. El tipo del 0% (exento) aplica a servicios como la educación, la sanidad pública o los seguros.",
@@ -62,6 +70,14 @@ const T = {
     rateApplied: "Rate Applied",
     totalLabel: "Total to Pay",
     totalDesc: "Total amount including taxes.",
+    howTitle: "What VAT is and how to calculate it",
+    how1:
+      "VAT (Value Added Tax) is an indirect tax on consumption that is added to the price of most goods and services. The final consumer bears it, but it is businesses and the self-employed who collect it on every invoice and pay it to the tax authority.",
+    how2:
+      "To add VAT to a price you multiply the tax base by the rate: VAT = base × (rate / 100), and the total is base + VAT. For the reverse calculation, finding the base from a VAT-inclusive price, you divide by (1 + rate/100). This calculator does both operations depending on the action you choose.",
+    exampleTitle: "Example",
+    example:
+      "An invoice with a base of €100 at 21% has €21 of VAT and a total of €121. The other way round: if a product costs €121 including VAT, its base is 121 / 1.21 = €100 and the VAT is €21.",
     faqTitle: "Frequently asked questions",
     q1: "What is the difference between standard, reduced and super-reduced VAT?",
     a1: "In Spain there are three active VAT rates. The standard rate (21%) applies to most goods and services: electronics, clothing, hospitality, professional services, DIY and hairdressing, among others. The reduced rate (10%) applies to non-essential food, passenger transport, new housing and cultural events. The super-reduced rate (4%) is reserved for essential goods: bread, milk, fruit, vegetables, books, newspapers, prescription medicines and prosthetics. The 0% rate (exempt) applies to services such as education, public healthcare and insurance.",
@@ -235,6 +251,14 @@ export default function Iva() {
           </div>
         </div>
       </div>
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

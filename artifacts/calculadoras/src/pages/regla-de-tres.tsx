@@ -28,6 +28,14 @@ const T = {
     directBtn: "Directa",
     inverseBtn: "Inversa",
     result: "X (resultado)",
+    howTitle: "Qué es la regla de tres y cómo se resuelve",
+    how1:
+      "La regla de tres es un método para hallar un valor desconocido a partir de tres valores conocidos que mantienen una proporción. Se parte de una relación «A es a B» y se busca el término que completa «C es a X». Es directa cuando ambas magnitudes crecen o decrecen juntas, e inversa cuando una sube mientras la otra baja.",
+    how2:
+      "En la proporción directa se calcula X = (B × C) / A. En la inversa se calcula X = (A × B) / C. Elige el tipo según la relación entre las magnitudes y la calculadora aplica la fórmula correspondiente.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Directa: si 5 kg cuestan 20 €, 8 kg cuestan X = (20 × 8) / 5 = 32 €. Inversa: si 4 obreros tardan 10 días, 8 obreros tardan X = (4 × 10) / 8 = 5 días.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cuándo es directa o inversa?",
     a1: "En la proporción directa, al aumentar una magnitud la otra también aumenta en la misma proporción: si compramos más kg, pagamos más. En la inversa, al aumentar una, la otra disminuye: si más obreros trabajan en la misma obra, se tarda menos días. Identificar el tipo es el primer paso para resolver correctamente cualquier problema de proporcionalidad.",
@@ -43,6 +51,14 @@ const T = {
     directBtn: "Direct",
     inverseBtn: "Inverse",
     result: "X (result)",
+    howTitle: "What the rule of three is and how to solve it",
+    how1:
+      "The rule of three is a method for finding an unknown value from three known values that share a proportion. You start from a relationship 'A is to B' and look for the term that completes 'C is to X'. It is direct when both quantities grow or shrink together, and inverse when one rises while the other falls.",
+    how2:
+      "For a direct proportion you calculate X = (B × C) / A. For an inverse one you calculate X = (A × B) / C. Choose the type according to the relationship between the quantities and the calculator applies the matching formula.",
+    exampleTitle: "Example",
+    example:
+      "Direct: if 5 kg cost €20, then 8 kg cost X = (20 × 8) / 5 = €32. Inverse: if 4 workers take 10 days, then 8 workers take X = (4 × 10) / 8 = 5 days.",
     faqTitle: "Frequently asked questions",
     q1: "When is it direct or inverse?",
     a1: "In a direct proportion, increasing one quantity increases the other at the same rate: buying more kg means paying more. In an inverse proportion, increasing one decreases the other: more workers on the same job means fewer days needed. Identifying the type is the first step to solving any proportion problem correctly.",
@@ -136,6 +152,14 @@ export default function ReglaDeTres() {
           </CardContent>
         </Card>
       )}
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

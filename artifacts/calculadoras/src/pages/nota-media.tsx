@@ -38,6 +38,14 @@ const T = {
     weightedAvg: "ponderada",
     simpleAvg: "simple",
     avgLabel: (type: string) => `Nota media ${type}`,
+    howTitle: "Cómo se calcula la nota media",
+    how1:
+      "La nota media resume tu rendimiento académico en una sola cifra. Hay dos formas de calcularla: la media simple, que suma todas las notas y las divide entre el número de asignaturas, y la media ponderada, que tiene en cuenta los créditos ECTS de cada asignatura para que las de mayor peso influyan más.",
+    how2:
+      "Para la media ponderada se multiplica cada nota por sus créditos, se suman todos esos productos y el total se divide entre la suma de créditos. Es la fórmula que usan las universidades en el expediente oficial, y la que piden becas, másteres y oposiciones.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Con un 9 en una asignatura de 6 créditos y un 6 en otra de 3 créditos: media ponderada = (9 × 6 + 6 × 3) / (6 + 3) = 72 / 9 = 8. La media simple sería (9 + 6) / 2 = 7,5.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué es la media ponderada por créditos?",
     a1: "Cada asignatura pesa según sus créditos ECTS en lugar de contar igual. Por ejemplo, una asignatura de 6 créditos con un 9 contribuye más al promedio que una de 3 créditos con un 9. Se calcula multiplicando cada nota por sus créditos, sumando todos los productos y dividiéndolos entre el total de créditos cursados.",
@@ -59,6 +67,14 @@ const T = {
     weightedAvg: "weighted",
     simpleAvg: "simple",
     avgLabel: (type: string) => `${type.charAt(0).toUpperCase() + type.slice(1)} average`,
+    howTitle: "How the average grade is calculated",
+    how1:
+      "The average grade sums up your academic performance in a single figure. There are two ways to work it out: the simple average, which adds all the grades and divides by the number of subjects, and the weighted average, which takes each subject's ECTS credits into account so that the heavier ones count for more.",
+    how2:
+      "For the weighted average you multiply each grade by its credits, add all those products and divide the total by the sum of credits. It is the formula universities use on the official transcript, and the one required by scholarships, master's programmes and public-sector exams.",
+    exampleTitle: "Example",
+    example:
+      "With a 9 in a 6-credit subject and a 6 in a 3-credit subject: weighted average = (9 × 6 + 6 × 3) / (6 + 3) = 72 / 9 = 8. The simple average would be (9 + 6) / 2 = 7.5.",
     faqTitle: "Frequently asked questions",
     q1: "What is the credit-weighted average?",
     a1: "Each subject is weighted by its ECTS credits rather than counting equally. For example, a 6-credit subject with a grade of 9 contributes more to the average than a 3-credit subject with a 9. It is calculated by multiplying each grade by its credits, adding all the products, and dividing by the total credits taken.",
@@ -185,6 +201,14 @@ export default function NotaMedia() {
           </CardContent>
         </Card>
       )}
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

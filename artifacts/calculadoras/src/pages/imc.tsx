@@ -38,6 +38,14 @@ const T = {
     heightLabel: "Altura (cm)",
     yourBmi: "Tu IMC",
     healthyRange: "Peso saludable para tu altura:",
+    howTitle: "Qué es el IMC y cómo se calcula",
+    how1:
+      "El IMC (Índice de Masa Corporal) es una medida que relaciona tu peso con tu altura para estimar si te encuentras en un rango de peso saludable. Es el indicador más utilizado por la OMS para clasificar el peso a nivel poblacional, por su sencillez y porque solo necesita dos datos: peso y altura.",
+    how2:
+      "Se calcula dividiendo el peso en kilogramos entre el cuadrado de la altura en metros: IMC = kg / m². El resultado se compara con las categorías de la OMS para saber si corresponde a bajo peso, peso normal, sobrepeso u obesidad.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Una persona de 70 kg y 1,75 m de altura tiene un IMC de 70 / (1,75 × 1,75) = 22,9, que está dentro del rango de peso normal (18,5–24,9).",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cómo se calcula el IMC?",
     a1: "El IMC (Índice de Masa Corporal) se obtiene dividiendo el peso en kilogramos entre el cuadrado de la altura en metros: IMC = kg / m². Por ejemplo, una persona de 70 kg y 1,75 m tiene un IMC de 70 / (1,75 × 1,75) = 22,9, que corresponde a peso normal. Esta fórmula fue desarrollada por el matemático belga Adolphe Quetelet en el siglo XIX y adoptada por la OMS como indicador de referencia.",
@@ -54,6 +62,14 @@ const T = {
     heightLabel: "Height (cm)",
     yourBmi: "Your BMI",
     healthyRange: "Healthy weight for your height:",
+    howTitle: "What BMI is and how to calculate it",
+    how1:
+      "BMI (Body Mass Index) is a measure that relates your weight to your height to estimate whether you are within a healthy weight range. It is the indicator most used by the WHO to classify weight at the population level, because it is simple and only needs two figures: weight and height.",
+    how2:
+      "It is calculated by dividing weight in kilograms by the square of height in metres: BMI = kg / m². The result is compared with the WHO categories to find out whether it corresponds to underweight, normal weight, overweight or obesity.",
+    exampleTitle: "Example",
+    example:
+      "A person weighing 70 kg and 1.75 m tall has a BMI of 70 / (1.75 × 1.75) = 22.9, which is within the normal weight range (18.5–24.9).",
     faqTitle: "Frequently asked questions",
     q1: "How is BMI calculated?",
     a1: "BMI (Body Mass Index) is calculated by dividing weight in kilograms by the square of height in metres: BMI = kg / m². For example, a person weighing 70 kg and 1.75 m tall has a BMI of 70 / (1.75 × 1.75) = 22.9, which falls in the normal weight range. The formula was developed by Belgian mathematician Adolphe Quetelet in the 19th century and later adopted by the WHO as a standard reference indicator.",
@@ -144,6 +160,14 @@ export default function Imc() {
           </CardContent>
         </Card>
       )}
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

@@ -35,6 +35,14 @@ const T = {
     workedDaysLabel: "Días trabajados",
     bonusLabel: "Pagas extra",
     note: "Cálculo orientativo en bruto. No incluye la indemnización por despido (que depende del tipo de despido y la antigüedad) ni retenciones de IRPF. Consulta tu convenio o un asesor laboral para el importe exacto.",
+    howTitle: "Qué es el finiquito y cómo se calcula",
+    how1:
+      "El finiquito es la cantidad que la empresa te debe al terminar el contrato, sea cual sea el motivo. Reúne tres conceptos: los días de vacaciones que no has disfrutado, los salarios devengados y aún no cobrados del mes en curso y la parte proporcional de las pagas extraordinarias acumulada desde la última paga.",
+    how2:
+      "Cada parte se calcula a partir del salario diario (salario bruto anual dividido entre 365). Las vacaciones pendientes y los días trabajados se multiplican por ese salario diario, y la prorrata de pagas extra se calcula según los meses transcurridos. Esta calculadora suma los tres conceptos para darte una estimación en bruto.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Con un salario bruto anual de 24.000 € (≈ 65,75 €/día), 10 días de vacaciones pendientes suponen unos 657 €, a los que se añaden los días trabajados sin cobrar y la parte proporcional de las pagas extra.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿El finiquito incluye la indemnización por despido?",
     a1: "No. Son dos conceptos distintos. El finiquito recoge las cantidades que la empresa te debe en el momento de la extinción del contrato: los días de vacaciones no disfrutadas, los salarios devengados y no cobrados del mes en curso y la parte proporcional de las pagas extraordinarias. La indemnización por despido, en cambio, es una compensación adicional que solo corresponde en determinados tipos de extinción: 33 días por año trabajado en despido improcedente y 20 días en despido por causas objetivas (económicas, técnicas, etc.). Puedes firmar el finiquito sin renunciar a reclamar la indemnización si no estás de acuerdo con el motivo del despido.",
@@ -56,6 +64,14 @@ const T = {
     workedDaysLabel: "Worked days",
     bonusLabel: "Bonus payments",
     note: "Indicative gross estimate. Does not include severance indemnity (which depends on the type of dismissal and seniority) or income tax withholding. Consult your collective agreement or a labour adviser for the exact amount.",
+    howTitle: "What severance pay is and how to calculate it",
+    how1:
+      "Severance pay (finiquito) is the amount the company owes you when the contract ends, whatever the reason. It brings together three items: the holiday days you have not taken, the wages accrued but not yet paid for the current month, and the pro-rata share of bonus payments built up since the last one.",
+    how2:
+      "Each part is calculated from the daily wage (annual gross salary divided by 365). Pending holidays and worked days are multiplied by that daily wage, and the bonus pro-rata is worked out from the months elapsed. This calculator adds the three items to give you a gross estimate.",
+    exampleTitle: "Example",
+    example:
+      "With an annual gross salary of €24,000 (≈ €65.75/day), 10 pending holiday days come to about €657, on top of which you add the unpaid worked days and the pro-rata share of bonus payments.",
     faqTitle: "Frequently asked questions",
     q1: "Does severance pay include the dismissal indemnity?",
     a1: "No — they are two separate concepts. Severance pay (finiquito) covers amounts the company owes you at the time the contract ends: unused holiday days, wages accrued but not yet paid in the current month, and the pro-rata share of bonus payments. The dismissal indemnity, by contrast, is additional compensation that only applies in certain types of termination: 33 days per year worked for unfair dismissal and 20 days for objective dismissal (economic, technical, etc.). You can sign the severance document without waiving your right to claim the indemnity if you disagree with the reason for dismissal.",
@@ -145,6 +161,14 @@ export default function Finiquito() {
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
         {t.note}
       </div>
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

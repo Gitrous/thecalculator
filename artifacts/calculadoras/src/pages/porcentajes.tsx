@@ -39,6 +39,14 @@ const T = {
     } as Record<Mode, [string, string]>,
     calculate: "Calcular",
     resultLabel: "Resultado",
+    howTitle: "Cómo se calculan los porcentajes",
+    how1:
+      "Un porcentaje expresa una proporción sobre un total de 100. Calcular «el X% de Y» consiste en dividir el porcentaje entre 100 y multiplicarlo por la cantidad: resultado = (X / 100) × Y. Es la operación detrás de descuentos, impuestos, comisiones y propinas.",
+    how2:
+      "Esta calculadora cubre los cuatro cálculos más habituales: el X% de una cantidad, qué porcentaje representa un valor sobre un total, la variación porcentual entre dos cifras y aplicar un aumento o descuento. Elige el modo según lo que necesites y la fórmula se aplica automáticamente.",
+    exampleTitle: "Ejemplo",
+    example:
+      "El 20% de 150 es (20 / 100) × 150 = 30. Y si una camiseta de 60 € tiene un 15% de descuento, el ahorro es (15 / 100) × 60 = 9 €, así que el precio final es 51 €.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Cómo se calcula el X% de una cantidad?",
     a1: "Se divide el porcentaje entre 100 y se multiplica por la cantidad. Por ejemplo, el 20% de 150 es (20 / 100) × 150 = 30. Esta operación es la base de los descuentos comerciales: si una camiseta vale 60 € y hay un 15% de descuento, el ahorro es (15 / 100) × 60 = 9 € y el precio final es 51 €.",
@@ -65,6 +73,14 @@ const T = {
     } as Record<Mode, [string, string]>,
     calculate: "Calculate",
     resultLabel: "Result",
+    howTitle: "How percentages are calculated",
+    how1:
+      "A percentage expresses a proportion out of a total of 100. Calculating 'X% of Y' means dividing the percentage by 100 and multiplying it by the amount: result = (X / 100) × Y. It is the operation behind discounts, taxes, commissions and tips.",
+    how2:
+      "This calculator covers the four most common calculations: X% of an amount, what percentage a value represents of a total, the percentage change between two figures, and applying an increase or discount. Choose the mode you need and the formula is applied automatically.",
+    exampleTitle: "Example",
+    example:
+      "20% of 150 is (20 / 100) × 150 = 30. And if a €60 shirt has a 15% discount, the saving is (15 / 100) × 60 = €9, so the final price is €51.",
     faqTitle: "Frequently asked questions",
     q1: "How do you calculate X% of an amount?",
     a1: "Divide the percentage by 100 and multiply by the amount. For example, 20% of 150 is (20 / 100) × 150 = 30. This operation is the basis of commercial discounts: if a shirt costs €60 and there is a 15% discount, the saving is (15 / 100) × 60 = €9 and the final price is €51.",
@@ -180,6 +196,14 @@ export default function Porcentajes() {
           </CardContent>
         </Card>
       )}
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

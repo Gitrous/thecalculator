@@ -34,6 +34,14 @@ const T = {
     weeksLabel: "Semanas",
     monthsLabel: "Meses",
     businessLabel: "Días laborables",
+    howTitle: "Cómo se calculan los días entre dos fechas",
+    how1:
+      "Calcular los días entre dos fechas consiste en restar la fecha inicial a la final y contar el número de días naturales transcurridos. A partir de ese total se derivan las semanas (dividiendo entre 7), los meses aproximados y los días laborables, que descartan los fines de semana.",
+    how2:
+      "Esta calculadora hace esa diferencia automáticamente al introducir ambas fechas y te muestra el resultado en días, semanas, meses y días hábiles, sin tener que contar a mano en el calendario.",
+    exampleTitle: "Ejemplo",
+    example:
+      "Entre el 1 y el 15 de enero hay 14 días naturales (2 semanas) y, descontando un fin de semana, unos 10 días laborables. Si necesitas incluir el propio día de inicio, suma 1 al total.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Se incluyen los dos extremos?",
     a1: "El cálculo usa la diferencia estricta entre ambas fechas: si el inicio y el final son el mismo día, el resultado es 0. Para contar el propio día de inicio y el de fin —como en plazos legales o estancias en alojamiento—, suma 1 al total. Por ejemplo, del 1 al 7 de enero transcurren 6 días; si quieres contar ambos extremos, son 7 noches o 7 días naturales.",
@@ -52,6 +60,14 @@ const T = {
     weeksLabel: "Weeks",
     monthsLabel: "Months",
     businessLabel: "Working days",
+    howTitle: "How the days between two dates are calculated",
+    how1:
+      "Calculating the days between two dates means subtracting the start date from the end date and counting the number of calendar days elapsed. From that total you derive the weeks (dividing by 7), the approximate months and the working days, which exclude weekends.",
+    how2:
+      "This calculator works out that difference automatically when you enter both dates and shows the result in days, weeks, months and working days, with no need to count by hand on the calendar.",
+    exampleTitle: "Example",
+    example:
+      "Between 1 and 15 January there are 14 calendar days (2 weeks) and, excluding one weekend, around 10 working days. If you need to include the start day itself, add 1 to the total.",
     faqTitle: "Frequently asked questions",
     q1: "Are both endpoints included?",
     a1: "The calculation uses the strict difference between the two dates: if the start and end are the same day, the result is 0. To count the start day and the end day themselves—as in legal deadlines or accommodation stays—add 1 to the total. For example, from 1 January to 7 January is 6 days elapsed; if you want to count both endpoints, that is 7 nights or 7 calendar days.",
@@ -131,6 +147,14 @@ export default function DiasEntreFechas() {
           </CardContent>
         </Card>
       )}
+
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
+        <p className="text-muted-foreground mb-4">{t.how1}</p>
+        <p className="text-muted-foreground mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
+        <p className="text-muted-foreground">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
