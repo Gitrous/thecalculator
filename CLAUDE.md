@@ -39,6 +39,41 @@ Guía para Claude Code en este repositorio.
     bifurca con `useLocale()` / `isEn`)
   - `public/sitemap.xml` — entradas ES y EN con `hreflang` cruzados
 
+## Cumplimiento de políticas de Google AdSense (IMPORTANTE)
+
+**Después de CADA cambio** (nueva calculadora, página nueva, modificación de
+contenido), revisar que se cumplen las políticas de AdSense. Si se detecta algún
+incumplimiento, **NO corregirlo automáticamente**: informar al usuario de qué
+política se incumple, qué se haría para corregirlo, y preguntar si quiere que
+se haga.
+
+Políticas clave a revisar en cada página/calculadora:
+
+1. **Contenido mínimo y sustancial**: La página debe tener texto informativo
+   suficiente más allá del propio widget. Mínimo orientativo: ≥ 300 palabras
+   de contenido editorial visible o en acordeones (Google sí lee acordeones).
+   Señales de alerta: subtítulo de 1 sola frase + herramienta + FAQ colapsada
+   sin texto introductorio visible.
+
+2. **Texto introductorio**: Antes de la calculadora o después del subtítulo
+   debe haber al menos 1-2 párrafos explicando qué es el concepto, para qué
+   sirve y cómo interpretar el resultado. Un subtítulo de una línea no es
+   suficiente para páginas nuevas.
+
+3. **FAQ completa**: Mínimo 3 preguntas con respuestas detalladas (≥ 80 palabras
+   cada una). Preferible 5 preguntas para páginas de salud/finanzas.
+
+4. **Proporción anuncios/contenido**: No más de 3 unidades de anuncio por página.
+   Revisar que la suma de AdUnits en el componente de página + los que añade
+   `calculator-page.tsx` no supere ese límite.
+
+5. **Contenido original**: El texto no debe ser copiado literalmente de otras
+   fuentes. Las FAQs deben aportar valor propio.
+
+6. **Sin contenido engañoso ni afirmaciones médicas/financieras sin disclaimer**:
+   En calculadoras de salud (IMC, calorías, agua, frecuencia cardíaca) incluir
+   un aviso de que los resultados son orientativos y no sustituyen consejo médico.
+
 ## Build / verificación
 
 - Typecheck: `pnpm exec tsc -p tsconfig.json --noEmit` (dentro de la app).

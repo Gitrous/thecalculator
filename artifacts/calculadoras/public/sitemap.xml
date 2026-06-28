@@ -284,6 +284,23 @@
     <lastmod>2026-06-06</lastmod>
   </url>
 
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/salud/frecuencia-cardiaca</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/salud/frecuencia-cardiaca"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/health/frecuencia-cardiaca"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/salud/agua-diaria</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/salud/agua-diaria"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/health/agua-diaria"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+
   <!-- Páginas legales ES -->
   <url>
     <loc>https://thecalculator.tech/privacidad</loc>
@@ -598,6 +615,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/health/frecuencia-cardiaca</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/health/frecuencia-cardiaca"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/salud/frecuencia-cardiaca"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/health/agua-diaria</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/health/agua-diaria"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/salud/agua-diaria"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
   </url>
 
   <!-- Legal pages EN -->

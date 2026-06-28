@@ -32,6 +32,8 @@ import {
   Activity,
   BookOpen,
   DollarSign,
+  Heart,
+  Droplets,
   type LucideIcon,
 } from "lucide-react";
 
@@ -550,6 +552,39 @@ export const CALCULATORS: CalculatorMeta[] = [
     enSeoTitle: "Calorie Calculator - Daily Calorie Needs & BMR",
     enSeoDescription: "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on activity level and goal.",
     enDescription: "Calculate your BMR and daily calorie needs by activity and goal.",
+  },
+
+  {
+    slug: "frecuencia-cardiaca",
+    category: "salud",
+    title: "Calculadora de Frecuencia Cardíaca Máxima",
+    description: "Calcula tu FCmáx y tus cinco zonas de entrenamiento para optimizar tus sesiones de ejercicio.",
+    shortLabel: "Frecuencia Cardíaca",
+    icon: Heart,
+    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    seoTitle: "Calculadora de Frecuencia Cardíaca Máxima y Zonas de Entrenamiento",
+    seoDescription: "Calcula tu frecuencia cardíaca máxima (FCmáx) y las 5 zonas de entrenamiento según tu edad. Fórmula de Tanaka actualizada.",
+    enTitle: "Maximum Heart Rate Calculator",
+    enShortLabel: "Heart Rate",
+    enSeoTitle: "Maximum Heart Rate Calculator & Training Zones",
+    enSeoDescription: "Calculate your maximum heart rate (MHR) and 5 training zones by age using the Tanaka formula.",
+    enDescription: "Calculate your MHR and five training zones to optimise your workouts.",
+  },
+  {
+    slug: "agua-diaria",
+    category: "salud",
+    title: "Calculadora de Agua Diaria",
+    description: "Descubre cuánta agua debes beber al día según tu peso, nivel de actividad física y el clima.",
+    shortLabel: "Agua Diaria",
+    icon: Droplets,
+    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    seoTitle: "Calculadora de Agua Diaria — Hidratación según tu peso y actividad",
+    seoDescription: "Calcula cuántos litros de agua debes beber al día según tu peso corporal, nivel de actividad física y temperatura del clima.",
+    enTitle: "Daily Water Intake Calculator",
+    enShortLabel: "Daily Water",
+    enSeoTitle: "Daily Water Intake Calculator — Hydration by weight & activity",
+    enSeoDescription: "Calculate how many litres of water you should drink per day based on your body weight, activity level and climate.",
+    enDescription: "Find out how much water you should drink per day based on your weight and activity.",
   },
 
   // ── Finanzas (nuevas) ─────────────────────────────────────────────────────

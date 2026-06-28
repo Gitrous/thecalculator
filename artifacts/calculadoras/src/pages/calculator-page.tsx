@@ -45,6 +45,8 @@ import AmortizacionAnticipada from "@/pages/amortizacion-anticipada";
 import Tae from "@/pages/tae";
 import Paro from "@/pages/paro";
 import Pension from "@/pages/pension";
+import FrecuenciaCardiaca from "@/pages/frecuencia-cardiaca";
+import AguaDiaria from "@/pages/agua-diaria";
 
 const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
   finanzas: "FinanceApplication",
@@ -79,6 +81,8 @@ const REGISTRY: Record<string, ComponentType> = {
   "educacion/conversor-unidades": ConversorUnidades,
   "salud/imc": Imc,
   "salud/calorias": Calorias,
+  "salud/frecuencia-cardiaca": FrecuenciaCardiaca,
+  "salud/agua-diaria": AguaDiaria,
   "finanzas/amortizacion-anticipada": AmortizacionAnticipada,
   "finanzas/tae": Tae,
   "trabajo/paro": Paro,
