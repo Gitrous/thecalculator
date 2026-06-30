@@ -860,6 +860,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unit-converter-complete-guide"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-23</lastmod>
   </url>
+  <url>
+    <loc>https://thecalculator.tech/blog/como-calcular-letra-dni</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-calcular-letra-dni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-calculate-dni-letter"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
+  </url>
   <!-- Blog articles EN - Finanzas -->
   <url>
     <loc>https://thecalculator.tech/en/blog/how-to-calculate-mortgage-payment</loc>
@@ -1001,6 +1013,20 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unit-converter-complete-guide"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/conversor-unidades-guia-completa"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-23</lastmod>
+  </url>
+
+  <!-- Blog articles EN (new) -->
+  <url>
+    <loc>https://thecalculator.tech/en/blog/how-to-calculate-dni-letter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-calculate-dni-letter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-calcular-letra-dni"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- Legal pages EN -->
