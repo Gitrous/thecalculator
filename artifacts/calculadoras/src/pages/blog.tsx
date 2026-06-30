@@ -211,9 +211,6 @@ export default function Blog() {
   });
 
   const hasFilters = q || activeCategory;
-  const featured = !hasFilters && filtered.length > 0 ? filtered[0] : null;
-  const secondaryRow = !hasFilters ? filtered.slice(1, 3) : [];
-  const gridArticles = !hasFilters ? filtered.slice(3) : filtered;
 
   function getHref(article: Article) {
     return isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
@@ -317,60 +314,18 @@ export default function Blog() {
         <p className="text-muted-foreground text-sm py-12 text-center">
           {isEn ? "No articles found." : "No se encontraron artículos."}
         </p>
-      ) : hasFilters ? (
+      ) : (
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((a) => (
-            <SmallCard
+            <MediumCard
               key={a.slug}
               article={a}
               isEn={isEn}
               href={getHref(a)}
               catLabel={getCatLabel(a.category)}
+              dateStr={shortDate(a.date)}
             />
           ))}
-        </div>
-      ) : (
-        <div className="space-y-6">
-          {/* Featured article */}
-          {featured && (
-            <FeaturedCard
-              article={featured}
-              isEn={isEn}
-              href={getHref(featured)}
-              catLabel={getCatLabel(featured.category)}
-            />
-          )}
-
-          {/* Row of 2 */}
-          {secondaryRow.length > 0 && (
-            <div className={`grid gap-5 ${secondaryRow.length > 1 ? "sm:grid-cols-2" : ""}`}>
-              {secondaryRow.map((a) => (
-                <MediumCard
-                  key={a.slug}
-                  article={a}
-                  isEn={isEn}
-                  href={getHref(a)}
-                  catLabel={getCatLabel(a.category)}
-                  dateStr={shortDate(a.date)}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Remaining in 3-col grid */}
-          {gridArticles.length > 0 && (
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {gridArticles.map((a) => (
-                <SmallCard
-                  key={a.slug}
-                  article={a}
-                  isEn={isEn}
-                  href={getHref(a)}
-                  catLabel={getCatLabel(a.category)}
-                />
-              ))}
-            </div>
-          )}
         </div>
       )}
 
