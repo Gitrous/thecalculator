@@ -1530,7 +1530,7 @@ const U = (id: string) =>
 
 export const ARTICLE_IMAGES: Record<string, string> = {
   // Salud
-  "que-es-el-imc":                              U("1571019614099-5a2ab2e26f22"),
+  "que-es-el-imc":                              U("1535914254981-b5012eebbd15"),
   "cuantas-calorias-necesito-al-dia":           U("1490645935967-10de6ba17061"),
   "cuanta-agua-debo-beber-al-dia":              U("1548839140-29a749e1cf4d"),
   "frecuencia-cardiaca-maxima-zonas-entrenamiento": U("1476480862126-209bfaa8edc8"),
@@ -1539,7 +1539,7 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   "que-es-la-tae-diferencia-tin":               U("1554224154-26032ffc0d07"),
   "como-funciona-interes-compuesto":            U("1611974789855-9c2a0a7236a3"),
   "irpf-como-funciona-retencion-nomina":        U("1568598035424-7070b67317d2"),
-  "alquilar-o-comprar-vivienda":                U("1560183677-23e7e089e4b2"),
+  "alquilar-o-comprar-vivienda":                U("1570129477492-45c003edd2be"),
   "amortizacion-anticipada-hipoteca-ahorro":    U("1560520031-3a4dc4e9de0c"),
   "como-calcular-salario-neto-espana":          U("1579621970795-87facc2f976d"),
   "iva-tipos-espana-guia":                      U("1556742049-0cfed4f6a45d"),
@@ -1552,17 +1552,17 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   "que-incluye-finiquito-como-calcularlo":      U("1450101499163-c8848c66ca85"),
   "cuota-autonomo-2026-tramos":                 U("1522202176988-66273c2fd55f"),
   "prestacion-desempleo-paro-como-calcular":    U("1507679799987-c73779587ccf"),
-  "pension-jubilacion-espana-como-funciona":    U("1501621667575-af81f1232d53"),
-  "registro-jornada-horas-trabajadas":          U("1533749047-32c2df4c3e99"),
+  "pension-jubilacion-espana-como-funciona":    U("1573496546038-82f9c39f6365"),
+  "registro-jornada-horas-trabajadas":          U("1484480974693-6ca0a78fb36b"),
   "como-calcular-letra-dni":                    U("1614680376408-81e91ffe3db7"),
   // Educación
   "dias-entre-fechas-plazos-legales":           U("1506784983877-45594efa4cbe"),
   "teorema-pitagoras-aplicaciones-reales":      U("1509228468518-180dd4864904"),
   "regla-de-tres-directa-inversa":              U("1596495578065-6e0763fa1178"),
-  "nota-media-ponderada-universidad":           U("1523050854058-8df90110c9f1"),
+  "nota-media-ponderada-universidad":           U("1427504494785-3a9ca7044f45"),
   "mru-mrua-fisica-ejemplos":                   U("1446776858070-70c3d5ed6758"),
-  "conversor-unidades-guia-completa":           U("1453828423292-392a660a3576"),
-  "mrua-movimiento-uniformemente-acelerado":    U("1518987048-93e29699e09a"),
+  "conversor-unidades-guia-completa":           U("1504868584819-f8e8b4b6d7e3"),
+  "mrua-movimiento-uniformemente-acelerado":    U("1518770660439-4636190af475"),
 };
 
 export function getArticle(slug: string): Article | undefined {
