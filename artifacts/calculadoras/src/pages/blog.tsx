@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Clock, BookOpen, Search, X } from "lucide-react";
-import { ARTICLES } from "@/lib/articles";
+import {
+  Search, X, ArrowRight, TrendingUp, Heart,
+  Briefcase, Home, GraduationCap, Zap,
+} from "lucide-react";
+import { ARTICLES, type Article } from "@/lib/articles";
 import { CATEGORIES } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
 import { useLocale } from "@/lib/locale";
@@ -13,22 +16,182 @@ CATEGORIES.forEach((c) => {
   CATEGORY_LABELS[c.id] = { es: c.name, en: c.enName };
 });
 
-// Only show categories that have at least one article
+const CATEGORY_GRADIENTS: Record<string, string> = {
+  finanzas: "from-emerald-500 via-teal-600 to-emerald-800",
+  salud: "from-sky-400 via-blue-500 to-indigo-700",
+  trabajo: "from-violet-500 via-purple-600 to-purple-900",
+  hogar: "from-orange-400 via-orange-500 to-amber-700",
+  educacion: "from-indigo-400 via-blue-500 to-indigo-800",
+};
+
+const CATEGORY_ICONS: Record<string, typeof Zap> = {
+  finanzas: TrendingUp,
+  salud: Heart,
+  trabajo: Briefcase,
+  hogar: Home,
+  educacion: GraduationCap,
+};
+
 const ARTICLE_CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
+
+function ArticleImage({ category, className }: { category: string; className?: string }) {
+  const gradient = CATEGORY_GRADIENTS[category] ?? "from-gray-400 to-gray-600";
+  const Icon = CATEGORY_ICONS[category];
+  return (
+    <div className={`relative overflow-hidden bg-gradient-to-br ${gradient} ${className ?? ""}`}>
+      {Icon && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Icon className="w-28 h-28 text-white opacity-10" strokeWidth={1} />
+        </div>
+      )}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+    </div>
+  );
+}
+
+interface CardProps {
+  article: Article;
+  isEn: boolean;
+  href: string;
+  catLabel: string;
+  dateStr: string;
+}
+
+function FeaturedCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateStr">) {
+  return (
+    <Link
+      href={href}
+      className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-xl transition-all"
+    >
+      <div className="flex flex-col lg:flex-row">
+        <div className="lg:w-[58%] relative min-h-[260px] lg:min-h-[340px]">
+          <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+          <div className="absolute top-5 left-5">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/30">
+              {catLabel} {isEn ? "Highlighted" : "Destacadas"}
+            </span>
+          </div>
+        </div>
+        <div className="lg:w-[42%] p-7 lg:p-10 flex flex-col justify-between">
+          <div>
+            <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${CATEGORY_COLORS[article.category] ?? "bg-gray-100 text-gray-600"}`}>
+              {catLabel} {isEn ? "Highlighted" : "Destacadas"}
+            </span>
+            <h2 className="mt-4 text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors">
+              {isEn ? article.enTitle : article.title}
+            </h2>
+            <p className="mt-3 text-gray-500 dark:text-white/60 leading-relaxed line-clamp-3 text-sm lg:text-base">
+              {isEn ? article.enDescription : article.description}
+            </p>
+          </div>
+          <div className="flex items-center justify-between mt-8 pt-5 border-t border-gray-100 dark:border-white/10">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-xs font-bold shrink-0">
+                TC
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">thecalculator.tech</p>
+                <p className="text-xs text-gray-500 dark:text-white/50">
+                  {article.readTime} {isEn ? "min read" : "min de lectura"}
+                </p>
+              </div>
+            </div>
+            <span className="flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all shrink-0">
+              {isEn ? "Read more" : "Leer más"} <ArrowRight className="w-4 h-4" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function MediumCard({ article, isEn, href, catLabel, dateStr }: CardProps) {
+  const Icon = CATEGORY_ICONS[article.category] ?? Zap;
+  return (
+    <Link
+      href={href}
+      className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/40 transition-all"
+    >
+      <div className="relative h-52 overflow-hidden">
+        <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+        <div className="absolute top-3 left-3">
+          <span className="px-2 py-0.5 rounded text-xs font-semibold bg-white/25 backdrop-blur-sm text-white">
+            {catLabel}
+          </span>
+        </div>
+      </div>
+      <div className="p-5">
+        <h3 className="font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors line-clamp-2">
+          {isEn ? article.enTitle : article.title}
+        </h3>
+        <p className="text-sm text-gray-500 dark:text-white/50 mt-2 line-clamp-2">
+          {isEn ? article.enDescription : article.description}
+        </p>
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+          <span className="text-xs text-gray-400 dark:text-white/40">
+            {dateStr} · {article.readTime} {isEn ? "min read" : "min lectura"}
+          </span>
+          <Icon className="w-4 h-4 text-gray-300 dark:text-white/30" />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function SmallCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateStr">) {
+  const Icon = CATEGORY_ICONS[article.category] ?? Zap;
+  return (
+    <Link
+      href={href}
+      className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/40 transition-all"
+    >
+      <div className="relative h-40 overflow-hidden">
+        <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+        <div className="absolute top-3 left-3">
+          <span className="px-2 py-0.5 rounded text-xs font-semibold bg-white/25 backdrop-blur-sm text-white">
+            {catLabel}
+          </span>
+        </div>
+      </div>
+      <div className="p-4">
+        <h3 className="font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors line-clamp-2 text-sm">
+          {isEn ? article.enTitle : article.title}
+        </h3>
+        <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-100 dark:border-white/5">
+          <span className="text-xs text-gray-400 dark:text-white/40">
+            {article.readTime} {isEn ? "min read" : "min lectura"}
+          </span>
+          <Icon className="w-3.5 h-3.5 text-gray-300 dark:text-white/30" />
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 export default function Blog() {
   const locale = useLocale();
   const isEn = locale === "en";
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
-  const title = isEn ? "Health & Finance Blog" : "Blog de Salud y Finanzas";
+  const pageTitle = isEn ? "The Calculator Blog" : "Blog de thecalculator.tech";
+  const subtitle = isEn
+    ? "Learn to master your finances, optimize your home and boost your professional career with our expert guides."
+    : "Aprende a dominar tus finanzas, optimizar tu hogar y potenciar tu carrera profesional con nuestras guías expertas.";
   const description = isEn
     ? "Practical guides to help you understand the calculators and make better decisions about your health and finances."
     : "Guías prácticas para entender las calculadoras y tomar mejores decisiones sobre tu salud y finanzas.";
   const path = isEn ? "/en/blog" : "/blog";
   const alternatePath = isEn ? "/blog" : "/en/blog";
-  const searchPlaceholder = isEn ? "Search articles…" : "Busca un artículo…";
 
   const q = query.toLowerCase().trim();
   const filtered = ARTICLES.filter((a) => {
@@ -39,7 +202,8 @@ export default function Blog() {
       .flatMap((s) => [s.text ?? "", ...(s.items ?? [])])
       .join(" ")
       .toLowerCase();
-    const matchesQuery = !q ||
+    const matchesQuery =
+      !q ||
       t.toLowerCase().includes(q) ||
       d.toLowerCase().includes(q) ||
       a.category.includes(q) ||
@@ -49,47 +213,63 @@ export default function Blog() {
   });
 
   const hasFilters = q || activeCategory;
+  const featured = !hasFilters && filtered.length > 0 ? filtered[0] : null;
+  const secondaryRow = !hasFilters ? filtered.slice(1, 3) : [];
+  const gridArticles = !hasFilters ? filtered.slice(3) : filtered;
+
+  function getHref(article: Article) {
+    return isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
+  }
+
+  function getCatLabel(cat: string) {
+    return CATEGORY_LABELS[cat]?.[isEn ? "en" : "es"] ?? cat;
+  }
+
+  function shortDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString(isEn ? "en-GB" : "es-ES", {
+      day: "numeric",
+      month: "short",
+    });
+  }
 
   return (
     <div className="max-w-7xl mx-auto">
       <Seo
-        title={isEn ? "Blog — thecalculator.tech" : "Blog — thecalculator.tech"}
+        title="Blog — thecalculator.tech"
         description={description}
         path={path}
         alternatePath={alternatePath}
       />
 
-      {/* Hero + search */}
-      <section className="text-center space-y-5 py-12 md:py-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
-          <BookOpen className="w-3.5 h-3.5" />
-          {isEn ? "Guides & Articles" : "Guías y artículos"}
-        </div>
+      {/* ── Hero ── */}
+      <section className="text-center space-y-5 py-10 md:py-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
-          {title}
+          {pageTitle}
         </h1>
-        <p className="text-xl text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-          {description}
+        <p className="text-lg text-gray-500 dark:text-white/60 max-w-2xl mx-auto">
+          {subtitle}
         </p>
 
         {/* Search bar */}
-        <div className="relative max-w-lg mx-auto pt-2">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-white/50 pointer-events-none" />
-          <input
-            type="search"
-            placeholder={searchPlaceholder}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full pl-11 pr-10 py-3.5 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-base shadow-sm backdrop-blur-md transition-all"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-white/50 dark:hover:text-white"
-            >
-              <X className="w-4 h-4" />
+        <div className="relative max-w-xl mx-auto pt-2">
+          <div className="flex items-center rounded-full border border-gray-200 dark:border-white/20 bg-white dark:bg-white/10 shadow-sm pl-5 pr-2 py-2">
+            <Search className="w-4 h-4 text-gray-400 dark:text-white/40 shrink-0 mr-3" />
+            <input
+              type="search"
+              placeholder={isEn ? "What do you want to calculate or learn today?" : "¿Qué quieres calcular o aprender hoy?"}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="flex-1 min-w-0 bg-transparent text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/40 focus:outline-none text-sm"
+            />
+            {query && (
+              <button onClick={() => setQuery("")} className="mr-2 text-gray-400 hover:text-gray-600 shrink-0">
+                <X className="w-4 h-4" />
+              </button>
+            )}
+            <button className="px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold shrink-0 hover:bg-primary/90 transition-colors">
+              {isEn ? "Search" : "Buscar"}
             </button>
-          )}
+          </div>
         </div>
 
         {/* Category filters */}
@@ -105,8 +285,7 @@ export default function Blog() {
             {isEn ? "All" : "Todos"}
           </button>
           {ARTICLE_CATEGORIES.map((cat) => {
-            const label = CATEGORY_LABELS[cat]?.[isEn ? "en" : "es"] ?? cat;
-            const colorClass = CATEGORY_COLORS[cat] ?? "";
+            const label = getCatLabel(cat);
             const isActive = activeCategory === cat;
             return (
               <button
@@ -114,7 +293,7 @@ export default function Blog() {
                 onClick={() => setActiveCategory(isActive ? null : cat)}
                 className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all ${
                   isActive
-                    ? `${colorClass} border-transparent shadow-sm`
+                    ? `${CATEGORY_COLORS[cat] ?? ""} border-transparent shadow-sm`
                     : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:border-primary/50 hover:text-primary"
                 }`}
               >
@@ -135,60 +314,115 @@ export default function Blog() {
         )}
       </section>
 
-      {/* Articles grid */}
+      {/* ── Articles ── */}
       {filtered.length === 0 ? (
         <p className="text-muted-foreground text-sm py-12 text-center">
           {isEn ? "No articles found." : "No se encontraron artículos."}
         </p>
+      ) : hasFilters ? (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((a) => (
+            <SmallCard
+              key={a.slug}
+              article={a}
+              isEn={isEn}
+              href={getHref(a)}
+              catLabel={getCatLabel(a.category)}
+            />
+          ))}
+        </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {filtered.map((article) => {
-            const href = isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
-            const articleTitle = isEn ? article.enTitle : article.title;
-            const articleDesc = isEn ? article.enDescription : article.description;
-            const colorClass = CATEGORY_COLORS[article.category] ?? "text-gray-600 bg-gray-100";
+        <div className="space-y-6">
+          {/* Featured article */}
+          {featured && (
+            <FeaturedCard
+              article={featured}
+              isEn={isEn}
+              href={getHref(featured)}
+              catLabel={getCatLabel(featured.category)}
+            />
+          )}
 
-            const dateObj = new Date(article.date);
-            const dateLabel = dateObj.toLocaleDateString(isEn ? "en-GB" : "es-ES", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            });
+          {/* Row of 2 */}
+          {secondaryRow.length > 0 && (
+            <div className={`grid gap-5 ${secondaryRow.length > 1 ? "sm:grid-cols-2" : ""}`}>
+              {secondaryRow.map((a) => (
+                <MediumCard
+                  key={a.slug}
+                  article={a}
+                  isEn={isEn}
+                  href={getHref(a)}
+                  catLabel={getCatLabel(a.category)}
+                  dateStr={shortDate(a.date)}
+                />
+              ))}
+            </div>
+          )}
 
-            return (
-              <Link
-                key={article.slug}
-                href={href}
-                className="group flex flex-col gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center justify-between">
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass}`}>
-                    {CATEGORY_LABELS[article.category]?.[isEn ? "en" : "es"] ?? article.category}
-                  </span>
-                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Clock className="w-3 h-3" />
-                    {article.readTime} {isEn ? "min read" : "min lectura"}
-                  </span>
-                </div>
-
-                <div>
-                  <h2 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">
-                    {articleTitle}
-                  </h2>
-                  <p className="text-sm text-muted-foreground line-clamp-3">{articleDesc}</p>
-                </div>
-
-                <div className="mt-auto flex items-center justify-between pt-2 border-t border-gray-100 dark:border-white/5">
-                  <span className="text-xs text-muted-foreground">{dateLabel}</span>
-                  <span className="text-xs font-semibold text-primary group-hover:underline">
-                    {isEn ? "Read more →" : "Leer más →"}
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+          {/* Remaining in 3-col grid */}
+          {gridArticles.length > 0 && (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {gridArticles.map((a) => (
+                <SmallCard
+                  key={a.slug}
+                  article={a}
+                  isEn={isEn}
+                  href={getHref(a)}
+                  catLabel={getCatLabel(a.category)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
+
+      {/* ── Newsletter CTA ── */}
+      <div className="mt-16 mb-4 bg-gray-900 dark:bg-zinc-900 rounded-3xl px-8 py-14 md:px-16 text-center">
+        <span className="inline-block px-4 py-1 rounded-full text-xs font-semibold border border-white/20 text-white/70 mb-6">
+          {isEn ? "Subscribe to knowledge" : "Suscríbete al conocimiento"}
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 max-w-lg mx-auto">
+          {isEn
+            ? "Get our best guides and tools in your inbox."
+            : "Recibe nuestras mejores guías y herramientas en tu correo."}
+        </h2>
+        <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm">
+          {isEn
+            ? "Join more than 10,000 users who optimize their decisions every month. No spam, just precision."
+            : "Únete a más de 10,000 usuarios que optimizan sus decisiones cada mes. Sin spam, solo precisión."}
+        </p>
+        {subscribed ? (
+          <p className="text-emerald-400 font-semibold">
+            {isEn ? "✓ You're in! Check your inbox." : "✓ ¡Apuntado! Revisa tu correo."}
+          </p>
+        ) : (
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={isEn ? "Your email address" : "Tu correo electrónico"}
+              className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-blue-400 text-sm"
+            />
+            <button
+              onClick={() => email.includes("@") && setSubscribed(true)}
+              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shrink-0"
+            >
+              {isEn ? "Join now" : "Unirme ahora"}
+            </button>
+          </div>
+        )}
+        <p className="text-xs text-gray-500 mt-4">
+          {isEn ? "By subscribing you accept our " : "Al suscribirte aceptas nuestra "}
+          <Link
+            href={isEn ? "/en/privacy" : "/privacidad"}
+            className="underline hover:text-gray-400 transition-colors"
+          >
+            {isEn ? "Privacy Policy" : "Política de Privacidad"}
+          </Link>
+          .
+        </p>
+      </div>
     </div>
   );
 }
