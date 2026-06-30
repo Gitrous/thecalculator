@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Plus, Trash2, Zap } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Zap, Lightbulb } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -9,17 +9,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { COUNTRIES, getCountry, fmtCurrency } from "@/lib/countries";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   BarChart,
   Bar,
   XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
   Cell,
@@ -35,14 +31,16 @@ interface Appliance {
   hoursPerDay: string;
 }
 
-interface Result {
-  daily: number;
-  monthly: number;
-  annual: number;
-  breakdown: { name: string; kwh: number; cost: number }[];
-}
+const APPLIANCE_COLORS = [
+  { bg: "bg-emerald-100 dark:bg-emerald-900/40", icon: "text-emerald-600 dark:text-emerald-400" },
+  { bg: "bg-blue-100 dark:bg-blue-900/40", icon: "text-blue-600 dark:text-blue-400" },
+  { bg: "bg-purple-100 dark:bg-purple-900/40", icon: "text-purple-600 dark:text-purple-400" },
+  { bg: "bg-orange-100 dark:bg-orange-900/40", icon: "text-orange-600 dark:text-orange-400" },
+  { bg: "bg-pink-100 dark:bg-pink-900/40", icon: "text-pink-600 dark:text-pink-400" },
+  { bg: "bg-yellow-100 dark:bg-yellow-900/40", icon: "text-yellow-600 dark:text-yellow-400" },
+];
 
-const COLORS = ["#0FA958", "#0C7A42", "#34d399", "#6ee7b7", "#a7f3d0", "#d1fae5"];
+const BAR_COLORS = ["#10b981", "#3b82f6", "#a855f7", "#f97316", "#ec4899", "#eab308"];
 
 const T = {
   es: {
@@ -52,30 +50,24 @@ const T = {
     intro1: "El consumo eléctrico del hogar representa una parte significativa de la factura mensual y conocerlo con precisión es el primer paso para reducirlo. Cada electrodoméstico tiene una potencia en vatios (W) que, multiplicada por las horas de uso diario, determina el consumo en kilovatios hora (kWh). El precio del kWh varía según el país, la comercializadora y la tarifa contratada.",
     intro2: "Esta calculadora suma el consumo de todos los electrodomésticos que introduces y te muestra el coste diario, mensual y anual. El desglose por aparato te permite identificar rápidamente cuáles son los más costosos y dónde puedes ahorrar. Especialmente útil para optimizar el uso de calefactores eléctricos, aires acondicionados y electrodomésticos de gran consumo.",
     disclaimer: "Los resultados son estimaciones basadas en la potencia nominal y el uso declarado. El consumo real puede variar. Consulta tu factura eléctrica para el precio exacto del kWh.",
-    priceCardTitle: "Precio de la energía",
+    tarifaTitle: "Tarifa Eléctrica",
     countryLabel: "País",
-    priceLabel: "Precio por kWh",
-    priceHint: "Precio medio orientativo según el país seleccionado",
-    appliancesCardTitle: "Electrodomésticos",
-    addBtn: "Añadir",
-    colAppliance: "Electrodoméstico",
-    colWatts: "Vatios (W)",
+    priceLabel: "Precio por kWh (€)",
+    priceHint: "Calculado según el mercado promedio actual.",
+    addAppliance: "Añadir Electrodoméstico",
+    appliancePlaceholder: "Nombre del electrodoméstico",
+    colWatts: "Potencia (W)",
     colHours: "Horas/día",
-    appliancePlaceholder: "Nombre",
-    dailyLabelDefault: "Lunes",
-    errPrice: "El precio del kWh debe ser un número positivo.",
-    errNoAppliances: "Añade al menos un electrodoméstico.",
-    errInvalidAppliance: "Al menos un electrodoméstico debe tener nombre, vatios y horas válidos.",
-    calculateBtn: "Calcular consumo",
-    dailyConsumption: "Consumo diario",
-    monthlyCost: "Coste mensual",
-    annualCost: "Coste anual",
-    chartTitle: "Consumo por electrodoméstico (kWh/día)",
-    tableTitle: "Desglose por electrodoméstico",
-    colKwh: "kWh/día",
-    colMonthCost: "€/mes",
-    colYearCost: "€/año",
-    dailyChartLabel: "Consumo diario",
+    resumenGasto: "Resumen de Gasto",
+    consumoDiario: "Consumo Diario",
+    costoMensual: "Costo Mensual Est.",
+    costoAnual: "Costo Anual Est.",
+    distribucion: "Distribución de Consumo",
+    tipProTitle: "Tip Pro",
+    tipProText: "Usa electrodomésticos de clase A+++ para reducir tu consumo hasta un 60% comparado con modelos antiguos.",
+    savingsTipFn: (name: string, saving: string) =>
+      `Reduce un 10% el uso de ${name} para ahorrar ${saving} al mes.`,
+    emptyChart: "Añade electrodomésticos para ver la distribución.",
     howTitle: "Cómo funciona",
     howText: "Esta calculadora estima el consumo eléctrico sumando el gasto de cada electrodoméstico según su potencia en vatios (W) y las horas de uso diarias. La fórmula es:",
     formula: "kWh/día = (Vatios × Horas) / 1000",
@@ -97,30 +89,24 @@ const T = {
     intro1: "Household electricity consumption represents a significant part of the monthly bill, and knowing it precisely is the first step to reducing it. Each appliance has a power rating in watts (W) which, multiplied by daily hours of use, determines consumption in kilowatt-hours (kWh). The price per kWh varies by country, supplier and tariff contracted.",
     intro2: "This calculator adds up the consumption of all the appliances you enter and shows you the daily, monthly and annual cost. The breakdown by appliance lets you quickly identify which are the most expensive and where you can save. Particularly useful for optimising the use of electric heaters, air conditioners and high-consumption appliances.",
     disclaimer: "Results are estimates based on nominal power and declared usage. Actual consumption may vary. Check your electricity bill for the exact price per kWh.",
-    priceCardTitle: "Energy price",
+    tarifaTitle: "Electricity Tariff",
     countryLabel: "Country",
-    priceLabel: "Price per kWh",
-    priceHint: "Indicative average price for the selected country",
-    appliancesCardTitle: "Appliances",
-    addBtn: "Add",
-    colAppliance: "Appliance",
-    colWatts: "Watts (W)",
+    priceLabel: "Price per kWh (€)",
+    priceHint: "Calculated based on current average market prices.",
+    addAppliance: "Add Appliance",
+    appliancePlaceholder: "Appliance name",
+    colWatts: "Power (W)",
     colHours: "Hours/day",
-    appliancePlaceholder: "Name",
-    dailyLabelDefault: "Monday",
-    errPrice: "The kWh price must be a positive number.",
-    errNoAppliances: "Add at least one appliance.",
-    errInvalidAppliance: "At least one appliance must have a valid name, watts and hours.",
-    calculateBtn: "Calculate consumption",
-    dailyConsumption: "Daily consumption",
-    monthlyCost: "Monthly cost",
-    annualCost: "Annual cost",
-    chartTitle: "Consumption per appliance (kWh/day)",
-    tableTitle: "Breakdown by appliance",
-    colKwh: "kWh/day",
-    colMonthCost: "€/month",
-    colYearCost: "€/year",
-    dailyChartLabel: "Daily consumption",
+    resumenGasto: "Cost Summary",
+    consumoDiario: "Daily Consumption",
+    costoMensual: "Est. Monthly Cost",
+    costoAnual: "Est. Annual Cost",
+    distribucion: "Consumption Distribution",
+    tipProTitle: "Pro Tip",
+    tipProText: "Use A+++ rated appliances to reduce your consumption by up to 60% compared to older models.",
+    savingsTipFn: (name: string, saving: string) =>
+      `Reduce ${name} usage by 10% to save ${saving} per month.`,
+    emptyChart: "Add appliances to see the distribution.",
     howTitle: "How it works",
     howText: "This calculator estimates electricity consumption by adding up the usage of each appliance based on its power in watts (W) and daily hours of use. The formula is:",
     formula: "kWh/day = (Watts × Hours) / 1000",
@@ -140,11 +126,14 @@ const T = {
 export default function ConsumoElectrico() {
   const locale = useLocale();
   const t = T[locale];
+  const isEn = locale === "en";
+
   const [countryCode, setCountryCode] = useState("es");
   const [appliances, setAppliances] = useState<Appliance[]>([
-    { id: 1, name: "Nevera", watts: "150", hoursPerDay: "24" },
-    { id: 2, name: "Lavadora", watts: "2000", hoursPerDay: "1" },
-    { id: 3, name: "Televisor", watts: "100", hoursPerDay: "4" },
+    { id: 1, name: isEn ? "Fridge" : "Nevera", watts: "150", hoursPerDay: "24" },
+    { id: 2, name: isEn ? "Air Conditioning" : "Aire Acondicionado", watts: "1500", hoursPerDay: "4" },
+    { id: 3, name: isEn ? "LED TV" : "Televisor LED", watts: "100", hoursPerDay: "6" },
+    { id: 4, name: isEn ? "Washing Machine" : "Lavadora", watts: "500", hoursPerDay: "1" },
   ]);
 
   const country = getCountry(countryCode);
@@ -154,10 +143,7 @@ export default function ConsumoElectrico() {
     const c = getCountry(code);
     setCountryCode(code);
     setPriceKwh(String(c.electricityKwh));
-    setResult(null);
   };
-  const [result, setResult] = useState<Result | null>(null);
-  const [errors, setErrors] = useState<string[]>([]);
 
   const addAppliance = () => {
     setAppliances((prev) => [
@@ -176,45 +162,42 @@ export default function ConsumoElectrico() {
     );
   };
 
-  const calculate = () => {
-    const errs: string[] = [];
-    const price = parseFloat(priceKwh);
-    if (isNaN(price) || price <= 0) errs.push(t.errPrice);
-    if (appliances.length === 0) errs.push(t.errNoAppliances);
-
-    const validAppliances = appliances.filter((a) => {
+  // Live calculation
+  const price = parseFloat(priceKwh) || 0;
+  const breakdown = appliances
+    .filter((a) => {
       const w = parseFloat(a.watts);
       const h = parseFloat(a.hoursPerDay);
-      return a.name && !isNaN(w) && w > 0 && !isNaN(h) && h > 0 && h <= 24;
-    });
-    if (validAppliances.length === 0)
-      errs.push(t.errInvalidAppliance);
-
-    setErrors(errs);
-    if (errs.length > 0) return;
-
-    const breakdown = validAppliances.map((a) => {
-      const w = parseFloat(a.watts);
-      const h = parseFloat(a.hoursPerDay);
-      const kwhPerDay = (w * h) / 1000;
-      return { name: a.name, kwh: kwhPerDay, cost: kwhPerDay * price };
+      return a.name && !isNaN(w) && w > 0 && !isNaN(h) && h > 0;
+    })
+    .map((a) => {
+      const kwh = (parseFloat(a.watts) * parseFloat(a.hoursPerDay)) / 1000;
+      return { name: a.name, kwh, cost: kwh * price };
     });
 
-    const daily = breakdown.reduce((s, b) => s + b.kwh, 0);
-    setResult({ daily, monthly: daily * 30, annual: daily * 365, breakdown });
-  };
+  const totalDaily = breakdown.reduce((s, b) => s + b.kwh, 0);
+  const totalMonthly = totalDaily * 30 * price;
+  const totalAnnual = totalDaily * 365 * price;
+
+  const biggest = breakdown.length > 0
+    ? breakdown.reduce((max, b) => (b.cost > max.cost ? b : max), breakdown[0])
+    : null;
 
   const fmt = (n: number, dec = 2) =>
-    n.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-  const fmtMoney = (n: number) => fmtCurrency(n, country.currency, country.numberLocale);
+    n.toLocaleString(isEn ? "en-GB" : "es-ES", {
+      minimumFractionDigits: dec,
+      maximumFractionDigits: dec,
+    });
+
   const sym = country.currencySymbol;
-  const perMonth = locale === "es" ? "/mes" : "/month";
-  const perYear = locale === "es" ? "/año" : "/year";
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <div className="mb-6">
-        <Link href={locale === "en" ? "/en" : "/"} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
+        <Link
+          href={isEn ? "/en" : "/"}
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
           <ArrowLeft className="h-4 w-4" />
           {t.backHome}
         </Link>
@@ -233,194 +216,232 @@ export default function ConsumoElectrico() {
         <p>{t.intro2}</p>
       </div>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>{t.priceCardTitle}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <Label>{t.countryLabel}</Label>
-            <Select value={countryCode} onValueChange={handleCountryChange}>
-              <SelectTrigger className="mt-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {COUNTRIES.map((c) => (
-                  <SelectItem key={c.code} value={c.code}>
-                    {locale === "es" ? c.nameEs : c.nameEn}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex items-end gap-4">
-            <div className="flex-1">
-              <Label htmlFor="price-kwh">
-                {t.priceLabel} ({country.currencySymbol}/kWh)
-              </Label>
-              <Input
-                id="price-kwh"
-                data-testid="input-price-kwh"
-                type="number"
-                step="0.01"
-                value={priceKwh}
-                onChange={(e) => setPriceKwh(e.target.value)}
-                className="mt-1"
-              />
-            </div>
-            <p className="text-xs text-muted-foreground pb-2">{t.priceHint}</p>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Two-column layout */}
+      <div className="flex flex-col lg:flex-row gap-6 items-start">
 
-      <Card className="mb-6">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>{t.appliancesCardTitle}</CardTitle>
-          <Button data-testid="button-add-appliance" variant="outline" size="sm" onClick={addAppliance}>
-            <Plus className="h-4 w-4 mr-1" />
-            {t.addBtn}
-          </Button>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="grid grid-cols-12 gap-2 text-xs font-medium text-muted-foreground px-1 mb-1">
-            <span className="col-span-5">{t.colAppliance}</span>
-            <span className="col-span-3">{t.colWatts}</span>
-            <span className="col-span-3">{t.colHours}</span>
-            <span className="col-span-1"></span>
-          </div>
-          {appliances.map((a) => (
-            <div key={a.id} className="grid grid-cols-12 gap-2 items-center">
-              <Input
-                data-testid={`input-appliance-name-${a.id}`}
-                className="col-span-5"
-                placeholder={t.appliancePlaceholder}
-                value={a.name}
-                onChange={(e) => updateAppliance(a.id, "name", e.target.value)}
-              />
-              <Input
-                data-testid={`input-appliance-watts-${a.id}`}
-                className="col-span-3"
-                type="number"
-                placeholder="W"
-                value={a.watts}
-                onChange={(e) => updateAppliance(a.id, "watts", e.target.value)}
-              />
-              <Input
-                data-testid={`input-appliance-hours-${a.id}`}
-                className="col-span-3"
-                type="number"
-                placeholder="h"
-                min="0"
-                max="24"
-                value={a.hoursPerDay}
-                onChange={(e) => updateAppliance(a.id, "hoursPerDay", e.target.value)}
-              />
-              <Button
-                data-testid={`button-remove-appliance-${a.id}`}
-                variant="ghost"
-                size="icon"
-                className="col-span-1 text-muted-foreground hover:text-destructive"
-                onClick={() => removeAppliance(a.id)}
-              >
-                <Trash2 className="h-4 w-4" />
-              </Button>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+        {/* ── LEFT COLUMN ── */}
+        <div className="flex-1 min-w-0 space-y-4">
 
-      {errors.length > 0 && (
-        <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 mb-4">
-          {errors.map((e, i) => (
-            <p key={i} className="text-sm text-destructive">{e}</p>
-          ))}
-        </div>
-      )}
-
-      <Button data-testid="button-calculate" onClick={calculate} className="w-full mb-8" size="lg">
-        {t.calculateBtn}
-      </Button>
-
-      {result && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-3 gap-4">
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">{t.dailyConsumption}</p>
-                <p className="text-2xl font-bold text-primary">{fmt(result.daily)} kWh</p>
-                <p className="text-sm text-muted-foreground">{fmtMoney(result.daily * parseFloat(priceKwh))}{locale === "es" ? "/día" : "/day"}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">{t.monthlyCost}</p>
-                <p className="text-2xl font-bold text-primary">{fmtMoney(result.monthly * parseFloat(priceKwh))}</p>
-                <p className="text-sm text-muted-foreground">{fmt(result.monthly)} kWh{perMonth}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <p className="text-sm text-muted-foreground mb-1">{t.annualCost}</p>
-                <p className="text-2xl font-bold text-primary">{fmtMoney(result.annual * parseFloat(priceKwh))}</p>
-                <p className="text-sm text-muted-foreground">{fmt(result.annual)} kWh{perYear}</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>{t.chartTitle}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={result.breakdown} margin={{ top: 10, right: 10, left: 0, bottom: 30 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12 }} angle={-30} textAnchor="end" />
-                  <YAxis tick={{ fontSize: 12 }} unit=" kWh" />
-                  <Tooltip
-                    formatter={(v: number) => [`${fmt(v)} kWh`, t.dailyChartLabel]}
-                  />
-                  <Bar dataKey="kwh" radius={[4, 4, 0, 0]}>
-                    {result.breakdown.map((_, i) => (
-                      <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader><CardTitle>{t.tableTitle}</CardTitle></CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-2">{t.colAppliance}</th>
-                      <th className="text-right py-2">{t.colKwh}</th>
-                      <th className="text-right py-2">{sym}{perMonth}</th>
-                      <th className="text-right py-2">{sym}{perYear}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {result.breakdown.map((b, i) => (
-                      <tr key={i} className="border-b last:border-0">
-                        <td className="py-2 font-medium">{b.name}</td>
-                        <td className="text-right py-2">{fmt(b.kwh)}</td>
-                        <td className="text-right py-2">{fmtMoney(b.cost * 30)}</td>
-                        <td className="text-right py-2">{fmtMoney(b.cost * 365)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+          {/* Tarifa section */}
+          <div className="rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
+                <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      )}
+              <span className="font-semibold text-gray-900 dark:text-white">{t.tarifaTitle}</span>
+            </div>
+            <Label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+              {t.priceLabel}
+            </Label>
+            <div className="flex gap-3 mt-1">
+              <div className="relative flex-1">
+                <Input
+                  type="number"
+                  step="0.01"
+                  value={priceKwh}
+                  onChange={(e) => setPriceKwh(e.target.value)}
+                  className="pr-8"
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                  {sym}
+                </span>
+              </div>
+              <Select value={countryCode} onValueChange={handleCountryChange}>
+                <SelectTrigger className="w-44">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {COUNTRIES.map((c) => (
+                    <SelectItem key={c.code} value={c.code}>
+                      {isEn ? c.nameEn : c.nameEs}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <p className="text-xs text-muted-foreground italic mt-2">{t.priceHint}</p>
+          </div>
 
-      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
+          {/* Appliance list */}
+          <div className="space-y-3">
+            {appliances.map((a, idx) => {
+              const color = APPLIANCE_COLORS[idx % APPLIANCE_COLORS.length];
+              return (
+                <div
+                  key={a.id}
+                  className="rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${color.bg}`}
+                    >
+                      <Zap className={`w-5 h-5 ${color.icon}`} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <Input
+                        placeholder={t.appliancePlaceholder}
+                        value={a.name}
+                        onChange={(e) => updateAppliance(a.id, "name", e.target.value)}
+                        className="mb-3 font-semibold border-0 border-b border-gray-200 dark:border-white/10 rounded-none px-0 focus-visible:ring-0 bg-transparent"
+                      />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                            {t.colWatts}
+                          </Label>
+                          <Input
+                            type="number"
+                            placeholder="W"
+                            value={a.watts}
+                            onChange={(e) => updateAppliance(a.id, "watts", e.target.value)}
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                            {t.colHours}
+                          </Label>
+                          <Input
+                            type="number"
+                            placeholder="h"
+                            min="0"
+                            max="24"
+                            value={a.hoursPerDay}
+                            onChange={(e) => updateAppliance(a.id, "hoursPerDay", e.target.value)}
+                            className="mt-1"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => removeAppliance(a.id)}
+                      className="mt-1 text-gray-300 hover:text-red-500 dark:text-white/20 dark:hover:text-red-400 transition-colors"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Add button */}
+          <button
+            onClick={addAppliance}
+            className="w-full py-3.5 rounded-xl border-2 border-dashed border-gray-300 dark:border-white/20 text-sm text-gray-500 dark:text-gray-400 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary transition-colors flex items-center justify-center gap-2 bg-white dark:bg-white/5"
+          >
+            <Plus className="w-4 h-4" />
+            {t.addAppliance}
+          </button>
+        </div>
+
+        {/* ── RIGHT COLUMN ── */}
+        <div className="w-full lg:w-80 shrink-0 space-y-4 lg:sticky lg:top-24">
+
+          {/* Resumen de Gasto */}
+          <div className="rounded-2xl bg-gray-900 dark:bg-zinc-900 p-5 space-y-1">
+            <h3 className="text-white font-semibold text-base mb-4">{t.resumenGasto}</h3>
+
+            <div className="flex items-center justify-between py-3 border-b border-white/10">
+              <span className="text-gray-400 text-sm">{t.consumoDiario}</span>
+              <div>
+                <span className="text-white text-2xl font-bold">{fmt(totalDaily)}</span>
+                <span className="text-gray-400 text-sm ml-1">kWh</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between py-3 border-b border-white/10">
+              <span className="text-gray-400 text-sm">{t.costoMensual}</span>
+              <span className="text-emerald-400 text-2xl font-bold">
+                {sym} {fmt(totalMonthly)}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between py-3">
+              <span className="text-gray-400 text-sm">{t.costoAnual}</span>
+              <span className="text-emerald-400 text-2xl font-bold">
+                {sym} {fmt(totalAnnual)}
+              </span>
+            </div>
+
+            {biggest && biggest.cost > 0 && (
+              <div className="flex gap-2 bg-white/5 rounded-xl p-3 mt-2">
+                <span className="text-emerald-400 text-base mt-0.5">🌱</span>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  {t.savingsTipFn(biggest.name, `${sym}${fmt(biggest.cost * 30 * 0.1)}`)}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Distribution chart */}
+          <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5">
+            <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-4">
+              {t.distribucion}
+            </h3>
+            {breakdown.length > 0 ? (
+              <>
+                <ResponsiveContainer width="100%" height={180}>
+                  <BarChart data={breakdown} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                    <XAxis
+                      dataKey="name"
+                      tick={{ fontSize: 10, fill: "#9ca3af" }}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <Tooltip
+                      formatter={(v: number) => [`${fmt(v)} kWh`, ""]}
+                      contentStyle={{
+                        background: "#1f2937",
+                        border: "none",
+                        borderRadius: 8,
+                        color: "#fff",
+                        fontSize: 12,
+                      }}
+                    />
+                    <Bar dataKey="kwh" radius={[6, 6, 0, 0]}>
+                      {breakdown.map((_, i) => (
+                        <Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+                <div className="grid grid-cols-2 gap-1 mt-3">
+                  {breakdown.map((b, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400"
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full shrink-0"
+                        style={{ background: BAR_COLORS[i % BAR_COLORS.length] }}
+                      />
+                      <span className="truncate">{b.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <p className="text-xs text-muted-foreground text-center py-8">{t.emptyChart}</p>
+            )}
+          </div>
+
+          {/* Tip Pro */}
+          <div className="rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/30 p-4">
+            <div className="flex items-center gap-2 mb-1.5">
+              <Lightbulb className="w-4 h-4 text-amber-500" />
+              <span className="text-sm font-semibold text-amber-700 dark:text-amber-400">
+                {t.tipProTitle}
+              </span>
+            </div>
+            <p className="text-xs text-amber-700 dark:text-amber-300 leading-relaxed">
+              {t.tipProText}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
