@@ -26,6 +26,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Simulador de Hipoteca Avanzada",
     subtitle: "Calcula la cuota mensual de tu hipoteca, los intereses totales y obtén tu cuadro de amortización completo.",
+    intro1: "Una hipoteca es el préstamo a largo plazo más importante que contratará la mayoría de familias a lo largo de su vida. El simulador avanzado te permite calcular la cuota mensual exacta, el total de intereses pagados y visualizar el cuadro de amortización completo, mes a mes. El sistema de amortización francés, que es el más habitual en España, mantiene la cuota constante a lo largo del tiempo aunque el peso de capital e intereses varía cada mes.",
+    intro2: "La calculadora diferencia entre hipoteca fija y variable. En la variable, el cálculo asume un tipo de interés constante (el que introduces tú) para proyectar las cuotas, aunque en la práctica el Euríbor cambia cada año en la revisión. Esto te permite hacer una estimación realista y comparar distintos escenarios antes de firmar con el banco.",
+    disclaimer: "Los resultados son orientativos. Consulta siempre la FEIN y la FIAE que te entrega el banco antes de firmar cualquier hipoteca.",
     cardTitle: "Datos del Préstamo",
     capitalLabel: "Capital prestado (€)",
     rateLabel: "Tipo de interés anual (%)",
@@ -62,6 +65,9 @@ const T = {
     backHome: "Back to home",
     title: "Advanced Mortgage Simulator",
     subtitle: "Calculate your monthly mortgage payment, total interest and get your full amortisation schedule.",
+    intro1: "A mortgage is the most important long-term loan most families will ever take out. The advanced simulator lets you calculate the exact monthly payment, total interest paid and visualise the full amortisation schedule, month by month. The French amortisation system, the most common in Spain, keeps the monthly payment constant throughout the loan although the split between principal and interest changes each month.",
+    intro2: "The calculator distinguishes between fixed and variable rate mortgages. For variable mortgages, the calculation assumes a constant interest rate (the one you enter) to project the payments, although in practice the Euribor changes at each annual review. This lets you make a realistic estimate and compare different scenarios before signing with the bank.",
+    disclaimer: "Results are indicative. Always consult the FEIN and FIAE documents your bank provides before signing any mortgage.",
     cardTitle: "Loan Details",
     capitalLabel: "Principal amount (€)",
     rateLabel: "Annual interest rate (%)",
@@ -147,6 +153,11 @@ export default function HipotecaAvanzada() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
+      </div>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -318,6 +329,8 @@ export default function HipotecaAvanzada() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

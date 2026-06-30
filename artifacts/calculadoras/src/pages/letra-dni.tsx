@@ -43,6 +43,9 @@ const T = {
   es: {
     title: "Calculadora Letra del DNI",
     subtitle: "Introduce los números de tu DNI o NIE y obtén la letra correcta al instante. El cálculo se hace en tu navegador.",
+    intro1: "La letra del DNI español no es aleatoria: es un dígito de verificación calculado matemáticamente a partir del número. Su función es detectar errores en la introducción del número (como sucede con el IBAN bancario o el ISBN de los libros). El algoritmo aplica el módulo 23 al número y el resultado se convierte en una letra mediante la tabla oficial TRWAGMYFPDXBNJZSQVHLCKE.",
+    intro2: "Esta calculadora también funciona para el NIE (Número de Identidad de Extranjero), que comienza por X, Y o Z. Antes de aplicar el módulo, esas letras se sustituyen por 0, 1 y 2 respectivamente. El resultado es instantáneo y el cálculo se realiza en tu propio navegador, sin enviar ningún dato a ningún servidor.",
+    disclaimer: "Esta herramienta es solo para verificar la letra. Para cualquier gestión oficial relacionada con el DNI, acude a las autoridades competentes.",
     cardTitle: "Número de DNI o NIE",
     inputLabel: "Número (8 dígitos para DNI, X/Y/Z + 7 para NIE)",
     fullDocLabel: "Documento completo",
@@ -61,6 +64,9 @@ const T = {
   en: {
     title: "Spanish DNI Letter Calculator",
     subtitle: "Enter the numbers of your Spanish DNI or NIE and get the correct check letter instantly. Calculation is done in your browser.",
+    intro1: "The letter on a Spanish DNI is not random: it is a check digit calculated mathematically from the number. Its purpose is to detect errors in number entry (as with bank IBANs or book ISBNs). The algorithm applies modulo 23 to the number and the result is converted to a letter using the official table TRWAGMYFPDXBNJZSQVHLCKE.",
+    intro2: "This calculator also works for the NIE (Número de Identidad de Extranjero), which begins with X, Y or Z. Before applying the modulo, those letters are replaced by 0, 1 and 2 respectively. The result is instant and the calculation is done in your own browser, without sending any data to any server.",
+    disclaimer: "This tool is only for verifying the letter. For any official matters related to the DNI, contact the relevant authorities.",
     cardTitle: "DNI or NIE number",
     inputLabel: "Number (8 digits for DNI, X/Y/Z + 7 for NIE)",
     fullDocLabel: "Complete document",
@@ -93,7 +99,12 @@ export default function LetraDni() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -127,6 +138,8 @@ export default function LetraDni() {
           </CardContent>
         </Card>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

@@ -10,7 +10,7 @@ import {
   localeSwitchPath,
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
-import { Mail, ChevronDown } from "lucide-react";
+import { Mail, ChevronDown, BookOpen } from "lucide-react";
 import { useLocale } from "@/lib/locale";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -34,12 +34,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   const legalLinks = isEn
     ? [
+        { href: "/en/blog", label: "Blog" },
         { href: "/en/privacy", label: "Privacy Policy" },
         { href: "/en/cookies", label: "Cookie Policy" },
         { href: "/en/legal-notice", label: "Legal Notice" },
         { href: "/en/contact", label: "Contact" },
       ]
     : [
+        { href: "/blog", label: "Blog" },
         { href: "/privacidad", label: "Privacidad" },
         { href: "/cookies", label: "Cookies" },
         { href: "/aviso-legal", label: "Aviso legal" },
@@ -88,6 +90,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
+            <Link
+              href={isEn ? "/en/blog" : "/blog"}
+              className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors"
+            >
+              <BookOpen className="w-4 h-4" />
+              Blog
+            </Link>
             <Link
               href={isEn ? "/en/contact" : "/contacto"}
               className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-white/50 hover:text-primary dark:hover:text-white transition-colors"

@@ -49,6 +49,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora de Consumo Eléctrico",
     subtitle: "Calcula el gasto eléctrico de tus electrodomésticos y encuentra oportunidades de ahorro.",
+    intro1: "El consumo eléctrico del hogar representa una parte significativa de la factura mensual y conocerlo con precisión es el primer paso para reducirlo. Cada electrodoméstico tiene una potencia en vatios (W) que, multiplicada por las horas de uso diario, determina el consumo en kilovatios hora (kWh). El precio del kWh varía según el país, la comercializadora y la tarifa contratada.",
+    intro2: "Esta calculadora suma el consumo de todos los electrodomésticos que introduces y te muestra el coste diario, mensual y anual. El desglose por aparato te permite identificar rápidamente cuáles son los más costosos y dónde puedes ahorrar. Especialmente útil para optimizar el uso de calefactores eléctricos, aires acondicionados y electrodomésticos de gran consumo.",
+    disclaimer: "Los resultados son estimaciones basadas en la potencia nominal y el uso declarado. El consumo real puede variar. Consulta tu factura eléctrica para el precio exacto del kWh.",
     priceCardTitle: "Precio de la energía",
     countryLabel: "País",
     priceLabel: "Precio por kWh",
@@ -91,6 +94,9 @@ const T = {
     backHome: "Back to home",
     title: "Electricity Consumption Calculator",
     subtitle: "Calculate the electricity cost of your appliances and find savings opportunities.",
+    intro1: "Household electricity consumption represents a significant part of the monthly bill, and knowing it precisely is the first step to reducing it. Each appliance has a power rating in watts (W) which, multiplied by daily hours of use, determines consumption in kilowatt-hours (kWh). The price per kWh varies by country, supplier and tariff contracted.",
+    intro2: "This calculator adds up the consumption of all the appliances you enter and shows you the daily, monthly and annual cost. The breakdown by appliance lets you quickly identify which are the most expensive and where you can save. Particularly useful for optimising the use of electric heaters, air conditioners and high-consumption appliances.",
+    disclaimer: "Results are estimates based on nominal power and declared usage. Actual consumption may vary. Check your electricity bill for the exact price per kWh.",
     priceCardTitle: "Energy price",
     countryLabel: "Country",
     priceLabel: "Price per kWh",
@@ -220,7 +226,12 @@ export default function ConsumoElectrico() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -408,6 +419,8 @@ export default function ConsumoElectrico() {
           </Card>
         </div>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

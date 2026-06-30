@@ -52,6 +52,9 @@ const T = {
   es: {
     title: "Calculadora de Calorías y TMB",
     subtitle: "Calcula tu Tasa Metabólica Basal (TMB) y las calorías diarias que necesitas según tu nivel de actividad y objetivo.",
+    intro1: "Saber cuántas calorías necesitas al día es el punto de partida para cualquier objetivo de composición corporal: perder grasa, ganar músculo o mantener tu peso actual. Esta calculadora parte de la Tasa Metabólica Basal (TMB) — la energía que tu cuerpo consume en reposo — y la multiplica por tu factor de actividad para obtener el gasto energético total diario (TDEE).",
+    intro2: "A partir del TDEE y de tu objetivo, la calculadora determina el aporte calórico diario recomendado y ofrece una distribución orientativa de macronutrientes: proteínas, hidratos de carbono y grasas. Se utiliza la fórmula de Mifflin-St Jeor, considerada la más precisa para la población general.",
+    medDisclaimer: "Los valores son estimaciones poblacionales. Consulta a un nutricionista o dietista antes de realizar cambios significativos en tu alimentación.",
     cardTitle: "Tus datos",
     weightLabel: "Peso (kg)",
     heightLabel: "Altura (cm)",
@@ -80,6 +83,9 @@ const T = {
   en: {
     title: "Calorie & BMR Calculator",
     subtitle: "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on your activity level and goal.",
+    intro1: "Knowing how many calories you need each day is the starting point for any body composition goal: losing fat, gaining muscle or maintaining your current weight. This calculator starts from the Basal Metabolic Rate (BMR) — the energy your body burns at rest — and multiplies it by your activity factor to get your Total Daily Energy Expenditure (TDEE).",
+    intro2: "Based on your TDEE and goal, the calculator works out your recommended daily calorie intake and provides an indicative macronutrient breakdown: protein, carbohydrates and fat. It uses the Mifflin-St Jeor formula, considered the most accurate for the general population.",
+    medDisclaimer: "Values are population estimates. Consult a nutritionist or dietitian before making significant changes to your diet.",
     cardTitle: "Your data",
     weightLabel: "Weight (kg)",
     heightLabel: "Height (cm)",
@@ -154,7 +160,12 @@ export default function Calorias() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -264,6 +275,10 @@ export default function Calorias() {
             </CardContent>
           </Card>
         </>
+      )}
+
+      {valid && (
+        <p className="text-xs text-muted-foreground italic mb-2">{t.medDisclaimer}</p>
       )}
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

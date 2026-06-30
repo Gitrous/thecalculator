@@ -33,6 +33,9 @@ const T = {
   es: {
     title: "Calculadora de IMC",
     subtitle: "Calcula tu Índice de Masa Corporal y descubre en qué rango de peso te encuentras según la OMS.",
+    intro1: "El Índice de Masa Corporal (IMC) es la herramienta de referencia de la Organización Mundial de la Salud para clasificar el peso corporal en relación con la altura. Se obtiene dividiendo el peso en kilogramos entre el cuadrado de la altura en metros y permite comparar tu estado ponderal con los valores de referencia poblacionales.",
+    intro2: "Aunque es un indicador práctico y ampliamente utilizado, el IMC tiene limitaciones importantes: no distingue entre masa muscular y grasa corporal, ni tiene en cuenta la distribución de la grasa. Por eso debe interpretarse siempre junto con otros datos clínicos como la circunferencia de cintura o el porcentaje de grasa corporal.",
+    disclaimer: "Los resultados son orientativos. Consulta a un profesional de la salud para una evaluación completa de tu composición corporal.",
     cardTitle: "Datos",
     weightLabel: "Peso (kg)",
     heightLabel: "Altura (cm)",
@@ -57,6 +60,9 @@ const T = {
   en: {
     title: "BMI Calculator",
     subtitle: "Calculate your Body Mass Index and find your weight category according to WHO standards.",
+    intro1: "Body Mass Index (BMI) is the World Health Organization's reference tool for classifying body weight in relation to height. It is calculated by dividing weight in kilograms by the square of height in metres, and allows your weight status to be compared against population reference values.",
+    intro2: "Although it is a practical and widely used indicator, BMI has important limitations: it does not distinguish between muscle mass and body fat, nor does it account for fat distribution. It should therefore always be interpreted alongside other clinical indicators such as waist circumference or body fat percentage.",
+    disclaimer: "Results are indicative only. Consult a healthcare professional for a complete assessment of your body composition.",
     cardTitle: "Your data",
     weightLabel: "Weight (kg)",
     heightLabel: "Height (cm)",
@@ -112,7 +118,12 @@ export default function Imc() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -168,6 +179,10 @@ export default function Imc() {
         <h3 className="text-lg font-semibold mb-2">{t.exampleTitle}</h3>
         <p className="text-muted-foreground">{t.example}</p>
       </section>
+
+      {imc !== null && (
+        <p className="text-xs text-muted-foreground italic mb-2">{t.disclaimer}</p>
+      )}
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

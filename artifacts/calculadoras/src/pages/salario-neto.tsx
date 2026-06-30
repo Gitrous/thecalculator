@@ -25,6 +25,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora de Salario Neto",
     subtitle: "Descubre cuánto dinero te llegará realmente a la cuenta bancaria cada mes según el país.",
+    intro1: "El salario neto es la cantidad real que percibes en tu cuenta bancaria una vez descontadas las cotizaciones a la Seguridad Social y la retención del IRPF. La diferencia entre bruto y neto puede ser muy significativa: en España, para un salario bruto de 30.000 € anuales, el neto puede rondar los 23.000–24.000 €, dependiendo de las circunstancias personales y las deducciones aplicables.",
+    intro2: "Esta calculadora estima el salario neto aproximado en varios países, teniendo en cuenta los tipos impositivos principales y las cotizaciones sociales de cada sistema. Es especialmente útil para comparar ofertas de trabajo en distintos países o para planificar una mudanza internacional, aunque hay que tener en cuenta que los cálculos son estimativos y no contemplan todas las particularidades de cada situación personal.",
+    disclaimer: "Cálculo orientativo. Para tu declaración de la renta o nómina real consulta a un gestor o usa el simulador oficial de la AEAT.",
     cardTitle: "Tu Nómina",
     countryLabel: "País",
     grossLabel: "Salario bruto anual",
@@ -57,6 +60,9 @@ const T = {
     backHome: "Back to home",
     title: "Net Salary Calculator",
     subtitle: "Discover how much money will actually reach your bank account each month based on your country.",
+    intro1: "Net salary is the actual amount you receive in your bank account after deducting social security contributions and income tax withholding. The difference between gross and net can be very significant: in Spain, for a gross salary of €30,000 per year, the net can be around €23,000–€24,000, depending on personal circumstances and applicable deductions.",
+    intro2: "This calculator estimates the approximate net salary in various countries, taking into account the main tax rates and social contributions of each system. It is particularly useful for comparing job offers in different countries or planning an international move, although the calculations are estimates and do not account for all the particulars of each personal situation.",
+    disclaimer: "Indicative calculation. For your tax return or actual payslip, consult an accountant or use the AEAT official simulator.",
     cardTitle: "Your Payslip",
     countryLabel: "Country",
     grossLabel: "Annual gross salary",
@@ -152,6 +158,11 @@ export default function SalarioNeto() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
+      </div>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -311,6 +322,8 @@ export default function SalarioNeto() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

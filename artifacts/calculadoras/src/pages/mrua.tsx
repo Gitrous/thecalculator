@@ -38,6 +38,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora MRUA",
     subtitle: "Movimiento Rectilíneo Uniformemente Acelerado: calcula velocidad final y distancia recorrida.",
+    intro1: "El Movimiento Rectilíneo Uniformemente Acelerado (MRUA) describe el movimiento de un objeto que se desplaza en línea recta con una aceleración constante. Es el modelo que describe la caída libre, el lanzamiento vertical y el movimiento de vehículos que aceleran o frenan de forma uniforme. Las ecuaciones del MRUA permiten calcular la velocidad en cada instante y el espacio recorrido.",
+    intro2: "Esta calculadora resuelve el MRUA dado el valor de velocidad inicial, aceleración y tiempo. Calcula la velocidad final y la distancia recorrida, y genera un gráfico de velocidad y posición en el tiempo. La aceleración puede ser positiva (el objeto acelera) o negativa (el objeto decelera o se mueve en sentido contrario).",
+    disclaimer: "Los resultados asumen aceleración constante y ausencia de resistencias externas. La resistencia del aire y otras fuerzas externas modifican el comportamiento real.",
     cardTitle: "Datos del movimiento",
     v0Label: "Velocidad inicial v₀ (m/s)",
     v0Hint: "Puede ser negativa (movimiento opuesto)",
@@ -70,6 +73,9 @@ const T = {
     backHome: "Back to home",
     title: "UARM Calculator",
     subtitle: "Uniformly Accelerated Rectilinear Motion: calculate final velocity and distance travelled.",
+    intro1: "Uniformly Accelerated Rectilinear Motion (UARM) describes the motion of an object moving in a straight line with constant acceleration. It is the model that describes free fall, vertical throws and the motion of vehicles that accelerate or brake uniformly. The UARM equations allow the velocity at any instant and the distance travelled to be calculated.",
+    intro2: "This calculator solves UARM given the initial velocity, acceleration and time values. It calculates the final velocity and distance covered, and generates a graph of velocity and position over time. The acceleration can be positive (the object accelerates) or negative (the object decelerates or moves in the opposite direction).",
+    disclaimer: "Results assume constant acceleration and absence of external resistances. Air resistance and other external forces modify real-world behaviour.",
     cardTitle: "Motion data",
     v0Label: "Initial velocity v₀ (m/s)",
     v0Hint: "Can be negative (opposite direction)",
@@ -153,7 +159,12 @@ export default function MRUA() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{tr.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{tr.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{tr.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{tr.intro1}</p>
+        <p>{tr.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader><CardTitle>{tr.cardTitle}</CardTitle></CardHeader>

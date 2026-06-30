@@ -46,6 +46,9 @@ const T = {
   es: {
     title: "Calculadora TAE / TIN",
     subtitle: "Convierte entre TIN (Tipo de Interés Nominal) y TAE (Tasa Anual Equivalente) según la frecuencia de capitalización. Imprescindible para comparar hipotecas, préstamos y depósitos.",
+    intro1: "La TAE (Tasa Anual Equivalente) es el indicador que permite comparar de forma homogénea distintos productos financieros, ya que incorpora no solo el tipo de interés nominal (TIN), sino también la frecuencia de capitalización y las comisiones. Es el dato que, por ley, las entidades financieras deben mostrar de forma destacada en su publicidad de préstamos, hipotecas y depósitos.",
+    intro2: "Esta calculadora convierte en ambas direcciones entre TIN y TAE usando la fórmula estándar: TAE = (1 + TIN/n)^n − 1, donde n es la frecuencia de capitalización anual. También genera una tabla comparativa para visualizar cómo varía la TAE según la frecuencia (diaria, semanal, mensual, trimestral, semestral o anual), lo que es especialmente útil para entender el verdadero coste de un préstamo.",
+    disclaimer: "Los resultados son matemáticamente exactos. La TAE real de un préstamo puede diferir si incluye comisiones adicionales no contempladas aquí.",
     cardTitle: "Convertidor",
     freqLabel: "Frecuencia de capitalización",
     tinLabel: "TIN (%)",
@@ -68,6 +71,9 @@ const T = {
   en: {
     title: "APR / Nominal Rate Converter",
     subtitle: "Convert between nominal interest rate (TIN) and APR (Annual Percentage Rate) based on the compounding frequency. Essential for comparing mortgages, loans and deposits.",
+    intro1: "The APR (Annual Percentage Rate) is the indicator that allows homogeneous comparison of different financial products, as it incorporates not only the nominal interest rate, but also the compounding frequency and fees. It is the figure that, by law, financial institutions must display prominently in their advertising for loans, mortgages and deposits.",
+    intro2: "This calculator converts in both directions between the nominal rate and APR using the standard formula: APR = (1 + nominal/n)^n − 1, where n is the annual compounding frequency. It also generates a comparison table to visualise how the APR varies by frequency (daily, weekly, monthly, quarterly, half-yearly or annual), which is particularly useful for understanding the true cost of a loan.",
+    disclaimer: "Results are mathematically exact. The actual APR of a loan may differ if it includes additional fees not considered here.",
     cardTitle: "Converter",
     freqLabel: "Compounding frequency",
     tinLabel: "Nominal rate (%)",
@@ -129,7 +135,12 @@ export default function Tae() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -221,6 +232,8 @@ export default function Tae() {
           </div>
         </CardContent>
       </Card>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

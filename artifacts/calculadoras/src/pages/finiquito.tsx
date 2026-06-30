@@ -25,6 +25,9 @@ const T = {
   es: {
     title: "Calculadora de Finiquito",
     subtitle: "Estima el finiquito que te corresponde: vacaciones no disfrutadas, días trabajados sin cobrar y parte proporcional de las pagas extra.",
+    intro1: "El finiquito es la liquidación económica que la empresa está obligada a entregar al trabajador cuando se extingue el contrato laboral, sea por despido, renuncia voluntaria, fin del contrato o mutuo acuerdo. Recoge tres conceptos básicos: los días de vacaciones no disfrutados, los salarios del mes en curso pendientes de cobro y la parte proporcional de las pagas extraordinarias.",
+    intro2: "Es importante distinguir el finiquito de la indemnización por despido: el finiquito siempre se cobra, mientras que la indemnización solo corresponde en determinados tipos de despido (improcedente: 33 días/año, objetivo: 20 días/año). Esta calculadora te ayuda a estimar el importe bruto del finiquito para que puedas verificar que el documento que te propone la empresa es correcto.",
+    disclaimer: "Cálculo orientativo en bruto. No incluye la indemnización por despido ni las retenciones de IRPF. Consulta con un asesor laboral para el importe exacto.",
     cardTitle: "Datos",
     annualLabel: "Salario bruto anual (€)",
     vacLabel: "Días de vacaciones pendientes",
@@ -54,6 +57,9 @@ const T = {
   en: {
     title: "Severance Pay Calculator (Spain)",
     subtitle: "Estimate your severance pay: unused holidays, unpaid worked days and pro-rata bonus payments.",
+    intro1: "Severance pay (finiquito) is the financial settlement the company is obliged to give an employee when the employment contract ends, whether through dismissal, voluntary resignation, end of contract or mutual agreement. It covers three basic items: unused holiday days, wages for the current month not yet paid, and the pro-rata share of bonus payments.",
+    intro2: "It is important to distinguish severance pay from dismissal compensation: severance pay is always owed, while compensation is only applicable in certain types of dismissal (unfair dismissal: 33 days/year, objective dismissal: 20 days/year). This calculator helps you estimate the gross severance amount so you can verify that the document proposed by the company is correct.",
+    disclaimer: "Indicative gross estimate. Does not include dismissal compensation or income tax withholding. Consult a labour adviser for the exact amount.",
     cardTitle: "Data",
     annualLabel: "Annual gross salary (€)",
     vacLabel: "Pending holiday days",
@@ -109,7 +115,12 @@ export default function Finiquito() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -161,6 +172,8 @@ export default function Finiquito() {
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
         {t.note}
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

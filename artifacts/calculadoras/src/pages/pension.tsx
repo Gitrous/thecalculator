@@ -33,6 +33,9 @@ const T = {
   es: {
     title: "Calculadora de Pensión de Jubilación 2026",
     subtitle: "Estima tu pensión mensual de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa basada en el sistema español.",
+    intro1: "La pensión contributiva de jubilación en España es el pilar del sistema público de previsión social para la vejez. Su cálculo depende de dos factores clave: el número de años cotizados (que determina el porcentaje de la base reguladora) y la base reguladora en sí, que es la media de las bases de cotización de los últimos 25 años. A más años cotizados y mayor salario histórico, mayor pensión.",
+    intro2: "Esta calculadora te permite estimar la pensión mensual bruta aproximada según tus años de cotización y tu base reguladora media. También te muestra cuántos años te faltan para alcanzar el 100% de la prestación y te compara con la pensión máxima y mínima vigentes en 2026. El resultado es orientativo pero útil para planificar el ahorro para la jubilación.",
+    disclaimer: "Estimación orientativa. La pensión real la calcula la Seguridad Social con tus bases de cotización históricas exactas. Consulta tu informe de vida laboral.",
     cardTitle: "Tus datos",
     yearsLabel: "Años cotizados",
     baseLabel: "Base reguladora mensual (€)",
@@ -61,6 +64,9 @@ const T = {
   en: {
     title: "Spanish Retirement Pension Calculator 2026",
     subtitle: "Estimate your monthly retirement pension based on years contributed and your regulatory base. Indicative calculator based on the Spanish pension system.",
+    intro1: "The contributory retirement pension in Spain is the pillar of the public social provision system for old age. Its calculation depends on two key factors: the number of years contributed (which determines the percentage of the regulatory base) and the regulatory base itself, which is the average of contribution bases over the last 25 years. More years contributed and a higher historical salary mean a higher pension.",
+    intro2: "This calculator lets you estimate the approximate gross monthly pension based on your years of contributions and your average regulatory base. It also shows how many more years you need to reach 100% of the benefit and compares it with the maximum and minimum pensions in force in 2026. The result is indicative but useful for planning retirement savings.",
+    disclaimer: "Indicative estimate. The actual pension is calculated by Social Security using your exact historical contribution bases. Consult your Social Security contributions report.",
     cardTitle: "Your data",
     yearsLabel: "Years contributed",
     baseLabel: "Monthly regulatory base (€)",
@@ -113,7 +119,12 @@ export default function Pension() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -202,6 +213,8 @@ export default function Pension() {
       <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-8 text-sm text-blue-800 dark:text-blue-300">
         {t.note}
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

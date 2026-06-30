@@ -346,6 +346,9 @@ const T = {
   es: {
     title: "Calculadora de Pitágoras",
     subtitle: "Calcula la hipotenusa o un cateto de un triángulo rectángulo. El simulador se actualiza en tiempo real conforme introduces los valores.",
+    intro1: "El teorema de Pitágoras es uno de los fundamentos de la geometría euclidiana y uno de los conceptos matemáticos más conocidos y aplicados. Establece que en un triángulo rectángulo, el cuadrado de la hipotenusa (el lado opuesto al ángulo recto) es igual a la suma de los cuadrados de los otros dos lados (catetos): a² + b² = c². Esta relación tiene miles de aplicaciones en arquitectura, ingeniería, topografía y física.",
+    intro2: "Esta calculadora te permite calcular la hipotenusa conociendo los dos catetos, o bien calcular un cateto cuando conoces la hipotenusa y el otro cateto. El simulador visual se actualiza en tiempo real para que puedas visualizar el triángulo rectángulo con las proporciones correctas. Especialmente útil para problemas de bachillerato, FP o trabajos de obra.",
+    disclaimer: "Los resultados son exactos matemáticamente. Redondea al número de decimales que necesites para tu aplicación práctica.",
     cardTitle: "¿Qué quieres calcular?",
     hypBtn: "Hipotenusa (c)",
     legBtn: "Cateto (b)",
@@ -368,6 +371,9 @@ const T = {
   en: {
     title: "Pythagorean Theorem Calculator",
     subtitle: "Calculate the hypotenuse or a leg of a right triangle. The simulator updates in real time as you enter values.",
+    intro1: "The Pythagorean theorem is one of the foundations of Euclidean geometry and one of the most widely known and applied mathematical concepts. It states that in a right triangle, the square of the hypotenuse (the side opposite the right angle) equals the sum of the squares of the other two sides (legs): a² + b² = c². This relationship has thousands of applications in architecture, engineering, surveying and physics.",
+    intro2: "This calculator lets you calculate the hypotenuse knowing both legs, or calculate a leg when you know the hypotenuse and the other leg. The visual simulator updates in real time so you can see the right triangle with the correct proportions. Particularly useful for secondary school and vocational training problems or construction work.",
+    disclaimer: "Results are mathematically exact. Round to the number of decimal places you need for your practical application.",
     cardTitle: "What do you want to calculate?",
     hypBtn: "Hypotenuse (c)",
     legBtn: "Leg (b)",
@@ -439,7 +445,12 @@ export default function Pitagoras() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* ── Inputs ── */}

@@ -27,6 +27,9 @@ const T = {
   es: {
     title: "Calculadora de Días entre Fechas",
     subtitle: "Calcula cuántos días, semanas, meses y días laborables hay entre dos fechas.",
+    intro1: "Calcular el número exacto de días entre dos fechas es una necesidad habitual en contextos legales, laborales y personales: plazos para presentar recursos administrativos, duración de contratos temporales, días de vacaciones consumidos o tiempo que falta para un evento. La diferencia entre 'días naturales' y 'días laborables' (excluyendo fines de semana) es clave en muchos de estos contextos.",
+    intro2: "Esta calculadora te da en un solo clic los días totales, las semanas, los meses aproximados y los días laborables entre dos fechas. Útil para calcular plazos legales, duración de bajas médicas, períodos de prueba en contratos de trabajo o simplemente saber cuánto tiempo queda para unas vacaciones o un acontecimiento especial.",
+    disclaimer: "Los días laborables excluyen fines de semana pero no festivos locales ni nacionales, que varían por comunidad. Para plazos legales exactos, consulta el calendario oficial.",
     cardTitle: "Fechas",
     startLabel: "Fecha inicial",
     endLabel: "Fecha final",
@@ -53,6 +56,9 @@ const T = {
   en: {
     title: "Days Between Dates Calculator",
     subtitle: "Calculate how many days, weeks, months and working days there are between two dates.",
+    intro1: "Calculating the exact number of days between two dates is a common need in legal, work and personal contexts: deadlines for administrative appeals, duration of temporary contracts, holidays used or time until an event. The distinction between 'calendar days' and 'working days' (excluding weekends) is key in many of these contexts.",
+    intro2: "This calculator gives you in one click the total days, weeks, approximate months and working days between two dates. Useful for calculating legal deadlines, duration of sick leave, probationary periods in employment contracts or simply knowing how long it is until a holiday or special event.",
+    disclaimer: "Working days exclude weekends but not local or national public holidays, which vary by region. For exact legal deadlines, consult the official calendar.",
     cardTitle: "Dates",
     startLabel: "Start date",
     endLabel: "End date",
@@ -105,7 +111,12 @@ export default function DiasEntreFechas() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -147,6 +158,8 @@ export default function DiasEntreFechas() {
           </CardContent>
         </Card>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

@@ -24,6 +24,9 @@ const T = {
   es: {
     title: "Calculadora de Porcentajes",
     subtitle: "Calcula porcentajes al instante: el X% de Y, qué porcentaje representa un valor, la variación entre dos cifras o aplicar un aumento/descuento.",
+    intro1: "Los porcentajes son una de las herramientas matemáticas más utilizadas en el día a día: calcular el IVA de un precio, el descuento de unas rebajas, el incremento salarial anual o la variación de un índice bursátil. A pesar de ser un concepto básico, su aplicación práctica genera dudas frecuentes, especialmente cuando se trabaja con porcentajes encadenados o variaciones relativas.",
+    intro2: "Esta calculadora resuelve los cuatro casos más comunes: calcular el X% de un número, averiguar qué porcentaje representa A respecto a B, calcular la variación porcentual entre dos valores y aplicar un aumento o descuento a un precio base. Selecciona el tipo de operación y obtendrás el resultado al instante.",
+    disclaimer: "Los resultados son exactos matemáticamente. En contextos fiscales o financieros, verifica siempre los importes con tu asesor.",
     cardTitle: "¿Qué quieres calcular?",
     modes: [
       { id: "percentOf" as Mode, label: "El X% de Y" },
@@ -58,6 +61,9 @@ const T = {
   en: {
     title: "Percentage Calculator",
     subtitle: "Calculate percentages instantly: X% of Y, what percentage a value represents, the change between two figures, or apply an increase/discount.",
+    intro1: "Percentages are one of the most widely used mathematical tools in everyday life: calculating VAT on a price, the discount in a sale, an annual pay rise or the change in a stock index. Despite being a basic concept, their practical application often causes confusion, especially when dealing with compound percentages or relative changes.",
+    intro2: "This calculator solves the four most common cases: calculating X% of a number, finding what percentage A represents of B, calculating the percentage change between two values, and applying an increase or discount to a base price. Select the type of operation and you will get the result instantly.",
+    disclaimer: "Results are mathematically exact. In tax or financial contexts, always verify amounts with your adviser.",
     cardTitle: "What do you want to calculate?",
     modes: [
       { id: "percentOf" as Mode, label: "X% of Y" },
@@ -135,7 +141,12 @@ export default function Porcentajes() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -196,6 +207,8 @@ export default function Porcentajes() {
           </CardContent>
         </Card>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

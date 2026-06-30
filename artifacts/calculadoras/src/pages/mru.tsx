@@ -42,6 +42,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora MRU",
     subtitle: "Movimiento Rectilíneo Uniforme: calcula distancia, velocidad o tiempo con la fórmula d = v × t.",
+    intro1: "El Movimiento Rectilíneo Uniforme (MRU) es el modelo de movimiento más sencillo de la física: un objeto que se desplaza en línea recta a velocidad constante, sin aceleración. La relación entre distancia, velocidad y tiempo se expresa mediante la fórmula d = v × t, que permite calcular cualquiera de las tres magnitudes cuando se conocen las otras dos.",
+    intro2: "Esta calculadora resuelve el MRU en las tres variantes posibles: calcular la distancia recorrida dados velocidad y tiempo, calcular la velocidad dados distancia y tiempo, o calcular el tiempo dados distancia y velocidad. También incluye un gráfico posición-tiempo y admite distintas unidades (metros, kilómetros, millas, km/h, m/s, mph, segundos, minutos, horas).",
+    disclaimer: "Los resultados asumen condiciones ideales (velocidad estrictamente constante y movimiento en línea recta). En situaciones reales existen factores externos que modifican el movimiento.",
     cardTitle: "¿Qué quieres calcular?",
     distanceBtn: "Distancia",
     velocityBtn: "Velocidad",
@@ -77,6 +80,9 @@ const T = {
     backHome: "Back to home",
     title: "URM Calculator",
     subtitle: "Uniform Rectilinear Motion: calculate distance, velocity or time with the formula d = v × t.",
+    intro1: "Uniform Rectilinear Motion (URM) is the simplest model of motion in physics: an object that moves in a straight line at constant velocity, with no acceleration. The relationship between distance, velocity and time is expressed by the formula d = v × t, which allows any of the three quantities to be calculated when the other two are known.",
+    intro2: "This calculator solves URM in all three possible variants: calculating the distance given velocity and time, calculating the velocity given distance and time, or calculating the time given distance and velocity. It also includes a position-time graph and supports different units (metres, kilometres, miles, km/h, m/s, mph, seconds, minutes, hours).",
+    disclaimer: "Results assume ideal conditions (strictly constant velocity and straight-line motion). In real situations, external factors affect the motion.",
     cardTitle: "What do you want to calculate?",
     distanceBtn: "Distance",
     velocityBtn: "Velocity",
@@ -183,7 +189,12 @@ export default function MRU() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{tr.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{tr.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{tr.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{tr.intro1}</p>
+        <p>{tr.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>

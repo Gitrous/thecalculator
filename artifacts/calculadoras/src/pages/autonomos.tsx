@@ -57,6 +57,9 @@ const T = {
   es: {
     title: "Calculadora Cuota Autónomos 2026",
     subtitle: "Estima tu cuota mensual al RETA según el sistema de tramos por rendimientos netos reales de 2026. Incluye la tarifa plana.",
+    intro1: "Desde 2023, las cuotas de los trabajadores autónomos en España se calculan según los rendimientos netos reales, sustituyendo el antiguo sistema de base libre. El nuevo sistema divide a los autónomos en 15 tramos según su renta mensual, con cuotas que van desde los 230 € hasta los 590 € mensuales. El objetivo es que quien más gana, más cotice.",
+    intro2: "Esta calculadora te muestra la cuota estimada para 2026 según el tramo al que perteneces, incluyendo la opción de la tarifa plana de 80 €/mes para los nuevos autónomos durante los primeros 12 meses. Recuerda que puedes solicitar cambios de base hasta 6 veces al año para ajustar tu cotización si tu renta real cambia.",
+    disclaimer: "Estimación orientativa. Los importes exactos pueden variar. Consulta los tramos actualizados en la web de la Seguridad Social.",
     cardTitle: "Datos",
     netLabel: "Rendimiento neto mensual (€)",
     flatLabel: "Aplicar tarifa plana (primeros 12 meses)",
@@ -73,6 +76,9 @@ const T = {
   en: {
     title: "Spanish Freelancer Social Security Calculator 2026",
     subtitle: "Estimate your monthly RETA contribution based on the 2026 income bracket system. Includes the flat rate.",
+    intro1: "Since 2023, self-employed worker contributions in Spain have been calculated based on actual net income, replacing the old free-base system. The new system divides the self-employed into 15 brackets according to monthly income, with contributions ranging from €230 to €590 per month. The aim is for those who earn more to contribute more.",
+    intro2: "This calculator shows you the estimated contribution for 2026 according to your bracket, including the option of the flat rate of €80/month for new self-employed workers during the first 12 months. Remember that you can apply to change your contribution base up to 6 times a year to adjust your contributions if your actual income changes.",
+    disclaimer: "Indicative estimate. Exact amounts may vary. Check the updated brackets on the Social Security website.",
     cardTitle: "Data",
     netLabel: "Monthly net income (€)",
     flatLabel: "Apply flat rate (first 12 months)",
@@ -107,7 +113,12 @@ export default function Autonomos() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -153,6 +164,8 @@ export default function Autonomos() {
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
         {t.note}
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

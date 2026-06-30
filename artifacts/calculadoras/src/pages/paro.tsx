@@ -51,6 +51,9 @@ const T = {
   es: {
     title: "Calculadora de Prestación por Desempleo (Paro) 2026",
     subtitle: "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario y los meses cotizados.",
+    intro1: "La prestación por desempleo (comúnmente llamada 'el paro') es una prestación contributiva del sistema de Seguridad Social español que compensa la pérdida de ingresos cuando un trabajador queda en situación legal de desempleo. Para tener derecho a ella es necesario haber cotizado al menos 360 días (12 meses) en los últimos 6 años antes de quedarse sin trabajo.",
+    intro2: "Esta calculadora estima el importe de la prestación y su duración en función de los meses cotizados y el salario. La cuantía es el 70% de la base reguladora durante los primeros 180 días (6 meses) y el 50% a partir del séptimo mes, con un tope máximo y mínimo establecido por el IPREM. Los resultados son orientativos; el SEPE aplica los datos reales de las bases de cotización.",
+    disclaimer: "Estimación orientativa. Para calcular tu prestación exacta, consulta la sede electrónica del SEPE con tu informe de vida laboral.",
     cardTitle: "Tus datos",
     salaryLabel: "Salario bruto mensual (€)",
     monthsLabel: "Meses cotizados (últimos 6 años)",
@@ -91,6 +94,9 @@ const T = {
   en: {
     title: "Spanish Unemployment Benefit Calculator 2026",
     subtitle: "Calculate how much unemployment benefit you will receive, for how long, and the total amount based on your salary and contributions.",
+    intro1: "Unemployment benefit (commonly known as 'el paro') is a contributory benefit from the Spanish Social Security system that compensates for income loss when a worker is in a legal situation of unemployment. To be entitled to it, you must have contributed at least 360 days (12 months) in the last 6 years before becoming unemployed.",
+    intro2: "This calculator estimates the benefit amount and its duration based on months contributed and salary. The benefit is 70% of the regulatory base for the first 180 days (6 months) and 50% from the seventh month onwards, with a maximum and minimum cap set by the IPREM. Results are indicative; the SEPE applies actual contribution base data.",
+    disclaimer: "Indicative estimate. For your exact benefit calculation, consult the SEPE electronic office with your Social Security contributions report.",
     cardTitle: "Your data",
     salaryLabel: "Monthly gross salary (€)",
     monthsLabel: "Months contributed (last 6 years)",
@@ -171,7 +177,12 @@ export default function Paro() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -273,6 +284,8 @@ export default function Paro() {
       <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-8 text-sm text-blue-800 dark:text-blue-300">
         {t.note}
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

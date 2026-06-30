@@ -93,6 +93,9 @@ const T = {
   es: {
     title: "Calculadora de Préstamo Personal",
     subtitle: "Calcula la cuota mensual de tu préstamo, los intereses totales y el coste final con el sistema de amortización francés.",
+    intro1: "Un préstamo personal es un crédito sin garantía real en el que una entidad te presta una cantidad de dinero que devuelves en cuotas mensuales durante un plazo acordado. A diferencia de la hipoteca, no está respaldado por un bien inmueble, por lo que los tipos de interés suelen ser más altos. La cuota mensual incluye tanto la amortización del capital como los intereses del período.",
+    intro2: "Esta calculadora usa el sistema de amortización francés, el más común en España y Europa, en el que la cuota mensual permanece constante pero la proporción de capital e intereses varía cada mes. Te muestra el importe total de la deuda con intereses, para que puedas comparar distintas ofertas de forma objetiva.",
+    disclaimer: "Los resultados son orientativos. Compara siempre la TAE (y no solo el TIN) entre distintas entidades antes de contratar un préstamo.",
     cardTitle: "Datos del préstamo",
     amountLabel: "Importe del préstamo",
     rateLabel: "Interés anual (TIN)",
@@ -113,6 +116,9 @@ const T = {
   en: {
     title: "Personal Loan Calculator",
     subtitle: "Calculate your monthly loan payment, total interest and final cost using the French amortisation system.",
+    intro1: "A personal loan is an unsecured credit in which a lender advances you a sum of money that you repay in monthly instalments over an agreed term. Unlike a mortgage, it is not backed by a property asset, so interest rates tend to be higher. The monthly payment includes both the repayment of principal and the interest for that period.",
+    intro2: "This calculator uses the French amortisation system, the most common in Spain and Europe, in which the monthly payment stays constant but the split between principal and interest changes every month. It shows you the total cost of the loan including interest, so you can compare different offers objectively.",
+    disclaimer: "Results are indicative. Always compare the APR (not just the nominal rate) between lenders before taking out a loan.",
     cardTitle: "Loan details",
     amountLabel: "Loan amount",
     rateLabel: "Annual interest rate (TIN)",
@@ -161,7 +167,12 @@ export default function PrestamoPersonal() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -232,6 +243,8 @@ export default function PrestamoPersonal() {
           </CardContent>
         </Card>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

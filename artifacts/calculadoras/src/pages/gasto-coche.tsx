@@ -24,6 +24,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Gasto Real del Coche",
     subtitle: "Calcula el coste total de mantener tu vehículo, incluyendo gastos ocultos y coste por kilómetro.",
+    intro1: "El coste real de un coche va mucho más allá del combustible y el seguro. Incluye la financiación o amortización del vehículo, el aparcamiento, el mantenimiento y las revisiones, el impuesto de circulación y la ITV. Muchos conductores infravaloran en un 30–50% el coste real de su vehículo al no tener en cuenta todos estos conceptos de forma conjunta.",
+    intro2: "Esta calculadora te ayuda a conocer el coste mensual total y el coste por kilómetro, los dos indicadores más útiles para comparar el coche propio con alternativas como el transporte público, el carsharing o el alquiler de vehículos. Introduce tus gastos reales y obtén el desglose completo con un gráfico por categorías.",
+    disclaimer: "Los importes son estimativos y dependen del uso, el modelo y las condiciones particulares de cada conductor.",
     cardTitle: "Gastos del Vehículo",
     countryLabel: "País",
     kmLabel: "Km anuales",
@@ -57,6 +60,9 @@ const T = {
     backHome: "Back to home",
     title: "Real Car Costs",
     subtitle: "Calculate the total cost of owning your vehicle, including hidden costs and cost per kilometre.",
+    intro1: "The real cost of a car goes far beyond fuel and insurance. It includes vehicle finance or depreciation, parking, maintenance and servicing, road tax and MOT. Many drivers underestimate their vehicle's real cost by 30–50% by not taking all these items into account together.",
+    intro2: "This calculator helps you find the total monthly cost and cost per kilometre, the two most useful indicators for comparing your own car with alternatives such as public transport, car-sharing or vehicle rental. Enter your actual expenses and get a full breakdown with a category chart.",
+    disclaimer: "Amounts are estimates and depend on usage, model and the specific circumstances of each driver.",
     cardTitle: "Vehicle Expenses",
     countryLabel: "Country",
     kmLabel: "Annual km",
@@ -158,6 +164,11 @@ export default function GastoCoche() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
+      </div>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
@@ -290,6 +301,8 @@ export default function GastoCoche() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

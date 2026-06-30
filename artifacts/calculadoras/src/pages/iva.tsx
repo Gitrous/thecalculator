@@ -27,6 +27,9 @@ const T = {
   es: {
     title: "Calculadora de IVA",
     subtitle: "Suma o resta el IVA a cualquier precio al instante. Diseñado para autónomos, empresas y particulares que buscan precisión absoluta.",
+    intro1: "El IVA (Impuesto sobre el Valor Añadido) es un impuesto indirecto que grava el consumo y se aplica en España en tres tipos: superreducido (4%), reducido (10%) y general (21%). En las facturas de autónomos y empresas es imprescindible saber cómo añadir o desglosar el IVA correctamente, ya que los errores de cálculo pueden derivar en problemas con Hacienda.",
+    intro2: "Esta calculadora permite tanto sumar el IVA al precio base (precio sin IVA → precio con IVA) como extraerlo de un precio final ya incluido (precio con IVA → base imponible). Especialmente útil para autónomos, contables y cualquier persona que trabaje con facturas en España.",
+    disclaimer: "Los importes son orientativos. Para declaraciones fiscales oficiales, utiliza siempre el software homologado por la AEAT.",
     amountLabel: "Importe Base o Total",
     actionLabel: "Acción",
     addVat: "Sumar IVA",
@@ -58,6 +61,9 @@ const T = {
   en: {
     title: "VAT Calculator",
     subtitle: "Add or remove VAT from any price instantly. Designed for freelancers, businesses and individuals who need absolute accuracy.",
+    intro1: "VAT (Value Added Tax) is an indirect tax on consumption applied in Spain at three rates: super-reduced (4%), reduced (10%) and standard (21%). On invoices for freelancers and businesses it is essential to know how to add or break down VAT correctly, since calculation errors can lead to problems with the tax authority.",
+    intro2: "This calculator lets you both add VAT to a net price (price excl. VAT → price incl. VAT) and extract it from a gross price already including VAT (price incl. VAT → taxable base). Particularly useful for freelancers, accountants and anyone working with invoices in Spain.",
+    disclaimer: "Amounts are indicative. For official tax filings always use AEAT-approved software.",
     amountLabel: "Base or Total Amount",
     actionLabel: "Action",
     addVat: "Add VAT",
@@ -120,7 +126,12 @@ export default function Iva() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <div className="flex flex-col md:flex-row gap-6 items-start mb-8">
         {/* ── Input panel ─────────────────────────────────────── */}
@@ -251,6 +262,8 @@ export default function Iva() {
           </div>
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

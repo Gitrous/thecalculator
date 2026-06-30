@@ -28,6 +28,9 @@ const T = {
   es: {
     title: "Calculadora de Nota Media",
     subtitle: "Calcula tu nota media simple o ponderada por créditos ECTS.",
+    intro1: "La nota media del expediente académico es un indicador clave para acceder a becas, másteres con plazas limitadas y oposiciones que puntúan el historial académico. En España, la mayoría de universidades la calculan como la media ponderada por créditos ECTS, lo que significa que las asignaturas con más créditos tienen mayor impacto en la nota final. Una asignatura de 6 créditos cuenta el doble que una de 3.",
+    intro2: "Esta calculadora permite calcular tanto la media simple (todas las asignaturas pesan igual) como la media ponderada por créditos ECTS. Puedes añadir tantas asignaturas como necesites, personalizar el nombre de cada una y modificar los créditos. El resultado se actualiza automáticamente conforme introduces las notas.",
+    disclaimer: "El cálculo es orientativo. La nota media oficial del expediente la emite la secretaría de tu universidad, que puede aplicar criterios específicos adicionales.",
     cardTitle: "Asignaturas",
     weightedLabel: "Ponderar por créditos (ECTS)",
     subjectLabel: "Asignatura",
@@ -57,6 +60,9 @@ const T = {
   en: {
     title: "Grade Average Calculator",
     subtitle: "Calculate your simple or ECTS credit-weighted average grade.",
+    intro1: "The average grade on your academic transcript is a key indicator for accessing scholarships, oversubscribed master's programmes and public-sector exams that award points for academic records. In Spain, most universities calculate it as the credit-weighted average by ECTS, meaning that subjects with more credits have a greater impact on the final grade. A 6-credit subject counts twice as much as a 3-credit one.",
+    intro2: "This calculator lets you calculate both the simple average (all subjects count equally) and the ECTS credit-weighted average. You can add as many subjects as you need, customise the name of each one and adjust the credits. The result updates automatically as you enter the grades.",
+    disclaimer: "The calculation is indicative. The official transcript average is issued by your university's administrative office, which may apply additional specific criteria.",
     cardTitle: "Subjects",
     weightedLabel: "Weight by credits (ECTS)",
     subjectLabel: "Subject",
@@ -127,7 +133,12 @@ export default function NotaMedia() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>

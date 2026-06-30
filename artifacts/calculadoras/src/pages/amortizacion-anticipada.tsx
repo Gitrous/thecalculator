@@ -44,6 +44,9 @@ const T = {
   es: {
     title: "Calculadora de Amortización Anticipada de Hipoteca",
     subtitle: "Calcula cuánto ahorras en intereses amortizando anticipadamente tu hipoteca, y elige entre reducir la cuota mensual o acortar el plazo.",
+    intro1: "La amortización anticipada de hipoteca consiste en devolver al banco parte del capital pendiente antes de lo estipulado en el contrato. Esto reduce la deuda viva y, por tanto, los intereses futuros. Las dos grandes opciones son: reducir la cuota mensual (manteniendo el plazo original) o acortar el plazo total de la hipoteca (manteniendo la misma cuota). La mayoría de expertos recomienda reducir plazo porque el ahorro total en intereses es significativamente mayor.",
+    intro2: "Esta calculadora te muestra de forma detallada cuánto ahorrarías en cada escenario, incluyendo la comisión por amortización anticipada aplicable según la Ley 5/2019 para hipotecas fijas y variables. Introduce el capital pendiente, el tipo de interés y los meses que te quedan, y obtendrás un comparativo claro entre seguir con el plan original o amortizar.",
+    disclaimer: "Los cálculos son orientativos. La comisión exacta puede variar según las condiciones particulares de tu contrato hipotecario.",
     card1Title: "Tu hipoteca actual",
     card2Title: "Amortización anticipada",
     capitalLabel: "Capital pendiente (€)",
@@ -77,6 +80,9 @@ const T = {
   en: {
     title: "Early Mortgage Repayment Calculator",
     subtitle: "Calculate how much interest you save by repaying your mortgage early, and choose between reducing the monthly payment or shortening the term.",
+    intro1: "Early mortgage repayment consists of returning part of the outstanding capital to the bank before the term stipulated in the contract. This reduces the outstanding debt and therefore future interest. The two main options are: reducing the monthly payment (keeping the original term) or shortening the total mortgage term (keeping the same payment). Most experts recommend shortening the term because the total savings in interest are significantly greater.",
+    intro2: "This calculator shows you in detail how much you would save in each scenario, including the early repayment fee applicable under Spanish Law 5/2019 for fixed and variable mortgages. Enter the outstanding balance, interest rate and months remaining, and you will get a clear comparison between continuing with the original plan or making an early repayment.",
+    disclaimer: "Calculations are indicative. The exact fee may vary depending on the specific terms of your mortgage contract.",
     card1Title: "Your current mortgage",
     card2Title: "Early repayment",
     capitalLabel: "Outstanding balance (€)",
@@ -167,7 +173,12 @@ export default function AmortizacionAnticipada() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -286,6 +297,8 @@ export default function AmortizacionAnticipada() {
       <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
         {t.note}
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

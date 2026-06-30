@@ -17,6 +17,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Alquiler vs Compra",
     subtitle: "Compara el coste real a largo plazo de comprar una vivienda frente a vivir de alquiler invirtiendo la diferencia.",
+    intro1: "La decisión de alquilar o comprar una vivienda es una de las más importantes desde el punto de vista financiero. La respuesta depende de múltiples factores: el horizonte temporal, la capacidad de ahorro para la entrada, la evolución esperada del mercado inmobiliario y el coste de oportunidad de invertir el dinero que no se destina a la entrada. No existe una respuesta única: hay situaciones en que alquilar es claramente mejor y otras en que comprar lo es.",
+    intro2: "Esta calculadora modela ambos escenarios durante 30 años: el coste acumulado de comprar (hipoteca, gastos de compraventa, impuestos, mantenimiento y pérdida de valor del dinero) frente al coste de alquilar e invertir la diferencia en un fondo con la rentabilidad que estimes. El resultado te muestra el punto de equilibrio exacto: el año a partir del cual comprar empieza a ser más rentable que alquilar.",
+    disclaimer: "Simulación orientativa que no contempla la fiscalidad de la inversión alternativa ni los cambios en el mercado inmobiliario.",
     buyTitle: "Datos de Compra",
     priceLabel: "Precio de la vivienda (€)",
     downPayLabel: "Entrada (%)",
@@ -50,6 +53,9 @@ const T = {
     backHome: "Back to home",
     title: "Rent vs Buy",
     subtitle: "Compare the real long-term cost of buying a home versus renting and investing the difference.",
+    intro1: "The decision to rent or buy a home is one of the most important financial choices you will make. The answer depends on multiple factors: your time horizon, ability to save for a deposit, expected property market trends and the opportunity cost of investing money not put towards a deposit. There is no single right answer: there are situations where renting is clearly better and others where buying is.",
+    intro2: "This calculator models both scenarios over 30 years: the cumulative cost of buying (mortgage, transaction costs, taxes, maintenance and the time value of money) versus the cost of renting and investing the difference in a fund at the return you estimate. The result shows you the exact break-even point: the year from which buying starts to be more profitable than renting.",
+    disclaimer: "Indicative simulation that does not account for the taxation of alternative investments or changes in the property market.",
     buyTitle: "Purchase Data",
     priceLabel: "Property price (€)",
     downPayLabel: "Down payment (%)",
@@ -188,6 +194,11 @@ export default function AlquilerVsCompra() {
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
+      <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
+
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1 space-y-6">
           <form onSubmit={calculate} className="space-y-6">
@@ -301,6 +312,8 @@ export default function AlquilerVsCompra() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

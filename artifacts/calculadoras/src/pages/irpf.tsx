@@ -19,6 +19,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora IRPF",
     subtitle: "Calcula tu sueldo neto y las retenciones del impuesto sobre la renta según tu país y región.",
+    intro1: "El IRPF (Impuesto sobre la Renta de las Personas Físicas) es el principal impuesto directo en España y grava los ingresos obtenidos por los residentes: salarios, pensiones, rendimientos del capital, ganancias patrimoniales y actividades económicas. Es un impuesto progresivo, lo que significa que a mayor renta, mayor porcentaje se paga: los tramos oscilan entre el 19% y el 47% en la escala estatal, aunque las comunidades autónomas tienen capacidad para modificarlos.",
+    intro2: "Esta calculadora estima el impuesto sobre la renta en España y otros países hispanohablantes (México, Argentina, Colombia), aplicando los tramos nacionales principales. El resultado te muestra la retención estimada, las cotizaciones a la Seguridad Social y el neto mensual y anual. Especialmente útil para negociar un salario, comparar condiciones fiscales entre países o preparar la declaración de la renta.",
+    disclaimer: "Los cálculos son estimaciones orientativas. Para una declaración de la renta exacta, utiliza el borrador de la AEAT o consulta a un asesor fiscal.",
     cardTitle: "Tus Datos",
     grossLabel: "Salario bruto anual",
     countryLabel: "País",
@@ -30,7 +33,7 @@ const T = {
     calculateBtn: "Calcular",
     taxLabel: "Impuesto",
     contribLabel: "Cotizaciones",
-    disclaimer: "Cálculo orientativo basado en tablas fiscales aproximadas de cada país. Las cifras oficiales varían y se actualizan periódicamente: consulta siempre a la agencia tributaria correspondiente (Agencia Tributaria, SAT, AFIP, DIAN).",
+    formDisclaimer: "Cálculo orientativo basado en tablas fiscales aproximadas de cada país. Las cifras oficiales varían y se actualizan periódicamente: consulta siempre a la agencia tributaria correspondiente (Agencia Tributaria, SAT, AFIP, DIAN).",
     monthlyNet12: "Sueldo Neto Mensual (12 pagas)",
     annualNet: "Sueldo Neto Anual",
     effectiveRate: "Tipo Efectivo",
@@ -55,6 +58,9 @@ const T = {
     backHome: "Back to home",
     title: "Income Tax Calculator",
     subtitle: "Calculate your net salary and income tax withholding based on your country and region.",
+    intro1: "IRPF (Personal Income Tax) is the main direct tax in Spain and levies income earned by residents: salaries, pensions, capital returns, capital gains and business income. It is a progressive tax, meaning that the higher the income, the higher the percentage paid: bands range from 19% to 47% on the state scale, although the autonomous communities can modify them.",
+    intro2: "This calculator estimates income tax in Spain and other Spanish-speaking countries (Mexico, Argentina, Colombia), applying the main national tax bands. The result shows you the estimated withholding, social security contributions and monthly and annual net salary. Particularly useful for negotiating a salary, comparing tax conditions between countries or preparing your tax return.",
+    disclaimer: "Calculations are indicative estimates. For an exact tax return, use the AEAT draft or consult a tax adviser.",
     cardTitle: "Your Details",
     grossLabel: "Annual gross salary",
     countryLabel: "Country",
@@ -66,7 +72,7 @@ const T = {
     calculateBtn: "Calculate",
     taxLabel: "Tax",
     contribLabel: "Contributions",
-    disclaimer: "Estimate based on approximate tax tables for each country. Official figures vary and are updated periodically: always check with the relevant tax authority (Agencia Tributaria, SAT, AFIP, DIAN).",
+    formDisclaimer: "Estimate based on approximate tax tables for each country. Official figures vary and are updated periodically: always check with the relevant tax authority (Agencia Tributaria, SAT, AFIP, DIAN).",
     monthlyNet12: "Monthly Net Salary (12 payments)",
     annualNet: "Annual Net Salary",
     effectiveRate: "Effective Rate",
@@ -801,6 +807,11 @@ export default function IRPF() {
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
       </div>
 
+      <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
+
       <div className="grid md:grid-cols-3 gap-8">
         <Card className="md:col-span-1">
           <CardHeader>
@@ -930,7 +941,7 @@ export default function IRPF() {
                 </Popover>
               </div>
               <Button type="submit" className="w-full">{t.calculateBtn}</Button>
-              <p className="text-xs text-gray-400 leading-relaxed">{t.disclaimer}</p>
+              <p className="text-xs text-gray-400 leading-relaxed">{t.formDisclaimer}</p>
             </form>
           </CardContent>
         </Card>
@@ -1087,6 +1098,8 @@ export default function IRPF() {
           )}
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 

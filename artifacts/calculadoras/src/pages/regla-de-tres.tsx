@@ -24,6 +24,9 @@ const T = {
   es: {
     title: "Calculadora Regla de Tres",
     subtitle: "Resuelve la regla de tres directa e inversa. Si A es a B, entonces C es a X.",
+    intro1: "La regla de tres es un procedimiento matemático para encontrar un valor desconocido cuando se conocen tres valores relacionados proporcionalmente. Es una de las herramientas más utilizadas en matemáticas prácticas: desde calcular precios al por mayor hasta escalar ingredientes de una receta, convertir divisas o calcular distancias en un mapa.",
+    intro2: "Existen dos tipos: la regla de tres directa (cuando ambas magnitudes crecen o decrecen en la misma proporción) y la regla de tres inversa (cuando una magnitud aumenta mientras la otra disminuye). Esta calculadora resuelve ambos casos de forma inmediata: introduce los tres valores conocidos, selecciona el tipo y obtendrás el resultado al instante.",
+    disclaimer: "Los resultados son exactos matemáticamente. Si A es 0, la operación es indefinida. Verifica el tipo de proporción antes de aplicar el resultado.",
     cardTitle: "Tipo de proporción",
     directBtn: "Directa",
     inverseBtn: "Inversa",
@@ -47,6 +50,9 @@ const T = {
   en: {
     title: "Rule of Three Calculator",
     subtitle: "Solve direct and inverse proportions. If A is to B, then C is to X.",
+    intro1: "The rule of three is a mathematical procedure for finding an unknown value when three proportionally related values are known. It is one of the most widely used tools in practical mathematics: from calculating wholesale prices to scaling recipe ingredients, converting currencies or calculating distances on a map.",
+    intro2: "There are two types: the direct rule of three (when both quantities grow or decrease in the same proportion) and the inverse rule of three (when one quantity increases while the other decreases). This calculator solves both cases immediately: enter the three known values, select the type and you will get the result instantly.",
+    disclaimer: "Results are mathematically exact. If A is 0, the operation is undefined. Verify the type of proportion before applying the result.",
     cardTitle: "Type of proportion",
     directBtn: "Direct",
     inverseBtn: "Inverse",
@@ -97,7 +103,12 @@ export default function ReglaDeTres() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>

@@ -45,6 +45,9 @@ const T = {
     backHome: "Volver al inicio",
     title: "Calculadora de Horas Trabajadas",
     subtitle: "Calcula el total de horas trabajadas, horas extra o pendientes por día o semana.",
+    intro1: "El registro de horas trabajadas es una obligación legal para las empresas en España desde 2019 (Real Decreto-ley 8/2019) y un derecho fundamental de los trabajadores para poder controlar su jornada laboral y reclamar las horas extra que no les son compensadas. Conocer el total de horas trabajadas cada semana es también esencial para detectar excesos de jornada.",
+    intro2: "Esta calculadora te permite registrar las horas de entrada y salida de cada día de la semana y compararlas con tu jornada contractual. El resultado muestra si tienes horas extra pendientes de compensar o si te faltan horas para completar la jornada. Puedes añadir tantos días o turnos como necesites, incluyendo jornadas partidas.",
+    disclaimer: "El cálculo no tiene en cuenta pausas intermedias no registradas ni festivos. Para el registro oficial de jornada, usa el sistema de tu empresa o un aplicativo homologado.",
     contractualCardTitle: "Horas contractuales por día",
     contractualLabel: "Horas diarias según contrato",
     intervalsCardTitle: "Intervalos de trabajo",
@@ -82,6 +85,9 @@ const T = {
     backHome: "Back to home",
     title: "Working Hours Calculator",
     subtitle: "Calculate total hours worked, overtime or pending hours per day or week.",
+    intro1: "Recording hours worked has been a legal obligation for companies in Spain since 2019 (Royal Decree-Law 8/2019) and a fundamental right of workers to control their working hours and claim overtime that is not being compensated. Knowing the total hours worked each week is also essential for detecting excessive working hours.",
+    intro2: "This calculator lets you record clock-in and clock-out times for each day of the week and compare them with your contractual hours. The result shows whether you have overtime to be compensated or hours to make up to complete your shift. You can add as many days or shifts as you need, including split shifts.",
+    disclaimer: "The calculation does not account for unrecorded intermediate breaks or public holidays. For official time recording, use your company's system or approved software.",
     contractualCardTitle: "Contractual hours per day",
     contractualLabel: "Daily hours according to contract",
     intervalsCardTitle: "Work intervals",
@@ -191,7 +197,12 @@ export default function HorasTrabajadas() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-8">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+
+      <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
+        <p>{t.intro1}</p>
+        <p>{t.intro2}</p>
+      </div>
 
       <Card className="mb-6">
         <CardHeader>
@@ -335,6 +346,8 @@ export default function HorasTrabajadas() {
           </Card>
         </div>
       )}
+
+      <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
