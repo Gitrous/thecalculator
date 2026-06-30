@@ -99,14 +99,15 @@ export default function Iva() {
   const isEn = locale === "en";
   const t = T[isEn ? "en" : "es"];
 
-  const [rawAmount, setRawAmount] = useState("100");
+  const [rawAmount, setRawAmount] = useState("");
   const [mode, setMode] = useState<"add" | "remove">("add");
   const [rate, setRate] = useState(21);
+  const [result, setResult] = useState<{ base: number; tax: number; total: number } | null>(null);
 
-  const amount = parseFloat(rawAmount) || 0;
-
-  let base = 0, tax = 0, total = 0;
-  if (amount > 0) {
+  function calculate() {
+    const amount = parseFloat(rawAmount) || 0;
+    if (amount <= 0) return;
+    let base = 0, tax = 0, total = 0;
     if (mode === "add") {
       base = amount;
       tax = (amount * rate) / 100;
@@ -116,6 +117,7 @@ export default function Iva() {
       base = total / (1 + rate / 100);
       tax = total - base;
     }
+    setResult({ base, tax, total });
   }
 
   return (
@@ -133,9 +135,9 @@ export default function Iva() {
         <p>{t.intro2}</p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6 items-start mb-8">
-        {/* ── Input panel ─────────────────────────────────────── */}
-        <div className="w-full md:w-80 shrink-0 glass-card rounded-2xl p-6 space-y-6">
+      {/* ── Centered input card ── */}
+      <div className="flex justify-center mb-8">
+        <div className="w-full max-w-md glass-card rounded-2xl p-6 space-y-6">
           {/* Amount */}
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-600 dark:text-white/60">
@@ -146,7 +148,8 @@ export default function Iva() {
               <input
                 type="number"
                 value={rawAmount}
-                onChange={(e) => setRawAmount(e.target.value)}
+                onChange={(e) => { setRawAmount(e.target.value); setResult(null); }}
+                onKeyDown={(e) => e.key === "Enter" && calculate()}
                 placeholder="0.00"
                 className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-lg font-semibold text-gray-900 dark:text-white placeholder:text-gray-300 focus:border-primary dark:focus:border-primary transition-colors"
               />
@@ -160,7 +163,7 @@ export default function Iva() {
             </label>
             <div className="flex p-1 bg-gray-100 dark:bg-white/5 rounded-lg">
               <button
-                onClick={() => setMode("add")}
+                onClick={() => { setMode("add"); setResult(null); }}
                 className={cn(
                   "flex-1 py-2 rounded-md text-sm font-semibold transition-all",
                   mode === "add"
@@ -171,7 +174,7 @@ export default function Iva() {
                 {t.addVat}
               </button>
               <button
-                onClick={() => setMode("remove")}
+                onClick={() => { setMode("remove"); setResult(null); }}
                 className={cn(
                   "flex-1 py-2 rounded-md text-sm font-semibold transition-all",
                   mode === "remove"
@@ -189,20 +192,20 @@ export default function Iva() {
             <label className="text-sm font-semibold text-gray-600 dark:text-white/60">
               {t.rateLabel}
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-4 gap-2">
               {RATES.map((r) => (
                 <button
                   key={r.rate}
-                  onClick={() => setRate(r.rate)}
+                  onClick={() => { setRate(r.rate); setResult(null); }}
                   className={cn(
-                    "flex flex-col items-center justify-center py-4 px-2 rounded-xl border-2 transition-all bg-white/60 dark:bg-white/5",
+                    "flex flex-col items-center justify-center py-3 px-1 rounded-xl border-2 transition-all bg-white/60 dark:bg-white/5",
                     rate === r.rate
                       ? "border-primary"
                       : "border-transparent hover:border-gray-200 dark:hover:border-white/20"
                   )}
                 >
-                  <span className="text-xl font-bold text-gray-900 dark:text-white">{r.rate}%</span>
-                  <span className="text-xs text-gray-500 dark:text-white/40 mt-0.5">
+                  <span className="text-lg font-bold text-gray-900 dark:text-white">{r.rate}%</span>
+                  <span className="text-xs text-gray-500 dark:text-white/40 mt-0.5 leading-tight text-center">
                     {isEn ? r.labelEn : r.labelEs}
                   </span>
                 </button>
@@ -210,15 +213,17 @@ export default function Iva() {
             </div>
           </div>
 
-          {/* Recalcular button */}
-          <Button className="w-full gap-2 hover-elevate active-elevate-2">
+          {/* Calculate button */}
+          <Button onClick={calculate} className="w-full gap-2 hover-elevate active-elevate-2">
             <RefreshCw className="w-4 h-4" />
             {t.calculateBtn}
           </Button>
         </div>
+      </div>
 
-        {/* ── Results panel ────────────────────────────────────── */}
-        <div className="flex-1 min-w-0 space-y-4">
+      {/* ── Results (shown only after calculate) ── */}
+      {result && (
+        <div className="space-y-4 mb-8">
           {/* Base Imponible */}
           <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-primary/5 dark:bg-primary/10 p-8">
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
@@ -226,7 +231,7 @@ export default function Iva() {
               {mode === "add" ? t.baseLabel : t.totalLabel}
             </p>
             <p className="text-5xl font-bold text-gray-900 dark:text-white">
-              {eur(mode === "add" ? base : total)}
+              {eur(mode === "add" ? result.base : result.total)}
             </p>
             <p className="text-sm text-muted-foreground mt-2">{t.baseDesc}</p>
           </div>
@@ -237,7 +242,7 @@ export default function Iva() {
               <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1">
                 {t.taxLabel}
               </p>
-              <p className="text-2xl font-bold text-gray-900 dark:text-white">{eur(tax)}</p>
+              <p className="text-2xl font-bold text-gray-900 dark:text-white">{eur(result.tax)}</p>
             </div>
             <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
               <p className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-1">
@@ -254,14 +259,14 @@ export default function Iva() {
               {mode === "add" ? t.totalLabel : t.baseLabel}
             </p>
             <p className="text-5xl font-bold">
-              {eur(mode === "add" ? total : base)}
+              {eur(mode === "add" ? result.total : result.base)}
             </p>
             <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-sm text-gray-400">{t.totalDesc}</p>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
