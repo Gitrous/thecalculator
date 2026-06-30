@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "wouter";
-import { Clock, BookOpen } from "lucide-react";
+import { Clock, BookOpen, Search, X } from "lucide-react";
 import { ARTICLES } from "@/lib/articles";
 import { CATEGORIES } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
@@ -11,6 +12,7 @@ CATEGORIES.forEach((c) => { CATEGORY_COLORS[c.id] = c.color; });
 export default function Blog() {
   const locale = useLocale();
   const isEn = locale === "en";
+  const [query, setQuery] = useState("");
 
   const title = isEn ? "Health & Finance Blog" : "Blog de Salud y Finanzas";
   const description = isEn
@@ -18,6 +20,15 @@ export default function Blog() {
     : "Guías prácticas para entender las calculadoras y tomar mejores decisiones sobre tu salud y finanzas.";
   const path = isEn ? "/en/blog" : "/blog";
   const alternatePath = isEn ? "/blog" : "/en/blog";
+
+  const q = query.toLowerCase().trim();
+  const filtered = q
+    ? ARTICLES.filter((a) => {
+        const t = isEn ? a.enTitle : a.title;
+        const d = isEn ? a.enDescription : a.description;
+        return t.toLowerCase().includes(q) || d.toLowerCase().includes(q) || a.category.includes(q);
+      })
+    : ARTICLES;
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -39,53 +50,79 @@ export default function Blog() {
         <p className="text-lg text-muted-foreground">{description}</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {ARTICLES.map((article) => {
-          const href = isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
-          const articleTitle = isEn ? article.enTitle : article.title;
-          const articleDesc = isEn ? article.enDescription : article.description;
-          const colorClass = CATEGORY_COLORS[article.category] ?? "text-gray-600 bg-gray-100";
-
-          const dateObj = new Date(article.date);
-          const dateLabel = dateObj.toLocaleDateString(isEn ? "en-GB" : "es-ES", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          });
-
-          return (
-            <Link
-              key={article.slug}
-              href={href}
-              className="group flex flex-col gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass}`}>
-                  {isEn ? article.category : article.category.charAt(0).toUpperCase() + article.category.slice(1)}
-                </span>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <Clock className="w-3 h-3" />
-                  {article.readTime} {isEn ? "min read" : "min lectura"}
-                </span>
-              </div>
-
-              <div>
-                <h2 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">
-                  {articleTitle}
-                </h2>
-                <p className="text-sm text-muted-foreground line-clamp-3">{articleDesc}</p>
-              </div>
-
-              <div className="mt-auto flex items-center justify-between pt-2 border-t border-gray-100 dark:border-white/5">
-                <span className="text-xs text-muted-foreground">{dateLabel}</span>
-                <span className="text-xs font-semibold text-primary group-hover:underline">
-                  {isEn ? "Read more →" : "Leer más →"}
-                </span>
-              </div>
-            </Link>
-          );
-        })}
+      {/* Search bar */}
+      <div className="relative mb-8 max-w-lg">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={isEn ? "Search articles…" : "Buscar artículos…"}
+          className="w-full pl-9 pr-9 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition"
+        />
+        {query && (
+          <button
+            onClick={() => setQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
       </div>
+
+      {filtered.length === 0 ? (
+        <p className="text-muted-foreground text-sm py-12 text-center">
+          {isEn ? "No articles found for your search." : "No se encontraron artículos para tu búsqueda."}
+        </p>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {filtered.map((article) => {
+            const href = isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
+            const articleTitle = isEn ? article.enTitle : article.title;
+            const articleDesc = isEn ? article.enDescription : article.description;
+            const colorClass = CATEGORY_COLORS[article.category] ?? "text-gray-600 bg-gray-100";
+
+            const dateObj = new Date(article.date);
+            const dateLabel = dateObj.toLocaleDateString(isEn ? "en-GB" : "es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+
+            return (
+              <Link
+                key={article.slug}
+                href={href}
+                className="group flex flex-col gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center justify-between">
+                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass}`}>
+                    {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Clock className="w-3 h-3" />
+                    {article.readTime} {isEn ? "min read" : "min lectura"}
+                  </span>
+                </div>
+
+                <div>
+                  <h2 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">
+                    {articleTitle}
+                  </h2>
+                  <p className="text-sm text-muted-foreground line-clamp-3">{articleDesc}</p>
+                </div>
+
+                <div className="mt-auto flex items-center justify-between pt-2 border-t border-gray-100 dark:border-white/5">
+                  <span className="text-xs text-muted-foreground">{dateLabel}</span>
+                  <span className="text-xs font-semibold text-primary group-hover:underline">
+                    {isEn ? "Read more →" : "Leer más →"}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
