@@ -4,7 +4,7 @@ import {
   Search, X, ArrowRight, TrendingUp, Heart,
   Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { ARTICLES, type Article } from "@/lib/articles";
+import { ARTICLES, ARTICLE_IMAGES, type Article } from "@/lib/articles";
 import { CATEGORIES } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
 import { useLocale } from "@/lib/locale";
@@ -34,23 +34,23 @@ const CATEGORY_ICONS: Record<string, typeof Zap> = {
 
 const ARTICLE_CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
 
-function ArticleImage({ category, className }: { category: string; className?: string }) {
+function ArticleImage({ category, image, className }: { category: string; image?: string; className?: string }) {
   const gradient = CATEGORY_GRADIENTS[category] ?? "from-gray-400 to-gray-600";
   const Icon = CATEGORY_ICONS[category];
   return (
     <div className={`relative overflow-hidden bg-gradient-to-br ${gradient} ${className ?? ""}`}>
-      {Icon && (
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
+        />
+      ) : Icon ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <Icon className="w-28 h-28 text-white opacity-10" strokeWidth={1} />
         </div>
-      )}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+      ) : null}
     </div>
   );
 }
@@ -71,7 +71,7 @@ function FeaturedCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateSt
     >
       <div className="flex flex-col lg:flex-row">
         <div className="lg:w-[58%] relative min-h-[260px] lg:min-h-[340px]">
-          <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+          <ArticleImage category={article.category} image={ARTICLE_IMAGES[article.slug]} className="absolute inset-0 w-full h-full" />
           <div className="absolute top-5 left-5">
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/30">
               {catLabel} {isEn ? "Highlighted" : "Destacadas"}
@@ -120,7 +120,7 @@ function MediumCard({ article, isEn, href, catLabel, dateStr }: CardProps) {
       className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/40 transition-all"
     >
       <div className="relative h-52 overflow-hidden">
-        <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+        <ArticleImage category={article.category} image={ARTICLE_IMAGES[article.slug]} className="absolute inset-0 w-full h-full" />
         <div className="absolute top-3 left-3">
           <span className="px-2 py-0.5 rounded text-xs font-semibold bg-white/25 backdrop-blur-sm text-white">
             {catLabel}
@@ -153,7 +153,7 @@ function SmallCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateStr">
       className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/40 transition-all"
     >
       <div className="relative h-40 overflow-hidden">
-        <ArticleImage category={article.category} className="absolute inset-0 w-full h-full" />
+        <ArticleImage category={article.category} image={ARTICLE_IMAGES[article.slug]} className="absolute inset-0 w-full h-full" />
         <div className="absolute top-3 left-3">
           <span className="px-2 py-0.5 rounded text-xs font-semibold bg-white/25 backdrop-blur-sm text-white">
             {catLabel}

@@ -668,8 +668,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "como-funciona-interes-compuesto",
     enSlug: "how-compound-interest-works",
-    title: "Cómo funciona el interés compuesto y por qué empezar a invertir cuanto antes",
-    enTitle: "How Compound Interest Works and Why You Should Start Investing as Soon as Possible",
+    title: "Qué es el interés compuesto y cómo hacer crecer tu dinero",
+    enTitle: "What Is Compound Interest and How to Grow Your Money",
     description: "El interés compuesto es el mecanismo que hace que pequeñas cantidades ahorradas durante décadas se conviertan en grandes patrimonios. Aquí lo explicamos con números reales.",
     enDescription: "Compound interest is the mechanism that turns small amounts saved over decades into significant wealth. We explain it here with real numbers.",
     category: "finanzas",
@@ -1524,6 +1524,46 @@ export const ARTICLES: Article[] = [
     ],
   },
 ];
+
+const U = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&h=400&q=80`;
+
+export const ARTICLE_IMAGES: Record<string, string> = {
+  // Salud
+  "que-es-el-imc":                              U("1571019614099-5a2ab2e26f22"),
+  "cuantas-calorias-necesito-al-dia":           U("1490645935967-10de6ba17061"),
+  "cuanta-agua-debo-beber-al-dia":              U("1548839140-29a749e1cf4d"),
+  "frecuencia-cardiaca-maxima-zonas-entrenamiento": U("1476480862126-209bfaa8edc8"),
+  // Finanzas
+  "como-calcular-cuota-hipoteca":               U("1560518883-ce09059eeffa"),
+  "que-es-la-tae-diferencia-tin":               U("1554224154-26032ffc0d07"),
+  "como-funciona-interes-compuesto":            U("1611974789855-9c2a0a7236a3"),
+  "irpf-como-funciona-retencion-nomina":        U("1568598035424-7070b67317d2"),
+  "alquilar-o-comprar-vivienda":                U("1560183677-23e7e089e4b2"),
+  "amortizacion-anticipada-hipoteca-ahorro":    U("1560520031-3a4dc4e9de0c"),
+  "como-calcular-salario-neto-espana":          U("1579621970795-87facc2f976d"),
+  "iva-tipos-espana-guia":                      U("1556742049-0cfed4f6a45d"),
+  "porcentajes-calculos-cotidianos":            U("1551288049-bebda4e38f71"),
+  "prestamo-personal-como-comparar":            U("1563986768609-322da13575f3"),
+  // Hogar
+  "coste-real-tener-coche":                     U("1494976388531-d1058494cdd8"),
+  "como-reducir-factura-luz":                   U("1466611653911-95081537e5b7"),
+  // Trabajo
+  "que-incluye-finiquito-como-calcularlo":      U("1450101499163-c8848c66ca85"),
+  "cuota-autonomo-2026-tramos":                 U("1522202176988-66273c2fd55f"),
+  "prestacion-desempleo-paro-como-calcular":    U("1507679799987-c73779587ccf"),
+  "pension-jubilacion-espana-como-funciona":    U("1501621667575-af81f1232d53"),
+  "registro-jornada-horas-trabajadas":          U("1533749047-32c2df4c3e99"),
+  "como-calcular-letra-dni":                    U("1614680376408-81e91ffe3db7"),
+  // Educación
+  "dias-entre-fechas-plazos-legales":           U("1506784983877-45594efa4cbe"),
+  "teorema-pitagoras-aplicaciones-reales":      U("1509228468518-180dd4864904"),
+  "regla-de-tres-directa-inversa":              U("1596495578065-6e0763fa1178"),
+  "nota-media-ponderada-universidad":           U("1523050854058-8df90110c9f1"),
+  "mru-mrua-fisica-ejemplos":                   U("1446776858070-70c3d5ed6758"),
+  "conversor-unidades-guia-completa":           U("1453828423292-392a660a3576"),
+  "mrua-movimiento-uniformemente-acelerado":    U("1518987048-93e29699e09a"),
+};
 
 export function getArticle(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug || a.enSlug === slug);

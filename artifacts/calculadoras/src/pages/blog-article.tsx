@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useParams } from "wouter";
 import {
-  Clock, ChevronRight, Calculator, Lightbulb,
+  ChevronRight, Calculator, Lightbulb,
   ThumbsUp, ThumbsDown, CheckCircle2, Share2,
   TrendingUp, Heart, Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { getArticle, ARTICLES, type ArticleSection } from "@/lib/articles";
+import { getArticle, ARTICLES, ARTICLE_IMAGES, type ArticleSection } from "@/lib/articles";
 import {
   getCalculator, calcPath, enCalcPath,
   getCalculatorsByCategory, CATEGORIES,
@@ -113,23 +113,23 @@ function renderSection(section: ArticleSection, idx: number) {
   }
 }
 
-function HeroImage({ category }: { category: string }) {
+function HeroImage({ category, image }: { category: string; image?: string }) {
   const gradient = CATEGORY_GRADIENTS[category] ?? "from-gray-400 to-gray-600";
   const Icon = CATEGORY_ICONS[category];
   return (
     <div className={`relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} mb-8`}>
-      {Icon && (
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
+        />
+      ) : Icon ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <Icon className="w-40 h-40 text-white opacity-10" strokeWidth={1} />
         </div>
-      )}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+      ) : null}
     </div>
   );
 }
@@ -294,7 +294,7 @@ export default function BlogArticle() {
         {/* ── Main content ── */}
         <div className="flex-1 min-w-0">
           {/* Hero image */}
-          <HeroImage category={article.category} />
+          <HeroImage category={article.category} image={ARTICLE_IMAGES[article.slug]} />
 
           {/* Lead */}
           <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
