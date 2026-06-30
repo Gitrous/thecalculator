@@ -12,6 +12,7 @@ import {
 } from "@/lib/calculators";
 import { Mail, ChevronDown, BookOpen } from "lucide-react";
 import { useLocale } from "@/lib/locale";
+import { ARTICLES } from "@/lib/articles";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
@@ -19,7 +20,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const isEn = locale === "en";
 
   // Language toggle: stay on the equivalent page in the other locale
-  const langToggleHref = localeSwitchPath(location, isEn);
+  let langToggleHref = localeSwitchPath(location, isEn);
+
+  // Blog routes not handled by localeSwitchPath (would create circular dep)
+  if (location === "/blog") {
+    langToggleHref = "/en/blog";
+  } else if (location === "/en/blog") {
+    langToggleHref = "/blog";
+  } else if (location.startsWith("/blog/")) {
+    const slug = location.slice("/blog/".length);
+    const article = ARTICLES.find((a) => a.slug === slug);
+    langToggleHref = article ? `/en/blog/${article.enSlug}` : "/en/blog";
+  } else if (location.startsWith("/en/blog/")) {
+    const enSlug = location.slice("/en/blog/".length);
+    const article = ARTICLES.find((a) => a.enSlug === enSlug);
+    langToggleHref = article ? `/blog/${article.slug}` : "/blog";
+  }
 
   const footerDesc = isEn
     ? "Free tools for finance, home, work, education and health."

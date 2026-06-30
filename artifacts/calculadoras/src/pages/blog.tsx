@@ -20,6 +20,7 @@ export default function Blog() {
     : "Guías prácticas para entender las calculadoras y tomar mejores decisiones sobre tu salud y finanzas.";
   const path = isEn ? "/en/blog" : "/blog";
   const alternatePath = isEn ? "/blog" : "/en/blog";
+  const searchPlaceholder = isEn ? "Search articles…" : "Busca un artículo…";
 
   const q = query.toLowerCase().trim();
   const filtered = q
@@ -39,37 +40,51 @@ export default function Blog() {
         alternatePath={alternatePath}
       />
 
-      <div className="mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-4">
+      {/* Hero + search */}
+      <section className="text-center space-y-5 py-12 md:py-16">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
           <BookOpen className="w-3.5 h-3.5" />
           {isEn ? "Guides & Articles" : "Guías y artículos"}
         </div>
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-3">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
           {title}
         </h1>
-        <p className="text-lg text-muted-foreground">{description}</p>
-      </div>
+        <p className="text-xl text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
+          {description}
+        </p>
 
-      {/* Search bar */}
-      <div className="relative mb-8 max-w-lg">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={isEn ? "Search articles…" : "Buscar artículos…"}
-          className="w-full pl-9 pr-9 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition"
-        />
-        {query && (
-          <button
-            onClick={() => setQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-900 dark:hover:text-white transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
+        {/* Search bar */}
+        <div className="relative max-w-lg mx-auto pt-2">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-white/50 pointer-events-none" />
+          <input
+            type="search"
+            placeholder={searchPlaceholder}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full pl-11 pr-10 py-3.5 rounded-xl border border-gray-200 dark:border-white/20 bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-base shadow-sm backdrop-blur-md transition-all"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-white/50 dark:hover:text-white"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+        {q && (
+          <p className="text-sm text-muted-foreground">
+            {filtered.length}{" "}
+            {isEn
+              ? filtered.length === 1 ? "result" : "results"
+              : filtered.length === 1 ? "resultado" : "resultados"}
+            {" "}
+            {isEn ? `for "${query}"` : `para "${query}"`}
+          </p>
         )}
-      </div>
+      </section>
 
+      {/* Articles grid */}
       {filtered.length === 0 ? (
         <p className="text-muted-foreground text-sm py-12 text-center">
           {isEn ? "No articles found for your search." : "No se encontraron artículos para tu búsqueda."}
