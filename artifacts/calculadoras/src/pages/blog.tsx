@@ -7,12 +7,20 @@ import { Seo } from "@/components/seo";
 import { useLocale } from "@/lib/locale";
 
 const CATEGORY_COLORS: Record<string, string> = {};
-CATEGORIES.forEach((c) => { CATEGORY_COLORS[c.id] = c.color; });
+const CATEGORY_LABELS: Record<string, { es: string; en: string }> = {};
+CATEGORIES.forEach((c) => {
+  CATEGORY_COLORS[c.id] = c.color;
+  CATEGORY_LABELS[c.id] = { es: c.name, en: c.enName };
+});
+
+// Only show categories that have at least one article
+const ARTICLE_CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
 
 export default function Blog() {
   const locale = useLocale();
   const isEn = locale === "en";
   const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const title = isEn ? "Health & Finance Blog" : "Blog de Salud y Finanzas";
   const description = isEn
@@ -23,13 +31,24 @@ export default function Blog() {
   const searchPlaceholder = isEn ? "Search articles…" : "Busca un artículo…";
 
   const q = query.toLowerCase().trim();
-  const filtered = q
-    ? ARTICLES.filter((a) => {
-        const t = isEn ? a.enTitle : a.title;
-        const d = isEn ? a.enDescription : a.description;
-        return t.toLowerCase().includes(q) || d.toLowerCase().includes(q) || a.category.includes(q);
-      })
-    : ARTICLES;
+  const filtered = ARTICLES.filter((a) => {
+    const t = isEn ? a.enTitle : a.title;
+    const d = isEn ? a.enDescription : a.description;
+    const sections = isEn ? a.enSections : a.sections;
+    const sectionText = sections
+      .flatMap((s) => [s.text ?? "", ...(s.items ?? [])])
+      .join(" ")
+      .toLowerCase();
+    const matchesQuery = !q ||
+      t.toLowerCase().includes(q) ||
+      d.toLowerCase().includes(q) ||
+      a.category.includes(q) ||
+      sectionText.includes(q);
+    const matchesCategory = !activeCategory || a.category === activeCategory;
+    return matchesQuery && matchesCategory;
+  });
+
+  const hasFilters = q || activeCategory;
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -72,14 +91,46 @@ export default function Blog() {
             </button>
           )}
         </div>
-        {q && (
+
+        {/* Category filters */}
+        <div className="flex flex-wrap justify-center gap-2 pt-1">
+          <button
+            onClick={() => setActiveCategory(null)}
+            className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all ${
+              !activeCategory
+                ? "bg-primary text-white border-primary shadow-sm"
+                : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:border-primary/50 hover:text-primary"
+            }`}
+          >
+            {isEn ? "All" : "Todos"}
+          </button>
+          {ARTICLE_CATEGORIES.map((cat) => {
+            const label = CATEGORY_LABELS[cat]?.[isEn ? "en" : "es"] ?? cat;
+            const colorClass = CATEGORY_COLORS[cat] ?? "";
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(isActive ? null : cat)}
+                className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all ${
+                  isActive
+                    ? `${colorClass} border-transparent shadow-sm`
+                    : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:border-primary/50 hover:text-primary"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
+        {hasFilters && (
           <p className="text-sm text-muted-foreground">
             {filtered.length}{" "}
             {isEn
               ? filtered.length === 1 ? "result" : "results"
               : filtered.length === 1 ? "resultado" : "resultados"}
-            {" "}
-            {isEn ? `for "${query}"` : `para "${query}"`}
+            {q ? (isEn ? ` for "${query}"` : ` para "${query}"`) : ""}
           </p>
         )}
       </section>
@@ -87,7 +138,7 @@ export default function Blog() {
       {/* Articles grid */}
       {filtered.length === 0 ? (
         <p className="text-muted-foreground text-sm py-12 text-center">
-          {isEn ? "No articles found for your search." : "No se encontraron artículos para tu búsqueda."}
+          {isEn ? "No articles found." : "No se encontraron artículos."}
         </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -112,7 +163,7 @@ export default function Blog() {
               >
                 <div className="flex items-center justify-between">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass}`}>
-                    {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
+                    {CATEGORY_LABELS[article.category]?.[isEn ? "en" : "es"] ?? article.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Clock className="w-3 h-3" />
