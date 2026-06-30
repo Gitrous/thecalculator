@@ -134,43 +134,6 @@ function HeroImage({ category }: { category: string }) {
   );
 }
 
-function NewsletterSidebar({ isEn }: { isEn: boolean }) {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  return (
-    <div className="bg-gray-900 dark:bg-zinc-900 rounded-2xl p-5 text-center">
-      <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-1">
-        {isEn ? "The Calculator Weekly" : "thecalculator Weekly"}
-      </p>
-      <p className="text-sm text-white/80 mb-4 leading-snug">
-        {isEn
-          ? "Get guides like this and financial tips directly in your email."
-          : "Recibe guías como esta y alertas fiscales directamente en tu email."}
-      </p>
-      {subscribed ? (
-        <p className="text-emerald-400 text-sm font-semibold py-2">
-          {isEn ? "✓ You're in!" : "✓ ¡Apuntado!"}
-        </p>
-      ) : (
-        <>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={isEn ? "your@email.com" : "tu@email.com"}
-            className="w-full px-3 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-blue-400 mb-2"
-          />
-          <button
-            onClick={() => email.includes("@") && setSubscribed(true)}
-            className="w-full py-2.5 rounded-lg bg-white text-gray-900 font-semibold text-sm hover:bg-gray-100 transition-colors"
-          >
-            {isEn ? "Subscribe" : "Suscribirme"}
-          </button>
-        </>
-      )}
-    </div>
-  );
-}
 
 function FeedbackWidget({ isEn }: { isEn: boolean }) {
   const [vote, setVote] = useState<"yes" | "no" | null>(null);
@@ -434,9 +397,6 @@ export default function BlogArticle() {
               })}
             </div>
           </div>
-
-          {/* Newsletter */}
-          <NewsletterSidebar isEn={isEn} />
 
           {/* Popular topics */}
           <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5">

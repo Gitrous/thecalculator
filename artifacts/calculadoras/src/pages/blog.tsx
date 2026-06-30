@@ -180,8 +180,6 @@ export default function Blog() {
   const isEn = locale === "en";
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
 
   const pageTitle = isEn ? "The Calculator Blog" : "Blog de thecalculator.tech";
   const subtitle = isEn
@@ -376,53 +374,6 @@ export default function Blog() {
         </div>
       )}
 
-      {/* ── Newsletter CTA ── */}
-      <div className="mt-16 mb-4 bg-gray-900 dark:bg-zinc-900 rounded-3xl px-8 py-14 md:px-16 text-center">
-        <span className="inline-block px-4 py-1 rounded-full text-xs font-semibold border border-white/20 text-white/70 mb-6">
-          {isEn ? "Subscribe to knowledge" : "Suscríbete al conocimiento"}
-        </span>
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 max-w-lg mx-auto">
-          {isEn
-            ? "Get our best guides and tools in your inbox."
-            : "Recibe nuestras mejores guías y herramientas en tu correo."}
-        </h2>
-        <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm">
-          {isEn
-            ? "Join more than 10,000 users who optimize their decisions every month. No spam, just precision."
-            : "Únete a más de 10,000 usuarios que optimizan sus decisiones cada mes. Sin spam, solo precisión."}
-        </p>
-        {subscribed ? (
-          <p className="text-emerald-400 font-semibold">
-            {isEn ? "✓ You're in! Check your inbox." : "✓ ¡Apuntado! Revisa tu correo."}
-          </p>
-        ) : (
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={isEn ? "Your email address" : "Tu correo electrónico"}
-              className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-blue-400 text-sm"
-            />
-            <button
-              onClick={() => email.includes("@") && setSubscribed(true)}
-              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shrink-0"
-            >
-              {isEn ? "Join now" : "Unirme ahora"}
-            </button>
-          </div>
-        )}
-        <p className="text-xs text-gray-500 mt-4">
-          {isEn ? "By subscribing you accept our " : "Al suscribirte aceptas nuestra "}
-          <Link
-            href={isEn ? "/en/privacy" : "/privacidad"}
-            className="underline hover:text-gray-400 transition-colors"
-          >
-            {isEn ? "Privacy Policy" : "Política de Privacidad"}
-          </Link>
-          .
-        </p>
-      </div>
     </div>
   );
 }
