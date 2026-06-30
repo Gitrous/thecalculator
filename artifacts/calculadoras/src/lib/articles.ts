@@ -1530,7 +1530,7 @@ const U = (id: string) =>
 
 export const ARTICLE_IMAGES: Record<string, string> = {
   // Salud
-  "que-es-el-imc":                              U("1535914254981-b5012eebbd15"),
+  "que-es-el-imc":                              U("1571019613454-1cb2f99b2d8b"),
   "cuantas-calorias-necesito-al-dia":           U("1490645935967-10de6ba17061"),
   "cuanta-agua-debo-beber-al-dia":              U("1548839140-29a749e1cf4d"),
   "frecuencia-cardiaca-maxima-zonas-entrenamiento": U("1476480862126-209bfaa8edc8"),
@@ -1558,7 +1558,7 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   // Educación
   "dias-entre-fechas-plazos-legales":           U("1506784983877-45594efa4cbe"),
   "teorema-pitagoras-aplicaciones-reales":      U("1509228468518-180dd4864904"),
-  "regla-de-tres-directa-inversa":              U("1596495578065-6e0763fa1178"),
+  "regla-de-tres-directa-inversa":              U("1635070041078-e363dbe005cb"),
   "nota-media-ponderada-universidad":           U("1427504494785-3a9ca7044f45"),
   "mru-mrua-fisica-ejemplos":                   U("1446776858070-70c3d5ed6758"),
   "conversor-unidades-guia-completa":           U("1504868584819-f8e8b4b6d7e3"),

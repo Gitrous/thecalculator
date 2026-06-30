@@ -117,7 +117,7 @@ function HeroImage({ category, image }: { category: string; image?: string }) {
   const gradient = CATEGORY_GRADIENTS[category] ?? "from-gray-400 to-gray-600";
   const Icon = CATEGORY_ICONS[category];
   return (
-    <div className={`relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} mb-8`}>
+    <div className={`relative w-full h-44 sm:h-56 rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} mb-8`}>
       {image ? (
         <img
           src={image}
