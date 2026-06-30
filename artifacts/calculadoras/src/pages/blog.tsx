@@ -20,7 +20,7 @@ export default function Blog() {
   const alternatePath = isEn ? "/blog" : "/en/blog";
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <Seo
         title={isEn ? "Blog — thecalculator.tech" : "Blog — thecalculator.tech"}
         description={description}
@@ -39,7 +39,7 @@ export default function Blog() {
         <p className="text-lg text-muted-foreground">{description}</p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {ARTICLES.map((article) => {
           const href = isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
           const articleTitle = isEn ? article.enTitle : article.title;
@@ -57,7 +57,7 @@ export default function Blog() {
             <Link
               key={article.slug}
               href={href}
-              className="group flex flex-col gap-4 p-6 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
+              className="group flex flex-col gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
             >
               <div className="flex items-center justify-between">
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass}`}>
@@ -70,7 +70,7 @@ export default function Blog() {
               </div>
 
               <div>
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">
+                <h2 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-2 group-hover:text-primary transition-colors">
                   {articleTitle}
                 </h2>
                 <p className="text-sm text-muted-foreground line-clamp-3">{articleDesc}</p>
