@@ -1426,11 +1426,11 @@ export const ARTICLES: Article[] = [
   {
     slug: "como-calcular-letra-dni",
     enSlug: "how-to-calculate-dni-letter",
-    category: "trabajo",
+    category: "educacion",
     date: "2026-06-30",
     readTime: 4,
     relatedCalcSlug: "letra-dni",
-    relatedCalcCategory: "trabajo",
+    relatedCalcCategory: "educacion",
 
     title: "Cómo se calcula la letra del DNI (y por qué existe)",
     description:
