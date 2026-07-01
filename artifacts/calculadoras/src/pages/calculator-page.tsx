@@ -47,6 +47,7 @@ import Paro from "@/pages/paro";
 import Pension from "@/pages/pension";
 import FrecuenciaCardiaca from "@/pages/frecuencia-cardiaca";
 import AguaDiaria from "@/pages/agua-diaria";
+import ReformaHogar from "@/pages/reforma-hogar";
 
 const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
   finanzas: "FinanceApplication",
@@ -68,6 +69,7 @@ const REGISTRY: Record<string, ComponentType> = {
   "finanzas/alquiler-vs-compra": AlquilerVsCompra,
   "hogar/gasto-coche": GastoCoche,
   "hogar/consumo-electrico": ConsumoElectrico,
+  "hogar/reforma-hogar": ReformaHogar,
   "trabajo/finiquito": Finiquito,
   "trabajo/letra-dni": LetraDni,
   "trabajo/autonomos": Autonomos,

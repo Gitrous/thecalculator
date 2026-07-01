@@ -19,7 +19,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const isEn = locale === "en";
 
-  useEffect(() => { window.scrollTo(0, 0); }, [location]);
+  useEffect(() => {
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }, [location]);
 
   // Language toggle: stay on the equivalent page in the other locale
   let langToggleHref = localeSwitchPath(location, isEn);

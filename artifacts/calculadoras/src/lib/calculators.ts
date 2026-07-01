@@ -34,6 +34,7 @@ import {
   DollarSign,
   Heart,
   Droplets,
+  Hammer,
   type LucideIcon,
 } from "lucide-react";
 
@@ -312,6 +313,25 @@ export const CALCULATORS: CalculatorMeta[] = [
     enSeoTitle: "Electricity Consumption Calculator - Estimate Your Bill",
     enSeoDescription: "Estimate your electricity bill by appliance and find out what uses the most energy.",
     enDescription: "Estimate your electricity bill and find out what consumes most.",
+  },
+
+  {
+    slug: "reforma-hogar",
+    category: "hogar",
+    title: "Presupuesto de Reforma del Hogar",
+    description:
+      "Estima el coste de tu reforma sumando partidas: pintura, suelo, baño, cocina, ventanas, electricidad y más.",
+    shortLabel: "Reforma Hogar",
+    icon: Hammer,
+    color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
+    seoTitle: "Calculadora de Presupuesto de Reforma del Hogar 2025",
+    seoDescription:
+      "Calcula el presupuesto de tu reforma del hogar por partidas: pintura, suelo, baño, cocina, ventanas e instalaciones. Precios orientativos 2025-2026.",
+    enTitle: "Home Renovation Budget Calculator",
+    enShortLabel: "Home Renovation",
+    enSeoTitle: "Home Renovation Budget Calculator 2025 - Spain",
+    enSeoDescription: "Estimate your home renovation cost by item: painting, flooring, bathroom, kitchen, windows and installations. Spanish market prices 2025-2026.",
+    enDescription: "Estimate your renovation cost by item: flooring, bathroom, kitchen, windows and more.",
   },
 
   // ── Trabajo ───────────────────────────────────────────────────────────────
