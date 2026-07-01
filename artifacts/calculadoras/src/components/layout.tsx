@@ -74,9 +74,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b bg-white/90 dark:bg-black/20 border-gray-200 dark:border-white/10 backdrop-blur-md no-print">
         <div className="container mx-auto px-4 h-16 grid grid-cols-3 items-center">
           {/* Left: logo */}
-          <Link href={homeHref} className="logo-link flex items-center gap-2">
-            <img src="/favicon.svg" alt="Logo" className="logo-icon h-11 w-11" />
-            <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
+          <Link href={homeHref} className="flex items-center gap-2">
+            <img src="/favicon.svg" alt="Logo" className="h-11 w-11" />
+            <span className="hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
           </Link>
