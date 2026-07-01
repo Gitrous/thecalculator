@@ -370,7 +370,7 @@ export default function DiasEntreFechas() {
           {(["q1", "q2", "q3"] as const).map((q) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger>{t[q]}</AccordionTrigger>
-              <AccordionContent>{t[`a${q.slice(1)}` as keyof typeof t]}</AccordionContent>
+              <AccordionContent>{t[`a${q.slice(1)}` as keyof typeof t] as string}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
