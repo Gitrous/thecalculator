@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Home } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -89,8 +89,10 @@ const T = {
 
 export default function AlquilerVsCompra() {
   const locale = useLocale();
+  const isEn = locale === "en";
   const t = T[locale];
 
+  const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
   const [precioVivienda, setPrecioVivienda] = useState("200000");
   const [entradaPerc, setEntradaPerc] = useState("20");
   const [interesHipoteca, setInteresHipoteca] = useState("3.0");
@@ -278,25 +280,54 @@ export default function AlquilerVsCompra() {
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
-                  <p className="text-sm text-gray-500">{t.chartNote}</p>
+                <CardHeader className="flex flex-row items-start justify-between pb-2">
+                  <div>
+                    <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
+                    <p className="text-sm text-gray-500 mt-1">{t.chartNote}</p>
+                  </div>
+                  <div className="flex gap-1 shrink-0">
+                    {(["line", "area", "bar"] as const).map((ct) => (
+                      <button key={ct} onClick={() => setChartType(ct)}
+                        className={`px-2 py-1 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                        {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
+                      </button>
+                    ))}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[400px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
-                        <XAxis dataKey="year" tickFormatter={(v) => `${t.yearLabel} ${v}`} />
-                        <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                        <Tooltip
-                          formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })}
-                          labelFormatter={(label) => `${t.yearLabel} ${label}`}
-                        />
-                        <Legend />
-                        <Line type="monotone" dataKey={t.netBuyCost} stroke="#0FA958" strokeWidth={3} dot={false} />
-                        <Line type="monotone" dataKey={t.netRentCost} stroke="#ef4444" strokeWidth={3} dot={false} />
-                      </LineChart>
+                      {chartType === "line" ? (
+                        <LineChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis dataKey="year" tickFormatter={(v) => `${t.yearLabel} ${v}`} />
+                          <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })} labelFormatter={(label) => `${t.yearLabel} ${label}`} />
+                          <Legend />
+                          <Line type="monotone" dataKey={t.netBuyCost} stroke="#0FA958" strokeWidth={3} dot={false} />
+                          <Line type="monotone" dataKey={t.netRentCost} stroke="#ef4444" strokeWidth={3} dot={false} />
+                        </LineChart>
+                      ) : chartType === "area" ? (
+                        <AreaChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis dataKey="year" tickFormatter={(v) => `${t.yearLabel} ${v}`} />
+                          <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })} labelFormatter={(label) => `${t.yearLabel} ${label}`} />
+                          <Legend />
+                          <Area type="monotone" dataKey={t.netBuyCost} stroke="#0FA958" fill="#0FA958" fillOpacity={0.3} strokeWidth={2} dot={false} />
+                          <Area type="monotone" dataKey={t.netRentCost} stroke="#ef4444" fill="#ef4444" fillOpacity={0.3} strokeWidth={2} dot={false} />
+                        </AreaChart>
+                      ) : (
+                        <BarChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis dataKey="year" tickFormatter={(v) => `${t.yearLabel} ${v}`} />
+                          <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                          <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })} labelFormatter={(label) => `${t.yearLabel} ${label}`} />
+                          <Legend />
+                          <Bar dataKey={t.netBuyCost} fill="#0FA958" fillOpacity={0.8} />
+                          <Bar dataKey={t.netRentCost} fill="#ef4444" fillOpacity={0.8} />
+                        </BarChart>
+                      )}
                     </ResponsiveContainer>
                   </div>
                 </CardContent>

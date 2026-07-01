@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 
@@ -118,7 +118,9 @@ const T = {
 
 export default function MRU() {
   const locale = useLocale();
+  const isEn = locale === "en";
   const tr = T[locale];
+  const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
   const [solve, setSolve] = useState<Solve>("distance");
   const [distVal, setDistVal] = useState("");
   const [distUnit, setDistUnit] = useState("m");
@@ -294,16 +296,44 @@ export default function MRU() {
           </Card>
 
           <Card>
-            <CardHeader><CardTitle>{tr.chartTitle}</CardTitle></CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle>{tr.chartTitle}</CardTitle>
+              <div className="flex gap-1">
+                {(["line", "area", "bar"] as const).map((ct) => (
+                  <button key={ct} onClick={() => setChartType(ct)}
+                    className={`px-2 py-1 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                    {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
+                  </button>
+                ))}
+              </div>
+            </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
-                <LineChart data={result.chartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="t" label={{ value: timeUnit, position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
-                  <YAxis label={{ value: distUnit, angle: -90, position: "insideLeft" }} tick={{ fontSize: 12 }} />
-                  <Tooltip formatter={(v: number) => [`${fmt(v)} ${distUnit}`, tr.distanceChartLabel]} labelFormatter={(l) => `t = ${l} ${timeUnit}`} />
-                  <Line type="linear" dataKey="d" stroke="#0FA958" strokeWidth={2} dot={false} />
-                </LineChart>
+                {chartType === "line" ? (
+                  <LineChart data={result.chartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: timeUnit, position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis label={{ value: distUnit, angle: -90, position: "insideLeft" }} tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number) => [`${fmt(v)} ${distUnit}`, tr.distanceChartLabel]} labelFormatter={(l) => `t = ${l} ${timeUnit}`} />
+                    <Line type="linear" dataKey="d" stroke="#0FA958" strokeWidth={2} dot={false} />
+                  </LineChart>
+                ) : chartType === "area" ? (
+                  <AreaChart data={result.chartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: timeUnit, position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis label={{ value: distUnit, angle: -90, position: "insideLeft" }} tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number) => [`${fmt(v)} ${distUnit}`, tr.distanceChartLabel]} labelFormatter={(l) => `t = ${l} ${timeUnit}`} />
+                    <Area type="linear" dataKey="d" stroke="#0FA958" fill="#0FA958" fillOpacity={0.3} strokeWidth={2} dot={false} />
+                  </AreaChart>
+                ) : (
+                  <BarChart data={result.chartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: timeUnit, position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis label={{ value: distUnit, angle: -90, position: "insideLeft" }} tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number) => [`${fmt(v)} ${distUnit}`, tr.distanceChartLabel]} labelFormatter={(l) => `t = ${l} ${timeUnit}`} />
+                    <Bar dataKey="d" fill="#0FA958" fillOpacity={0.8} />
+                  </BarChart>
+                )}
               </ResponsiveContainer>
             </CardContent>
           </Card>

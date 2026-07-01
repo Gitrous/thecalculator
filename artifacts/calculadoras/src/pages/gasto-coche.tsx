@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Car } from "lucide-react";
 import { AdUnit } from "@/components/ad-unit";
@@ -96,7 +96,9 @@ const T = {
 
 export default function GastoCoche() {
   const locale = useLocale();
+  const isEn = locale === "en";
   const t = T[locale];
+  const [chartType, setChartType] = useState<"pie" | "bar">("pie");
 
   const [countryCode, setCountryCode] = useState("es");
   const country = getCountry(countryCode);
@@ -255,26 +257,42 @@ export default function GastoCoche() {
               </div>
 
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
                   <CardTitle className="text-lg">{t.breakdownTitle}: {fmt(results.anual)}</CardTitle>
+                  <div className="flex gap-1">
+                    {(["pie", "bar"] as const).map((ct) => (
+                      <button key={ct} onClick={() => setChartType(ct)}
+                        className={`px-2 py-1 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                        {ct === "pie" ? (isEn ? "Pie" : "Tarta") : (isEn ? "Bars" : "Barras")}
+                      </button>
+                    ))}
+                  </div>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center">
                   <div className="h-[250px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie
-                          data={results.breakdown}
-                          innerRadius={60}
-                          outerRadius={80}
-                          paddingAngle={5}
-                          dataKey="value"
-                        >
-                          {results.breakdown.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
-                          ))}
-                        </Pie>
-                        <Tooltip formatter={(value: number) => fmt(value)} />
-                      </PieChart>
+                      {chartType === "pie" ? (
+                        <PieChart>
+                          <Pie data={results.breakdown} innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+                            {results.breakdown.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={entry.color} />
+                            ))}
+                          </Pie>
+                          <Tooltip formatter={(value: number) => fmt(value)} />
+                        </PieChart>
+                      ) : (
+                        <BarChart data={results.breakdown} layout="vertical" margin={{ left: 10, right: 20 }}>
+                          <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                          <XAxis type="number" tickFormatter={(v) => fmt(v)} tick={{ fontSize: 11 }} />
+                          <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={90} />
+                          <Tooltip formatter={(value: number) => fmt(value)} />
+                          <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                            {results.breakdown.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={entry.color} />
+                            ))}
+                          </Bar>
+                        </BarChart>
+                      )}
                     </ResponsiveContainer>
                   </div>
                   <div className="w-full grid grid-cols-2 gap-2 mt-4">

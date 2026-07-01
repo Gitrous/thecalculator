@@ -13,12 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
+  BarChart, Bar, PieChart, Pie,
+  XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
 } from "recharts";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
@@ -127,6 +123,7 @@ export default function ConsumoElectrico() {
   const locale = useLocale();
   const t = T[locale];
   const isEn = locale === "en";
+  const [chartType, setChartType] = useState<"bar" | "pie">("bar");
 
   const [countryCode, setCountryCode] = useState("es");
   const [appliances, setAppliances] = useState<Appliance[]>([
@@ -376,35 +373,36 @@ export default function ConsumoElectrico() {
 
           {/* Distribution chart */}
           <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-4">
-              {t.distribucion}
-            </h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{t.distribucion}</h3>
+              <div className="flex gap-1">
+                {(["bar", "pie"] as const).map((ct) => (
+                  <button key={ct} onClick={() => setChartType(ct)}
+                    className={`px-2 py-0.5 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                    {ct === "bar" ? (isEn ? "Bars" : "Barras") : (isEn ? "Pie" : "Tarta")}
+                  </button>
+                ))}
+              </div>
+            </div>
             {breakdown.length > 0 ? (
               <>
                 <ResponsiveContainer width="100%" height={180}>
-                  <BarChart data={breakdown} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
-                    <XAxis
-                      dataKey="name"
-                      tick={{ fontSize: 10, fill: "#9ca3af" }}
-                      tickLine={false}
-                      axisLine={false}
-                    />
-                    <Tooltip
-                      formatter={(v: number) => [`${fmt(v)} kWh`, ""]}
-                      contentStyle={{
-                        background: "#1f2937",
-                        border: "none",
-                        borderRadius: 8,
-                        color: "#fff",
-                        fontSize: 12,
-                      }}
-                    />
-                    <Bar dataKey="kwh" radius={[6, 6, 0, 0]}>
-                      {breakdown.map((_, i) => (
-                        <Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />
-                      ))}
-                    </Bar>
-                  </BarChart>
+                  {chartType === "bar" ? (
+                    <BarChart data={breakdown} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                      <XAxis dataKey="name" tick={{ fontSize: 10, fill: "#9ca3af" }} tickLine={false} axisLine={false} />
+                      <Tooltip formatter={(v: number) => [`${fmt(v)} kWh`, ""]} contentStyle={{ background: "#1f2937", border: "none", borderRadius: 8, color: "#fff", fontSize: 12 }} />
+                      <Bar dataKey="kwh" radius={[6, 6, 0, 0]}>
+                        {breakdown.map((_, i) => (<Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />))}
+                      </Bar>
+                    </BarChart>
+                  ) : (
+                    <PieChart>
+                      <Pie data={breakdown} dataKey="kwh" nameKey="name" innerRadius={45} outerRadius={70} paddingAngle={3}>
+                        {breakdown.map((_, i) => (<Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />))}
+                      </Pie>
+                      <Tooltip formatter={(v: number) => [`${fmt(v)} kWh`, ""]} contentStyle={{ background: "#1f2937", border: "none", borderRadius: 8, color: "#fff", fontSize: 12 }} />
+                    </PieChart>
+                  )}
                 </ResponsiveContainer>
                 <div className="grid grid-cols-2 gap-1 mt-3">
                   {breakdown.map((b, i) => (

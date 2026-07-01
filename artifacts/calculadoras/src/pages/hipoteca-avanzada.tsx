@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
@@ -104,7 +104,9 @@ const T = {
 
 export default function HipotecaAvanzada() {
   const locale = useLocale();
+  const isEn = locale === "en";
   const t = T[locale];
+  const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
 
   const [capital, setCapital] = useState(150000);
   const [interestRate, setInterestRate] = useState(3.5);
@@ -263,31 +265,40 @@ export default function HipotecaAvanzada() {
               </div>
 
               <Card>
-                <CardHeader>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
                   <CardTitle className="text-lg">{t.chartTitle}</CardTitle>
+                  <div className="flex gap-1">
+                    {(["line", "area", "bar"] as const).map((ct) => (
+                      <button key={ct} onClick={() => setChartType(ct)}
+                        className={`px-2 py-1 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                        {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
+                      </button>
+                    ))}
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px] w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={results.schedule.filter((_, i) => i % 12 === 0 || i === results.schedule.length - 1)}>
-                        <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
-                        <XAxis
-                          dataKey="month"
-                          tickFormatter={(val) => `${t.yearLabel} ${Math.ceil(val/12)}`}
-                          style={{ fontSize: '12px' }}
-                        />
-                        <YAxis
-                          tickFormatter={(val) => `${(val/1000).toFixed(0)}k`}
-                          style={{ fontSize: '12px' }}
-                        />
-                        <Tooltip
-                          formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
-                          labelFormatter={(label) => `${t.colMonth} ${label}`}
-                        />
-                        <Line type="monotone" dataKey="balance" name={t.outstanding} stroke="#0FA958" strokeWidth={3} dot={false} />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </div>
+                  {(() => {
+                    const data = results.schedule.filter((_, i) => i % 12 === 0 || i === results.schedule.length - 1);
+                    const axes = <>
+                      <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                      <XAxis dataKey="month" tickFormatter={(val) => `${t.yearLabel} ${Math.ceil(val/12)}`} style={{ fontSize: '12px' }} />
+                      <YAxis tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} style={{ fontSize: '12px' }} />
+                      <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} labelFormatter={(label) => `${t.colMonth} ${label}`} />
+                    </>;
+                    return (
+                      <div className="h-[300px] w-full">
+                        <ResponsiveContainer width="100%" height="100%">
+                          {chartType === "line" ? (
+                            <LineChart data={data}>{axes}<Line type="monotone" dataKey="balance" name={t.outstanding} stroke="#0FA958" strokeWidth={3} dot={false} /></LineChart>
+                          ) : chartType === "area" ? (
+                            <AreaChart data={data}>{axes}<Area type="monotone" dataKey="balance" name={t.outstanding} stroke="#0FA958" fill="#0FA958" fillOpacity={0.3} strokeWidth={2} dot={false} /></AreaChart>
+                          ) : (
+                            <BarChart data={data}>{axes}<Bar dataKey="balance" name={t.outstanding} fill="#0FA958" fillOpacity={0.8} /></BarChart>
+                          )}
+                        </ResponsiveContainer>
+                      </div>
+                    );
+                  })()}
                 </CardContent>
               </Card>
 

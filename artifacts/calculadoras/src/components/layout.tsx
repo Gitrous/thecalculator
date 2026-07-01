@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -18,6 +18,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
   const [location] = useLocation();
   const isEn = locale === "en";
+
+  useEffect(() => { window.scrollTo(0, 0); }, [location]);
 
   // Language toggle: stay on the equivalent page in the other locale
   let langToggleHref = localeSwitchPath(location, isEn);

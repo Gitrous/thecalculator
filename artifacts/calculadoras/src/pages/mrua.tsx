@@ -8,14 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
+  LineChart, Line, AreaChart, Area, BarChart, Bar,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
@@ -108,7 +102,9 @@ const T = {
 
 export default function MRUA() {
   const locale = useLocale();
+  const isEn = locale === "en";
   const tr = T[locale];
+  const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
   const [v0, setV0] = useState("");
   const [a, setA] = useState("");
   const [t, setT] = useState("");
@@ -254,24 +250,50 @@ export default function MRUA() {
           </Card>
 
           <Card>
-            <CardHeader><CardTitle>{tr.chartTitle}</CardTitle></CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle>{tr.chartTitle}</CardTitle>
+              <div className="flex gap-1">
+                {(["line", "area", "bar"] as const).map((ct) => (
+                  <button key={ct} onClick={() => setChartType(ct)}
+                    className={`px-2 py-1 text-xs rounded-md font-medium transition-colors ${chartType === ct ? "bg-primary text-white" : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20"}`}>
+                    {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
+                  </button>
+                ))}
+              </div>
+            </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={result.chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="t" label={{ value: "t (s)", position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip
-                    formatter={(v: number, name: string) => [
-                      `${fmt(v)} ${name === "v" ? "m/s" : "m"}`,
-                      name === "v" ? tr.velocityLabel : tr.distanceLabel,
-                    ]}
-                    labelFormatter={(l) => `t = ${l} s`}
-                  />
-                  <Legend formatter={(v) => v === "v" ? tr.velocityLabel : tr.distanceLabel} />
-                  <Line type="monotone" dataKey="v" stroke="#0FA958" strokeWidth={2} dot={false} name="v" />
-                  <Line type="monotone" dataKey="d" stroke="#0C7A42" strokeWidth={2} dot={false} strokeDasharray="5 5" name="d" />
-                </LineChart>
+                {chartType === "line" ? (
+                  <LineChart data={result.chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: "t (s)", position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number, name: string) => [`${fmt(v)} ${name === "v" ? "m/s" : "m"}`, name === "v" ? tr.velocityLabel : tr.distanceLabel]} labelFormatter={(l) => `t = ${l} s`} />
+                    <Legend formatter={(v) => v === "v" ? tr.velocityLabel : tr.distanceLabel} />
+                    <Line type="monotone" dataKey="v" stroke="#0FA958" strokeWidth={2} dot={false} name="v" />
+                    <Line type="monotone" dataKey="d" stroke="#0C7A42" strokeWidth={2} dot={false} strokeDasharray="5 5" name="d" />
+                  </LineChart>
+                ) : chartType === "area" ? (
+                  <AreaChart data={result.chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: "t (s)", position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number, name: string) => [`${fmt(v)} ${name === "v" ? "m/s" : "m"}`, name === "v" ? tr.velocityLabel : tr.distanceLabel]} labelFormatter={(l) => `t = ${l} s`} />
+                    <Legend formatter={(v) => v === "v" ? tr.velocityLabel : tr.distanceLabel} />
+                    <Area type="monotone" dataKey="v" stroke="#0FA958" fill="#0FA958" fillOpacity={0.3} strokeWidth={2} dot={false} name="v" />
+                    <Area type="monotone" dataKey="d" stroke="#0C7A42" fill="#0C7A42" fillOpacity={0.2} strokeWidth={2} dot={false} name="d" />
+                  </AreaChart>
+                ) : (
+                  <BarChart data={result.chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis dataKey="t" label={{ value: "t (s)", position: "insideBottomRight", offset: -5 }} tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v: number, name: string) => [`${fmt(v)} ${name === "v" ? "m/s" : "m"}`, name === "v" ? tr.velocityLabel : tr.distanceLabel]} labelFormatter={(l) => `t = ${l} s`} />
+                    <Legend formatter={(v) => v === "v" ? tr.velocityLabel : tr.distanceLabel} />
+                    <Bar dataKey="v" fill="#0FA958" fillOpacity={0.8} name="v" />
+                    <Bar dataKey="d" fill="#0C7A42" fillOpacity={0.8} name="d" />
+                  </BarChart>
+                )}
               </ResponsiveContainer>
             </CardContent>
           </Card>
