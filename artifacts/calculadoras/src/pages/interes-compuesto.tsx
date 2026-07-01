@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { AreaChart, Area, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Coins, TrendingUp } from "lucide-react";
+import { ArrowLeft, Coins, TrendingUp, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
@@ -116,6 +117,7 @@ export default function InteresCompuesto() {
   const t = T[locale];
 
   const [chartType, setChartType] = useState<"area" | "line" | "bar">("area");
+  const chartRef = useRef<HTMLDivElement>(null);
   const [initial, setInitial] = useState("10000");
   const [monthly, setMonthly] = useState("200");
   const [rate, setRate] = useState("7");
@@ -325,10 +327,17 @@ export default function InteresCompuesto() {
                         {ct === "area" ? (locale === "en" ? "Area" : "Área") : ct === "line" ? (locale === "en" ? "Line" : "Línea") : (locale === "en" ? "Bars" : "Barras")}
                       </button>
                     ))}
+                    <button
+                      onClick={() => downloadChart(chartRef.current, "grafico-interes-compuesto")}
+                      title={locale === "en" ? "Download chart" : "Descargar gráfico"}
+                      className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[350px] w-full">
+                  <div ref={chartRef} className="h-[350px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       {chartType === "area" ? (
                         <AreaChart data={results.data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

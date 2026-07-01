@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,7 +10,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
-import { ArrowLeft, Calculator, ChevronsUpDown, Check } from "lucide-react";
+import { ArrowLeft, Calculator, ChevronsUpDown, Check, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/locale";
 
@@ -751,6 +752,7 @@ export default function IRPF() {
   const [openCountry, setOpenCountry] = useState(false);
   const [openRegion, setOpenRegion] = useState(false);
   const [chartType, setChartType] = useState<"barras" | "tarta" | "horizontal" | "radial">("barras");
+  const chartRef = useRef<HTMLDivElement>(null);
   const [results, setResults] = useState<{
     paisId: CountryDef["id"];
     bruto: number;
@@ -999,10 +1001,17 @@ export default function IRPF() {
                         {chartTypeLabels[type]}
                       </button>
                     ))}
+                    <button
+                      onClick={() => downloadChart(chartRef.current, "grafico-irpf")}
+                      title={locale === "en" ? "Download chart" : "Descargar gráfico"}
+                      className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px] w-full">
+                  <div ref={chartRef} className="h-[300px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       {chartType === "barras" ? (
                         <BarChart data={[{

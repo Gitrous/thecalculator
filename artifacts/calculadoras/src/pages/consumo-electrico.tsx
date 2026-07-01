@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Plus, Trash2, Zap, Lightbulb } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Zap, Lightbulb, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import {
   Select,
   SelectContent,
@@ -124,6 +125,7 @@ export default function ConsumoElectrico() {
   const t = T[locale];
   const isEn = locale === "en";
   const [chartType, setChartType] = useState<"bar" | "pie">("bar");
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const [countryCode, setCountryCode] = useState("es");
   const [appliances, setAppliances] = useState<Appliance[]>([
@@ -382,10 +384,18 @@ export default function ConsumoElectrico() {
                     {ct === "bar" ? (isEn ? "Bars" : "Barras") : (isEn ? "Pie" : "Tarta")}
                   </button>
                 ))}
+                <button
+                  onClick={() => downloadChart(chartRef.current, "grafico-consumo-electrico")}
+                  title={isEn ? "Download chart" : "Descargar gráfico"}
+                  className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
             {breakdown.length > 0 ? (
               <>
+                <div ref={chartRef}>
                 <ResponsiveContainer width="100%" height={180}>
                   {chartType === "bar" ? (
                     <BarChart data={breakdown} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
@@ -404,6 +414,7 @@ export default function ConsumoElectrico() {
                     </PieChart>
                   )}
                 </ResponsiveContainer>
+                </div>
                 <div className="grid grid-cols-2 gap-1 mt-3">
                   {breakdown.map((b, i) => (
                     <div

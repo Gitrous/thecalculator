@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowLeft, Home } from "lucide-react";
+import { ArrowLeft, Home, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
@@ -93,6 +94,7 @@ export default function AlquilerVsCompra() {
   const t = T[locale];
 
   const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
+  const chartRef = useRef<HTMLDivElement>(null);
   const [precioVivienda, setPrecioVivienda] = useState("200000");
   const [entradaPerc, setEntradaPerc] = useState("20");
   const [interesHipoteca, setInteresHipoteca] = useState("3.0");
@@ -292,10 +294,17 @@ export default function AlquilerVsCompra() {
                         {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
                       </button>
                     ))}
+                    <button
+                      onClick={() => downloadChart(chartRef.current, "grafico-alquiler-vs-compra")}
+                      title={isEn ? "Download chart" : "Descargar gráfico"}
+                      className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[400px] w-full">
+                  <div ref={chartRef} className="h-[400px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       {chartType === "line" ? (
                         <LineChart data={results.data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>

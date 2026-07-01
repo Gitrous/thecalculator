@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -9,7 +9,8 @@ import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, Cartesia
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
-import { ArrowLeft, Calculator } from "lucide-react";
+import { ArrowLeft, Calculator, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useLocale } from "@/lib/locale";
 
@@ -107,6 +108,7 @@ export default function HipotecaAvanzada() {
   const isEn = locale === "en";
   const t = T[locale];
   const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const [capital, setCapital] = useState(150000);
   const [interestRate, setInterestRate] = useState(3.5);
@@ -274,6 +276,13 @@ export default function HipotecaAvanzada() {
                         {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
                       </button>
                     ))}
+                    <button
+                      onClick={() => downloadChart(chartRef.current, "grafico-hipoteca")}
+                      title={isEn ? "Download chart" : "Descargar gráfico"}
+                      className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -286,7 +295,7 @@ export default function HipotecaAvanzada() {
                       <Tooltip formatter={(value: number) => value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })} labelFormatter={(label) => `${t.colMonth} ${label}`} />
                     </>;
                     return (
-                      <div className="h-[300px] w-full">
+                      <div ref={chartRef} className="h-[300px] w-full">
                         <ResponsiveContainer width="100%" height="100%">
                           {chartType === "line" ? (
                             <LineChart data={data}>{axes}<Line type="monotone" dataKey="balance" name={t.outstanding} stroke="#0FA958" strokeWidth={3} dot={false} /></LineChart>

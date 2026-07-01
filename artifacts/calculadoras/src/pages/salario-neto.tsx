@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,8 @@ import {
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, PieChart, Pie, Cell, RadialBarChart, RadialBar } from "recharts";
 import { cn } from "@/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowLeft, Briefcase } from "lucide-react";
+import { ArrowLeft, Briefcase, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { COUNTRIES, getCountry, calcIncomeTax, calcSS, fmtCurrency } from "@/lib/countries";
@@ -117,6 +118,7 @@ export default function SalarioNeto() {
     tax: number;
   } | null>(null);
   const [chartType, setChartType] = useState<"barras" | "horizontal" | "tarta" | "radial">("tarta");
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const calculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -259,10 +261,17 @@ export default function SalarioNeto() {
                         {t[type === "barras" ? "bars" : type === "tarta" ? "pie" : type]}
                       </button>
                     ))}
+                    <button
+                      onClick={() => downloadChart(chartRef.current, "grafico-salario-neto")}
+                      title={locale === "en" ? "Download chart" : "Descargar gráfico"}
+                      className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px] w-full">
+                  <div ref={chartRef} className="h-[300px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       {chartType === "barras" ? (
                         <BarChart data={[{ name: locale === "en" ? "Salary" : "Salario", [t.netSalary]: results!.netoAnual, [t.incomeTax]: results!.tax, [t.socialSec]: results!.ss }]}>

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Plus, Trash2, Hammer, Lightbulb } from "lucide-react";
+import { useState, useRef } from "react";
+import { Plus, Trash2, Hammer, Lightbulb, Download } from "lucide-react";
+import { downloadChart } from "@/lib/chart-download";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
@@ -121,6 +122,7 @@ export default function ReformaHogar() {
   const t = T[locale];
   const isEn = locale === "en";
   const [chartType, setChartType] = useState<"bar" | "pie">("bar");
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const [items, setItems] = useState<RenovationItem[]>([
     { id: 1, typeKey: "pintura",  qty: "80" },
@@ -308,10 +310,18 @@ export default function ReformaHogar() {
                     {ct === "bar" ? (isEn ? "Bars" : "Barras") : (isEn ? "Pie" : "Tarta")}
                   </button>
                 ))}
+                <button
+                  onClick={() => downloadChart(chartRef.current, "grafico-reforma-hogar")}
+                  title={isEn ? "Download chart" : "Descargar gráfico"}
+                  className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
             {breakdown.length > 0 ? (
               <>
+                <div ref={chartRef}>
                 <ResponsiveContainer width="100%" height={180}>
                   {chartType === "bar" ? (
                     <BarChart data={breakdown} margin={{ top: 4, right: 4, left: -10, bottom: 0 }}>
@@ -337,6 +347,7 @@ export default function ReformaHogar() {
                     </PieChart>
                   )}
                 </ResponsiveContainer>
+                </div>
                 <div className="grid grid-cols-2 gap-1 mt-3">
                   {breakdown.map((b, i) => (
                     <div key={i} className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">

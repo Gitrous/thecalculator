@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Atom } from "lucide-react";
+import { ArrowLeft, Atom, Download } from "lucide-react";
 import { useLocale } from "@/lib/locale";
+import { downloadChart } from "@/lib/chart-download";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -105,6 +106,7 @@ export default function MRUA() {
   const isEn = locale === "en";
   const tr = T[locale];
   const [chartType, setChartType] = useState<"line" | "area" | "bar">("line");
+  const chartRef = useRef<HTMLDivElement>(null);
   const [v0, setV0] = useState("");
   const [a, setA] = useState("");
   const [t, setT] = useState("");
@@ -259,9 +261,17 @@ export default function MRUA() {
                     {ct === "line" ? (isEn ? "Line" : "Línea") : ct === "area" ? (isEn ? "Area" : "Área") : (isEn ? "Bars" : "Barras")}
                   </button>
                 ))}
+                <button
+                  onClick={() => downloadChart(chartRef.current, "grafico-mrua")}
+                  title={isEn ? "Download chart" : "Descargar gráfico"}
+                  className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                </button>
               </div>
             </CardHeader>
             <CardContent>
+              <div ref={chartRef}>
               <ResponsiveContainer width="100%" height={300}>
                 {chartType === "line" ? (
                   <LineChart data={result.chartData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
@@ -295,6 +305,7 @@ export default function MRUA() {
                   </BarChart>
                 )}
               </ResponsiveContainer>
+              </div>
             </CardContent>
           </Card>
         </div>
