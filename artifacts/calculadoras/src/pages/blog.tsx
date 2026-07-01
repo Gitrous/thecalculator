@@ -74,7 +74,7 @@ function FeaturedCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateSt
           <ArticleImage category={article.category} image={ARTICLE_IMAGES[article.slug]} className="absolute inset-0 w-full h-full" />
           <div className="absolute top-4 left-4">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary text-white shadow">
-              {isEn ? "Featured" : "Destacado"}
+              {isEn ? "Latest" : "Más reciente"}
             </span>
           </div>
         </div>
