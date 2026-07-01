@@ -16,7 +16,7 @@ import { ARTICLES } from "@/lib/articles";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const isEn = locale === "en";
 
   useEffect(() => {
@@ -74,20 +74,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b bg-white/90 dark:bg-black/20 border-gray-200 dark:border-white/10 backdrop-blur-md no-print">
         <div className="container mx-auto px-4 h-16 grid grid-cols-3 items-center">
           {/* Left: logo */}
-          <Link href={homeHref} className="flex items-center gap-2">
+          <button
+            onClick={() => navigate(homeHref)}
+            className="flex items-center gap-2 cursor-pointer"
+          >
             <img src="/favicon.svg" alt="Logo" className="h-11 w-11" />
             <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
-          </Link>
+          </button>
           {/* Center: nav */}
           <div className="flex items-center justify-center gap-6">
             {/* Calculadoras dropdown */}
             <div className="relative group">
-              <Link href={homeHref} className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors">
+              <button
+                onClick={() => navigate(homeHref)}
+                className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors cursor-pointer"
+              >
                 {isEn ? "Calculators" : "Calculadoras"}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
-              </Link>
+              </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                 <div className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/10 rounded-xl shadow-xl p-2 min-w-[190px]">
                   {CATEGORIES.map((cat) => {
