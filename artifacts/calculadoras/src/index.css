@@ -231,6 +231,22 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(15, 185, 100, 0.15);
 }
 
+/* ── Logo text gradient (static, no animation) ───────────────────────────── */
+.logo-text {
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    currentColor 35%,
+    hsl(var(--primary)) 50%,
+    currentColor 65%,
+    currentColor 100%
+  );
+  background-size: 250% auto;
+  background-position: 200% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* ── Page entry animation ────────────────────────────────────────────────── */
 @keyframes page-enter {

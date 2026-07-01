@@ -76,7 +76,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {/* Left: logo */}
           <Link href={homeHref} className="flex items-center gap-2">
             <img src="/favicon.svg" alt="Logo" className="h-11 w-11" />
-            <span className="hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
+            <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
           </Link>
@@ -84,10 +84,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-center gap-6">
             {/* Calculadoras dropdown */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors">
+              <Link href={homeHref} className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors">
                 {isEn ? "Calculators" : "Calculadoras"}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
-              </button>
+              </Link>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                 <div className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-white/10 rounded-xl shadow-xl p-2 min-w-[190px]">
                   {CATEGORIES.map((cat) => {
