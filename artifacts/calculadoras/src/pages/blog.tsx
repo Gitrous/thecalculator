@@ -70,36 +70,34 @@ function FeaturedCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateSt
       className="group block rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:shadow-xl transition-all"
     >
       <div className="flex flex-col lg:flex-row">
-        <div className="lg:w-[58%] relative min-h-[260px] lg:min-h-[340px]">
+        <div className="lg:w-1/2 relative min-h-[220px] lg:min-h-[300px]">
           <ArticleImage category={article.category} image={ARTICLE_IMAGES[article.slug]} className="absolute inset-0 w-full h-full" />
-          <div className="absolute top-5 left-5">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/30">
-              {catLabel} {isEn ? "Highlighted" : "Destacadas"}
+          <div className="absolute top-4 left-4">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary text-white shadow">
+              {isEn ? "Featured" : "Destacado"}
             </span>
           </div>
         </div>
-        <div className="lg:w-[42%] p-7 lg:p-10 flex flex-col justify-between">
+        <div className="lg:w-1/2 p-6 lg:p-9 flex flex-col justify-between">
           <div>
-            <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${CATEGORY_COLORS[article.category] ?? "bg-gray-100 text-gray-600"}`}>
-              {catLabel} {isEn ? "Highlighted" : "Destacadas"}
-            </span>
-            <h2 className="mt-4 text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors">
+            <p className="text-xs font-semibold text-gray-400 dark:text-white/40 uppercase tracking-wide mb-3">
+              {catLabel} · {article.readTime} {isEn ? "min read" : "min de lectura"}
+            </p>
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors">
               {isEn ? article.enTitle : article.title}
             </h2>
-            <p className="mt-3 text-gray-500 dark:text-white/60 leading-relaxed line-clamp-3 text-sm lg:text-base">
+            <p className="mt-3 text-gray-500 dark:text-white/60 leading-relaxed line-clamp-3 text-sm">
               {isEn ? article.enDescription : article.description}
             </p>
           </div>
-          <div className="flex items-center justify-between mt-8 pt-5 border-t border-gray-100 dark:border-white/10">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between mt-6 pt-5 border-t border-gray-100 dark:border-white/10">
+            <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-xs font-bold shrink-0">
                 TC
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">thecalculator.tech</p>
-                <p className="text-xs text-gray-500 dark:text-white/50">
-                  {article.readTime} {isEn ? "min read" : "min de lectura"}
-                </p>
+                <p className="text-xs text-gray-400 dark:text-white/40">{isEn ? "Expert guide" : "Guía experta"}</p>
               </div>
             </div>
             <span className="flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all shrink-0">
@@ -211,6 +209,9 @@ export default function Blog() {
   });
 
   const hasFilters = q || activeCategory;
+  const featured = !hasFilters ? filtered[0] ?? null : null;
+  const twoRow   = !hasFilters ? filtered.slice(1, 3) : [];
+  const rest     = !hasFilters ? filtered.slice(3) : filtered;
 
   function getHref(article: Article) {
     return isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
@@ -314,18 +315,37 @@ export default function Blog() {
         <p className="text-muted-foreground text-sm py-12 text-center">
           {isEn ? "No articles found." : "No se encontraron artículos."}
         </p>
-      ) : (
+      ) : hasFilters ? (
+        /* Filtered: uniform 3-col grid */
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((a) => (
-            <MediumCard
-              key={a.slug}
-              article={a}
-              isEn={isEn}
-              href={getHref(a)}
-              catLabel={getCatLabel(a.category)}
-              dateStr={shortDate(a.date)}
-            />
+            <MediumCard key={a.slug} article={a} isEn={isEn} href={getHref(a)} catLabel={getCatLabel(a.category)} dateStr={shortDate(a.date)} />
           ))}
+        </div>
+      ) : (
+        <div className="space-y-5">
+          {/* Row 1: featured (1 article) */}
+          {featured && (
+            <FeaturedCard article={featured} isEn={isEn} href={getHref(featured)} catLabel={getCatLabel(featured.category)} />
+          )}
+
+          {/* Row 2: 2 articles */}
+          {twoRow.length > 0 && (
+            <div className="grid gap-5 sm:grid-cols-2">
+              {twoRow.map((a) => (
+                <MediumCard key={a.slug} article={a} isEn={isEn} href={getHref(a)} catLabel={getCatLabel(a.category)} dateStr={shortDate(a.date)} />
+              ))}
+            </div>
+          )}
+
+          {/* Rows of 3 for the rest */}
+          {rest.length > 0 && (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {rest.map((a) => (
+                <SmallCard key={a.slug} article={a} isEn={isEn} href={getHref(a)} catLabel={getCatLabel(a.category)} />
+              ))}
+            </div>
+          )}
         </div>
       )}
 
