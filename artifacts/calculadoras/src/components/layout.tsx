@@ -11,6 +11,7 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { Mail, ChevronDown, BookOpen } from "lucide-react";
+import { LogoAnimated } from "@/components/logo-animated";
 import { useLocale } from "@/lib/locale";
 import { ARTICLES } from "@/lib/articles";
 
@@ -78,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             onClick={() => navigate(homeHref)}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <img src="/favicon.svg" alt="Logo" className="h-11 w-11" />
+            <LogoAnimated className="h-11 w-11" />
             <span className="logo-text hidden sm:inline-block font-bold text-xl tracking-tight text-gray-900 dark:text-white">
               {siteTitle}
             </span>
