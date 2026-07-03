@@ -73,6 +73,11 @@ const T = {
     p3Desc: "Calcula cuántos días quedan para los exámenes finales o el final del semestre.",
     p3Cta: "Calcular",
     disclaimer: "Los días laborables excluyen fines de semana pero no festivos locales ni nacionales. Para plazos legales exactos, consulta el calendario oficial.",
+    howTitle: "Cómo se calculan los días entre dos fechas",
+    how1: "Calcular los días entre dos fechas consiste en restar la fecha inicial a la final y contar el número de días naturales transcurridos. A partir de ese total se derivan las semanas (dividiendo entre 7), los meses aproximados y los días laborables, que descartan los fines de semana.",
+    how2: "Esta calculadora hace esa diferencia automáticamente al introducir ambas fechas y te muestra el resultado en días, semanas, meses y días hábiles, sin tener que contar a mano en el calendario.",
+    exampleTitle: "Ejemplo",
+    example: "Entre el 1 y el 15 de enero hay 14 días naturales (2 semanas) y, descontando un fin de semana, unos 10 días laborables. Si necesitas incluir el propio día de inicio, activa la opción 'Incluir el día final' o suma 1 al total.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Se incluyen los dos extremos?",
     a1: "Por defecto, el cálculo usa la diferencia estricta entre ambas fechas: si el inicio y el final son el mismo día, el resultado es 0. Activa la opción 'Incluir el día final' para contar también el último día. Para una estancia del 1 al 7 de enero, sin inclusión son 6 días; incluyendo el final, son 7.",
@@ -111,6 +116,11 @@ const T = {
     p3Desc: "Track the number of weeks remaining before final exams or end of semester.",
     p3Cta: "Calculate",
     disclaimer: "Working days exclude weekends but not local or national public holidays, which vary by region. For exact legal deadlines, consult the official calendar.",
+    howTitle: "How the days between two dates are calculated",
+    how1: "Calculating the days between two dates means subtracting the start date from the end date and counting the number of calendar days elapsed. From that total you derive the weeks (dividing by 7), the approximate months and the working days, which exclude weekends.",
+    how2: "This calculator works out that difference automatically when you enter both dates and shows the result in days, weeks, months and working days, with no need to count by hand on the calendar.",
+    exampleTitle: "Example",
+    example: "Between 1 and 15 January there are 14 calendar days (2 weeks) and, excluding one weekend, around 10 working days. If you need to include the start day itself, enable the 'Include end date' option or add 1 to the total.",
     faqTitle: "Frequently asked questions",
     q1: "Are both endpoints included?",
     a1: "By default, the calculation uses the strict difference between the two dates: if the start and end are the same day, the result is 0. Enable 'Include end date' to also count the last day. For a stay from 1 to 7 January, without inclusion it is 6 days; including the end, it is 7.",
@@ -361,6 +371,14 @@ export default function DiasEntreFechas() {
       </section>
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
+
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">{t.how1}</p>
+        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">{t.how2}</p>
+        <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{t.example}</p>
+      </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
