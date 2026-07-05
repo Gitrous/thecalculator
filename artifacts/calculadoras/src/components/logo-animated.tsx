@@ -10,23 +10,23 @@ export function LogoAnimated({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="logo-bg" x1="0" y1="0" x2="0" y2="180" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#13B466" />
-          <stop offset="1" stopColor="#0C9A4E" />
+          <stop stopColor="#2563EB" />
+          <stop offset="1" stopColor="#1D4ED8" />
         </linearGradient>
         <style>{`
           @keyframes logo-screen-cycle {
-            0%,  16%, 100% { fill: #0C9A4E; }
-            20%            { fill: #11BB56; }
-            24%            { fill: #0C9A4E; }
-            28%            { fill: #11BB56; }
-            32%            { fill: #0C9A4E; }
-            36%            { fill: #11BB56; }
-            40%            { fill: #0C9A4E; }
-            44%            { fill: #11BB56; }
-            52%            { fill: #0C9A4E; }
-            57%            { fill: #1AD06A; }
-            73%            { fill: #1AD06A; }
-            78%            { fill: #0C9A4E; }
+            0%,  16%, 100% { fill: #1E3A8A; }
+            20%            { fill: #1D4ED8; }
+            24%            { fill: #1E3A8A; }
+            28%            { fill: #1D4ED8; }
+            32%            { fill: #1E3A8A; }
+            36%            { fill: #1D4ED8; }
+            40%            { fill: #1E3A8A; }
+            44%            { fill: #1D4ED8; }
+            52%            { fill: #1E3A8A; }
+            57%            { fill: #2563EB; }
+            73%            { fill: #2563EB; }
+            78%            { fill: #1E3A8A; }
           }
           @keyframes logo-cursor {
             0%         { opacity: 1; }
@@ -54,39 +54,39 @@ export function LogoAnimated({ className }: { className?: string }) {
             100%       { opacity: 0; }
           }
           @keyframes logo-pb1 {
-            0%, 19%, 24%, 100% { fill: #0FA958; }
-            21%                { fill: #7BFFD4; }
+            0%, 19%, 24%, 100% { fill: #3B82F6; }
+            21%                { fill: #93C5FD; }
           }
           @keyframes logo-pb2 {
-            0%, 25%, 30%, 100% { fill: #0FA958; }
-            27%                { fill: #7BFFD4; }
+            0%, 25%, 30%, 100% { fill: #3B82F6; }
+            27%                { fill: #93C5FD; }
           }
           @keyframes logo-pb3 {
-            0%, 31%, 36%, 100% { fill: #0FA958; }
-            33%                { fill: #7BFFD4; }
+            0%, 31%, 36%, 100% { fill: #3B82F6; }
+            33%                { fill: #93C5FD; }
           }
           @keyframes logo-pb4 {
-            0%, 37%, 42%, 100% { fill: #0FA958; }
-            39%                { fill: #7BFFD4; }
+            0%, 37%, 42%, 100% { fill: #3B82F6; }
+            39%                { fill: #93C5FD; }
           }
           @keyframes logo-pb-eq {
             0%, 49%, 57%, 100% { fill: #FF6A00; }
             52%                { fill: #FFA040; }
           }
           .logo-screen  { animation: logo-screen-cycle 8s ease infinite; }
-          .logo-cursor  { fill: #6EFFC0; animation: logo-cursor 8s ease infinite; }
+          .logo-cursor  { fill: #93C5FD; animation: logo-cursor 8s ease infinite; }
           .logo-t-eq    {
             font-family: 'Courier New', Courier, monospace;
             font-weight: 700; font-size: 11px;
             text-anchor: end; dominant-baseline: middle;
-            fill: #6EFFC0; opacity: 0;
+            fill: #93C5FD; opacity: 0;
             animation: logo-eq 8s ease infinite;
           }
           .logo-t-result {
             font-family: 'Courier New', Courier, monospace;
             font-weight: 700; font-size: 11px;
             text-anchor: end; dominant-baseline: middle;
-            fill: #DDFFF0; opacity: 0;
+            fill: #DBEAFE; opacity: 0;
             animation: logo-result 8s ease infinite;
           }
           .logo-b1  { animation: logo-pb1  8s linear infinite; }
@@ -122,7 +122,7 @@ export function LogoAnimated({ className }: { className?: string }) {
 
       {/* Buttons row 2 */}
       <circle className="logo-b4" cx="68"  cy="118" r="7" />
-      <circle cx="90" cy="118" r="7" fill="#0FA958" />
+      <circle cx="90" cy="118" r="7" fill="#3B82F6" />
       <circle className="logo-beq" cx="112" cy="118" r="7" />
     </svg>
   );

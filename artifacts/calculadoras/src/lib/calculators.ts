@@ -85,7 +85,7 @@ export const CATEGORIES: Category[] = [
     enName: "Finance",
     enDescription: "Mortgage, income tax, investments, salary and personal budget.",
     icon: Coins,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
     featuredOnHome: true,
   },
   {
@@ -95,7 +95,7 @@ export const CATEGORIES: Category[] = [
     enName: "Home",
     enDescription: "Car costs, electricity consumption and household expenses.",
     icon: House,
-    color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
+    color: "text-amber-600 bg-amber-100 dark:bg-amber-900/30",
     featuredOnHome: true,
   },
   {
@@ -105,7 +105,7 @@ export const CATEGORIES: Category[] = [
     enName: "Work",
     enDescription: "Time tracking, overtime and work records.",
     icon: Briefcase,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     featuredOnHome: true,
   },
   {
@@ -115,7 +115,7 @@ export const CATEGORIES: Category[] = [
     enName: "Education",
     enDescription: "Physics, kinematics and unit converters.",
     icon: GraduationCap,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     featuredOnHome: true,
   },
   {
@@ -125,7 +125,7 @@ export const CATEGORIES: Category[] = [
     enName: "Health",
     enDescription: "Health and wellness: body mass index and ideal weight.",
     icon: HeartPulse,
-    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    color: "text-teal-600 bg-teal-100 dark:bg-teal-900/30",
     featuredOnHome: false,
   },
 ];
@@ -140,7 +140,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Cuota mensual, amortización completa e intereses totales. Compara fija vs. variable.",
     shortLabel: "Hipoteca",
     icon: Building,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Hipoteca: cuota, amortización e intereses",
     seoDescription:
       "Calcula la cuota mensual de tu hipoteca, la tabla de amortización completa y los intereses totales. Compara tipo fijo y variable.",
@@ -158,7 +158,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula la cuota mensual de tu préstamo, el total de intereses y el cuadro de amortización mes a mes.",
     shortLabel: "Préstamo Personal",
     icon: CreditCard,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Préstamo Personal: cuota e intereses",
     seoDescription:
       "Calcula la cuota mensual de tu préstamo personal, el total de intereses y el cuadro de amortización mes a mes.",
@@ -176,7 +176,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula porcentajes al instante: qué % es X de Y, cuánto es el X% de Y, variación entre dos valores, y subir o bajar un % a un número.",
     shortLabel: "Porcentajes",
     icon: Percent,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Porcentajes online",
     seoDescription:
       "Calcula porcentajes al instante: qué porcentaje es X de Y, cuánto es el X% de Y, la variación entre dos valores y subir o bajar un % a un número.",
@@ -194,7 +194,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Suma o resta el IVA a cualquier precio. Tipos 21%, 10%, 4% y 0%. Para autónomos, empresas y particulares.",
     shortLabel: "IVA",
     icon: Receipt,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de IVA: sumar o quitar el IVA",
     seoDescription:
       "Suma o resta el IVA a cualquier precio. Tipos 21%, 10%, 4% y 0%. Ideal para autónomos, empresas y particulares.",
@@ -212,7 +212,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Retención y sueldo neto por país y comunidad autónoma. Tramos 2026 actualizados.",
     shortLabel: "IRPF",
     icon: Wallet,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora IRPF por Comunidad Autónoma",
     seoDescription:
       "Calcula tu retención de IRPF y tu sueldo neto según tu comunidad autónoma. Tramos actualizados.",
@@ -230,7 +230,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Proyecta el crecimiento de tus inversiones con aportes periódicos opcionales.",
     shortLabel: "Interés Compuesto",
     icon: TrendingUp,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Interés Compuesto",
     seoDescription:
       "Proyecta el crecimiento de tus inversiones a largo plazo con aportaciones periódicas opcionales.",
@@ -248,7 +248,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Convierte tu salario bruto anual en neto mensual estimado en España.",
     shortLabel: "Salario Neto",
     icon: Banknote,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Salario Neto en España",
     seoDescription:
       "Convierte tu salario bruto anual en el sueldo neto mensual estimado en España.",
@@ -266,7 +266,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Compara si es más rentable alquilar o comprar vivienda en tu caso concreto.",
     shortLabel: "Alquiler vs Compra",
     icon: Scale,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora Alquiler vs Compra de vivienda",
     seoDescription:
       "Compara si te sale más rentable alquilar o comprar vivienda según tu situación concreta.",
@@ -286,7 +286,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Coste real anual de tu vehículo: combustible, seguro, mantenimiento y más.",
     shortLabel: "Gasto de Coche",
     icon: Car,
-    color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
+    color: "text-amber-600 bg-amber-100 dark:bg-amber-900/30",
     seoTitle: "Calculadora de Gasto de Coche anual",
     seoDescription:
       "Descubre el coste real anual de tu vehículo: combustible, seguro, mantenimiento, impuestos y más.",
@@ -304,7 +304,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Estima tu factura eléctrica por electrodoméstico y descubre qué consume más.",
     shortLabel: "Consumo Eléctrico",
     icon: Zap,
-    color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
+    color: "text-amber-600 bg-amber-100 dark:bg-amber-900/30",
     seoTitle: "Calculadora de Consumo Eléctrico y factura de la luz",
     seoDescription:
       "Estima tu factura de la luz por electrodoméstico y descubre qué aparatos consumen más en tu hogar.",
@@ -323,7 +323,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Estima el coste de tu reforma sumando partidas: pintura, suelo, baño, cocina, ventanas, electricidad y más.",
     shortLabel: "Reforma Hogar",
     icon: Hammer,
-    color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
+    color: "text-amber-600 bg-amber-100 dark:bg-amber-900/30",
     seoTitle: "Calculadora de Presupuesto de Reforma del Hogar 2025",
     seoDescription:
       "Calcula el presupuesto de tu reforma del hogar por partidas: pintura, suelo, baño, cocina, ventanas e instalaciones. Precios orientativos 2025-2026.",
@@ -343,7 +343,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula el finiquito que te corresponde: indemnización, vacaciones pendientes, pagas extra y días no cobrados.",
     shortLabel: "Finiquito",
     icon: FileCheck,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Finiquito",
     seoDescription:
       "Calcula tu finiquito: vacaciones no disfrutadas, parte proporcional de pagas extra y días trabajados no cobrados.",
@@ -361,7 +361,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula la letra de tu DNI o NIE al instante. Introduce los 8 dígitos y obtén la letra correcta.",
     shortLabel: "Letra del DNI",
     icon: IdCard,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de la Letra del DNI y NIE",
     seoDescription:
       "Calcula la letra de tu DNI o NIE al instante. Introduce los dígitos y obtén la letra correcta del documento.",
@@ -379,7 +379,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula tu cuota mensual al RETA según el nuevo sistema de tramos por ingresos reales 2026. Incluye tarifa plana.",
     shortLabel: "Cuota Autónomos",
     icon: UserCheck,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Cuota de Autónomos 2026 (RETA)",
     seoDescription:
       "Calcula tu cuota mensual de autónomos según el sistema de tramos por ingresos reales 2026. Incluye la tarifa plana.",
@@ -397,7 +397,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula cuántos días, semanas, meses y días laborables hay entre dos fechas.",
     shortLabel: "Días entre Fechas",
     icon: CalendarDays,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Días entre Fechas",
     seoDescription:
       "Calcula cuántos días, semanas, meses y días laborables hay entre dos fechas cualesquiera.",
@@ -415,7 +415,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Registra entradas y salidas, calcula horas extra y controla tu jornada laboral.",
     shortLabel: "Horas Trabajadas",
     icon: Clock,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Horas Trabajadas y horas extra",
     seoDescription:
       "Registra entradas y salidas, calcula horas extra y controla tu jornada laboral.",
@@ -435,7 +435,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula la hipotenusa o un cateto de un triángulo rectángulo aplicando el teorema de Pitágoras: a² + b² = c².",
     shortLabel: "Pitágoras",
     icon: Triangle,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Calculadora del Teorema de Pitágoras",
     seoDescription:
       "Calcula la hipotenusa o un cateto de un triángulo rectángulo con el teorema de Pitágoras: a² + b² = c².",
@@ -453,7 +453,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Resuelve la regla de tres directa e inversa. Introduce tres valores y calcula el cuarto al instante.",
     shortLabel: "Regla de Tres",
     icon: GitCompare,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Calculadora de Regla de Tres directa e inversa",
     seoDescription:
       "Resuelve la regla de tres directa e inversa. Introduce tres valores y obtén el cuarto al instante.",
@@ -471,7 +471,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula tu nota media simple o ponderada por créditos ECTS. Añade todas tus asignaturas.",
     shortLabel: "Nota Media",
     icon: BookOpen,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Calculadora de Nota Media (simple y ponderada)",
     seoDescription:
       "Calcula tu nota media simple o ponderada por créditos ECTS añadiendo todas tus asignaturas.",
@@ -489,7 +489,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Resuelve problemas de Movimiento Rectilíneo Uniforme: distancia, velocidad y tiempo.",
     shortLabel: "MRU",
     icon: Gauge,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Calculadora MRU (Movimiento Rectilíneo Uniforme)",
     seoDescription:
       "Resuelve problemas de Movimiento Rectilíneo Uniforme: distancia, velocidad y tiempo.",
@@ -507,7 +507,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula posición, velocidad y aceleración en movimiento rectilíneo acelerado.",
     shortLabel: "MRUA",
     icon: Rocket,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Calculadora MRUA (Movimiento Rectilíneo Uniformemente Acelerado)",
     seoDescription:
       "Calcula posición, velocidad y aceleración en el movimiento rectilíneo uniformemente acelerado.",
@@ -525,7 +525,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Convierte entre sistemas métrico e imperial: longitud, masa, temperatura, volumen.",
     shortLabel: "Conversor de Unidades",
     icon: ArrowRightLeft,
-    color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
     seoTitle: "Conversor de Unidades online",
     seoDescription:
       "Convierte entre los sistemas métrico e imperial: longitud, masa, temperatura y volumen.",
@@ -545,7 +545,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula tu Índice de Masa Corporal y descubre en qué rango de peso te encuentras según tu altura.",
     shortLabel: "IMC",
     icon: Activity,
-    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    color: "text-teal-600 bg-teal-100 dark:bg-teal-900/30",
     seoTitle: "Calculadora de IMC (Índice de Masa Corporal)",
     seoDescription:
       "Calcula tu Índice de Masa Corporal (IMC) y descubre en qué rango de peso te encuentras según tu altura.",
@@ -563,7 +563,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula tu Tasa Metabólica Basal y las calorías diarias que necesitas según tu actividad y objetivo.",
     shortLabel: "Calorías y TMB",
     icon: Flame,
-    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    color: "text-teal-600 bg-teal-100 dark:bg-teal-900/30",
     seoTitle: "Calculadora de Calorías Diarias y TMB (Tasa Metabólica Basal)",
     seoDescription:
       "Calcula cuántas calorías necesitas al día según tu peso, altura, edad, actividad y objetivo (perder peso, mantener o ganar músculo).",
@@ -581,7 +581,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description: "Calcula tu FCmáx y tus cinco zonas de entrenamiento para optimizar tus sesiones de ejercicio.",
     shortLabel: "Frecuencia Cardíaca",
     icon: Heart,
-    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    color: "text-teal-600 bg-teal-100 dark:bg-teal-900/30",
     seoTitle: "Calculadora de Frecuencia Cardíaca Máxima y Zonas de Entrenamiento",
     seoDescription: "Calcula tu frecuencia cardíaca máxima (FCmáx) y las 5 zonas de entrenamiento según tu edad. Fórmula de Tanaka actualizada.",
     enTitle: "Maximum Heart Rate Calculator",
@@ -597,7 +597,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     description: "Descubre cuánta agua debes beber al día según tu peso, nivel de actividad física y el clima.",
     shortLabel: "Agua Diaria",
     icon: Droplets,
-    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/30",
+    color: "text-teal-600 bg-teal-100 dark:bg-teal-900/30",
     seoTitle: "Calculadora de Agua Diaria — Hidratación según tu peso y actividad",
     seoDescription: "Calcula cuántos litros de agua debes beber al día según tu peso corporal, nivel de actividad física y temperatura del clima.",
     enTitle: "Daily Water Intake Calculator",
@@ -616,7 +616,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula cuánto ahorras amortizando anticipadamente tu hipoteca y elige entre reducir cuota o plazo.",
     shortLabel: "Amortización Anticipada",
     icon: TrendingDown,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Amortización Anticipada de Hipoteca",
     seoDescription:
       "Calcula el ahorro en intereses al amortizar tu hipoteca anticipadamente. Elige entre reducir la cuota mensual o acortar el plazo.",
@@ -634,7 +634,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Convierte entre TIN y TAE según la frecuencia de capitalización. Compara hipotecas, préstamos y depósitos.",
     shortLabel: "TAE / TIN",
     icon: BarChart2,
-    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora TAE y TIN online",
     seoDescription:
       "Convierte entre TIN y TAE según la frecuencia de capitalización. Herramienta para comparar hipotecas, préstamos y depósitos bancarios.",
@@ -654,7 +654,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario.",
     shortLabel: "Paro / Desempleo",
     icon: DollarSign,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Paro y Prestación por Desempleo 2026",
     seoDescription:
       "Calcula cuánto cobrarás de paro según tu salario y los meses cotizados. Incluye duración, cuantía y total de la prestación.",
@@ -672,7 +672,7 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Estima tu pensión mensual según los años cotizados y tu base reguladora.",
     shortLabel: "Pensión de Jubilación",
     icon: Umbrella,
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora de Pensión de Jubilación 2026",
     seoDescription:
       "Estima tu pensión de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa del sistema de pensiones español.",
