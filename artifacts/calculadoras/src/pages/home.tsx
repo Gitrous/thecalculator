@@ -11,6 +11,7 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { LogoAnimated } from "@/components/logo-animated";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
@@ -135,6 +136,9 @@ export default function Home() {
 
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
       <section className="text-center space-y-5 py-12 md:py-20">
+        <div className="flex justify-center mb-2">
+          <LogoAnimated className="h-20 w-20" />
+        </div>
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
           {heroLine1}<br />{heroLine2}
         </h1>
