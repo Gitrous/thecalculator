@@ -93,7 +93,9 @@ export function LogoAnimated({ className }: { className?: string }) {
         `}</style>
       </defs>
 
-      {/* ── No background, no body rect — transparent icon ── */}
+      {/* Contorno del cuerpo de la calculadora (sin relleno) */}
+      <rect x="44" y="14" width="112" height="172" rx="14"
+        fill="none" stroke="currentColor" strokeWidth="2" strokeOpacity="0.22" />
 
       {/* Screen — x:50→150, y:22→66, portrait and narrow */}
       <rect className="logo-screen" x="50" y="22" width="100" height="44" rx="8" />
