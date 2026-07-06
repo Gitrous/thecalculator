@@ -12,6 +12,7 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { LogoAnimated } from "@/components/logo-animated";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { useLocale } from "@/lib/locale";
@@ -340,6 +341,11 @@ export default function Home() {
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="bg-gray-50 dark:bg-gray-950 py-20 px-4">
         <div className="max-w-3xl mx-auto text-center space-y-6">
+          {/* Animated logo */}
+          <div className="flex justify-center">
+            <LogoAnimated className="h-16 w-16" />
+          </div>
+
           {/* Trust badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-400 text-xs font-semibold tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
