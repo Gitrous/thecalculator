@@ -226,6 +226,23 @@ function AcademyCard({ article, isEn }: { article: Article; isEn: boolean }) {
   );
 }
 
+function RecentCard({ calc, isEn }: { calc: CalculatorMeta; isEn: boolean }) {
+  const Icon  = calc.icon;
+  const href  = isEn ? enCalcPath(calc) : calcPath(calc);
+  const title = isEn ? calc.enShortLabel : calc.shortLabel;
+
+  return (
+    <Link href={href}>
+      <div className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 py-3 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-800 transition-all cursor-pointer">
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${calc.color}`}>
+          <Icon className="w-4.5 h-4.5" />
+        </div>
+        <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 truncate">{title}</span>
+      </div>
+    </Link>
+  );
+}
+
 export default function Home() {
   const locale = useLocale();
   const isEn = locale === "en";
@@ -397,23 +414,19 @@ export default function Home() {
 
       {!isSearching && (
         <>
-          {/* ── Recent ──────────────────────────────────────────── */}
+          {/* ── Recently Used ─────────────────────────────────────── */}
           {recent.length > 0 && (
-            <section className="bg-white dark:bg-gray-900 py-6 px-4 border-b border-gray-100 dark:border-gray-800">
+            <section className="bg-white dark:bg-gray-900 py-10 px-4 border-b border-gray-100 dark:border-gray-800">
               <div className="max-w-6xl mx-auto">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-5">
                   <Clock className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
-                    {isEn ? "Recently used" : "Usadas recientemente"}
-                  </span>
+                  <h2 className="text-base font-bold text-gray-900 dark:text-white">
+                    {isEn ? "Recently Used" : "Usadas Recientemente"}
+                  </h2>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                   {recent.slice(0, 6).map((calc) => (
-                    <Link key={calc.slug} href={isEn ? enCalcPath(calc) : calcPath(calc)}>
-                      <span className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-600 dark:text-gray-300 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-pointer">
-                        {isEn ? calc.enShortLabel : calc.shortLabel}
-                      </span>
-                    </Link>
+                    <RecentCard key={calc.slug} calc={calc} isEn={isEn} />
                   ))}
                 </div>
               </div>
