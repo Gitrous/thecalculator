@@ -405,32 +405,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ── Newsletter CTA ───────────────────────────────────── */}
-          <section className="bg-[#0F1E3C] py-20 px-4 text-center">
-            <div className="max-w-xl mx-auto space-y-5">
-              <h2 className="text-3xl font-extrabold text-white">
-                {isEn ? "Stay Ahead of the Numbers" : "Mantente al Día con los Números"}
-              </h2>
-              <p className="text-blue-300 text-sm leading-relaxed">
-                {isEn
-                  ? "Monthly precision guides, tool updates, and economic insights. No spam, just math."
-                  : "Guías mensuales, actualizaciones de herramientas y análisis económico. Sin spam, solo datos."}
-              </p>
-              <div className="flex gap-2 max-w-sm mx-auto">
-                <input
-                  type="email"
-                  placeholder={isEn ? "Enter your email" : "Tu correo electrónico"}
-                  className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-blue-300/60 focus:outline-none focus:border-blue-400 text-sm"
-                />
-                <button className="bg-blue-500 hover:bg-blue-400 text-white px-5 py-3 rounded-xl font-semibold transition-colors text-sm whitespace-nowrap">
-                  {isEn ? "Join" : "Suscribirme"}
-                </button>
-              </div>
-              <p className="text-blue-400/60 text-xs">
-                {isEn ? "JOIN 5,000+ PROFESSIONALS & STUDENTS" : "ÚNETE A MÁS DE 5.000 USUARIOS"}
-              </p>
-            </div>
-          </section>
         </>
       )}
     </div>
