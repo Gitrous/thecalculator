@@ -50,44 +50,27 @@ const GLOW_COLOR: Record<string, string> = {
   salud:     "bg-rose-500/20   group-hover:bg-rose-500/30",
 };
 
-// Inner-grid class for the calculator links inside each bento card
+// Inner-grid class for the calculator icon cards inside each bento card
 const INNER_GRID: Record<string, string> = {
-  finanzas:  "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4",
-  trabajo:   "grid grid-cols-1 sm:grid-cols-2 gap-4",
-  educacion: "flex flex-col gap-3",
-  hogar:     "flex flex-col gap-3",
-  salud:     "grid grid-cols-1 sm:grid-cols-2 gap-4",
+  finanzas:  "grid grid-cols-3 sm:grid-cols-4 gap-3",
+  trabajo:   "grid grid-cols-2 sm:grid-cols-3 gap-3",
+  educacion: "grid grid-cols-2 gap-3",
+  hogar:     "grid grid-cols-2 gap-3",
+  salud:     "grid grid-cols-2 sm:grid-cols-3 gap-3",
 };
 
-// Whether calc links use the compact (list) or card style
-const IS_COMPACT: Record<string, boolean> = {
-  finanzas:  false,
-  trabajo:   false,
-  educacion: false,
-  hogar:     false,
-  salud:     false,
-};
-
-function BentoCalcLink({ calc, isEn, compact }: { calc: CalculatorMeta; isEn: boolean; compact: boolean }) {
-  const href = isEn ? enCalcPath(calc) : calcPath(calc);
+function BentoCalcLink({ calc, isEn }: { calc: CalculatorMeta; isEn: boolean }) {
+  const href  = isEn ? enCalcPath(calc) : calcPath(calc);
   const title = isEn ? calc.enShortLabel : calc.shortLabel;
-  const desc  = isEn ? calc.enDescription : calc.description;
+  const Icon  = calc.icon;
 
-  if (compact) {
-    return (
-      <Link href={href}>
-        <div className="flex flex-col gap-1 p-3 rounded-lg border border-transparent hover:bg-white/5 dark:hover:bg-white/5 hover:border-white/10 transition-colors cursor-pointer">
-          <span className="text-sm font-semibold text-gray-900 dark:text-white">{title}</span>
-          <span className="text-xs text-gray-500 dark:text-white/50 line-clamp-1">{desc}</span>
-        </div>
-      </Link>
-    );
-  }
   return (
     <Link href={href}>
-      <div className="flex flex-col gap-2 p-4 rounded-xl bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-pointer">
-        <span className="text-sm font-semibold text-gray-900 dark:text-white">{title}</span>
-        <span className="text-xs text-gray-500 dark:text-white/60 line-clamp-2">{desc}</span>
+      <div className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/5 transition-colors cursor-pointer text-center min-h-[88px]">
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${calc.color}`}>
+          <Icon className="w-5 h-5" />
+        </div>
+        <span className="text-xs font-medium text-gray-800 dark:text-white leading-tight line-clamp-2">{title}</span>
       </div>
     </Link>
   );
@@ -247,8 +230,7 @@ export default function Home() {
             const calcs = getCalculatorsByCategory(cat.id);
             const colSpan = BENTO_SPAN[cat.id] ?? "lg:col-span-1";
             const glowColor = GLOW_COLOR[cat.id] ?? "bg-blue-500/20";
-            const innerGrid = INNER_GRID[cat.id] ?? "flex flex-col gap-3";
-            const compact = IS_COMPACT[cat.id] ?? false;
+            const innerGrid = INNER_GRID[cat.id] ?? "grid grid-cols-2 gap-3";
             const catHref = isEn
               ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
               : `/calculadoras/${cat.id}`;
@@ -279,7 +261,7 @@ export default function Home() {
                   {/* Calculator links */}
                   <div className={innerGrid}>
                     {calcs.map((calc) => (
-                      <BentoCalcLink key={calc.slug} calc={calc} isEn={isEn} compact={compact} />
+                      <BentoCalcLink key={calc.slug} calc={calc} isEn={isEn} />
                     ))}
                   </div>
                 </div>

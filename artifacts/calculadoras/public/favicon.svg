@@ -1,27 +1,24 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="180" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
-    </linearGradient>
-  </defs>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-  <!-- Fondo: cuadrado redondeado azul de marca -->
-  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+  <!-- Screen — narrow portrait, no background -->
+  <rect x="50" y="22" width="100" height="44" rx="8" fill="#1E3A8A"/>
+  <rect x="51" y="23" width="98" height="1.5" rx="0.75" fill="white" opacity="0.15"/>
 
-  <!-- Cuerpo de la calculadora -->
-  <rect x="48" y="32" width="84" height="116" rx="16" fill="#FFFFFF"/>
+  <!-- Cursor -->
+  <rect x="142" y="43" width="6" height="2.5" rx="1.25" fill="#93C5FD"/>
 
-  <!-- Pantalla -->
-  <rect x="62" y="46" width="56" height="26" rx="6" fill="#1E3A8A"/>
+  <!-- Row 1 — utility (light blue) -->
+  <rect x="50"  y="76" width="28" height="28" rx="6" fill="#93C5FD"/>
+  <rect x="86"  y="76" width="28" height="28" rx="6" fill="#93C5FD"/>
+  <rect x="122" y="76" width="28" height="28" rx="6" fill="#93C5FD"/>
 
-  <!-- Botones: 3 columnas x 2 filas; el "=" en naranja de acento -->
-  <g fill="#3B82F6">
-    <circle cx="68"  cy="92"  r="7"/>
-    <circle cx="90"  cy="92"  r="7"/>
-    <circle cx="112" cy="92"  r="7"/>
-    <circle cx="68"  cy="118" r="7"/>
-    <circle cx="90"  cy="118" r="7"/>
-  </g>
-  <circle cx="112" cy="118" r="7" fill="#FF6A00"/>
+  <!-- Row 2 — numbers (medium blue) -->
+  <rect x="50"  y="112" width="28" height="28" rx="6" fill="#3B82F6"/>
+  <rect x="86"  y="112" width="28" height="28" rx="6" fill="#3B82F6"/>
+  <rect x="122" y="112" width="28" height="28" rx="6" fill="#3B82F6"/>
+
+  <!-- Row 3 — numbers + = -->
+  <rect x="50"  y="148" width="28" height="28" rx="6" fill="#3B82F6"/>
+  <rect x="86"  y="148" width="28" height="28" rx="6" fill="#3B82F6"/>
+  <rect x="122" y="148" width="28" height="28" rx="6" fill="#F97316"/>
 </svg>
