@@ -135,6 +135,18 @@ const categories: Category[] = [
   },
 ];
 
+const COMMON_TABLE = [
+  { es: ["1 pulgada", "2,54 cm"], en: ["1 inch", "2.54 cm"] },
+  { es: ["1 pie", "30,48 cm"], en: ["1 foot", "30.48 cm"] },
+  { es: ["1 milla", "1,609 km"], en: ["1 mile", "1.609 km"] },
+  { es: ["1 libra", "0,454 kg"], en: ["1 pound", "0.454 kg"] },
+  { es: ["1 onza", "28,35 g"], en: ["1 ounce", "28.35 g"] },
+  { es: ["1 galón US", "3,785 L"], en: ["1 US gallon", "3.785 L"] },
+  { es: ["0 °C", "32 °F"], en: ["0 °C", "32 °F"] },
+  { es: ["100 °C", "212 °F"], en: ["100 °C", "212 °F"] },
+  { es: ["1 kcal", "4,184 kJ"], en: ["1 kcal", "4.184 kJ"] },
+];
+
 const T = {
   es: {
     backHome: "Volver al inicio",
@@ -161,6 +173,15 @@ const T = {
     a3: "Un galón estadounidense equivale a 3,785 litros aproximadamente. El galón imperial (utilizado en el Reino Unido) equivale a 4,546 litros. Esta calculadora usa el galón US.",
     q4: "¿Cuántos kilómetros tiene una milla?",
     a4: "Una milla terrestre equivale exactamente a 1.609,344 metros, es decir, aproximadamente 1,609 km. La milla náutica equivale a 1,852 km y es la que se usa en aviación y náutica.",
+    q5: "¿Cuál es la diferencia entre masa y peso?",
+    a5: "En el lenguaje cotidiano se usan como sinónimos, pero en física son cosas distintas. La masa es la cantidad de materia de un objeto y se mide en kilogramos; es la misma en la Tierra, en la Luna o en el espacio. El peso es la fuerza con la que la gravedad atrae esa masa y se mide en newtons; cambia según la gravedad del lugar. Este conversor trabaja con masa (kg, g, lb, oz), que es lo que habitualmente se necesita en la vida diaria, la cocina o el comercio.",
+    q6: "¿Puedo convertir entre unidades de distinta categoría?",
+    a6: "No directamente, porque miden magnitudes físicas diferentes: no tiene sentido convertir litros a kilómetros. Algunas magnitudes sí están relacionadas por una densidad o un factor concreto (un litro de agua pura pesa aproximadamente 1 kg a 4 °C), pero esa equivalencia depende de la sustancia y no es una conversión de unidades pura. Por eso el conversor está organizado por categorías y solo permite convertir entre unidades que miden la misma magnitud.",
+    howTitle: "Cómo funcionan las conversiones",
+    how1: "Convertir unidades consiste en multiplicar el valor original por un factor que relaciona ambas unidades con una referencia común. Internamente, el conversor transforma primero el valor a la unidad base del Sistema Internacional de esa categoría (metros para longitud, kilogramos para masa, julios para energía) y después lo convierte a la unidad de destino. Este método de doble paso garantiza que todas las conversiones dentro de una misma categoría sean coherentes entre sí y evita acumular errores de redondeo.",
+    commonTitle: "Conversiones más habituales",
+    tableColFrom: "Unidad",
+    tableColTo: "Equivale a",
   },
   en: {
     backHome: "Back to home",
@@ -187,6 +208,15 @@ const T = {
     a3: "One US gallon is approximately 3.785 litres. The imperial gallon (used in the United Kingdom) is 4.546 litres. This calculator uses the US gallon.",
     q4: "How many kilometres are in a mile?",
     a4: "One statute mile is exactly 1,609.344 metres, i.e. approximately 1.609 km. The nautical mile is 1.852 km and is used in aviation and sailing.",
+    q5: "What is the difference between mass and weight?",
+    a5: "In everyday language they are used as synonyms, but in physics they are different things. Mass is the amount of matter in an object and is measured in kilograms; it is the same on Earth, on the Moon or in space. Weight is the force with which gravity pulls on that mass and is measured in newtons; it changes with the local gravity. This converter works with mass (kg, g, lb, oz), which is what you usually need in everyday life, cooking or commerce.",
+    q6: "Can I convert between units of different categories?",
+    a6: "Not directly, because they measure different physical quantities: it makes no sense to convert litres to kilometres. Some quantities are related by a density or a specific factor (one litre of pure water weighs about 1 kg at 4 °C), but that equivalence depends on the substance and is not a pure unit conversion. That is why the converter is organised by categories and only lets you convert between units that measure the same quantity.",
+    howTitle: "How conversions work",
+    how1: "Converting units means multiplying the original value by a factor that relates both units to a common reference. Internally, the converter first transforms the value into that category's International System base unit (metres for length, kilograms for mass, joules for energy) and then converts it to the target unit. This two-step method ensures that all conversions within the same category are consistent with one another and avoids accumulating rounding errors.",
+    commonTitle: "Most common conversions",
+    tableColFrom: "Unit",
+    tableColTo: "Equals",
   },
 };
 
@@ -344,10 +374,35 @@ export default function ConversorUnidades() {
         ))}
       </Tabs>
 
-      <section className="mt-12">
-        <h2 className="text-xl font-semibold mb-4">{t.aboutTitle}</h2>
-        <p className="text-muted-foreground">{t.aboutText}</p>
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.aboutTitle}</h2>
+        <p>{t.aboutText}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p>{t.how1}</p>
       </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.commonTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableColFrom}</th>
+              <th className="py-2 font-medium">{t.tableColTo}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COMMON_TABLE.map((row) => {
+              const [from, to] = locale === "en" ? row.en : row.es;
+              return (
+                <tr key={from} className="border-b border-gray-100 dark:border-white/5">
+                  <td className="py-2 pr-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{from}</td>
+                  <td className="py-2 font-semibold text-primary whitespace-nowrap">{to}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
@@ -369,6 +424,14 @@ export default function ConversorUnidades() {
           <AccordionItem value="q4">
             <AccordionTrigger>{t.q4}</AccordionTrigger>
             <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

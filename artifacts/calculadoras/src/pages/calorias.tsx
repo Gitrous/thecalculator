@@ -48,6 +48,22 @@ const GOALS_EN = [
   { value: "300", label: "Gain muscle (+300 kcal surplus)" },
 ];
 
+const ACTIVITY_TABLE_ES = [
+  { factor: "1,2", nivel: "Sedentario", desc: "Trabajo de oficina, desplazamientos en coche y sin ejercicio planificado." },
+  { factor: "1,375", nivel: "Poco activo", desc: "Ejercicio ligero o deporte 1–3 días por semana." },
+  { factor: "1,55", nivel: "Moderadamente activo", desc: "Ejercicio moderado 3–5 días por semana." },
+  { factor: "1,725", nivel: "Muy activo", desc: "Ejercicio intenso 6–7 días por semana." },
+  { factor: "1,9", nivel: "Extra activo", desc: "Trabajo físico exigente combinado con entrenamiento diario." },
+];
+
+const ACTIVITY_TABLE_EN = [
+  { factor: "1.2", nivel: "Sedentary", desc: "Desk job, driving everywhere and no planned exercise." },
+  { factor: "1.375", nivel: "Lightly active", desc: "Light exercise or sport 1–3 days per week." },
+  { factor: "1.55", nivel: "Moderately active", desc: "Moderate exercise 3–5 days per week." },
+  { factor: "1.725", nivel: "Very active", desc: "Intense exercise 6–7 days per week." },
+  { factor: "1.9", nivel: "Extra active", desc: "Demanding physical job combined with daily training." },
+];
+
 const T = {
   es: {
     title: "Calculadora de Calorías y TMB",
@@ -79,6 +95,20 @@ const T = {
     a2: "Usa la fórmula de Mifflin-St Jeor (1990), considerada la más precisa para la población general: hombre: 10×peso + 6,25×altura − 5×edad + 5; mujer: 10×peso + 6,25×altura − 5×edad − 161. Después se multiplica por el factor de actividad para obtener el TDEE.",
     q3: "¿Por qué no bajo de peso comiendo menos calorías?",
     a3: "Las calculadoras son estimaciones poblacionales. Tu metabolismo puede diferir. Factores como el estado hormonal, la masa muscular, el sueño o la microbiota afectan el gasto real. Si llevas semanas sin progresar, ajusta las calorías en ±100 kcal y observa el resultado.",
+    q4: "¿Cuántas calorías debo comer para adelgazar?",
+    a4: "Para perder grasa necesitas un déficit calórico, es decir, comer menos calorías de las que gastas. Un déficit moderado de 300 a 500 kcal diarias respecto a tu TDEE permite perder entre 0,3 y 0,5 kg de grasa por semana, un ritmo sostenible que preserva la masa muscular. Los déficits muy agresivos (más de 750–1.000 kcal) aceleran la pérdida a corto plazo, pero aumentan la pérdida de músculo, el hambre y el riesgo de abandonar la dieta. Es preferible un déficit pequeño mantenido en el tiempo, acompañado de suficiente proteína y algo de ejercicio de fuerza.",
+    q5: "¿Por qué necesito tanta proteína?",
+    a5: "La proteína es el macronutriente clave para conservar y construir masa muscular, especialmente cuando estás en déficit calórico. Las recomendaciones habituales para personas activas van de 1,6 a 2,2 gramos por kilo de peso corporal al día. Además, la proteína es el nutriente más saciante y el que más energía consume durante su digestión, lo que ayuda de forma indirecta al control del peso. Esta calculadora asigna un 30 % de las calorías a proteína como punto de partida orientativo; puedes ajustarlo según tu dieta y tus preferencias.",
+    howTitle: "Cómo se calculan tus calorías diarias",
+    how1: "El cálculo se realiza en tres pasos. Primero se estima la Tasa Metabólica Basal (TMB) con la ecuación de Mifflin-St Jeor, que solo necesita tu peso, altura, edad y sexo biológico. Después, la TMB se multiplica por un factor de actividad (de 1,2 si eres sedentario a 1,9 si entrenas a diario y tienes un trabajo físico) para obtener el Gasto Energético Total Diario o TDEE. Por último, se suma o resta el ajuste correspondiente a tu objetivo: un déficit de unas 500 kcal para perder alrededor de 0,5 kg de grasa por semana, o un superávit moderado de 300 kcal para ganar músculo minimizando la ganancia de grasa.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Para un hombre de 30 años, 75 kg y 175 cm con actividad moderada (factor 1,55): la TMB es 10×75 + 6,25×175 − 5×30 + 5 = 1.699 kcal. Multiplicada por 1,55 da un TDEE de unas 2.633 kcal, que es lo que necesitaría para mantener su peso. Si su objetivo es perder grasa, restaría 500 kcal y comería alrededor de 2.133 kcal al día; si busca ganar músculo, sumaría 300 kcal hasta unas 2.933 kcal.",
+    tableTitle: "Factores de actividad física",
+    tableFactor: "Factor",
+    tableLevel: "Nivel",
+    tableDesc: "A quién corresponde",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "El número que obtienes es un punto de partida, no una cifra exacta e inmutable. La mejor forma de usarlo es mantener ese aporte calórico durante 2 o 3 semanas y pesarte siempre en las mismas condiciones: si el peso evoluciona según tu objetivo, la estimación es correcta; si no se mueve, ajusta en ±100–150 kcal y vuelve a observar. Recuerda que la balanza fluctúa a diario por el agua, el glucógeno y el tránsito intestinal, así que fíjate en la tendencia semanal y no en el dato de un solo día.",
   },
   en: {
     title: "Calorie & BMR Calculator",
@@ -110,6 +140,20 @@ const T = {
     a2: "It uses the Mifflin-St Jeor formula (1990), considered the most accurate for the general population: male: 10×weight + 6.25×height − 5×age + 5; female: 10×weight + 6.25×height − 5×age − 161. The result is then multiplied by the activity factor to get TDEE.",
     q3: "Why am I not losing weight eating fewer calories?",
     a3: "Calculators are population estimates. Your metabolism may differ. Factors such as hormonal status, muscle mass, sleep or gut microbiome affect actual expenditure. If you have not progressed for weeks, adjust calories by ±100 kcal and observe the result.",
+    q4: "How many calories should I eat to lose weight?",
+    a4: "To lose fat you need a calorie deficit — eating fewer calories than you burn. A moderate deficit of 300 to 500 kcal per day below your TDEE lets you lose between 0.3 and 0.5 kg of fat per week, a sustainable pace that preserves muscle mass. Very aggressive deficits (more than 750–1,000 kcal) speed up short-term loss but increase muscle loss, hunger and the risk of giving up. A small deficit maintained over time, alongside enough protein and some strength training, works far better.",
+    q5: "Why do I need so much protein?",
+    a5: "Protein is the key macronutrient for preserving and building muscle mass, especially in a calorie deficit. Common recommendations for active people range from 1.6 to 2.2 grams per kilogram of body weight per day. Protein is also the most satiating nutrient and the one that burns the most energy during digestion, which indirectly helps with weight control. This calculator assigns 30% of calories to protein as an indicative starting point; you can adjust it to suit your diet and preferences.",
+    howTitle: "How your daily calories are calculated",
+    how1: "The calculation happens in three steps. First, your Basal Metabolic Rate (BMR) is estimated with the Mifflin-St Jeor equation, which only needs your weight, height, age and biological sex. Then the BMR is multiplied by an activity factor (from 1.2 if you are sedentary to 1.9 if you train daily and have a physical job) to get your Total Daily Energy Expenditure or TDEE. Finally, the adjustment for your goal is added or subtracted: a deficit of around 500 kcal to lose about 0.5 kg of fat per week, or a moderate surplus of 300 kcal to gain muscle while minimising fat gain.",
+    exampleTitle: "Worked example",
+    example: "For a 30-year-old man, 75 kg and 175 cm, moderately active (factor 1.55): the BMR is 10×75 + 6.25×175 − 5×30 + 5 = 1,699 kcal. Multiplied by 1.55, that gives a TDEE of about 2,633 kcal, which is what he would need to maintain his weight. To lose fat he would subtract 500 kcal and eat around 2,133 kcal a day; to gain muscle he would add 300 kcal, up to about 2,933 kcal.",
+    tableTitle: "Physical activity factors",
+    tableFactor: "Factor",
+    tableLevel: "Level",
+    tableDesc: "Who it applies to",
+    interpretTitle: "How to interpret the result",
+    interpret: "The number you get is a starting point, not an exact, fixed figure. The best way to use it is to keep that calorie intake for 2 to 3 weeks and weigh yourself under the same conditions each time: if your weight moves in line with your goal, the estimate is right; if it doesn't budge, adjust by ±100–150 kcal and observe again. Remember the scale fluctuates daily due to water, glycogen and gut transit, so watch the weekly trend rather than a single day's reading.",
   },
 };
 
@@ -120,6 +164,7 @@ export default function Calorias() {
 
   const ACTIVITY_LEVELS = isEn ? ACTIVITY_LEVELS_EN : ACTIVITY_LEVELS_ES;
   const GOALS = isEn ? GOALS_EN : GOALS_ES;
+  const ACTIVITY_TABLE = isEn ? ACTIVITY_TABLE_EN : ACTIVITY_TABLE_ES;
 
   const [peso, setPeso] = useState("75");
   const [altura, setAltura] = useState("175");
@@ -281,6 +326,40 @@ export default function Calorias() {
         <p className="text-xs text-muted-foreground italic mb-2">{t.medDisclaimer}</p>
       )}
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p>{t.how1}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableFactor}</th>
+              <th className="py-2 pr-4 font-medium">{t.tableLevel}</th>
+              <th className="py-2 font-medium">{t.tableDesc}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ACTIVITY_TABLE.map((row) => (
+              <tr key={row.factor} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 font-semibold text-primary whitespace-nowrap">{row.factor}</td>
+                <td className="py-2 pr-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{row.nivel}</td>
+                <td className="py-2 text-gray-600 dark:text-gray-400">{row.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
@@ -297,6 +376,14 @@ export default function Calorias() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

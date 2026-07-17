@@ -367,6 +367,20 @@ const T = {
     a2: "La hipotenusa (c) es el lado más largo del triángulo rectángulo y es el opuesto al ángulo recto. Los catetos (a y b) son los dos lados que forman el ángulo recto.",
     q3: "¿Cuál es la terna pitagórica más conocida?",
     a3: "La terna 3-4-5 es la más famosa: 3² + 4² = 9 + 16 = 25 = 5². Otras ternas conocidas son 5-12-13, 8-15-17 y 7-24-25.",
+    q4: "¿Cómo se despeja un cateto con el teorema de Pitágoras?",
+    a4: "Cuando conoces la hipotenusa y uno de los catetos, despejas el otro cateto restando en lugar de sumar. Partiendo de a² + b² = c², se despeja b² = c² − a², y por tanto b = √(c² − a²). Por ejemplo, si la hipotenusa mide 13 y un cateto mide 5, el otro cateto es √(13² − 5²) = √(169 − 25) = √144 = 12. Para que la operación tenga sentido, la hipotenusa siempre debe ser mayor que el cateto conocido; de lo contrario no existe ningún triángulo rectángulo posible con esos valores.",
+    q5: "¿Dónde se usa el teorema de Pitágoras en la vida real?",
+    a5: "Es una de las herramientas más útiles fuera del aula. En construcción y carpintería se emplea la relación 3-4-5 para comprobar que una esquina forma un ángulo perfectamente recto sin necesidad de escuadra. En topografía y navegación permite calcular distancias en línea recta a partir de desplazamientos horizontales y verticales. También aparece al calcular la diagonal de una pantalla o una habitación, la longitud de una rampa o de una escalera apoyada en la pared, y es la base de la fórmula de la distancia entre dos puntos en geometría analítica.",
+    howTitle: "Cómo se aplica el teorema paso a paso",
+    how1: "El teorema relaciona los tres lados de un triángulo rectángulo mediante la fórmula a² + b² = c², donde c es siempre la hipotenusa (el lado opuesto al ángulo recto). Para calcular la hipotenusa elevas al cuadrado los dos catetos, los sumas y haces la raíz cuadrada del total. Para calcular un cateto haces lo contrario: restas al cuadrado de la hipotenusa el cuadrado del cateto conocido y sacas la raíz. La clave está en identificar correctamente cuál es la hipotenusa antes de operar.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Supongamos un triángulo rectángulo con catetos de 6 y 8 unidades. Aplicamos la fórmula: c = √(6² + 8²) = √(36 + 64) = √100 = 10. La hipotenusa mide 10 unidades. Si en cambio conociéramos la hipotenusa (10) y un cateto (6), el otro cateto sería √(10² − 6²) = √(100 − 36) = √64 = 8.",
+    tableTitle: "Ternas pitagóricas más habituales",
+    tableColA: "Cateto a",
+    tableColB: "Cateto b",
+    tableColC: "Hipotenusa c",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "El resultado que muestra la calculadora es matemáticamente exacto, pero a menudo tendrá decimales porque la mayoría de triángulos no forman ternas pitagóricas perfectas. En un problema de clase suele pedirse redondear a dos decimales; en un trabajo de obra o de carpintería basta con redondear a la unidad de medida que estés usando (milímetros o centímetros). Recuerda que las unidades de los tres lados deben ser las mismas: si los catetos están en metros, la hipotenusa también saldrá en metros.",
   },
   en: {
     title: "Pythagorean Theorem Calculator",
@@ -392,8 +406,31 @@ const T = {
     a2: "The hypotenuse (c) is the longest side of a right triangle and is opposite the right angle. The legs (a and b) are the two sides that form the right angle.",
     q3: "What is the most famous Pythagorean triple?",
     a3: "The 3-4-5 triple is the most famous: 3² + 4² = 9 + 16 = 25 = 5². Other well-known triples are 5-12-13, 8-15-17 and 7-24-25.",
+    q4: "How do you solve for a leg with the Pythagorean theorem?",
+    a4: "When you know the hypotenuse and one of the legs, you find the other leg by subtracting instead of adding. Starting from a² + b² = c², you rearrange to b² = c² − a², so b = √(c² − a²). For example, if the hypotenuse is 13 and one leg is 5, the other leg is √(13² − 5²) = √(169 − 25) = √144 = 12. For the operation to make sense, the hypotenuse must always be greater than the known leg; otherwise no right triangle can exist with those values.",
+    q5: "Where is the Pythagorean theorem used in real life?",
+    a5: "It is one of the most useful tools outside the classroom. In construction and carpentry the 3-4-5 relationship is used to check that a corner forms a perfect right angle without a set square. In surveying and navigation it lets you calculate straight-line distances from horizontal and vertical displacements. It also appears when working out the diagonal of a screen or a room, the length of a ramp or a ladder leaning against a wall, and it is the basis of the distance formula between two points in analytic geometry.",
+    howTitle: "How to apply the theorem step by step",
+    how1: "The theorem relates the three sides of a right triangle through the formula a² + b² = c², where c is always the hypotenuse (the side opposite the right angle). To find the hypotenuse you square both legs, add them and take the square root of the total. To find a leg you do the opposite: subtract the square of the known leg from the square of the hypotenuse and take the root. The key is to correctly identify which side is the hypotenuse before you start.",
+    exampleTitle: "Worked example",
+    example: "Take a right triangle with legs of 6 and 8 units. Applying the formula: c = √(6² + 8²) = √(36 + 64) = √100 = 10. The hypotenuse is 10 units. If instead we knew the hypotenuse (10) and one leg (6), the other leg would be √(10² − 6²) = √(100 − 36) = √64 = 8.",
+    tableTitle: "Most common Pythagorean triples",
+    tableColA: "Leg a",
+    tableColB: "Leg b",
+    tableColC: "Hypotenuse c",
+    interpretTitle: "How to interpret the result",
+    interpret: "The result shown by the calculator is mathematically exact, but it will often have decimals because most triangles do not form perfect Pythagorean triples. In a classroom problem you are usually asked to round to two decimal places; in construction or carpentry it is enough to round to the unit of measurement you are using (millimetres or centimetres). Remember that the three sides must share the same units: if the legs are in metres, the hypotenuse will also come out in metres.",
   },
 };
+
+const TRIPLES = [
+  { a: "3", b: "4", c: "5" },
+  { a: "5", b: "12", c: "13" },
+  { a: "8", b: "15", c: "17" },
+  { a: "7", b: "24", c: "25" },
+  { a: "20", b: "21", c: "29" },
+  { a: "9", b: "40", c: "41" },
+];
 
 export default function Pitagoras() {
   const locale = useLocale();
@@ -549,6 +586,40 @@ export default function Pitagoras() {
         </Card>
       </div>
 
+      <section className="mt-4 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p>{t.how1}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableColA}</th>
+              <th className="py-2 pr-4 font-medium">{t.tableColB}</th>
+              <th className="py-2 font-medium">{t.tableColC}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {TRIPLES.map((row) => (
+              <tr key={row.c} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{row.a}</td>
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{row.b}</td>
+                <td className="py-2 font-semibold text-primary">{row.c}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section>
@@ -565,6 +636,14 @@ export default function Pitagoras() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

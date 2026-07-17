@@ -32,6 +32,20 @@ const CLIMATES: ClimateOption[] = [
   { value: "hot",       labelEs: "Clima cálido / mucho calor", labelEn: "Hot / very warm climate", extra: 500 },
 ];
 
+const WATER_TABLE_ES = [
+  { nivel: "Sedentario", mlkg: "30 ml/kg", ej: "2,1 L" },
+  { nivel: "Ligero", mlkg: "33 ml/kg", ej: "2,3 L" },
+  { nivel: "Moderado", mlkg: "36 ml/kg", ej: "2,5 L" },
+  { nivel: "Intenso", mlkg: "40 ml/kg", ej: "2,8 L" },
+];
+
+const WATER_TABLE_EN = [
+  { nivel: "Sedentary", mlkg: "30 ml/kg", ej: "2.1 L" },
+  { nivel: "Light", mlkg: "33 ml/kg", ej: "2.3 L" },
+  { nivel: "Moderate", mlkg: "36 ml/kg", ej: "2.5 L" },
+  { nivel: "Intense", mlkg: "40 ml/kg", ej: "2.8 L" },
+];
+
 const T = {
   es: {
     title: "Calculadora de Agua Diaria",
@@ -53,6 +67,20 @@ const T = {
     a2: "Sí. Aproximadamente el 20-30% de la ingesta hídrica diaria proviene de los alimentos sólidos, especialmente frutas y verduras (la sandía, el pepino o la lechuga tienen más de un 90% de agua). Sin embargo, los valores de esta calculadora se refieren exclusivamente a líquidos que debes beber, ya que es la forma más fácil de controlar la hidratación. Si tu dieta es rica en frutas y verduras, puedes estar en el límite inferior del rango.",
     q3: "¿Cuáles son las señales de deshidratación?",
     a3: "Los primeros signos de deshidratación leve son la sed, la orina de color amarillo oscuro, el cansancio y la dificultad para concentrarse. Con una deshidratación del 2% del peso corporal ya se observa una reducción del rendimiento físico y cognitivo. La deshidratación severa (>5%) puede causar mareos, taquicardia y confusión, y requiere atención médica. Como norma práctica, la orina debe ser de color amarillo pálido; si es transparente estás bien hidratado, si es oscura debes beber más.",
+    q4: "¿Es malo beber demasiada agua?",
+    a4: "Sí, aunque es poco frecuente. Beber cantidades excesivas de agua en muy poco tiempo puede provocar hiponatremia, una dilución peligrosa del sodio en sangre que causa dolor de cabeza, náuseas, confusión y, en casos graves, convulsiones. Suele darse en deportistas de resistencia que beben en exceso o en retos de ingesta rápida. Para una persona sana, los riñones eliminan sin problema el líquido sobrante repartido a lo largo del día; el riesgo aparece solo con volúmenes muy altos ingeridos de golpe. Por eso la recomendación es beber de forma regular y moderada, no forzarse a alcanzar una cifra concreta de una sola vez.",
+    q5: "¿El café y el té cuentan como hidratación?",
+    a5: "Sí. Durante años se creyó que las bebidas con cafeína deshidrataban, pero la evidencia actual muestra que el café y el té consumidos con moderación hidratan casi tanto como el agua: su leve efecto diurético queda compensado por el volumen de líquido que aportan. Lo mismo ocurre con las infusiones, la leche o el agua presente en frutas y verduras. Lo que conviene limitar son las bebidas azucaradas y el alcohol: este último sí tiene un efecto deshidratante real, porque inhibe la hormona antidiurética y aumenta la producción de orina.",
+    howTitle: "Cómo se calcula el agua que necesitas",
+    how1: "El punto de partida es tu peso corporal, porque las necesidades de líquido son proporcionales a la masa que hay que mantener hidratada. La fórmula multiplica tu peso por un factor en mililitros por kilogramo que aumenta con la actividad física: 30 ml/kg si eres sedentario y hasta 40 ml/kg si entrenas con intensidad casi todos los días. A ese resultado se le suman 500 ml adicionales cuando vives o entrenas en un clima cálido, para compensar el agua que pierdes a través del sudor.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Una persona de 70 kg con actividad ligera (factor 33 ml/kg) en clima templado necesitaría 70 × 33 = 2.310 ml, es decir, unos 2,3 litros al día, el equivalente a algo más de 9 vasos de 250 ml. Si esa misma persona viviera en un clima caluroso, sumaría 500 ml y llegaría a unos 2,8 litros diarios.",
+    tableTitle: "Mililitros por kilo según la actividad",
+    tableCol1: "Nivel de actividad",
+    tableCol2: "ml por kg",
+    tableCol3: "Ejemplo (70 kg)",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "La cifra que obtienes es una guía diaria, no una obligación estricta hora a hora. Lo mejor es repartirla bebiendo de forma constante a lo largo del día en lugar de grandes cantidades de golpe, y usar el color de la orina como indicador práctico: un amarillo pálido señala buena hidratación, mientras que un tono oscuro indica que debes beber más. En días de mucho calor, ejercicio prolongado, fiebre, diarrea o vómitos, tus necesidades aumentan y conviene beber por encima de la cifra calculada.",
   },
   en: {
     title: "Daily Water Intake Calculator",
@@ -74,6 +102,20 @@ const T = {
     a2: "Yes. Approximately 20-30% of daily fluid intake comes from solid foods, especially fruits and vegetables (watermelon, cucumber and lettuce contain over 90% water). However, the values in this calculator refer exclusively to fluids you should drink, as this is the easiest way to monitor hydration. If your diet is rich in fruit and vegetables, you may sit at the lower end of the range.",
     q3: "What are the signs of dehydration?",
     a3: "The first signs of mild dehydration are thirst, dark yellow urine, fatigue and difficulty concentrating. A dehydration of just 2% of body weight already leads to a measurable reduction in physical and cognitive performance. Severe dehydration (>5%) can cause dizziness, rapid heartbeat and confusion, and requires medical attention. As a practical rule, your urine should be pale yellow; if it is clear you are well hydrated, if it is dark you need to drink more.",
+    q4: "Can drinking too much water be harmful?",
+    a4: "Yes, although it is uncommon. Drinking excessive amounts of water in a very short time can cause hyponatremia, a dangerous dilution of blood sodium that leads to headache, nausea, confusion and, in severe cases, seizures. It usually happens in endurance athletes who overdrink or in rapid-intake challenges. In a healthy person, the kidneys easily clear surplus fluid spread across the day; the risk only appears with very large volumes taken all at once. That is why the recommendation is to drink regularly and moderately rather than forcing a specific figure in one go.",
+    q5: "Do coffee and tea count towards hydration?",
+    a5: "Yes. For years caffeinated drinks were thought to be dehydrating, but current evidence shows that coffee and tea drunk in moderation hydrate almost as much as water: their mild diuretic effect is offset by the volume of fluid they provide. The same applies to herbal teas, milk and the water contained in fruit and vegetables. What you should limit is sugary drinks and alcohol: alcohol does have a real dehydrating effect, because it suppresses the antidiuretic hormone and increases urine production.",
+    howTitle: "How your water needs are calculated",
+    how1: "The starting point is your body weight, because fluid needs are proportional to the mass that has to stay hydrated. The formula multiplies your weight by a factor in millilitres per kilogram that rises with physical activity: 30 ml/kg if you are sedentary and up to 40 ml/kg if you train intensely almost every day. An extra 500 ml is added when you live or train in a hot climate, to compensate for the water you lose through sweat.",
+    exampleTitle: "Worked example",
+    example: "A 70 kg person who is lightly active (factor 33 ml/kg) in a temperate climate would need 70 × 33 = 2,310 ml, or about 2.3 litres a day — the equivalent of just over 9 glasses of 250 ml. If that same person lived in a hot climate, they would add 500 ml and reach around 2.8 litres per day.",
+    tableTitle: "Millilitres per kilo by activity level",
+    tableCol1: "Activity level",
+    tableCol2: "ml per kg",
+    tableCol3: "Example (70 kg)",
+    interpretTitle: "How to interpret the result",
+    interpret: "The figure you get is a daily guide, not a strict hour-by-hour obligation. The best approach is to spread it out by drinking steadily throughout the day rather than large amounts at once, and to use urine colour as a practical indicator: pale yellow means good hydration, while a dark shade means you should drink more. On very hot days, during prolonged exercise, or with fever, diarrhoea or vomiting, your needs rise and it is wise to drink above the calculated figure.",
   },
 };
 
@@ -85,6 +127,8 @@ export default function AguaDiaria() {
   const [weight, setWeight] = useState("70");
   const [activity, setActivity] = useState<Activity>("light");
   const [climate, setClimate] = useState<Climate>("temperate");
+
+  const WATER_TABLE = isEn ? WATER_TABLE_EN : WATER_TABLE_ES;
 
   const w = parseFloat(weight) || 0;
   const valid = w > 0 && w < 300;
@@ -185,6 +229,40 @@ export default function AguaDiaria() {
         <p className="text-xs text-muted-foreground italic mb-2">{t.disclaimer}</p>
       )}
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p>{t.how1}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 pr-4 font-medium">{t.tableCol2}</th>
+              <th className="py-2 font-medium">{t.tableCol3}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {WATER_TABLE.map((row) => (
+              <tr key={row.nivel} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{row.nivel}</td>
+                <td className="py-2 pr-4 font-semibold text-primary whitespace-nowrap">{row.mlkg}</td>
+                <td className="py-2 text-gray-600 dark:text-gray-400 whitespace-nowrap">{row.ej}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-12">
@@ -193,6 +271,8 @@ export default function AguaDiaria() {
           <AccordionItem value="q1"><AccordionTrigger>{t.q1}</AccordionTrigger><AccordionContent>{t.a1}</AccordionContent></AccordionItem>
           <AccordionItem value="q2"><AccordionTrigger>{t.q2}</AccordionTrigger><AccordionContent>{t.a2}</AccordionContent></AccordionItem>
           <AccordionItem value="q3"><AccordionTrigger>{t.q3}</AccordionTrigger><AccordionContent>{t.a3}</AccordionContent></AccordionItem>
+          <AccordionItem value="q4"><AccordionTrigger>{t.q4}</AccordionTrigger><AccordionContent>{t.a4}</AccordionContent></AccordionItem>
+          <AccordionItem value="q5"><AccordionTrigger>{t.q5}</AccordionTrigger><AccordionContent>{t.a5}</AccordionContent></AccordionItem>
         </Accordion>
       </section>
 
