@@ -231,7 +231,7 @@ export default function Blog() {
   return (
     <div className="max-w-7xl mx-auto">
       <Seo
-        title="Blog — thecalculator.tech"
+        title={pageTitle}
         description={description}
         path={path}
         alternatePath={alternatePath}

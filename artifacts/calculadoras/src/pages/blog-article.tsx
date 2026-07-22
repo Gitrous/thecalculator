@@ -241,7 +241,7 @@ export default function BlogArticle() {
   return (
     <div className="max-w-5xl mx-auto">
       <Seo
-        title={`${title} — thecalculator.tech`}
+        title={title}
         description={description}
         path={path}
         jsonLd={jsonLd}
