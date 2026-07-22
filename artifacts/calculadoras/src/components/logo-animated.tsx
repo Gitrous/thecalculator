@@ -50,45 +50,45 @@ export function LogoAnimated({ className }: { className?: string }) {
             100%    { opacity: 0; }
           }
           @keyframes logo-pb1 {
-            0%, 19%, 24%, 100% { fill: #93C5FD; }
-            21%                { fill: #DBEAFE; }
+            0%, 19%, 24%, 100% { fill: #3B82F6; }
+            21%                { fill: #BFDBFE; }
           }
           @keyframes logo-pb2 {
-            0%, 25%, 30%, 100% { fill: #93C5FD; }
-            27%                { fill: #DBEAFE; }
+            0%, 25%, 30%, 100% { fill: #3B82F6; }
+            27%                { fill: #BFDBFE; }
           }
           @keyframes logo-pb3 {
-            0%, 31%, 36%, 100% { fill: #93C5FD; }
-            33%                { fill: #DBEAFE; }
+            0%, 31%, 36%, 100% { fill: #3B82F6; }
+            33%                { fill: #BFDBFE; }
           }
           @keyframes logo-pb4 {
-            0%, 37%, 42%, 100% { fill: #93C5FD; }
-            39%                { fill: #DBEAFE; }
+            0%, 37%, 42%, 100% { fill: #3B82F6; }
+            39%                { fill: #BFDBFE; }
           }
           @keyframes logo-pb-eq {
             0%, 49%, 57%, 100% { fill: #F97316; }
             52%                { fill: #FED7AA; }
           }
           .logo-screen { animation: logo-screen-cycle 8s ease infinite; }
-          .logo-cursor { fill: #93C5FD; animation: logo-cursor 8s ease infinite; }
+          .logo-cursor { fill: #DBEAFE; animation: logo-cursor 8s ease infinite; }
           .logo-t-eq {
             font-family: 'Courier New', Courier, monospace;
-            font-weight: 700; font-size: 15px;
-            text-anchor: end; dominant-baseline: middle;
-            fill: #93C5FD; opacity: 0;
+            font-weight: 700; font-size: 24px;
+            text-anchor: end; dominant-baseline: central;
+            fill: #DBEAFE; opacity: 0;
             animation: logo-eq 8s ease infinite;
           }
           .logo-t-result {
             font-family: 'Courier New', Courier, monospace;
-            font-weight: 700; font-size: 15px;
-            text-anchor: end; dominant-baseline: middle;
-            fill: #DBEAFE; opacity: 0;
+            font-weight: 700; font-size: 24px;
+            text-anchor: end; dominant-baseline: central;
+            fill: #FFFFFF; opacity: 0;
             animation: logo-result 8s ease infinite;
           }
-          .logo-b1  { fill: #93C5FD; animation: logo-pb1  8s linear infinite; }
-          .logo-b2  { fill: #93C5FD; animation: logo-pb2  8s linear infinite; }
-          .logo-b3  { fill: #93C5FD; animation: logo-pb3  8s linear infinite; }
-          .logo-b4  { fill: #93C5FD; animation: logo-pb4  8s linear infinite; }
+          .logo-b1  { fill: #3B82F6; animation: logo-pb1  8s linear infinite; }
+          .logo-b2  { fill: #3B82F6; animation: logo-pb2  8s linear infinite; }
+          .logo-b3  { fill: #3B82F6; animation: logo-pb3  8s linear infinite; }
+          .logo-b4  { fill: #3B82F6; animation: logo-pb4  8s linear infinite; }
           .logo-beq { fill: #F97316; animation: logo-pb-eq 8s ease   infinite; }
         `}</style>
       </defs>
