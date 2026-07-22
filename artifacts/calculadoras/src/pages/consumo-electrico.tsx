@@ -78,6 +78,20 @@ const T = {
     a3: "Algunas formas de ahorrar: usar electrodomésticos en horas valle (normalmente de 10pm a 8am), aprovechar la luz natural, usar bombillas LED, desenchufar aparatos en standby y ajustar el termostato al mínimo necesario.",
     q4: "¿El precio del kWh es siempre 0,12 €?",
     a4: "No, el precio varía según la tarifa, el comercializador y la franja horaria. Con tarifa PVPC (mercado regulado) el precio fluctúa cada hora. Con tarifa fija, el precio es constante. Consulta tu factura para saber tu precio exacto.",
+    q5: "¿Qué son los tramos horarios punta, llano y valle?",
+    a5: "Desde la reforma tarifaria de 2021, la tarifa 2.0TD divide el día en tres franjas con precios distintos para los días laborables. El tramo punta, el más caro, va de 10:00 a 14:00 y de 18:00 a 22:00. El llano, intermedio, cubre de 8:00 a 10:00, de 14:00 a 18:00 y de 22:00 a 24:00. El valle, el más barato, comprende de 00:00 a 8:00 y la totalidad de fines de semana y festivos. La diferencia entre punta y valle puede superar el 60 %, así que desplazar la lavadora, el lavavajillas o la secadora al tramo valle es la medida de ahorro más sencilla y efectiva.",
+    q6: "¿Cuánto consumen los aparatos en modo standby?",
+    a6: "Más de lo que parece. El llamado consumo fantasma o vampiro corresponde a los aparatos que siguen consumiendo mientras están apagados pero enchufados: televisores, decodificadores, microondas con reloj, cargadores, ordenadores y routers. Cada aparato consume poco, entre 1 y 10 W, pero al estar conectados las 24 horas del día suman entre el 5 % y el 10 % de la factura eléctrica de un hogar medio, lo que puede suponer entre 40 y 80 euros al año. Usar regletas con interruptor para desconectar grupos de aparatos es la forma más práctica de eliminarlo.",
+    deepTitle: "Cómo se calcula el consumo eléctrico",
+    deep: "La fórmula es sencilla: consumo en kWh = (potencia en vatios × horas de uso) / 1.000. La división entre mil convierte los vatios-hora en kilovatios-hora, que es la unidad en la que factura la compañía eléctrica. Una vez conocido el consumo, el coste se obtiene multiplicándolo por el precio del kWh de tu tarifa. Conviene recordar que la potencia indicada en la etiqueta es la máxima que puede demandar el aparato, no necesariamente la que consume de forma continua: un frigorífico de 150 W no consume 150 W las 24 horas, sino que su compresor arranca y para cíclicamente, por lo que el consumo real suele situarse en torno a un tercio del teórico.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Calculemos el gasto de un aire acondicionado de 1.500 W que se usa 4 horas diarias durante un mes. El consumo diario es (1.500 × 4) / 1.000 = 6 kWh. Al mes, 6 × 30 = 180 kWh. Con un precio de 0,15 €/kWh, el coste mensual asciende a 180 × 0,15 = 27 €. Si ese mismo aparato se usara solo 2 horas al día, el gasto se reduciría a la mitad, unos 13,50 € al mes. Este cálculo muestra por qué los aparatos de alta potencia son los primeros donde conviene actuar para reducir la factura.",
+    tableTitle: "Consumo mensual orientativo por electrodoméstico",
+    tableCol1: "Aparato",
+    tableCol2: "Potencia",
+    tableCol3: "kWh/mes",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "El consumo total en kWh es útil para contrastarlo con tu factura real: un hogar español medio consume entre 250 y 300 kWh al mes, así que si tu estimación se aleja mucho de esa horquilla merece la pena revisar los datos introducidos. Fíjate sobre todo en qué aparatos concentran el mayor porcentaje del total, porque ahí es donde cualquier cambio tiene más impacto: reducir un 20 % el uso del aire acondicionado ahorra mucho más que apagar todas las bombillas de casa. Ten en cuenta además que la factura eléctrica incluye un término fijo por potencia contratada, impuestos y alquiler del contador, de modo que el importe final siempre será superior al resultado de multiplicar los kWh por el precio de la energía.",
   },
   en: {
     backHome: "Back to home",
@@ -117,8 +131,31 @@ const T = {
     a3: "Some ways to save: use appliances during off-peak hours (usually 10pm to 8am), make the most of natural light, use LED bulbs, unplug devices on standby and set the thermostat to the minimum necessary.",
     q4: "Is the kWh price always €0.12?",
     a4: "No, the price varies depending on the tariff, the supplier and the time of day. With a PVPC tariff (regulated market) the price fluctuates every hour. With a fixed tariff, the price is constant. Check your bill for your exact price.",
+    q5: "What are peak, standard and off-peak time bands?",
+    a5: "Since the 2021 tariff reform, the 2.0TD tariff splits the day into three bands with different prices on working days. The peak band, the most expensive, runs from 10:00 to 14:00 and from 18:00 to 22:00. The standard band, intermediate, covers 8:00 to 10:00, 14:00 to 18:00 and 22:00 to 24:00. The off-peak band, the cheapest, spans 00:00 to 8:00 plus all weekends and public holidays. The gap between peak and off-peak can exceed 60%, so shifting the washing machine, dishwasher or tumble dryer to the off-peak band is the simplest and most effective saving you can make.",
+    q6: "How much do appliances use on standby?",
+    a6: "More than you would think. So-called phantom or vampire consumption comes from devices that keep drawing power while switched off but plugged in: televisions, set-top boxes, microwaves with clocks, chargers, computers and routers. Each device uses little, between 1 and 10 W, but being connected 24 hours a day they add up to between 5% and 10% of an average household's electricity bill, which can mean €40 to €80 a year. Using switched power strips to cut off groups of devices is the most practical way to eliminate it.",
+    deepTitle: "How electricity consumption is calculated",
+    deep: "The formula is straightforward: consumption in kWh = (power in watts × hours of use) / 1,000. Dividing by a thousand converts watt-hours into kilowatt-hours, the unit your electricity company bills in. Once you know the consumption, the cost is obtained by multiplying it by your tariff's kWh price. Remember that the power stated on the label is the maximum the appliance can draw, not necessarily what it consumes continuously: a 150 W fridge does not use 150 W for 24 hours; its compressor cycles on and off, so real consumption is usually around a third of the theoretical figure.",
+    exampleTitle: "Worked example",
+    example: "Let's work out the cost of a 1,500 W air conditioner used 4 hours a day for a month. Daily consumption is (1,500 × 4) / 1,000 = 6 kWh. Over a month, 6 × 30 = 180 kWh. At a price of €0.15/kWh, the monthly cost comes to 180 × 0.15 = €27. If that same unit were used only 2 hours a day, the cost would halve to about €13.50 a month. This calculation shows why high-power appliances are the first place to act when reducing your bill.",
+    tableTitle: "Indicative monthly consumption by appliance",
+    tableCol1: "Appliance",
+    tableCol2: "Power",
+    tableCol3: "kWh/month",
+    interpretTitle: "How to interpret the result",
+    interpret: "The total in kWh is useful for cross-checking against your actual bill: an average Spanish household uses between 250 and 300 kWh a month, so if your estimate is far from that range it is worth reviewing the data you entered. Look above all at which appliances account for the largest share of the total, because that is where any change has most impact: cutting air conditioning use by 20% saves far more than switching off every light bulb in the house. Bear in mind too that the electricity bill includes a fixed charge for contracted power, taxes and meter rental, so the final amount will always exceed the result of multiplying kWh by the energy price.",
   },
 };
+
+const APPLIANCE_TABLE = [
+  { es: "Nevera", en: "Fridge", watts: "150 W", kwh: "108" },
+  { es: "Aire acondicionado", en: "Air conditioning", watts: "1.500 W", kwh: "180" },
+  { es: "Horno eléctrico", en: "Electric oven", watts: "2.000 W", kwh: "30" },
+  { es: "Ordenador", en: "Computer", watts: "200 W", kwh: "48" },
+  { es: "Televisor LED", en: "LED TV", watts: "100 W", kwh: "18" },
+  { es: "Lavadora", en: "Washing machine", watts: "500 W", kwh: "15" },
+];
 
 export default function ConsumoElectrico() {
   const locale = useLocale();
@@ -461,6 +498,40 @@ export default function ConsumoElectrico() {
         <p className="text-muted-foreground">{t.howText2}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 pr-4 font-medium">{t.tableCol2}</th>
+              <th className="py-2 font-medium">{t.tableCol3}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {APPLIANCE_TABLE.map((row) => (
+              <tr key={row.en} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{isEn ? row.en : row.es}</td>
+                <td className="py-2 pr-4 text-gray-600 dark:text-gray-400 whitespace-nowrap">{row.watts}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.kwh}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
@@ -481,6 +552,14 @@ export default function ConsumoElectrico() {
           <AccordionItem value="q4">
             <AccordionTrigger>{t.q4}</AccordionTrigger>
             <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

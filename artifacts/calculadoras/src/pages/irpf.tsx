@@ -54,6 +54,21 @@ const T = {
     a2: "El salario bruto es el dinero total que la empresa te paga antes de descontar impuestos y cotizaciones. El salario neto es la cantidad final que recibes en tu cuenta bancaria tras aplicar las retenciones y las cotizaciones sociales.",
     q3: "¿Por qué la calculadora incluye otros países además de España?",
     a3: "Además del IRPF español, esta calculadora estima el impuesto equivalente en México (ISR), Argentina (Impuesto a las Ganancias) y Colombia (Retención en la fuente), aplicando las tablas y tramos de cada país. Son cálculos orientativos: las cifras oficiales cambian con frecuencia, así que conviene confirmarlas con la agencia tributaria local.",
+    q4: "Si subo de tramo, ¿pago más impuestos por todo mi salario?",
+    a4: "No, y este es probablemente el malentendido más extendido sobre el IRPF. El impuesto es progresivo por tramos, lo que significa que cada porción de tu renta tributa al tipo de su propio tramo, no toda la renta al tipo más alto que alcanzas. Si ganas 21.000 € y el tramo que empieza en 20.200 € tributa al 30 %, solo los 800 € que superan ese umbral pagan el 30 %; el resto sigue tributando al 19 % y al 24 % en sus tramos correspondientes. Por eso nunca puede ocurrir que cobrar más bruto te deje menos neto: subir de tramo siempre compensa.",
+    q5: "¿Qué son el mínimo personal y familiar?",
+    a5: "Es la parte de tu renta que se considera destinada a cubrir tus necesidades básicas y que, por tanto, no tributa. El mínimo personal general asciende a 5.550 € anuales y aumenta con la edad: aporta 1.150 € adicionales a partir de los 65 años y 1.400 € más a partir de los 75. A eso se suman los mínimos por descendientes (2.400 € por el primer hijo, 2.700 € por el segundo, 4.000 € por el tercero y 4.500 € por el cuarto y siguientes), por ascendientes a cargo y por discapacidad. Estos mínimos reducen la base sobre la que se calcula el impuesto y explican que dos personas con el mismo salario paguen cantidades distintas.",
+    q6: "¿Por qué mi declaración sale a devolver o a pagar?",
+    a6: "Porque la retención que la empresa te aplica cada mes es un pago a cuenta calculado sobre una previsión, no el impuesto definitivo. A lo largo del año pueden cambiar circunstancias que la empresa desconocía: un aumento de sueldo, un cambio de trabajo, el nacimiento de un hijo, una aportación a un plan de pensiones o ingresos de otro pagador. Cuando presentas la declaración se calcula la cuota real y se compara con lo retenido: si te retuvieron de más, Hacienda devuelve la diferencia; si te retuvieron de menos, debes abonarla. Tener dos pagadores es la causa más habitual de que una declaración salga a pagar.",
+    deepTitle: "Cómo se calcula el IRPF paso a paso",
+    deep: "El cálculo sigue una secuencia fija. Primero se determinan los rendimientos íntegros del trabajo y se les restan las cotizaciones a la Seguridad Social y la reducción por rendimientos del trabajo, obteniendo la base imponible. A continuación se aplican las reducciones que correspondan, como las aportaciones a planes de pensiones, para llegar a la base liquidable. Sobre ella se aplica la escala progresiva por tramos, que en España se compone de una parte estatal y otra autonómica, y de la cuota resultante se descuenta el efecto del mínimo personal y familiar. Por último se restan las deducciones aplicables y se compara el resultado con las retenciones ya practicadas durante el año.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Para un salario bruto de 35.000 € anuales: se restan unos 2.223 € de cotizaciones sociales (6,35 %) y la reducción por rendimientos del trabajo, dejando una base liquidable aproximada de 30.800 €. Aplicando la escala por tramos, los primeros 12.450 € tributan al 19 % (2.365 €), los siguientes 7.750 € hasta 20.200 € al 24 % (1.860 €) y los 10.600 € restantes al 30 % (3.180 €), lo que suma 7.405 € de cuota íntegra. Tras aplicar el mínimo personal de 5.550 €, la cuota se reduce a unos 6.350 €, un tipo efectivo cercano al 18 % pese a que el tipo marginal es del 30 %.",
+    tableTitle: "Tipos de la base del ahorro (rentas de capital)",
+    tableCol1: "Base del ahorro",
+    tableCol2: "Tipo aplicable",
+    interpretTitle: "Tipo marginal frente a tipo efectivo",
+    interpret: "Conviene distinguir dos conceptos que se confunden a menudo. El tipo marginal es el porcentaje que pagarías por el siguiente euro que ganases, es decir, el del tramo más alto que alcanzas; es el dato relevante para decidir si te compensa una hora extra o una aportación a un plan de pensiones. El tipo efectivo es el resultado de dividir la cuota total entre tu renta y siempre es bastante menor que el marginal, porque los primeros tramos tributan a tipos más bajos. En el ejemplo anterior el marginal es del 30 % pero el efectivo ronda el 18 %. Cuando alguien dice «me quitan un tercio del sueldo» suele estar confundiendo su tipo marginal con lo que realmente paga.",
   },
   en: {
     backHome: "Back to home",
@@ -93,8 +108,31 @@ const T = {
     a2: "Gross salary is the total amount the company pays you before deducting taxes and contributions. Net salary is the final amount you receive in your bank account after applying tax withholding and social security contributions.",
     q3: "Why does the calculator include other countries besides Spain?",
     a3: "Besides Spanish IRPF, this calculator estimates the equivalent tax in Mexico (ISR), Argentina (Impuesto a las Ganancias) and Colombia (Retención en la fuente), applying each country's brackets and rates. These are approximate figures: official numbers change frequently, so it's worth confirming them with your local tax authority.",
+    q4: "If I move up a bracket, do I pay more tax on my whole salary?",
+    a4: "No, and this is probably the most widespread misunderstanding about income tax. The tax is progressive by brackets, which means each portion of your income is taxed at its own bracket's rate, not the whole income at the highest rate you reach. If you earn €21,000 and the bracket starting at €20,200 is taxed at 30%, only the €800 above that threshold pays 30%; the rest continues to be taxed at 19% and 24% in their respective bracket. That is why earning more gross can never leave you with less net: moving up a bracket always pays off.",
+    q5: "What are the personal and family allowances?",
+    a5: "This is the portion of your income considered to cover your basic needs and which therefore is not taxed. The general personal allowance is €5,550 a year and increases with age: an extra €1,150 from age 65 and a further €1,400 from age 75. Added to this are allowances for dependent children (€2,400 for the first, €2,700 for the second, €4,000 for the third and €4,500 for the fourth and beyond), for dependent ascendants and for disability. These allowances reduce the base on which tax is calculated and explain why two people on the same salary can pay different amounts.",
+    q6: "Why does my tax return end in a refund or a payment?",
+    a6: "Because the withholding your employer applies each month is a payment on account calculated from a forecast, not the definitive tax. Over the year, circumstances the employer did not know about can change: a pay rise, a change of job, the birth of a child, a pension plan contribution or income from another payer. When you file your return the real liability is calculated and compared with what was withheld: if too much was withheld, the tax authority refunds the difference; if too little, you must pay it. Having two payers is the most common reason for a return ending in a payment.",
+    deepTitle: "How income tax is calculated step by step",
+    deep: "The calculation follows a fixed sequence. First, gross earned income is determined and social security contributions and the earned-income reduction are subtracted, giving the taxable base. Next, any applicable reductions are applied, such as pension plan contributions, to arrive at the net taxable base. The progressive bracket scale is applied to that figure — in Spain made up of a state part and a regional part — and the effect of the personal and family allowance is deducted from the resulting liability. Finally, applicable deductions are subtracted and the result is compared with the withholdings already made during the year.",
+    exampleTitle: "Worked example",
+    example: "For a gross salary of €35,000 a year: around €2,223 of social contributions (6.35%) and the earned-income reduction are subtracted, leaving a net taxable base of roughly €30,800. Applying the bracket scale, the first €12,450 is taxed at 19% (€2,365), the next €7,750 up to €20,200 at 24% (€1,860) and the remaining €10,600 at 30% (€3,180), totalling €7,405 of gross liability. After applying the €5,550 personal allowance, the liability falls to about €6,350 — an effective rate near 18% even though the marginal rate is 30%.",
+    tableTitle: "Savings income tax rates (capital income)",
+    tableCol1: "Savings base",
+    tableCol2: "Rate",
+    interpretTitle: "Marginal rate versus effective rate",
+    interpret: "It is worth distinguishing two concepts that are often confused. The marginal rate is the percentage you would pay on the next euro you earned, that is, the rate of the highest bracket you reach; it is the relevant figure for deciding whether overtime or a pension contribution is worth it. The effective rate is the total liability divided by your income and is always considerably lower than the marginal rate, because the first brackets are taxed at lower rates. In the example above the marginal rate is 30% but the effective rate is around 18%. When someone says 'they take a third of my salary' they are usually confusing their marginal rate with what they actually pay.",
   },
 };
+
+const AHORRO_TABLE = [
+  { es: "Hasta 6.000 €", en: "Up to €6,000", tipo: "19 %" },
+  { es: "6.000 – 50.000 €", en: "€6,000 – €50,000", tipo: "21 %" },
+  { es: "50.000 – 200.000 €", en: "€50,000 – €200,000", tipo: "23 %" },
+  { es: "200.000 – 300.000 €", en: "€200,000 – €300,000", tipo: "27 %" },
+  { es: "Más de 300.000 €", en: "Over €300,000", tipo: "30 %" },
+];
 
 // Suma progresiva por tramos: brackets = [[límite superior, tipo], ...] acumulativo desde 0
 function progressiveTax(base: number, brackets: [number, number][]): number {
@@ -1110,6 +1148,38 @@ export default function IRPF() {
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {AHORRO_TABLE.map((row) => (
+              <tr key={row.tipo} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white whitespace-nowrap">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.tipo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <div className="pt-12 mt-12 border-t">
@@ -1126,6 +1196,18 @@ export default function IRPF() {
           <AccordionItem value="item-3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

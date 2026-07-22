@@ -49,6 +49,19 @@ const T = {
     a2: "Además del precio de compra, hay que contar con: impuestos (ITP del 6-10 % en segunda mano, o IVA del 10 % en obra nueva), gastos de notaría, registro de la propiedad, gestoría, tasación del inmueble y posible comisión de apertura de la hipoteca. En total pueden suponer entre el 10 % y el 15 % del precio de compra.",
     q3: "¿Es mejor alquilar o comprar en España?",
     a3: "Depende de tu situación personal: horizonte temporal, capacidad de ahorro para la entrada, estabilidad laboral y expectativas de movilidad geográfica. En general, la compra tiende a ser más ventajosa a largo plazo (más de 10-15 años) en mercados donde el precio de la vivienda sube moderadamente. El alquiler da más flexibilidad y permite invertir la diferencia para obtener rentabilidad alternativa.",
+    q4: "¿Cuánto dinero necesito ahorrado para comprar?",
+    a4: "Como regla general, entre el 30 % y el 35 % del precio de la vivienda. Los bancos financian habitualmente hasta el 80 % del valor de tasación, por lo que necesitas aportar un 20 % de entrada. A eso hay que sumar los gastos de compraventa, que rondan otro 10-15 % entre impuestos, notaría, registro, gestoría y tasación. Para una vivienda de 250.000 € eso supone unos 50.000 € de entrada más 25.000-37.500 € de gastos: en torno a 75.000-87.500 € de ahorro previo. Conviene además conservar un colchón adicional para imprevistos y para amueblar.",
+    q5: "¿Qué significa \"invertir la diferencia\" al alquilar?",
+    a5: "Es la clave para que la comparación sea justa. Si comprar implica una cuota mensual superior al alquiler, o exige inmovilizar un capital importante en la entrada, el inquilino dispone de ese dinero para invertirlo en otros activos. La comparación honesta no es «alquiler frente a compra» sino «alquiler más inversión de la diferencia frente a compra». Si ese capital se invierte a una rentabilidad razonable, el alquiler puede resultar competitivo durante bastantes años. Si la diferencia simplemente se gasta, la compra gana casi siempre a largo plazo por el patrimonio acumulado.",
+    deepTitle: "Cómo se compara el coste real de alquilar y comprar",
+    deep: "La comparación suma, año a año, dos escenarios paralelos. En el escenario de compra se contabilizan la entrada, los gastos e impuestos de la compraventa, las cuotas de hipoteca pagadas, el IBI, la comunidad, el seguro y el mantenimiento; a ese coste acumulado se le resta el patrimonio generado, es decir, el valor estimado de la vivienda menos la deuda pendiente. En el escenario de alquiler se acumulan las rentas pagadas, actualizadas con la subida anual prevista, y se suma el rendimiento obtenido al invertir tanto la entrada como la diferencia mensual entre cuota y alquiler. El punto de equilibrio es el año en que el coste neto de comprar pasa a ser inferior al de alquilar.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Para una vivienda de 250.000 € con un 20 % de entrada (50.000 €) y una hipoteca de 200.000 € al 3 % a 30 años, la cuota mensual ronda los 843 €. Sumando IBI, comunidad, seguro y mantenimiento, el desembolso mensual se acerca a los 1.100 €. Frente a un alquiler de 900 € mensuales, el comprador paga 200 € más al mes, pero de su cuota unos 343 € del primer año amortizan capital y se convierten en patrimonio. El inquilino, en cambio, dispone de los 50.000 € de la entrada para invertir. Con una revalorización de la vivienda del 2 % anual y una rentabilidad de la inversión del 5 %, el equilibrio suele situarse entre el año 8 y el 12.",
+    tableTitle: "Gastos de compra de una vivienda (además del precio)",
+    tableCol1: "Concepto",
+    tableCol2: "Coste orientativo",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "El punto de equilibrio es la cifra que debes mirar, pero contrástalo con tu horizonte real de permanencia. Si prevés mudarte antes de ese año, el alquiler sale ganando casi con seguridad, porque los gastos de compraventa se amortizan muy lentamente y vender implica nuevos costes. Si vas a quedarte más tiempo, la compra suele imponerse. Ten presente que el resultado es muy sensible a dos supuestos que nadie puede predecir: la revalorización de la vivienda y la rentabilidad de la inversión alternativa. Prueba a variarlos en escenarios pesimistas y optimistas para ver cuán robusta es la conclusión, y recuerda que la compra añade además un valor no financiero, la estabilidad, que no aparece en ninguna hoja de cálculo.",
   },
   en: {
     backHome: "Back to home",
@@ -85,8 +98,30 @@ const T = {
     a2: "In addition to the purchase price, you must account for: taxes (transfer tax of 6–10% for second-hand properties, or 10% VAT for new builds), notary fees, land registry fees, administrative costs, property valuation and a possible mortgage arrangement fee. In total these can add 10–15% on top of the purchase price.",
     q3: "Is it better to rent or buy in Spain?",
     a3: "It depends on your personal situation: time horizon, ability to save for a deposit, job stability and expectations of geographical mobility. In general, buying tends to be more advantageous in the long term (more than 10–15 years) in markets where property prices rise moderately. Renting gives more flexibility and lets you invest the difference to obtain an alternative return.",
+    q4: "How much do I need saved to buy?",
+    a4: "As a general rule, between 30% and 35% of the property price. Banks typically finance up to 80% of the appraised value, so you need to put down a 20% deposit. On top of that come the transaction costs, another 10-15% between taxes, notary, land registry, administrative fees and valuation. For a €250,000 home that means about €50,000 deposit plus €25,000-37,500 in costs: roughly €75,000-87,500 of prior savings. It is also wise to keep an additional buffer for unexpected expenses and for furnishing the property.",
+    q5: "What does \"investing the difference\" when renting mean?",
+    a5: "It is the key to making the comparison fair. If buying entails a higher monthly payment than renting, or requires tying up substantial capital in the deposit, the tenant has that money available to invest in other assets. The honest comparison is not 'renting versus buying' but 'renting plus investing the difference versus buying'. If that capital is invested at a reasonable return, renting can stay competitive for quite a few years. If the difference is simply spent, buying almost always wins in the long run thanks to the equity accumulated.",
+    deepTitle: "How the real cost of renting and buying is compared",
+    deep: "The comparison adds up two parallel scenarios year by year. In the buying scenario it counts the deposit, the transaction costs and taxes, the mortgage payments made, property tax, community fees, insurance and maintenance; from that cumulative cost it subtracts the equity built up, that is, the estimated value of the home minus the outstanding debt. In the renting scenario it accumulates the rent paid, updated with the expected annual increase, and adds the return obtained by investing both the deposit and the monthly difference between mortgage payment and rent. The break-even point is the year in which the net cost of buying drops below that of renting.",
+    exampleTitle: "Worked example",
+    example: "For a €250,000 home with a 20% deposit (€50,000) and a €200,000 mortgage at 3% over 30 years, the monthly payment is around €843. Adding property tax, community fees, insurance and maintenance, the monthly outlay approaches €1,100. Against a rent of €900 a month, the buyer pays €200 more, but about €343 of the first year's payments repay principal and turn into equity. The tenant, meanwhile, has the €50,000 deposit available to invest. With home appreciation of 2% a year and an investment return of 5%, break-even typically falls between year 8 and year 12.",
+    tableTitle: "Costs of buying a home (on top of the price)",
+    tableCol1: "Item",
+    tableCol2: "Indicative cost",
+    interpretTitle: "How to interpret the result",
+    interpret: "The break-even point is the figure to look at, but weigh it against how long you realistically expect to stay. If you foresee moving before that year, renting almost certainly wins, because transaction costs are amortised very slowly and selling brings new costs of its own. If you plan to stay longer, buying usually comes out ahead. Keep in mind that the result is highly sensitive to two assumptions nobody can predict: home appreciation and the return on the alternative investment. Try varying them in pessimistic and optimistic scenarios to see how robust the conclusion is, and remember that buying also adds a non-financial value — stability — that no spreadsheet captures.",
   },
 };
+
+const BUY_COSTS = [
+  { es: "ITP (segunda mano)", en: "Transfer tax (second-hand)", coste: "6 – 10 %" },
+  { es: "IVA + AJD (obra nueva)", en: "VAT + stamp duty (new build)", coste: "10 % + 0,5 – 1,5 %" },
+  { es: "Notaría", en: "Notary", coste: "600 – 900 €" },
+  { es: "Registro de la propiedad", en: "Land registry", coste: "400 – 650 €" },
+  { es: "Gestoría", en: "Administrative agency", coste: "300 – 500 €" },
+  { es: "Tasación", en: "Property valuation", coste: "300 – 600 €" },
+];
 
 export default function AlquilerVsCompra() {
   const locale = useLocale();
@@ -355,6 +390,38 @@ export default function AlquilerVsCompra() {
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {BUY_COSTS.map((row) => (
+              <tr key={row.en} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{isEn ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.coste}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
@@ -371,6 +438,14 @@ export default function AlquilerVsCompra() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
