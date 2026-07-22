@@ -75,6 +75,20 @@ const T = {
     a2: "No exactamente. Los planetas siguen órbitas elípticas y su velocidad varía. Sin embargo, para tramos muy pequeños de la trayectoria, puede aproximarse como MRU.",
     q3: "¿Cuándo se usa el MRU en la vida cotidiana?",
     a3: "En viajes por autopista a velocidad constante, en cintas transportadoras industriales, en satélites en órbita circular (aproximadamente), y en muchos problemas de física básica de bachillerato y universidad.",
+    q4: "¿Cómo se pasa de km/h a m/s?",
+    a4: "Se divide entre 3,6. La razón es que un kilómetro son 1.000 metros y una hora son 3.600 segundos, de modo que 1 km/h = 1.000/3.600 m/s = 0,2778 m/s. Por ejemplo, 90 km/h equivalen a 90/3,6 = 25 m/s. Para la conversión inversa, de m/s a km/h, se multiplica por 3,6: 10 m/s son 36 km/h. Esta conversión es imprescindible en los problemas de física, porque el Sistema Internacional trabaja en metros y segundos mientras que los enunciados suelen dar las velocidades en kilómetros por hora.",
+    q5: "¿Qué diferencia hay entre velocidad y rapidez?",
+    a5: "En física la velocidad es una magnitud vectorial: tiene módulo, dirección y sentido. La rapidez (o celeridad) es solo el módulo, un número sin dirección asociada. En un MRU en línea recta y sin cambios de sentido ambas coinciden en valor, y por eso en los problemas básicos se usan indistintamente. La diferencia importa cuando hay cambios de dirección: si das una vuelta completa a una pista y vuelves al punto de partida, tu rapidez media es la distancia total dividida entre el tiempo, pero tu velocidad media es cero, porque tu desplazamiento neto ha sido nulo.",
+    deepTitle: "Cómo resolver problemas de MRU paso a paso",
+    deep: "El procedimiento es siempre el mismo. Primero identifica qué magnitud te piden y cuáles te dan. Segundo, comprueba las unidades: este es el error más frecuente en los ejercicios. Si mezclas km/h con segundos el resultado será incorrecto, así que conviene pasar todo a un sistema coherente (metros y segundos, o kilómetros y horas). Recuerda que para pasar de km/h a m/s se divide entre 3,6, y para el camino inverso se multiplica por 3,6. Tercero, despeja la fórmula d = v × t según lo que busques y sustituye los valores. Por último, comprueba que el resultado tiene sentido físico: una distancia o un tiempo nunca pueden ser negativos.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Un tren circula a velocidad constante de 90 km/h durante 2,5 horas. ¿Qué distancia recorre? Aplicamos d = v × t = 90 × 2,5 = 225 km. Si en cambio conociéramos la distancia (225 km) y el tiempo (2,5 h), la velocidad sería v = d / t = 225 / 2,5 = 90 km/h. Y si supiéramos la distancia y la velocidad, el tiempo sería t = d / v = 225 / 90 = 2,5 h. Lo importante es que las unidades sean coherentes: si la velocidad está en km/h, el tiempo debe expresarse en horas para que la distancia salga en kilómetros.",
+    tableTitle: "Velocidades habituales de referencia",
+    tableCol1: "Situación",
+    tableCol2: "km/h",
+    tableCol3: "m/s",
+    interpretTitle: "Cómo interpretar la gráfica posición-tiempo",
+    interpret: "En un MRU, la gráfica de posición frente al tiempo es siempre una línea recta, y su pendiente es precisamente la velocidad: cuanto más inclinada está la recta, más rápido se mueve el objeto. Una recta horizontal significa que el objeto está en reposo. Esto contrasta con el MRUA, donde la gráfica posición-tiempo es una parábola porque la velocidad cambia de forma continua. Si en cambio representas la velocidad frente al tiempo en un MRU obtendrás una línea horizontal, y el área encerrada bajo esa línea equivale a la distancia recorrida.",
     resultLabels: { distance: "Distancia", velocity: "Velocidad", time: "Tiempo" } as Record<string, string>,
   },
   en: {
@@ -113,9 +127,32 @@ const T = {
     a2: "Not exactly. Planets follow elliptical orbits and their speed varies. However, for very small sections of the trajectory, it can be approximated as URM.",
     q3: "When is URM used in everyday life?",
     a3: "On motorway journeys at constant speed, on industrial conveyor belts, on satellites in approximately circular orbits, and in many basic physics problems at secondary and university level.",
+    q4: "How do you convert km/h to m/s?",
+    a4: "You divide by 3.6. The reason is that one kilometre is 1,000 metres and one hour is 3,600 seconds, so 1 km/h = 1,000/3,600 m/s = 0.2778 m/s. For example, 90 km/h equals 90/3.6 = 25 m/s. For the reverse conversion, from m/s to km/h, you multiply by 3.6: 10 m/s is 36 km/h. This conversion is essential in physics problems, because the International System works in metres and seconds while exercises usually give speeds in kilometres per hour.",
+    q5: "What is the difference between velocity and speed?",
+    a5: "In physics, velocity is a vector quantity: it has magnitude, direction and sense. Speed is only the magnitude, a number with no associated direction. In URM along a straight line with no change of sense, the two coincide in value, which is why basic problems use them interchangeably. The difference matters when there are changes of direction: if you run a full lap of a track and return to the starting point, your average speed is the total distance divided by time, but your average velocity is zero, because your net displacement was nil.",
+    deepTitle: "How to solve URM problems step by step",
+    deep: "The procedure is always the same. First, identify which quantity you are asked for and which ones you are given. Second, check the units: this is the most common mistake in exercises. If you mix km/h with seconds the result will be wrong, so convert everything into a consistent system (metres and seconds, or kilometres and hours). Remember that to go from km/h to m/s you divide by 3.6, and multiply by 3.6 for the reverse. Third, rearrange the formula d = v × t according to what you are looking for and substitute the values. Finally, check that the result makes physical sense: a distance or a time can never be negative.",
+    exampleTitle: "Worked example",
+    example: "A train travels at a constant speed of 90 km/h for 2.5 hours. How far does it go? We apply d = v × t = 90 × 2.5 = 225 km. If instead we knew the distance (225 km) and the time (2.5 h), the velocity would be v = d / t = 225 / 2.5 = 90 km/h. And if we knew the distance and the velocity, the time would be t = d / v = 225 / 90 = 2.5 h. The key is that units must be consistent: if velocity is in km/h, time must be in hours for the distance to come out in kilometres.",
+    tableTitle: "Common reference speeds",
+    tableCol1: "Situation",
+    tableCol2: "km/h",
+    tableCol3: "m/s",
+    interpretTitle: "How to read the position-time graph",
+    interpret: "In URM, the graph of position against time is always a straight line, and its slope is precisely the velocity: the steeper the line, the faster the object moves. A horizontal line means the object is at rest. This contrasts with UARM, where the position-time graph is a parabola because the velocity changes continuously. If instead you plot velocity against time in URM you get a horizontal line, and the area enclosed under that line equals the distance travelled.",
     resultLabels: { distance: "Distance", velocity: "Velocity", time: "Time" } as Record<string, string>,
   },
 };
+
+const SPEED_TABLE = [
+  { es: "Persona caminando", en: "Person walking", kmh: "5", ms: "1,4" },
+  { es: "Corriendo (ritmo popular)", en: "Running (recreational)", kmh: "12", ms: "3,3" },
+  { es: "Bicicleta", en: "Bicycle", kmh: "25", ms: "6,9" },
+  { es: "Coche en ciudad", en: "Car in town", kmh: "50", ms: "13,9" },
+  { es: "Coche en autopista", en: "Car on motorway", kmh: "120", ms: "33,3" },
+  { es: "Sonido en el aire", en: "Sound in air", kmh: "1.235", ms: "343" },
+];
 
 export default function MRU() {
   const locale = useLocale();
@@ -370,6 +407,40 @@ export default function MRU() {
         <p className="text-muted-foreground">{tr.howText2}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{tr.deepTitle}</h2>
+        <p>{tr.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{tr.exampleTitle}</h3>
+        <p>{tr.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{tr.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{tr.tableCol1}</th>
+              <th className="py-2 pr-4 font-medium">{tr.tableCol2}</th>
+              <th className="py-2 font-medium">{tr.tableCol3}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SPEED_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 font-medium text-gray-900 dark:text-white">{isEn ? row.en : row.es}</td>
+                <td className="py-2 pr-4 font-semibold text-primary whitespace-nowrap">{row.kmh}</td>
+                <td className="py-2 text-gray-600 dark:text-gray-400 whitespace-nowrap">{row.ms}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{tr.interpretTitle}</h2>
+        <p>{tr.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
@@ -386,6 +457,14 @@ export default function MRU() {
           <AccordionItem value="q3">
             <AccordionTrigger>{tr.q3}</AccordionTrigger>
             <AccordionContent>{tr.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{tr.q4}</AccordionTrigger>
+            <AccordionContent>{tr.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{tr.q5}</AccordionTrigger>
+            <AccordionContent>{tr.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

@@ -56,6 +56,19 @@ const T = {
     a2: "Sí, enormemente. Países como Bélgica o los Países Bajos superan el 50% en los tramos altos. En el extremo opuesto, Singapur aplica tipos que arrancan en el 2%, y Rusia tiene un impuesto plano del 13%. EE.UU. solo refleja el impuesto federal; los impuestos estatales pueden añadir entre un 0% y un 13% adicional.",
     q3: "¿Por qué el resultado es orientativo?",
     a3: "Cada país tiene su propio sistema de deducciones personales, mínimos exentos, tramos regionales y cotizaciones especiales. Este calculador usa los tramos nacionales principales para dar una estimación rápida. Para un cálculo exacto, consulta a un asesor fiscal local.",
+    q4: "¿Cómo afectan las pagas extra al salario neto?",
+    a4: "El número de pagas no cambia el total anual que percibes, solo cómo se reparte a lo largo del año. Con 12 pagas, el salario anual se divide en doce mensualidades iguales y más altas. Con 14 pagas (dos extraordinarias, habitualmente en junio y diciembre), cada mensualidad ordinaria es menor pero recibes dos pagos adicionales. En España las pagas extra pueden estar prorrateadas —repartidas dentro de las doce nóminas— o abonarse por separado. A efectos de IRPF, Hacienda calcula la retención sobre el total anual, así que el neto que acabas percibiendo en el conjunto del año es prácticamente el mismo en ambos casos.",
+    q5: "¿Qué se descuenta exactamente de mi nómina?",
+    a5: "De tu salario bruto se descuentan dos bloques. El primero son las cotizaciones a la Seguridad Social a cargo del trabajador, que en España rondan el 6,35 %: un 4,70 % por contingencias comunes, un 1,55 % por desempleo y un 0,10 % por formación profesional, más el mecanismo de equidad intergeneracional. El segundo es la retención a cuenta del IRPF, que es progresiva y depende de tu salario, tu situación familiar, el número de hijos y otras circunstancias personales. La empresa cotiza además por ti una cantidad mucho mayor, en torno al 30 % del bruto, pero ese importe no se descuenta de tu nómina.",
+    howTitle: "Cómo se calcula el salario neto",
+    how1: "El cálculo se hace en dos pasos. Primero se restan al salario bruto las cotizaciones a la Seguridad Social que corresponden al trabajador, un porcentaje fijo que en España ronda el 6,35 %. Sobre el importe resultante se aplica la retención del IRPF, que no es un porcentaje único sino una escala progresiva por tramos: cada porción del salario tributa al tipo de su tramo, no todo el salario al tipo más alto. Antes de aplicar la escala se descuentan además el mínimo personal y familiar y la reducción por rendimientos del trabajo, que reducen la base sobre la que se calcula el impuesto.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Para un salario bruto de 30.000 € anuales en España: se descuentan primero unos 1.905 € de cotizaciones sociales (6,35 %), lo que deja una base en torno a 28.095 €. Sobre ella se aplica la escala por tramos y se restan el mínimo personal y las reducciones por rendimientos del trabajo, de modo que la retención efectiva se sitúa alrededor del 15-17 %. El resultado es un salario neto aproximado de 23.500-24.000 € al año, es decir, unos 1.960-2.000 € al mes repartidos en 12 pagas.",
+    tableTitle: "Tramos del IRPF en España (escala general)",
+    tableCol1: "Base liquidable",
+    tableCol2: "Tipo aplicable",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "El neto mensual que obtienes es la cifra que realmente puedes presupuestar, pero conviene leerla con dos matices. Primero, es una estimación basada en los tramos nacionales: tu retención real depende de tu comunidad autónoma, tu situación familiar, los hijos a cargo, una posible discapacidad o las aportaciones a planes de pensiones, factores que pueden mover el resultado varios cientos de euros al año. Segundo, la retención que te aplica la empresa es un pago a cuenta: en la declaración de la renta se ajusta, y por eso el resultado final puede salirte a devolver o a pagar. Si comparas ofertas entre países, recuerda además que un neto mayor no siempre significa mayor poder adquisitivo: hay que ponderarlo con el coste de la vida y con la cobertura sanitaria y social de cada país.",
   },
   en: {
     backHome: "Back to home",
@@ -91,8 +104,30 @@ const T = {
     a2: "Yes, enormously. Countries like Belgium or the Netherlands exceed 50% at higher brackets. At the other end, Singapore starts at 2%, and Russia has a flat 13% rate. The US only reflects federal tax; state taxes can add 0–13% on top.",
     q3: "Why is the result indicative?",
     a3: "Each country has its own personal deductions, exempt minimums, regional brackets and special contributions. This calculator uses the main national brackets for a quick estimate. For an exact calculation, consult a local tax adviser.",
+    q4: "How do extra payments affect net salary?",
+    a4: "The number of payments does not change the annual total you receive, only how it is spread across the year. With 12 payments, the annual salary is divided into twelve equal, higher monthly amounts. With 14 payments (two extraordinary ones, usually in June and December), each ordinary month is smaller but you receive two additional payments. In Spain these extra payments can be prorated — spread across the twelve payslips — or paid separately. For income tax purposes, the tax authority calculates withholding on the annual total, so the net amount you end up receiving over the year is practically the same either way.",
+    q5: "What exactly is deducted from my payslip?",
+    a5: "Two blocks are deducted from your gross salary. The first is the employee's social security contributions, which in Spain are around 6.35%: 4.70% for common contingencies, 1.55% for unemployment and 0.10% for vocational training, plus the intergenerational equity mechanism. The second is the income tax withholding, which is progressive and depends on your salary, family situation, number of children and other personal circumstances. Your employer also contributes a much larger amount on your behalf, around 30% of gross pay, but that is not deducted from your payslip.",
+    howTitle: "How net salary is calculated",
+    how1: "The calculation happens in two steps. First, the employee's social security contributions are subtracted from gross pay — a fixed percentage that in Spain is around 6.35%. Income tax withholding is then applied to the remaining amount, and this is not a single percentage but a progressive bracket scale: each portion of the salary is taxed at its own bracket's rate, not the whole salary at the highest rate. Before applying the scale, the personal and family allowance and the earned-income reduction are also deducted, lowering the base on which the tax is computed.",
+    exampleTitle: "Worked example",
+    example: "For a gross salary of €30,000 a year in Spain: around €1,905 of social contributions (6.35%) is deducted first, leaving a base of about €28,095. The bracket scale is then applied and the personal allowance and earned-income reductions subtracted, so the effective withholding lands at roughly 15-17%. The result is a net salary of approximately €23,500-24,000 per year — about €1,960-2,000 a month spread over 12 payments.",
+    tableTitle: "Spanish income tax brackets (general scale)",
+    tableCol1: "Taxable base",
+    tableCol2: "Rate",
+    interpretTitle: "How to interpret the result",
+    interpret: "The monthly net figure is what you can actually budget with, but read it with two caveats. First, it is an estimate based on national brackets: your real withholding depends on your autonomous region, family situation, dependent children, any disability or pension plan contributions — factors that can shift the result by several hundred euros a year. Second, the withholding your employer applies is a payment on account: it is reconciled in your annual tax return, which is why you may end up with a refund or an extra payment. If you are comparing offers between countries, also remember that a higher net figure does not always mean greater purchasing power: you need to weigh it against the cost of living and each country's healthcare and social coverage.",
   },
 };
+
+const IRPF_TABLE = [
+  { es: "Hasta 12.450 €", en: "Up to €12,450", tipo: "19 %" },
+  { es: "12.450 – 20.200 €", en: "€12,450 – €20,200", tipo: "24 %" },
+  { es: "20.200 – 35.200 €", en: "€20,200 – €35,200", tipo: "30 %" },
+  { es: "35.200 – 60.000 €", en: "€35,200 – €60,000", tipo: "37 %" },
+  { es: "60.000 – 300.000 €", en: "€60,000 – €300,000", tipo: "45 %" },
+  { es: "Más de 300.000 €", en: "Over €300,000", tipo: "47 %" },
+];
 
 export default function SalarioNeto() {
   const locale = useLocale();
@@ -334,6 +369,38 @@ export default function SalarioNeto() {
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
+        <p>{t.how1}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IRPF_TABLE.map((row) => (
+              <tr key={row.tipo} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white whitespace-nowrap">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.tipo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
@@ -350,6 +417,14 @@ export default function SalarioNeto() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
