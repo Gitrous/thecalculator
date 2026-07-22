@@ -148,6 +148,17 @@ const T = {
     a4: "La forma más efectiva y sostenible es combinar una alimentación equilibrada con un déficit calórico moderado (300-500 kcal/día menos) y actividad física regular. Las dietas muy restrictivas son contraproducentes a largo plazo. Perder entre 0,5 y 1 kg por semana es un ritmo seguro y sostenible. Consulta siempre a un profesional sanitario antes de iniciar un plan de pérdida de peso.",
     q5: "¿Existe un IMC diferente para hombres y mujeres?",
     a5: "La OMS aplica las mismas categorías de IMC para hombres y mujeres adultos. Sin embargo, hombres y mujeres tienden a distribuir la grasa de forma diferente: las mujeres suelen tener mayor porcentaje de grasa corporal que los hombres con el mismo IMC. Por eso, para una evaluación más precisa de la composición corporal, se recomienda complementar el IMC con la circunferencia de cintura y, si es posible, una medición de porcentaje graso.",
+    q6: "¿Qué alternativas existen al IMC para valorar la composición corporal?",
+    a6: "Existen varias medidas que aportan información que el IMC no capta. El perímetro de cintura es la más sencilla y una de las más útiles, porque estima la grasa abdominal, que es la más asociada al riesgo cardiovascular y metabólico: se consideran valores de riesgo por encima de 88 cm en mujeres y 102 cm en hombres. El índice cintura-altura, que consiste en dividir el perímetro de cintura entre la altura, es aún mejor predictor y su umbral es sencillo de recordar: la cintura debería medir menos de la mitad de tu altura. Para una valoración más precisa existen la bioimpedancia, los pliegues cutáneos medidos con plicómetro y, como referencia clínica, la densitometría DEXA.",
+    deepTitle: "Qué mide realmente el IMC y cuáles son sus límites",
+    deep: "El índice de masa corporal se calcula dividiendo el peso en kilogramos entre el cuadrado de la altura en metros, y fue diseñado en el siglo XIX por el estadístico Adolphe Quetelet para estudiar poblaciones, no para diagnosticar individuos. Ahí reside su principal limitación: relaciona peso y altura, pero no distingue de qué está compuesto ese peso. Un deportista con mucha masa muscular puede obtener un IMC de sobrepeso u obesidad estando perfectamente sano, mientras que una persona sedentaria con poca musculatura y grasa abdominal elevada puede situarse en normopeso pese a tener un riesgo metabólico real. Tampoco tiene en cuenta la edad, el sexo, la etnia ni la distribución de la grasa corporal.",
+    workedTitle: "Ejemplo resuelto",
+    worked: "Para una persona de 75 kg y 1,75 m de altura: IMC = 75 / (1,75 × 1,75) = 75 / 3,0625 = 24,5. Ese valor se sitúa dentro del rango de normopeso de la OMS, que va de 18,5 a 24,9, aunque muy cerca del límite del sobrepeso. Si esa misma persona pesara 80 kg, su IMC sería 80 / 3,0625 = 26,1, ya en categoría de sobrepeso. Fíjate en que, al elevar la altura al cuadrado, pequeñas diferencias de estatura tienen un efecto notable: con 1,80 m, esos 80 kg darían un IMC de 24,7, de nuevo en normopeso.",
+    tableTitle: "Categorías de IMC según la OMS",
+    tableCol1: "IMC",
+    tableCol2: "Categoría",
+    interpretTitle: "Cómo interpretar tu resultado",
+    interpret: "Toma el IMC como una primera aproximación orientativa, no como un diagnóstico. Es una herramienta de cribado útil para detectar tendencias en poblaciones y para que un profesional decida si conviene profundizar, pero por sí solo no dice nada sobre tu salud real. Interpretarlo bien exige combinarlo con otros datos: el perímetro de cintura, tu nivel de actividad física, tu composición corporal y analíticas como el perfil lipídico o la glucemia. Si tu resultado se aleja del rango de normopeso, lo sensato es consultarlo con tu médico o con un dietista-nutricionista antes de tomar decisiones sobre tu alimentación, y desconfiar de cualquier plan que prometa cambios rápidos sin supervisión profesional.",
   },
   en: {
     title: "BMI Calculator",
@@ -189,6 +200,17 @@ const T = {
     a4: "The most effective and sustainable approach is to combine a balanced diet with a moderate calorie deficit (300-500 kcal/day less) and regular physical activity. Very restrictive diets are counterproductive in the long run. Losing 0.5 to 1 kg per week is a safe and sustainable pace. Always consult a healthcare professional before starting a weight-loss plan.",
     q5: "Is there a different BMI for men and women?",
     a5: "The WHO applies the same BMI categories to both adult men and women. However, men and women tend to distribute body fat differently: women typically have a higher body fat percentage than men with the same BMI. For a more accurate assessment of body composition, it is recommended to complement BMI with waist circumference and, if possible, a body fat percentage measurement.",
+    q6: "What alternatives to BMI exist for assessing body composition?",
+    a6: "Several measures provide information BMI cannot capture. Waist circumference is the simplest and one of the most useful, because it estimates abdominal fat, which is most associated with cardiovascular and metabolic risk: values above 88 cm in women and 102 cm in men are considered risky. The waist-to-height ratio, obtained by dividing waist circumference by height, is an even better predictor and its threshold is easy to remember: your waist should measure less than half your height. For a more precise assessment there is bioimpedance, skinfold measurements with callipers and, as the clinical reference, DEXA densitometry.",
+    deepTitle: "What BMI actually measures and its limits",
+    deep: "Body mass index is calculated by dividing weight in kilograms by the square of height in metres, and was designed in the 19th century by the statistician Adolphe Quetelet to study populations, not to diagnose individuals. That is its main limitation: it relates weight to height, but does not distinguish what that weight is made of. An athlete with substantial muscle mass can register an overweight or obese BMI while being perfectly healthy, whereas a sedentary person with little muscle and high abdominal fat can sit in the normal range despite carrying real metabolic risk. It also takes no account of age, sex, ethnicity or body fat distribution.",
+    workedTitle: "Worked example",
+    worked: "For a person weighing 75 kg and 1.75 m tall: BMI = 75 / (1.75 × 1.75) = 75 / 3.0625 = 24.5. That value falls within the WHO normal range of 18.5 to 24.9, though very close to the overweight threshold. If that same person weighed 80 kg, their BMI would be 80 / 3.0625 = 26.1, already in the overweight category. Note that, because height is squared, small differences in stature have a marked effect: at 1.80 m, those 80 kg would give a BMI of 24.7, back in the normal range.",
+    tableTitle: "BMI categories according to the WHO",
+    tableCol1: "BMI",
+    tableCol2: "Category",
+    interpretTitle: "How to interpret your result",
+    interpret: "Treat BMI as a first rough approximation, not a diagnosis. It is a useful screening tool for spotting trends in populations and for helping a professional decide whether to investigate further, but on its own it says nothing about your actual health. Interpreting it properly means combining it with other data: waist circumference, your level of physical activity, your body composition and blood tests such as lipid profile or blood glucose. If your result falls outside the normal range, the sensible step is to discuss it with your doctor or a registered dietitian before making decisions about your diet, and to be wary of any plan promising rapid changes without professional supervision.",
   },
 };
 
@@ -221,6 +243,15 @@ function Slider({
     </div>
   );
 }
+
+const BMI_TABLE = [
+  { es: "Menos de 18,5", en: "Below 18.5", cat: "Bajo peso", catEn: "Underweight" },
+  { es: "18,5 – 24,9", en: "18.5 – 24.9", cat: "Normopeso", catEn: "Normal weight" },
+  { es: "25,0 – 29,9", en: "25.0 – 29.9", cat: "Sobrepeso", catEn: "Overweight" },
+  { es: "30,0 – 34,9", en: "30.0 – 34.9", cat: "Obesidad grado I", catEn: "Obesity class I" },
+  { es: "35,0 – 39,9", en: "35.0 – 39.9", cat: "Obesidad grado II", catEn: "Obesity class II" },
+  { es: "40,0 o más", en: "40.0 or above", cat: "Obesidad grado III", catEn: "Obesity class III" },
+];
 
 export default function Imc() {
   const locale = useLocale();
@@ -461,12 +492,44 @@ export default function Imc() {
         <div className="bg-accent/50 rounded-lg p-4 text-sm text-muted-foreground">{t.example}</div>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
+        <p>{t.worked}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {BMI_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.catEn : row.cat}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible className="w-full">
-          {(["q1","q2","q3","q4","q5"] as const).map((q) => (
+          {(["q1","q2","q3","q4","q5","q6"] as const).map((q) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger>{t[q]}</AccordionTrigger>
               <AccordionContent>{t[`a${q.slice(1)}` as keyof typeof t]}</AccordionContent>

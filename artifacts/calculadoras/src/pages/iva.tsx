@@ -57,6 +57,19 @@ const T = {
     a2: "Para obtener la base imponible a partir de un precio con IVA incluido, se divide el importe total entre (1 + tipo/100). Por ejemplo, si el precio final es 121 € con IVA al 21%, la base es 121 / 1,21 = 100 €. La cuota de IVA es la diferencia: 121 − 100 = 21 €. Esta operación se llama 'desglose de IVA' y es habitual en facturas emitidas por autónomos y empresas.",
     q3: "¿Cuándo hay que aplicar el IVA en una factura?",
     a3: "En España, los autónomos y empresas que realicen actividades económicas están obligados a repercutir el IVA en sus facturas cuando el servicio o bien está sujeto a este impuesto. Las excepciones más comunes son los servicios de educación, sanidad, seguros y determinadas operaciones financieras, que están exentos. Si facturas a clientes de otros países de la Unión Europea (operaciones intracomunitarias), pueden aplicarse reglas especiales; si el cliente es una empresa con NIF-IVA europeo, la operación generalmente se factura sin IVA (inversión del sujeto pasivo).",
+    q4: "¿Qué es el recargo de equivalencia?",
+    a4: "Es un régimen especial de IVA obligatorio para los comerciantes minoristas que venden a consumidor final sin transformar los productos. En lugar de presentar declaraciones trimestrales de IVA, el minorista paga a su proveedor un recargo adicional sobre el IVA normal y queda liberado de las obligaciones de liquidación. Los tipos del recargo son del 5,2 % cuando el IVA es del 21 %, del 1,4 % cuando es del 10 % y del 0,5 % cuando es del 4 %. A cambio de esa simplificación, el comerciante no puede deducirse el IVA soportado en sus compras.",
+    q5: "¿Cuándo se aplica la inversión del sujeto pasivo?",
+    a5: "Es un mecanismo por el que la obligación de declarar el IVA se traslada del vendedor al comprador, de modo que la factura se emite sin IVA y es el destinatario quien lo autoliquida. Se aplica en supuestos concretos: ejecuciones de obra inmobiliaria entre empresas, entregas de determinados materiales como chatarra o metales, operaciones intracomunitarias entre empresas con NIF-IVA válido y algunas entregas de inmuebles. En la factura debe constar expresamente la mención «inversión del sujeto pasivo» para justificar la ausencia de IVA repercutido.",
+    deepTitle: "Los tipos de IVA en España y qué grava cada uno",
+    deep: "España aplica tres tipos impositivos. El general del 21 % se aplica por defecto a la mayoría de bienes y servicios: electrónica, ropa, vehículos, bebidas alcohólicas, servicios profesionales o suministros. El reducido del 10 % cubre alimentos en general, transporte de viajeros, hostelería y restauración, entradas a espectáculos culturales y deportivos, y determinadas obras de renovación de vivienda. El superreducido del 4 % se reserva a bienes de primera necesidad: pan común, leche, huevos, frutas, verduras, cereales, quesos, libros, periódicos, medicamentos de uso humano, prótesis y vehículos para personas con movilidad reducida.",
+    workedTitle: "Ejemplo resuelto",
+    worked: "Para añadir el IVA general a una base de 250 €, se multiplica por 1,21: 250 × 1,21 = 302,50 €, de los cuales 52,50 € son IVA. La operación inversa, extraer el IVA de un precio final de 302,50 €, exige dividir y no restar: 302,50 / 1,21 = 250 € de base imponible, y la diferencia de 52,50 € es la cuota. Si restaras directamente el 21 % de 302,50 € obtendrías 238,98 €, un resultado incorrecto que subestima la base en más de once euros.",
+    tableTitle: "Tipos de IVA vigentes en España",
+    tableCol1: "Tipo",
+    tableCol2: "Se aplica a",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "Recuerda que el IVA es un impuesto neutro para la empresa y lo soporta realmente el consumidor final: el autónomo o la sociedad repercuten el IVA en sus ventas, se deducen el soportado en sus compras y liquidan la diferencia trimestralmente ante Hacienda. Por eso, cuando compares presupuestos entre profesionales, asegúrate de contrastar cifras homogéneas, todas con IVA o todas sin él, porque un 21 % de diferencia distorsiona por completo la comparación. Y si eres particular, la cifra relevante es siempre el precio final con impuestos incluidos, que es lo que la normativa de consumo obliga a mostrar de forma destacada en la publicidad dirigida a consumidores.",
   },
   en: {
     title: "VAT Calculator",
@@ -91,8 +104,28 @@ const T = {
     a2: "To obtain the tax base from a VAT-inclusive price, divide the total amount by (1 + rate/100). For example, if the final price is €121 with 21% VAT, the base is 121 / 1.21 = €100. The VAT amount is the difference: 121 − 100 = €21. This operation is called 'VAT breakdown' and is common on invoices issued by freelancers and businesses.",
     q3: "When do you have to apply VAT on an invoice?",
     a3: "In Spain, freelancers and businesses carrying out economic activities are required to charge VAT on their invoices when the service or good is subject to this tax. The most common exceptions are education, healthcare, insurance and certain financial transactions, which are exempt. If you invoice customers in other EU countries (intra-community transactions), special rules may apply — if the customer is a business with a European VAT number, the transaction is generally invoiced without VAT (reverse charge mechanism).",
+    q4: "What is the equivalence surcharge?",
+    a4: "It is a special VAT regime that is compulsory for retailers selling to end consumers without transforming the products. Instead of filing quarterly VAT returns, the retailer pays their supplier an additional surcharge on top of the normal VAT and is relieved of settlement obligations. The surcharge rates are 5.2% when VAT is 21%, 1.4% when it is 10% and 0.5% when it is 4%. In exchange for that simplification, the trader cannot deduct the input VAT on their purchases.",
+    q5: "When does the reverse charge apply?",
+    a5: "It is a mechanism whereby the obligation to declare VAT shifts from the seller to the buyer, so the invoice is issued without VAT and the recipient self-assesses it. It applies in specific cases: construction work between businesses, supplies of certain materials such as scrap or metals, intra-Community transactions between businesses with a valid VAT number, and some property transfers. The invoice must expressly state 'reverse charge' to justify the absence of output VAT.",
+    deepTitle: "Spanish VAT rates and what each one covers",
+    deep: "Spain applies three tax rates. The standard 21% rate is the default for most goods and services: electronics, clothing, vehicles, alcoholic drinks, professional services or utilities. The reduced 10% rate covers food in general, passenger transport, hospitality and catering, tickets to cultural and sporting events, and certain home renovation work. The super-reduced 4% rate is reserved for basic necessities: ordinary bread, milk, eggs, fruit, vegetables, cereals, cheese, books, newspapers, medicines for human use, prostheses and vehicles for people with reduced mobility.",
+    workedTitle: "Worked example",
+    worked: "To add standard VAT to a base of €250, multiply by 1.21: 250 × 1.21 = €302.50, of which €52.50 is VAT. The inverse operation, extracting VAT from a final price of €302.50, requires dividing rather than subtracting: 302.50 / 1.21 = €250 taxable base, and the €52.50 difference is the VAT. If you simply subtracted 21% from €302.50 you would get €238.98, an incorrect result that underestimates the base by more than eleven euros.",
+    tableTitle: "VAT rates in force in Spain",
+    tableCol1: "Rate",
+    tableCol2: "Applies to",
+    interpretTitle: "How to interpret the result",
+    interpret: "Remember that VAT is neutral for the business and is really borne by the end consumer: the self-employed worker or company charges VAT on sales, deducts the VAT paid on purchases and settles the difference quarterly with the tax authority. That is why, when comparing quotes between professionals, you must compare like with like, either all figures with VAT or all without, because a 21% difference completely distorts the comparison. And if you are a private individual, the relevant figure is always the final price including taxes, which consumer law requires to be displayed prominently in advertising aimed at consumers.",
   },
 };
+
+const IVA_TABLE = [
+  { es: "General — 21 %", en: "Standard — 21%", ap: "Mayoría de bienes y servicios", apEn: "Most goods and services" },
+  { es: "Reducido — 10 %", en: "Reduced — 10%", ap: "Alimentos, transporte, hostelería", apEn: "Food, transport, hospitality" },
+  { es: "Superreducido — 4 %", en: "Super-reduced — 4%", ap: "Pan, leche, huevos, libros, medicamentos", apEn: "Bread, milk, eggs, books, medicines" },
+  { es: "Exento — 0 %", en: "Exempt — 0%", ap: "Sanidad, educación, seguros", apEn: "Healthcare, education, insurance" },
+];
 
 export default function Iva() {
   const locale = useLocale();
@@ -278,6 +311,38 @@ export default function Iva() {
         <p className="text-muted-foreground">{t.example}</p>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
+        <p>{t.worked}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IVA_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.apEn : row.ap}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-12">
@@ -294,6 +359,14 @@ export default function Iva() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

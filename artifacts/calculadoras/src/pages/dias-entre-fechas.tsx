@@ -85,6 +85,19 @@ const T = {
     a2: "Se excluyen sábados y domingos, pero no los festivos locales o nacionales, ya que varían según la comunidad autónoma y el municipio. Si necesitas el cómputo exacto con festivos —para un contrato, una baja laboral o un plazo administrativo—, consulta el calendario laboral oficial de tu provincia.",
     q3: "¿Para qué se usa habitualmente?",
     a3: "Este cálculo es útil en muchos contextos: saber cuántos días quedan para un evento, comprobar si un plazo legal ha vencido (los recursos administrativos suelen tener 15 o 30 días hábiles), calcular el período de prueba de un contrato laboral, estimar el tiempo entre dos hitos de un proyecto o verificar cuántos días de vacaciones han transcurrido.",
+    q4: "¿Cómo funcionan los años bisiestos?",
+    a4: "Un año es bisiesto si es divisible entre 4, salvo que sea divisible entre 100, en cuyo caso solo lo es si además es divisible entre 400. Por eso 2000 fue bisiesto pero 1900 no lo fue, y 2100 tampoco lo será. Esta regla existe porque la Tierra tarda en dar la vuelta al Sol unas 365,2422 días, ligeramente menos de 365 días y cuarto, de modo que añadir un día cada cuatro años sobrecorrige levemente el desfase. La calculadora aplica esta regla automáticamente, así que los intervalos que cruzan un 29 de febrero incluyen ese día adicional sin que tengas que hacer nada.",
+    q5: "¿Cómo se cuentan los plazos administrativos en España?",
+    a5: "Depende de si el plazo se expresa en días, meses o años. La Ley 39/2015 establece que los plazos señalados en días se cuentan en días hábiles, excluyendo sábados, domingos y festivos, salvo que la norma indique expresamente que son naturales. Los plazos en meses o años se computan de fecha a fecha: un plazo de un mes que empieza el 15 de marzo vence el 15 de abril. El cómputo arranca el día siguiente a la notificación, no el mismo día, y si el último día es inhábil el plazo se prorroga al primer día hábil siguiente.",
+    workedTitle: "Ejemplo resuelto",
+    worked: "Del 1 de enero de 2024 al 1 de marzo de 2024 hay 60 días naturales: 31 de enero más 29 de febrero, ya que 2024 fue bisiesto. Si el año hubiese sido 2023, no bisiesto, el resultado sería de 59 días. En días laborables, ese mismo intervalo de 2024 contiene aproximadamente 43 días, descontando los fines de semana. La diferencia entre ambos criterios, de unos 17 días, es exactamente la razón por la que conviene comprobar siempre qué tipo de día exige el documento o la norma con la que estés trabajando.",
+    deepTitle: "Días naturales frente a días hábiles",
+    deep: "La distinción es fundamental y provoca muchos errores en trámites y contratos. Los días naturales son todos los del calendario, incluidos sábados, domingos y festivos: es el criterio que se usa en plazos de preaviso laboral, en vacaciones y en la mayoría de contratos civiles. Los días hábiles excluyen los fines de semana y los festivos oficiales, y son la referencia en procedimientos administrativos y judiciales. Existe además la categoría de días laborables, que en el ámbito privado suele coincidir con los hábiles pero puede variar según el convenio colectivo. Ante cualquier plazo, lo primero es identificar cuál de los tres criterios aplica, porque la diferencia entre ellos puede superar el 30 % del total.",
+    tableTitle: "Plazos administrativos habituales en España",
+    tableCol1: "Trámite",
+    tableCol2: "Plazo",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "Antes de usar el número obtenido, comprueba dos cosas. La primera es si el plazo que manejas cuenta días naturales o hábiles, porque la calculadora ofrece ambos y elegir el criterio equivocado puede hacerte perder un derecho. La segunda es si los extremos se incluyen: en la mayoría de plazos legales el cómputo comienza el día siguiente al hecho que los origina, de modo que el día inicial no cuenta. Ten en cuenta también que el cálculo de días laborables no puede contemplar los festivos locales y autonómicos, que varían según el municipio, así que para plazos ajustados conviene contrastarlo con el calendario oficial de tu comunidad.",
   },
   en: {
     title: "Days Between Dates Calculator",
@@ -128,12 +141,34 @@ const T = {
     a2: "Saturdays and Sundays are excluded, but not local or national public holidays, which vary by region and municipality. If you need the exact count including public holidays—for a contract, sick leave or an administrative deadline—consult the official labour calendar for your province.",
     q3: "What is it typically used for?",
     a3: "This calculation is useful in many situations: finding out how many days are left until an event, checking whether a legal deadline has passed (administrative appeals usually allow 15 or 30 working days), calculating the probationary period of a contract, estimating the time between two project milestones, or verifying how many holiday days have elapsed.",
+    q4: "How do leap years work?",
+    a4: "A year is a leap year if it is divisible by 4, unless it is divisible by 100, in which case it only qualifies if it is also divisible by 400. That is why 2000 was a leap year but 1900 was not, and 2100 will not be either. This rule exists because the Earth takes about 365.2422 days to orbit the Sun, slightly less than 365 and a quarter days, so adding a day every four years slightly overcorrects the drift. The calculator applies this rule automatically, so intervals crossing a 29 February include that extra day without you having to do anything.",
+    q5: "How are administrative deadlines counted in Spain?",
+    a5: "It depends on whether the deadline is expressed in days, months or years. Law 39/2015 establishes that deadlines set in days are counted in working days, excluding Saturdays, Sundays and public holidays, unless the rule expressly states they are calendar days. Deadlines in months or years are computed date to date: a one-month deadline starting on 15 March expires on 15 April. Counting starts the day after notification, not the same day, and if the last day is non-working the deadline extends to the next working day.",
+    workedTitle: "Worked example",
+    worked: "From 1 January 2024 to 1 March 2024 there are 60 calendar days: 31 in January plus 29 in February, since 2024 was a leap year. Had the year been 2023, not a leap year, the result would be 59 days. In working days, that same 2024 interval contains approximately 43 days once weekends are deducted. The difference between the two criteria, about 17 days, is precisely why you should always check which type of day the document or rule you are working with requires.",
+    deepTitle: "Calendar days versus working days",
+    deep: "The distinction is fundamental and causes many errors in paperwork and contracts. Calendar days are all days on the calendar, including Saturdays, Sundays and public holidays: this is the criterion used for employment notice periods, holidays and most civil contracts. Working days exclude weekends and official public holidays, and are the reference in administrative and judicial procedures. There is also the category of business days, which in the private sector usually matches working days but can vary by collective agreement. Faced with any deadline, the first step is to identify which of the three criteria applies, because the difference between them can exceed 30% of the total.",
+    tableTitle: "Common administrative deadlines in Spain",
+    tableCol1: "Procedure",
+    tableCol2: "Deadline",
+    interpretTitle: "How to interpret the result",
+    interpret: "Before using the number obtained, check two things. The first is whether your deadline counts calendar or working days, because the calculator offers both and choosing the wrong criterion can cost you a right. The second is whether the endpoints are included: in most legal deadlines counting begins the day after the triggering event, so the starting day does not count. Bear in mind too that the working-day calculation cannot account for local and regional public holidays, which vary by municipality, so for tight deadlines it is worth checking against your region's official calendar.",
   },
 };
 
 function toDateStr(d: Date): string {
   return d.toISOString().slice(0, 10);
 }
+
+const DEADLINE_TABLE = [
+  { es: "Demanda por despido", en: "Dismissal claim", plazo: "20 días hábiles", plazoEn: "20 working days" },
+  { es: "Recurso de reposición", en: "Administrative appeal", plazo: "1 mes", plazoEn: "1 month" },
+  { es: "Recurso de alzada", en: "Higher administrative appeal", plazo: "1 mes", plazoEn: "1 month" },
+  { es: "Trámite de audiencia / alegaciones", en: "Hearing / submissions", plazo: "10–15 días hábiles", plazoEn: "10–15 working days" },
+  { es: "Recurso contencioso-administrativo", en: "Judicial review", plazo: "2 meses", plazoEn: "2 months" },
+  { es: "Solicitud de la prestación por desempleo", en: "Unemployment benefit claim", plazo: "15 días hábiles", plazoEn: "15 working days" },
+];
 
 export default function DiasEntreFechas() {
   const locale = useLocale();
@@ -380,12 +415,44 @@ export default function DiasEntreFechas() {
         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{t.example}</p>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
+        <p>{t.worked}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {DEADLINE_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.plazoEn : row.plazo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible className="w-full">
-          {(["q1", "q2", "q3"] as const).map((q) => (
+          {(["q1", "q2", "q3", "q4", "q5"] as const).map((q) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger>{t[q]}</AccordionTrigger>
               <AccordionContent>{t[`a${q.slice(1)}` as keyof typeof t] as string}</AccordionContent>

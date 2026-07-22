@@ -48,6 +48,19 @@ const T = {
     a2: "Depende de tu contrato y convenio colectivo. Algunas empresas pagan dos pagas extra íntegras (normalmente en julio y diciembre) mientras que otras las prorratean mensualmente, es decir, dividen el importe total entre 12 meses y lo incluyen en cada nómina. Si tus pagas ya están prorrateadas, activa el interruptor 'Pagas extra prorrateadas' para que la calculadora no las cuente dos veces. Puedes comprobarlo mirando tu nómina: si aparece un concepto como 'parte proporcional pagas extra', ya están incluidas.",
     q3: "¿Cuándo debe pagar la empresa el finiquito?",
     a3: "El finiquito debe abonarse en el momento de la firma o, como máximo, el último día de trabajo. En la práctica, muchas empresas lo liquidan en la siguiente fecha de pago de nóminas. Si la empresa se retrasa, el trabajador tiene derecho a reclamar un recargo del 10% anual sobre las cantidades pendientes. El finiquito se firma en presencia del trabajador, que puede pedir que un representante sindical esté presente antes de firmarlo. Nunca firmes un finiquito sin leerlo y verificar que los importes son correctos.",
+    q4: "¿Puedo firmar el finiquito si no estoy de acuerdo?",
+    a4: "Sí, pero debes hacerlo indicando expresamente «no conforme» junto a tu firma. Firmar sin esa mención puede interpretarse como que aceptas las cantidades y renuncias a reclamar, aunque la jurisprudencia matiza que el finiquito no tiene valor liberatorio si contiene errores objetivos o si se firmó con vicio del consentimiento. Añadiendo «no conforme» dejas constancia de que recibes el dinero pero conservas el derecho a impugnar. Tienes 20 días hábiles para reclamar un despido y un año para reclamar cantidades adeudadas, así que conviene revisar el documento con calma o consultarlo con un abogado laboralista o el sindicato antes de firmar.",
+    q5: "¿Qué indemnización corresponde según el tipo de despido?",
+    a5: "Depende de la causa de extinción del contrato. El despido objetivo, por causas económicas, técnicas, organizativas o de producción, da derecho a 20 días de salario por año trabajado con un tope de 12 mensualidades. El despido improcedente, declarado así por un juez o reconocido por la empresa, asciende a 33 días por año con un máximo de 24 mensualidades, aunque para la antigüedad anterior a febrero de 2012 se aplican 45 días por año. El despido disciplinario procedente y la baja voluntaria no generan indemnización alguna. La finalización de un contrato temporal da derecho a 12 días por año trabajado.",
+    workedTitle: "Ejemplo resuelto",
+    worked: "Un trabajador con un salario bruto anual de 30.000 € tiene un salario diario de 30.000 / 365 = 82,19 €. Si al finalizar el contrato le quedan 12 días de vacaciones no disfrutadas, le corresponden 12 × 82,19 = 986,28 €. Si además trabajó 10 días del mes en curso sin cobrar, suma otros 821,90 €. Y si las pagas extra no están prorrateadas y han transcurrido 5 meses desde la última, la parte proporcional sería aproximadamente (2.500 / 12) × 5 = 1.041,67 €. El finiquito bruto ascendería así a unos 2.849,85 €, sobre los que se aplicarán las retenciones correspondientes.",
+    deepTitle: "Qué conceptos integran el finiquito",
+    deep: "El finiquito liquida todo lo que la empresa te adeuda en el momento de extinguir el contrato, con independencia del motivo. Se compone de tres partidas principales. La primera son las vacaciones devengadas y no disfrutadas, que se calculan multiplicando los días pendientes por el salario diario. La segunda son los días efectivamente trabajados del mes en curso que aún no se han abonado. Y la tercera es la parte proporcional de las pagas extraordinarias, aplicable solo si no están prorrateadas en las nóminas mensuales. A estas tres partidas pueden sumarse conceptos como comisiones pendientes, horas extra no abonadas o bolsas de vacaciones, y en su caso la indemnización por despido, que es un concepto jurídicamente distinto del finiquito.",
+    tableTitle: "Indemnización según el tipo de extinción",
+    tableCol1: "Tipo de extinción",
+    tableCol2: "Indemnización",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "La cifra obtenida es un importe bruto y orientativo. Sobre él se aplican la retención de IRPF y las cotizaciones a la Seguridad Social correspondientes a los conceptos salariales, aunque la indemnización por despido está exenta de tributación hasta 180.000 € cuando no supera los límites legales. Antes de dar el finiquito por bueno, comprueba tres cosas: que el salario diario utilizado incluya el prorrateo de pagas extra si procede, que los días de vacaciones pendientes coincidan con tu registro, y que se hayan incluido conceptos variables como comisiones o pluses. Si algo no cuadra, firma indicando «no conforme» y reclama dentro de los plazos legales.",
   },
   en: {
     title: "Severance Pay Calculator (Spain)",
@@ -84,8 +97,30 @@ const T = {
     a2: "It depends on your contract and collective agreement. Some companies pay two full bonus payments (typically in July and December), while others spread them across monthly pay by dividing the total amount by 12. If your bonuses are already pro-rated, enable the 'Bonus payments already pro-rated' toggle so the calculator does not count them twice. You can check your payslip: if you see a line such as 'pro-rata bonus', they are already included in your monthly pay.",
     q3: "When does the company have to pay severance?",
     a3: "Severance pay must be settled on the day of signing or, at the latest, on the last working day. In practice, many companies process it on the next regular payroll date. If the company delays payment, the worker is entitled to claim a surcharge of 10% per year on the outstanding amounts. The severance document is signed in the presence of the worker, who may request that a trade union representative is present before signing. Never sign a severance document without reading it carefully and verifying that the amounts are correct.",
+    q4: "Can I sign the settlement if I disagree with it?",
+    a4: "Yes, but you must write 'no conforme' (not in agreement) next to your signature. Signing without that note can be read as accepting the amounts and waiving your right to claim, although case law qualifies that a settlement has no releasing effect if it contains objective errors or was signed under defective consent. By adding 'no conforme' you record that you are receiving the money but retain the right to challenge it. You have 20 working days to contest a dismissal and one year to claim unpaid amounts, so it is worth reviewing the document calmly or consulting an employment lawyer or your union before signing.",
+    q5: "What indemnity applies for each type of dismissal?",
+    a5: "It depends on the reason the contract ends. Objective dismissal, on economic, technical, organisational or production grounds, entitles you to 20 days' salary per year worked capped at 12 months' pay. Unfair dismissal, declared as such by a judge or acknowledged by the company, amounts to 33 days per year with a maximum of 24 months' pay, though 45 days per year applies to seniority accrued before February 2012. Justified disciplinary dismissal and voluntary resignation generate no indemnity at all. The expiry of a temporary contract entitles you to 12 days per year worked.",
+    workedTitle: "Worked example",
+    worked: "A worker with a gross annual salary of €30,000 has a daily wage of 30,000 / 365 = €82.19. If 12 days of untaken holiday remain when the contract ends, they are owed 12 × 82.19 = €986.28. If they also worked 10 unpaid days of the current month, that adds another €821.90. And if bonus payments are not pro-rated and 5 months have passed since the last one, the proportional share would be approximately (2,500 / 12) × 5 = €1,041.67. The gross settlement would therefore come to about €2,849.85, before the applicable withholdings.",
+    deepTitle: "What the settlement is made up of",
+    deep: "The settlement clears everything the company owes you when the contract ends, whatever the reason. It comprises three main items. The first is accrued but untaken holiday, calculated by multiplying the outstanding days by the daily wage. The second is the days actually worked in the current month that have not yet been paid. And the third is the proportional share of extraordinary bonus payments, applicable only if they are not already pro-rated in monthly payslips. To these three items you may add concepts such as outstanding commissions, unpaid overtime or holiday funds, and where applicable the dismissal indemnity, which is legally distinct from the settlement itself.",
+    tableTitle: "Indemnity by type of contract termination",
+    tableCol1: "Type of termination",
+    tableCol2: "Indemnity",
+    interpretTitle: "How to interpret the result",
+    interpret: "The figure obtained is a gross, indicative amount. Income tax withholding and social security contributions apply to the salary components, although dismissal indemnity is tax-exempt up to €180,000 when it does not exceed the legal limits. Before accepting the settlement as correct, check three things: that the daily wage used includes the pro-rata of bonus payments where applicable, that the outstanding holiday days match your own record, and that variable items such as commissions or allowances have been included. If something does not add up, sign with 'no conforme' and claim within the legal deadlines.",
   },
 };
+
+const SEVERANCE_TABLE = [
+  { es: "Despido improcedente", en: "Unfair dismissal", ind: "33 días/año (máx. 24 mensualidades)", indEn: "33 days/year (max. 24 months)" },
+  { es: "Despido objetivo", en: "Objective dismissal", ind: "20 días/año (máx. 12 mensualidades)", indEn: "20 days/year (max. 12 months)" },
+  { es: "Despido colectivo (ERE)", en: "Collective redundancy", ind: "20 días/año (máx. 12 mensualidades)", indEn: "20 days/year (max. 12 months)" },
+  { es: "Fin de contrato temporal", en: "End of temporary contract", ind: "12 días/año", indEn: "12 days/year" },
+  { es: "Despido disciplinario procedente", en: "Justified disciplinary dismissal", ind: "Sin indemnización", indEn: "No indemnity" },
+  { es: "Baja voluntaria", en: "Voluntary resignation", ind: "Sin indemnización", indEn: "No indemnity" },
+];
 
 export default function Finiquito() {
   const locale = useLocale();
@@ -323,6 +358,38 @@ export default function Finiquito() {
         <p className="text-muted-foreground">{t.example}</p>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
+        <p>{t.worked}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SEVERANCE_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.indEn : row.ind}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-4">
@@ -339,6 +406,14 @@ export default function Finiquito() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
