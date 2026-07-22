@@ -123,6 +123,19 @@ const T = {
     a3: "El vehículo propio resulta más económico cuando se recorren muchos kilómetros al año (más de 15.000-20.000), se vive en una zona con mala red de transporte público o se comparten trayectos. En ciudades con buenas redes de metro y autobús, el abono de transporte puede ser hasta 4 veces más barato.",
     q4: "¿Cómo puedo reducir el coste de mi coche?",
     a4: "Las principales palancas para reducir el coste son: conducción eficiente (velocidad constante, anticipación en frenadas, presión de neumáticos correcta), comparar seguros anualmente, revisar el precio del combustible por zonas, y considerar un vehículo más eficiente o eléctrico si tu consumo anual es elevado.",
+    q5: "¿Qué es la depreciación y por qué no aparece en el cálculo?",
+    a5: "La depreciación es la pérdida de valor del vehículo con el paso del tiempo y suele ser el mayor coste oculto de tener coche, aunque no se paga mes a mes. Un turismo nuevo pierde en torno al 20-25 % de su valor el primer año y alrededor del 50 % a los cinco años. Esta calculadora se centra en los gastos corrientes que sí desembolsas cada mes, pero si quieres conocer el coste total de propiedad deberías sumar la depreciación anual: para un coche de 25.000 € que valdrá 12.500 € en cinco años, son 2.500 € adicionales al año.",
+    q6: "¿Sale más barato un coche eléctrico?",
+    a6: "Depende sobre todo de los kilómetros que recorras y de dónde recargues. En consumo, un eléctrico gasta unos 15-20 kWh cada 100 km: recargando en casa con tarifa valle el coste ronda los 2-3 € por cada 100 km, frente a los 8-10 € de un gasolina equivalente. El mantenimiento también es menor, al no haber cambios de aceite, filtros ni embrague. En contra juegan un precio de compra más alto y una depreciación históricamente más rápida. La regla general es que el eléctrico compensa a partir de unos 15.000 km anuales si puedes recargar en casa.",
+    deepTitle: "Cómo se calcula el coste real de un coche",
+    deep: "El cálculo suma dos bloques. El primero es el gasto variable, que depende directamente de los kilómetros que recorres: el combustible se obtiene multiplicando tu consumo medio (litros cada 100 km) por los kilómetros anuales y por el precio del carburante, dividido entre cien. El segundo bloque son los gastos fijos, que pagas conduzcas mucho o poco: seguro, impuesto de circulación, ITV, mantenimiento programado, neumáticos, aparcamiento y, si procede, la cuota de financiación. La suma de ambos dividida entre los kilómetros anuales da el coste por kilómetro, que es la cifra más útil para comparar alternativas de transporte.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Un conductor recorre 15.000 km al año con un coche que consume 6 l/100 km y paga el gasóleo a 1,50 €/l. El combustible le cuesta (6 × 15.000 / 100) × 1,50 = 900 × 1,50 = 1.350 € anuales. A eso suma 450 € de seguro, 120 € de impuesto de circulación, 45 € de ITV prorrateada, 400 € de mantenimiento y neumáticos y 600 € de parking: 1.615 € de gastos fijos. El total asciende a 2.965 € al año, unos 247 € al mes, lo que supone un coste por kilómetro de 0,20 €.",
+    tableTitle: "Coste orientativo por tipo de gasto (15.000 km/año)",
+    tableCol1: "Concepto",
+    tableCol2: "Coste anual",
+    interpretTitle: "Cómo interpretar el resultado",
+    interpret: "La cifra clave no es el total anual sino el coste por kilómetro, porque es lo que te permite comparar de forma justa con otras opciones. Si tu coste por kilómetro supera los 0,35 €, probablemente estés recorriendo pocos kilómetros para los gastos fijos que asumes: en ese escenario el transporte público, el carsharing o el alquiler puntual suelen salir más a cuenta. Por debajo de 0,25 € el coche está bien amortizado. Recuerda que este cálculo no incluye la depreciación del vehículo, que puede añadir fácilmente entre 1.500 y 3.000 € anuales en un coche relativamente nuevo y es el factor que más distorsiona las comparaciones.",
   },
   en: {
     title: "Real Car Costs",
@@ -167,8 +180,30 @@ const T = {
     a3: "A private vehicle is more economical when you cover a lot of kilometres per year (more than 15,000–20,000), you live in an area with poor public transport, or you share journeys. In cities with good metro and bus networks, a transit pass can be up to four times cheaper.",
     q4: "How can I reduce my car running costs?",
     a4: "The main levers to reduce costs are: efficient driving (steady speed, anticipating braking, correct tyre pressure), comparing insurance annually, checking fuel prices by area, and considering a more efficient or electric vehicle if your annual mileage is high.",
+    q5: "What is depreciation and why isn't it in the calculation?",
+    a5: "Depreciation is the loss of value of the vehicle over time and is usually the biggest hidden cost of car ownership, even though you do not pay it month by month. A new car loses around 20-25% of its value in the first year and roughly 50% after five years. This calculator focuses on the running costs you actually pay out each month, but if you want the total cost of ownership you should add annual depreciation: for a €25,000 car worth €12,500 in five years, that is an extra €2,500 a year.",
+    q6: "Is an electric car cheaper?",
+    a6: "It depends mainly on your mileage and where you charge. On energy, an EV uses about 15-20 kWh per 100 km: charging at home on an off-peak tariff costs around €2-3 per 100 km, against €8-10 for an equivalent petrol car. Maintenance is also lower, with no oil changes, filters or clutch. Against that, the purchase price is higher and depreciation has historically been faster. The general rule is that an EV pays off from around 15,000 km a year if you can charge at home.",
+    deepTitle: "How the real cost of a car is calculated",
+    deep: "The calculation adds two blocks. The first is variable spending, which depends directly on the kilometres you drive: fuel is obtained by multiplying your average consumption (litres per 100 km) by annual kilometres and by the fuel price, divided by one hundred. The second block is fixed costs, which you pay whether you drive a lot or a little: insurance, road tax, MOT, scheduled maintenance, tyres, parking and, where applicable, the finance instalment. The sum of both divided by annual kilometres gives the cost per kilometre, the most useful figure for comparing transport alternatives.",
+    exampleTitle: "Worked example",
+    example: "A driver covers 15,000 km a year in a car that uses 6 l/100 km, paying €1.50/l for diesel. Fuel costs (6 × 15,000 / 100) × 1.50 = 900 × 1.50 = €1,350 per year. To that they add €450 insurance, €120 road tax, €45 prorated MOT, €400 maintenance and tyres and €600 parking: €1,615 of fixed costs. The total comes to €2,965 a year, about €247 a month, giving a cost per kilometre of €0.20.",
+    tableTitle: "Indicative cost by expense type (15,000 km/year)",
+    tableCol1: "Item",
+    tableCol2: "Annual cost",
+    interpretTitle: "How to interpret the result",
+    interpret: "The key figure is not the annual total but the cost per kilometre, because that is what lets you compare fairly with other options. If your cost per kilometre exceeds €0.35, you are probably driving too few kilometres for the fixed costs you carry: in that scenario public transport, carsharing or occasional rental usually work out cheaper. Below €0.25 the car is well amortised. Remember this calculation does not include vehicle depreciation, which can easily add between €1,500 and €3,000 a year on a relatively new car and is the factor that most distorts comparisons.",
   },
 };
+
+const COST_TABLE = [
+  { es: "Combustible", en: "Fuel", coste: "1.350 €" },
+  { es: "Seguro", en: "Insurance", coste: "450 €" },
+  { es: "Mantenimiento y neumáticos", en: "Maintenance and tyres", coste: "400 €" },
+  { es: "Aparcamiento / garaje", en: "Parking / garage", coste: "600 €" },
+  { es: "Impuesto de circulación", en: "Road tax", coste: "120 €" },
+  { es: "ITV (prorrateada)", en: "MOT (prorated)", coste: "45 €" },
+];
 
 const COLORS = {
   fuel: "#3b82f6",
@@ -372,12 +407,44 @@ export default function GastoCoche() {
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COST_TABLE.map((row) => (
+              <tr key={row.en} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{isEn ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.coste}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>
         <Accordion type="single" collapsible className="w-full">
-          {(["q1", "q2", "q3", "q4"] as const).map((q) => (
+          {(["q1", "q2", "q3", "q4", "q5", "q6"] as const).map((q) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger>{t[q]}</AccordionTrigger>
               <AccordionContent>{t[`a${q.slice(1)}` as keyof typeof t]}</AccordionContent>

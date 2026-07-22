@@ -60,6 +60,21 @@ const T = {
     a2: "Porque la tabla de control tiene exactamente 23 caracteres (TRWAGMYFPDXBNJZSQVHLCKE). El resto de dividir cualquier número entre 23 siempre da un valor de 0 a 22, que se mapea a una letra única. Se eligió 23 porque es primo, lo que minimiza la probabilidad de que dos números distintos tengan la misma letra de verificación.",
     q3: "¿Qué pasa si la letra de mi DNI no coincide?",
     a3: "Si la letra de tu DNI físico no coincide con la que calcula la herramienta, comprueba que hayas escrito todos los dígitos correctamente. Un error tipográfico es la causa más frecuente. Si la discrepancia persiste y estás seguro del número, puede ser que el documento contenga una errata; en ese caso, debes acudir a la Oficina del Censo Electoral o a la comisaría de tu ciudad para solicitar la rectificación.",
+    q4: "¿Por qué se excluyen algunas letras del alfabeto?",
+    a4: "La tabla de control TRWAGMYFPDXBNJZSQVHLCKE omite deliberadamente las letras I, Ñ, O y U. La I y la O se descartan porque se confunden visualmente con los dígitos 1 y 0, algo especialmente problemático en documentos escaneados o rellenados a mano. La U se excluye por su parecido con la V, y la Ñ porque no existe en muchos teclados y sistemas informáticos internacionales, lo que causaría problemas de compatibilidad. El resultado son 23 letras inequívocas, un número que además es primo y resulta ideal para el algoritmo de módulo.",
+    q5: "¿Puede haber dos DNI con el mismo número y distinta letra?",
+    a5: "No. Para un número de DNI dado, la letra es única y está determinada matemáticamente por el resto de dividir ese número entre 23. Es decir, la letra no aporta información nueva ni identifica a nadie: es puramente un dígito de control que sirve para detectar errores de transcripción. Si alguien teclea mal una cifra, lo más probable es que la letra deje de cuadrar y el sistema rechace el dato antes de guardarlo. Ese es exactamente el propósito para el que se diseñó en 1990, cuando se añadió la letra al Documento Nacional de Identidad.",
+    q6: "¿Es lo mismo el DNI que el NIF?",
+    a6: "Para una persona física española, el NIF (Número de Identificación Fiscal) coincide con el número del DNI seguido de su letra de control, por lo que en la práctica son el mismo identificador usado en contextos distintos. El NIF es el término que emplea la Agencia Tributaria en el ámbito fiscal, mientras que DNI designa el documento físico. Para extranjeros residentes el identificador equivalente es el NIE, y para empresas y entidades jurídicas existe un NIF propio que empieza por una letra que indica la forma jurídica (A para sociedades anónimas, B para limitadas, G para asociaciones, entre otras).",
+    deepTitle: "El algoritmo de la letra del DNI paso a paso",
+    deep: "El cálculo se basa en una operación de módulo, muy habitual en los sistemas de dígitos de control. El procedimiento consta de tres pasos. Primero se toma el número del DNI completo, sin la letra, como un número entero de hasta ocho cifras. Segundo, se divide ese número entre 23 y se conserva únicamente el resto de la división, que necesariamente será un valor entre 0 y 22. Tercero, ese resto se usa como índice dentro de la cadena de control TRWAGMYFPDXBNJZSQVHLCKE, contando desde la posición 0. La letra que ocupa esa posición es la letra del DNI. En el caso del NIE, la letra inicial X, Y o Z se sustituye previamente por 0, 1 o 2 y después se aplica el mismo procedimiento.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Tomemos el número 12345678. Lo dividimos entre 23: 12345678 / 23 = 536768 con un resto de 14, ya que 536768 × 23 = 12345664 y 12345678 − 12345664 = 14. Ahora buscamos la posición 14 en la cadena TRWAGMYFPDXBNJZSQVHLCKE, contando desde cero: T(0), R(1), W(2), A(3), G(4), M(5), Y(6), F(7), P(8), D(9), X(10), B(11), N(12), J(13), Z(14). La letra es la Z, de modo que el DNI completo sería 12345678-Z.",
+    tableTitle: "Tabla de control: resto y letra correspondiente",
+    tableColRest: "Resto",
+    tableColLetter: "Letra",
+    interpretTitle: "Para qué sirve realmente la letra",
+    interpret: "La letra del DNI es un dígito de control, no un dato identificativo. Su única función es detectar errores al teclear o transcribir el número, y lo hace con notable eficacia: si te equivocas en una sola cifra, la probabilidad de que la letra siga cuadrando es de aproximadamente 1 entre 23, es decir, en torno al 4 %. Esto significa que el sistema detecta alrededor del 96 % de los errores de un solo dígito antes de que lleguen a una base de datos. Por eso los formularios de bancos, administraciones y comercios electrónicos validan la letra en el momento de introducir el número. Ten en cuenta, no obstante, que la validación de la letra solo confirma que el número es coherente, no que corresponda a una persona realmente existente.",
   },
   en: {
     title: "Spanish DNI Letter Calculator",
@@ -81,6 +96,21 @@ const T = {
     a2: "Because the control table has exactly 23 characters (TRWAGMYFPDXBNJZSQVHLCKE). The remainder of dividing any number by 23 always gives a value from 0 to 22, which maps to a unique letter. 23 was chosen because it is prime, which minimises the probability of two different numbers sharing the same verification letter.",
     q3: "What if the letter on my DNI doesn't match?",
     a3: "If the letter on your physical DNI does not match the one the tool calculates, check that you have typed all the digits correctly — a typo is the most common cause. If the discrepancy persists and you are sure of the number, the document may contain an error; in that case, visit your local Electoral Census Office or police station to request a correction.",
+    q4: "Why are some letters of the alphabet excluded?",
+    a4: "The control table TRWAGMYFPDXBNJZSQVHLCKE deliberately omits the letters I, Ñ, O and U. I and O are dropped because they are visually confused with the digits 1 and 0, which is especially problematic on scanned or handwritten documents. U is excluded for its resemblance to V, and Ñ because it does not exist on many international keyboards and computer systems, which would cause compatibility problems. The result is 23 unambiguous letters — a number that is also prime, making it ideal for the modulo algorithm.",
+    q5: "Can two DNIs share a number with different letters?",
+    a5: "No. For a given DNI number, the letter is unique and mathematically determined by the remainder of dividing that number by 23. In other words, the letter carries no new information and identifies nobody: it is purely a check digit used to detect transcription errors. If someone mistypes a figure, the letter will most likely stop matching and the system will reject the entry before storing it. That is exactly the purpose it was designed for in 1990, when the letter was added to the Spanish National Identity Document.",
+    q6: "Are the DNI and the NIF the same thing?",
+    a6: "For a Spanish individual, the NIF (Tax Identification Number) is the DNI number followed by its control letter, so in practice they are the same identifier used in different contexts. NIF is the term the tax authority uses in fiscal matters, while DNI refers to the physical document. For foreign residents the equivalent identifier is the NIE, and companies and legal entities have their own NIF starting with a letter that indicates the legal form (A for public limited companies, B for limited companies, G for associations, among others).",
+    deepTitle: "The DNI letter algorithm step by step",
+    deep: "The calculation is based on a modulo operation, very common in check-digit systems. The procedure has three steps. First, take the full DNI number, without the letter, as an integer of up to eight digits. Second, divide that number by 23 and keep only the remainder, which will necessarily be a value between 0 and 22. Third, use that remainder as an index into the control string TRWAGMYFPDXBNJZSQVHLCKE, counting from position 0. The letter at that position is the DNI letter. In the case of the NIE, the leading letter X, Y or Z is first replaced by 0, 1 or 2 and then the same procedure is applied.",
+    exampleTitle: "Worked example",
+    example: "Take the number 12345678. We divide it by 23: 12345678 / 23 = 536768 with a remainder of 14, since 536768 × 23 = 12345664 and 12345678 − 12345664 = 14. Now we look up position 14 in the string TRWAGMYFPDXBNJZSQVHLCKE, counting from zero: T(0), R(1), W(2), A(3), G(4), M(5), Y(6), F(7), P(8), D(9), X(10), B(11), N(12), J(13), Z(14). The letter is Z, so the complete DNI would be 12345678-Z.",
+    tableTitle: "Control table: remainder and matching letter",
+    tableColRest: "Remainder",
+    tableColLetter: "Letter",
+    interpretTitle: "What the letter is actually for",
+    interpret: "The DNI letter is a check digit, not identifying data. Its only function is to detect errors when typing or transcribing the number, and it does so remarkably well: if you get a single digit wrong, the probability that the letter still matches is roughly 1 in 23, around 4%. That means the system catches about 96% of single-digit errors before they reach a database. This is why forms at banks, public administrations and online shops validate the letter as soon as you enter the number. Bear in mind, however, that validating the letter only confirms the number is internally consistent, not that it belongs to a real person.",
   },
 };
 
@@ -146,6 +176,33 @@ export default function LetraDni() {
         <p className="text-muted-foreground mb-4">{t.howText}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+          {LETTERS.split("").map((letter, i) => (
+            <div
+              key={letter}
+              className="rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-2 py-2 text-center"
+            >
+              <p className="text-xs text-gray-500 dark:text-white/50">{t.tableColRest} {i}</p>
+              <p className="text-lg font-bold font-mono text-primary">{letter}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
@@ -162,6 +219,18 @@ export default function LetraDni() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
