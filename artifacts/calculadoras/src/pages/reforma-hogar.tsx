@@ -82,6 +82,17 @@ const T = {
     a4: "La cocina y el baño completos son las partidas más costosas porque concentran instalaciones de fontanería, electricidad, azulejos y carpintería. Un baño completo de calidad media ronda los 3.000-8.000 €, y una cocina completa los 5.000-15.000 €. En segundo lugar, los suelos y la pintura en toda la vivienda pueden suponer varios miles de euros.",
     q5: "¿Necesito licencia de obras?",
     a5: "Depende del municipio y el tipo de obra. Las obras menores (pintura, cambio de suelos, alicatado sin modificar estructura) generalmente solo requieren una comunicación previa al ayuntamiento. Las obras mayores (eliminación de tabiques estructurales, ampliaciones, cambios de uso) siempre necesitan licencia de obra mayor, que puede tardar semanas o meses en concederse.",
+    q6: "¿Cómo puedo ahorrar en una reforma sin perder calidad?",
+    a6: "La palanca más eficaz es no mover instalaciones de sitio. Cambiar la ubicación de desagües, bajantes o cuadros eléctricos dispara el presupuesto en fontanería y albañilería sin que el resultado visible mejore. La segunda es concentrar la obra en el tiempo: una reforma por fases obliga a pagar varias veces los desplazamientos, la protección de la vivienda y la retirada de escombros. La tercera es diferenciar dónde invertir y dónde contenerse: merece la pena gastar en lo que no se cambia en veinte años, como instalaciones, ventanas o aislamiento, y ajustar en acabados y mobiliario, que son más fáciles de renovar después. Pide siempre tres presupuestos desglosados por partidas y desconfía de los que llegan como una cifra global sin detalle.",
+    deepTitle: "Cómo se estima el presupuesto de una reforma",
+    deep: "El presupuesto se construye sumando partidas, no aplicando un precio único al total de metros. Cada capítulo de obra tiene su propia unidad de medida: la demolición, el solado, el alicatado y la pintura se miden por metro cuadrado; la fontanería y la electricidad suelen presupuestarse por punto o por vivienda completa; y elementos como puertas, ventanas o sanitarios van por unidad. A la suma de materiales y mano de obra se le añaden los costes indirectos, que incluyen la gestión de residuos, la protección de las zonas no reformadas, los permisos municipales y, si la obra lo requiere, el proyecto técnico y la dirección facultativa. Por último se aplica el IVA, del 10 % en reformas de vivienda que cumplan ciertos requisitos y del 21 % en el resto.",
+    exampleTitle: "Ejemplo resuelto",
+    example: "Para una vivienda de 80 m² con reforma integral de gama media a 700 €/m², el grueso de la obra asciende a 56.000 €. Si dentro de ese alcance se incluyen un baño completo (unos 6.000 €) y una cocina (unos 9.000 €), conviene comprobar que el precio por metro cuadrado ya los contempla para no duplicarlos en el cómputo. A la cifra resultante habría que añadir en torno a un 10 % de imprevistos, unos 5.600 €, y el IVA correspondiente. El presupuesto realista se movería así entre 68.000 y 75.000 € según acabados.",
+    tableTitle: "Precios orientativos por partida en España",
+    tableCol1: "Partida",
+    tableCol2: "Precio orientativo",
+    interpretTitle: "Cómo interpretar el presupuesto",
+    interpret: "Trata la cifra obtenida como una horquilla de partida para negociar, no como un precio cerrado. Reserva siempre entre un 10 % y un 15 % adicional para imprevistos: en reformas de vivienda antigua es habitual descubrir problemas ocultos de humedades, instalaciones obsoletas o forjados en mal estado que no aparecen hasta que se levanta el suelo o se pica un tabique. Comprueba también que el presupuesto incluya la retirada de escombros y los permisos, dos partidas que algunas empresas dejan fuera para presentar una cifra más baja. Y desconfía de las ofertas muy por debajo del resto: en reformas, una diferencia superior al 25 % frente a otros presupuestos suele indicar partidas no contempladas que aparecerán más adelante.",
   },
   en: {
     title: "Home Renovation Budget Calculator",
@@ -114,8 +125,30 @@ const T = {
     a4: "Full kitchens and bathrooms are the most costly items because they concentrate plumbing, electrical, tiling and joinery work. A medium-quality full bathroom costs around €3,000-8,000 and a full kitchen €5,000-15,000. Secondly, flooring and painting throughout the property can amount to several thousand euros.",
     q5: "Do I need a building permit?",
     a5: "It depends on the municipality and the type of work. Minor works (painting, floor replacement, tiling without structural changes) generally only require prior notification to the town hall. Major works (removing structural walls, extensions, change of use) always require a major works permit, which can take weeks or months to be granted.",
+    q6: "How can I save on a renovation without losing quality?",
+    a6: "The most effective lever is not moving installations. Changing the location of drains, downpipes or electrical panels sends the plumbing and masonry budget soaring without any visible improvement in the result. The second is concentrating the work in time: a phased renovation means paying several times over for travel, protecting the home and removing debris. The third is distinguishing where to invest and where to hold back: it pays to spend on what you will not change for twenty years, such as installations, windows or insulation, and to economise on finishes and furniture, which are easier to renew later. Always get three itemised quotes and be wary of those that arrive as a single global figure with no breakdown.",
+    deepTitle: "How a renovation budget is estimated",
+    deep: "The budget is built by adding up items, not by applying a single price to the total square metres. Each work chapter has its own unit of measurement: demolition, flooring, tiling and painting are measured per square metre; plumbing and electrics are usually quoted per point or per complete dwelling; and elements such as doors, windows or sanitary ware go by unit. To the sum of materials and labour you add indirect costs, which include waste management, protection of non-renovated areas, municipal permits and, if the work requires it, the technical project and site supervision. Finally VAT is applied, at 10% for home renovations meeting certain requirements and 21% for the rest.",
+    exampleTitle: "Worked example",
+    example: "For an 80 m² home with a mid-range full renovation at €700/m², the bulk of the work comes to €56,000. If that scope includes a complete bathroom (about €6,000) and a kitchen (about €9,000), check that the per-square-metre price already covers them so you do not double-count. To the resulting figure you would add around 10% for contingencies, about €5,600, plus the applicable VAT. A realistic budget would therefore fall between €68,000 and €75,000 depending on finishes.",
+    tableTitle: "Indicative prices by item in Spain",
+    tableCol1: "Item",
+    tableCol2: "Indicative price",
+    interpretTitle: "How to interpret the budget",
+    interpret: "Treat the figure obtained as a starting range for negotiation, not a closed price. Always set aside an extra 10% to 15% for contingencies: in older properties it is common to uncover hidden problems with damp, obsolete installations or damaged floor slabs that only appear once the floor is lifted or a wall is opened up. Check too that the quote includes debris removal and permits, two items some companies leave out to present a lower figure. And be wary of offers far below the rest: in renovations, a difference of more than 25% against other quotes usually signals items not accounted for that will surface later.",
   },
 };
+
+const REFORMA_TABLE = [
+  { es: "Reforma integral (gama media)", en: "Full renovation (mid-range)", precio: "600 – 900 €/m²" },
+  { es: "Cocina completa", en: "Complete kitchen", precio: "6.000 – 12.000 €" },
+  { es: "Baño completo", en: "Complete bathroom", precio: "4.000 – 8.000 €" },
+  { es: "Instalación eléctrica", en: "Electrical installation", precio: "40 – 70 €/m²" },
+  { es: "Fontanería", en: "Plumbing", precio: "40 – 80 €/m²" },
+  { es: "Solado / pavimento", en: "Flooring", precio: "30 – 60 €/m²" },
+  { es: "Alicatado", en: "Wall tiling", precio: "30 – 50 €/m²" },
+  { es: "Pintura", en: "Painting", precio: "8 – 15 €/m²" },
+];
 
 export default function ReformaHogar() {
   const locale = useLocale();
@@ -380,6 +413,38 @@ export default function ReformaHogar() {
         <p className="text-muted-foreground">{t.howText}</p>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
+        <p>{t.example}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {REFORMA_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.precio}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
@@ -404,6 +469,10 @@ export default function ReformaHogar() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

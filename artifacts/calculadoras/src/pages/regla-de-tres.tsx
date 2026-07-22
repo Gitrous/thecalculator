@@ -46,6 +46,19 @@ const T = {
     a2: "En proporción directa: X = (B × C) / A. En proporción inversa: X = (A × B) / C. Ejemplo directo: si 5 kg cuestan 20 €, ¿cuánto cuestan 8 kg? X = (20 × 8) / 5 = 32 €. Ejemplo inverso: si 4 obreros tardan 10 días, ¿cuánto tardan 8? X = (4 × 10) / 8 = 5 días.",
     q3: "¿Para qué sirve en la vida cotidiana?",
     a3: "La regla de tres es la base de cálculos habituales: convertir divisas o unidades (si 1 € son 1,08 $, ¿cuántos $ son 250 €?), escalar recetas de cocina, calcular velocidades medias o repartir proporciones en un presupuesto. También es el fundamento de los cálculos de porcentaje e interés simple.",
+    q4: "¿Cómo se plantea una regla de tres compuesta?",
+    a4: "Se utiliza cuando intervienen tres o más magnitudes relacionadas entre sí. El procedimiento consiste en analizar por separado cómo afecta cada magnitud a la incógnita y decidir si la relación es directa o inversa en cada caso. Por ejemplo, si 4 obreros levantan 20 metros de muro en 6 días, ¿cuántos metros levantarán 6 obreros en 9 días? Más obreros implican más muro (directa) y más días también implican más muro (directa), así que se multiplica: 20 × (6/4) × (9/6) = 45 metros. La clave está en no mezclar las relaciones y comprobar el sentido de cada una antes de operar.",
+    q5: "¿Qué errores son los más frecuentes al aplicarla?",
+    a5: "El error más habitual es aplicar una regla directa cuando la relación es inversa, o al revés. Antes de operar conviene preguntarse siempre: si una magnitud aumenta, ¿la otra sube o baja? Si sube, es directa; si baja, es inversa. El segundo error frecuente es no comprobar la coherencia de las unidades: no se pueden mezclar kilómetros con metros ni horas con minutos dentro del mismo planteamiento. Por último, conviene verificar que el resultado tenga sentido: si has pedido una cantidad menor y el resultado sale mayor, algo se ha planteado al revés.",
+    deepTitle: "Regla de tres directa e inversa: cómo distinguirlas",
+    deep: "En una regla de tres directa, las dos magnitudes crecen o decrecen a la vez: si compras el doble de kilos de fruta, pagas el doble de dinero. La incógnita se despeja multiplicando en cruz, con la fórmula x = (b × c) / a. En una regla de tres inversa, cuando una magnitud aumenta la otra disminuye en la misma proporción: si pones el doble de obreros en una obra, tardas la mitad de tiempo. Aquí la operación cambia y se multiplican los dos datos conocidos de la misma magnitud: x = (a × b) / c. Identificar correctamente el tipo de relación antes de operar es el paso que determina que el resultado sea correcto.",
+    workedTitle: "Ejemplo resuelto",
+    worked: "Directa: si 3 kilos de manzanas cuestan 4,50 €, ¿cuánto cuestan 5 kilos? Como más kilos implican más dinero, es directa: x = (4,50 × 5) / 3 = 22,50 / 3 = 7,50 €. Inversa: si 4 pintores tardan 9 días en pintar un edificio, ¿cuánto tardarán 6 pintores? Como más pintores implican menos días, es inversa: x = (4 × 9) / 6 = 36 / 6 = 6 días. Fíjate en que en la directa se multiplica en cruz y en la inversa se multiplican los dos datos de la misma fila.",
+    tableTitle: "Relaciones directas e inversas más habituales",
+    tableCol1: "Situación",
+    tableCol2: "Tipo de relación",
+    interpretTitle: "Cómo comprobar que el resultado es correcto",
+    interpret: "Una verificación rápida y muy fiable consiste en comparar la magnitud del resultado con la del dato de partida. En una relación directa, si el valor que introduces es mayor que el de referencia, el resultado también debe ser mayor; si es menor, el resultado debe ser menor. En una relación inversa ocurre justo al contrario. Si obtienes un resultado que va en la dirección opuesta a la esperada, casi con seguridad has confundido el tipo de proporcionalidad. Otra comprobación útil es calcular la constante de proporcionalidad: en una regla directa, el cociente entre las dos magnitudes debe mantenerse constante, mientras que en una inversa lo que permanece constante es el producto.",
   },
   en: {
     title: "Rule of Three Calculator",
@@ -72,8 +85,30 @@ const T = {
     a2: "Direct proportion: X = (B × C) / A. Inverse proportion: X = (A × B) / C. Direct example: if 5 kg cost €20, how much do 8 kg cost? X = (20 × 8) / 5 = €32. Inverse example: if 4 workers take 10 days, how long do 8 workers take? X = (4 × 10) / 8 = 5 days.",
     q3: "What is it used for in everyday life?",
     a3: "The rule of three underlies many daily calculations: converting currencies or units (if €1 = $1.08, how many dollars are €250?), scaling recipes, calculating average speeds, or splitting proportional shares in a budget. It is also the foundation of percentage and simple interest calculations.",
+    q4: "How do you set up a compound rule of three?",
+    a4: "It is used when three or more related quantities are involved. The procedure consists of analysing separately how each quantity affects the unknown and deciding whether the relationship is direct or inverse in each case. For example, if 4 workers build 20 metres of wall in 6 days, how many metres will 6 workers build in 9 days? More workers means more wall (direct) and more days also means more wall (direct), so you multiply: 20 × (6/4) × (9/6) = 45 metres. The key is not to mix up the relationships and to check the direction of each one before calculating.",
+    q5: "What are the most common mistakes?",
+    a5: "The most frequent error is applying a direct rule when the relationship is inverse, or the other way round. Before calculating, always ask yourself: if one quantity increases, does the other go up or down? If it goes up, it is direct; if it goes down, it is inverse. The second common error is failing to check unit consistency: you cannot mix kilometres with metres or hours with minutes within the same setup. Finally, it is worth checking that the result makes sense: if you asked for a smaller quantity and the result comes out larger, something has been set up backwards.",
+    deepTitle: "Direct and inverse rule of three: how to tell them apart",
+    deep: "In a direct rule of three, both quantities grow or shrink together: if you buy twice as many kilos of fruit, you pay twice as much. The unknown is solved by cross-multiplying, with the formula x = (b × c) / a. In an inverse rule of three, when one quantity increases the other decreases in the same proportion: if you put twice as many workers on a job, it takes half the time. Here the operation changes and you multiply the two known figures of the same quantity: x = (a × b) / c. Correctly identifying the type of relationship before calculating is the step that determines whether the result is right.",
+    workedTitle: "Worked example",
+    worked: "Direct: if 3 kilos of apples cost €4.50, how much do 5 kilos cost? Since more kilos means more money, it is direct: x = (4.50 × 5) / 3 = 22.50 / 3 = €7.50. Inverse: if 4 painters take 9 days to paint a building, how long will 6 painters take? Since more painters means fewer days, it is inverse: x = (4 × 9) / 6 = 36 / 6 = 6 days. Note that in the direct case you cross-multiply and in the inverse case you multiply the two figures on the same row.",
+    tableTitle: "Most common direct and inverse relationships",
+    tableCol1: "Situation",
+    tableCol2: "Type of relationship",
+    interpretTitle: "How to check the result is correct",
+    interpret: "A quick and very reliable check is to compare the size of the result with the reference figure. In a direct relationship, if the value you enter is larger than the reference, the result must also be larger; if it is smaller, the result must be smaller. In an inverse relationship exactly the opposite happens. If you get a result that goes in the opposite direction to what you expected, you have almost certainly confused the type of proportionality. Another useful check is to calculate the constant of proportionality: in a direct rule, the ratio between the two quantities must stay constant, while in an inverse rule what stays constant is the product.",
   },
 };
+
+const R3_TABLE = [
+  { es: "Kilos de fruta y precio pagado", en: "Kilos of fruit and price paid", tipo: "Directa" , tipoEn: "Direct" },
+  { es: "Litros de gasolina y kilómetros recorridos", en: "Litres of fuel and distance covered", tipo: "Directa", tipoEn: "Direct" },
+  { es: "Horas trabajadas y salario cobrado", en: "Hours worked and wages earned", tipo: "Directa", tipoEn: "Direct" },
+  { es: "Número de obreros y días de obra", en: "Number of workers and days of work", tipo: "Inversa", tipoEn: "Inverse" },
+  { es: "Velocidad y tiempo de un trayecto", en: "Speed and journey time", tipo: "Inversa", tipoEn: "Inverse" },
+  { es: "Grifos abiertos y tiempo en llenar", en: "Taps open and time to fill", tipo: "Inversa", tipoEn: "Inverse" },
+];
 
 export default function ReglaDeTres() {
   const locale = useLocale();
@@ -172,6 +207,38 @@ export default function ReglaDeTres() {
         <p className="text-muted-foreground">{t.example}</p>
       </section>
 
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
+        <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
+        <p>{t.worked}</p>
+      </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-lg">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {R3_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.tipoEn : row.tipo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
+        <p>{t.interpret}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-12">
@@ -188,6 +255,14 @@ export default function ReglaDeTres() {
           <AccordionItem value="q3">
             <AccordionTrigger>{t.q3}</AccordionTrigger>
             <AccordionContent>{t.a3}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q4">
+            <AccordionTrigger>{t.q4}</AccordionTrigger>
+            <AccordionContent>{t.a4}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q5">
+            <AccordionTrigger>{t.q5}</AccordionTrigger>
+            <AccordionContent>{t.a5}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
