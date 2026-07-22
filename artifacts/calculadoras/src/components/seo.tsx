@@ -1,7 +1,12 @@
 import { useEffect } from "react";
+import { SITE_NAME_ES, SITE_NAME_EN } from "@/lib/site";
 
 const SITE = "https://thecalculator.tech";
-const SUFFIX = "Simuladores y Calculadoras Online";
+
+/** True for the English side of the site ("/en" and everything under it). */
+function isEnPath(path: string): boolean {
+  return path === "/en" || path.startsWith("/en/");
+}
 
 interface SeoProps {
   title: string;
@@ -22,17 +27,26 @@ export interface HeadData {
   url: string;
   alternates: { hreflang: string; href: string }[];
   jsonLd?: Record<string, unknown>;
+  /** Value for <html lang>, e.g. "es" or "en". */
+  lang: string;
+  /** Value for og:locale, e.g. "es_ES" or "en_US". */
+  ogLocale: string;
+  /** Site name in the page's own language, used for og:site_name and author. */
+  siteName: string;
 }
 
 /** Pure: turn page props into the concrete head values. No DOM access, so it
  * runs identically on the server (SSG) and the client. */
 export function computeHead({ title, description, path, jsonLd, alternatePath }: SeoProps): HeadData {
-  const fullTitle = `${title} | ${SUFFIX}`;
+  const isEn = isEnPath(path);
+  const siteName = isEn ? SITE_NAME_EN : SITE_NAME_ES;
+  const fullTitle = `${title} | ${siteName}`;
+  const lang = isEn ? "en" : "es";
+  const ogLocale = isEn ? "en_US" : "es_ES";
   const url = `${SITE}${path}`;
 
   const alternates: { hreflang: string; href: string }[] = [];
   if (alternatePath) {
-    const isEn = path.startsWith("/en");
     if (isEn) {
       alternates.push({ hreflang: "en", href: url });
       alternates.push({ hreflang: "es", href: `${SITE}${alternatePath}` });
@@ -46,7 +60,7 @@ export function computeHead({ title, description, path, jsonLd, alternatePath }:
     });
   }
 
-  return { fullTitle, description, url, alternates, jsonLd };
+  return { fullTitle, description, url, alternates, jsonLd, lang, ogLocale, siteName };
 }
 
 // During a server-side render (build-time prerender) the last <Seo/> rendered
@@ -98,7 +112,11 @@ function removeHreflangLinks() {
 
 function applyToDom(head: HeadData) {
   document.title = head.fullTitle;
+  document.documentElement.lang = head.lang;
   setMeta('meta[name="description"]', "name", "description", head.description);
+  setMeta('meta[name="author"]', "name", "author", head.siteName);
+  setMeta('meta[property="og:locale"]', "property", "og:locale", head.ogLocale);
+  setMeta('meta[property="og:site_name"]', "property", "og:site_name", head.siteName);
   setCanonical(head.url);
 
   setMeta('meta[property="og:title"]', "property", "og:title", head.fullTitle);

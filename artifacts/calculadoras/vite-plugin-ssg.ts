@@ -32,11 +32,18 @@ function setMetaTag(html: string, attr: "name" | "property", key: string, conten
 function applyHead(template: string, head: HeadData): string {
   let html = template;
 
+  // <html lang>: the template ships with the Spanish default, so English routes
+  // must be rewritten or every /en/ page claims to be Spanish.
+  html = html.replace(/(<html[^>]*\slang=")[^"]*(")/i, `$1${escapeAttr(head.lang)}$2`);
+
   // <title>
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeAttr(head.fullTitle)}</title>`);
 
   // Standard + social meta
   html = setMetaTag(html, "name", "description", head.description);
+  html = setMetaTag(html, "name", "author", head.siteName);
+  html = setMetaTag(html, "property", "og:locale", head.ogLocale);
+  html = setMetaTag(html, "property", "og:site_name", head.siteName);
   html = setMetaTag(html, "property", "og:title", head.fullTitle);
   html = setMetaTag(html, "property", "og:description", head.description);
   html = setMetaTag(html, "property", "og:url", head.url);
@@ -49,6 +56,19 @@ function applyHead(template: string, head: HeadData): string {
     html = html.replace(/<link\s+rel="canonical"[^>]*>/i, canonicalTag);
   } else {
     html = html.replace("</head>", `    ${canonicalTag}\n  </head>`);
+  }
+
+  // The template ships site-level WebSite/Organization JSON-LD written in
+  // Spanish. On English routes those blocks must be localized too, otherwise
+  // every /en/ page advertises a Spanish site name and inLanguage.
+  if (head.lang !== "es") {
+    html = html
+      .replace(/"name": "Simuladores y Calculadoras Online"/g, `"name": "${escapeAttr(head.siteName)}"`)
+      .replace(/"inLanguage": "es"/g, `"inLanguage": "${escapeAttr(head.lang)}"`)
+      .replace(
+        /"description": "Herramientas gratuitas de cálculo[^"]*"/g,
+        '"description": "Free calculation and simulation tools for finance, home, work, education and productivity."',
+      );
   }
 
   // hreflang + page JSON-LD, inserted before </head>.

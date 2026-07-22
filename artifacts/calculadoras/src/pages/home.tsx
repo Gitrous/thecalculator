@@ -12,6 +12,7 @@ import {
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
 import { CalculatorCard } from "@/components/calculator-card";
+import { Seo } from "@/components/seo";
 import { LogoAnimated } from "@/components/logo-animated";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
@@ -337,6 +338,20 @@ export default function Home() {
   return (
     // Break out of layout's container padding to achieve full-bleed sections
     <div className="-mx-4 -mt-8 -mb-8">
+      <Seo
+        title={
+          isEn
+            ? "Free Online Calculators and Simulators"
+            : "Calculadoras y Simuladores Online Gratis"
+        }
+        description={
+          isEn
+            ? "Free online calculators for finance, home, work, education and health: mortgage, net salary, VAT, BMI, calories and more. No sign-up, results explained step by step."
+            : "Calculadoras online gratuitas de finanzas, hogar, trabajo, educación y salud: hipoteca, salario neto, IVA, IMC, calorías y más. Sin registro y con el cálculo explicado paso a paso."
+        }
+        path={isEn ? "/en" : "/"}
+        alternatePath={isEn ? "/" : "/en"}
+      />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="bg-gray-50 dark:bg-gray-950 py-20 px-4">
@@ -395,7 +410,7 @@ export default function Home() {
             )}
             <button
               type="button"
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-sm transition-colors inline-flex items-center gap-2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-sm transition-colors inline-flex items-center justify-center gap-2"
             >
               <Search className="w-4 h-4" />
               {isEn ? "Search" : "Buscar"}
