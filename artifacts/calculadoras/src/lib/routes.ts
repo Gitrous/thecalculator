@@ -1,4 +1,5 @@
 import { CATEGORIES, CALCULATORS, calcPath, enCalcPath, EN_CATEGORY_SLUGS } from "./calculators";
+import { ARTICLES } from "./articles";
 
 /** Static legal pages (both locales) that get prerendered. */
 const LEGAL_ROUTES = [
@@ -34,6 +35,14 @@ export function getAllRoutes(): string[] {
   for (const calc of CALCULATORS) {
     routes.add(calcPath(calc));
     routes.add(enCalcPath(calc));
+  }
+
+  // Blog index and articles (ES / EN)
+  routes.add("/blog");
+  routes.add("/en/blog");
+  for (const article of ARTICLES) {
+    routes.add(`/blog/${article.slug}`);
+    routes.add(`/en/blog/${article.enSlug}`);
   }
 
   // Legal pages
