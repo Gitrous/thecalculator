@@ -61,7 +61,7 @@ export default function AvisoLegal() {
   return (
     <LegalPage
       title="Aviso Legal"
-      description="Aviso legal y condiciones de uso de Simuladores y Calculadoras Online (thecalculator.tech)."
+      description="Aviso legal y condiciones de uso de thecalculator.tech."
       path="/aviso-legal"
       alternatePath="/en/legal-notice"
       updated="Última actualización: 16 de junio de 2026"

@@ -1,5 +1,5 @@
 // Datos del sitio usados en páginas legales y de contacto.
-export const SITE_NAME_ES = "Simuladores y Calculadoras Online";
+export const SITE_NAME_ES = "thecalculator.tech";
 export const SITE_NAME_EN = "Online Calculators";
 export const SITE_DOMAIN = "thecalculator.tech";
 export const SITE_URL = "https://thecalculator.tech";

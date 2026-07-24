@@ -92,13 +92,13 @@ export default function Privacidad() {
   return (
     <LegalPage
       title="Política de Privacidad"
-      description="Cómo Simuladores y Calculadoras Online (thecalculator.tech) trata los datos, las cookies y la publicidad de terceros (Google AdSense)."
+      description="Cómo thecalculator.tech trata los datos, las cookies y la publicidad de terceros (Google AdSense)."
       path="/privacidad"
       alternatePath="/en/privacy"
       updated="Última actualización: 16 de junio de 2026"
     >
       <p>
-        Esta Política de Privacidad explica cómo <strong>{SITE_NAME_ES}</strong> ({SITE_DOMAIN})
+        Esta Política de Privacidad explica cómo <strong>{SITE_NAME_ES}</strong>
         trata la información cuando utilizas nuestro sitio web. Nos comprometemos a proteger tu
         privacidad y solo procesamos datos en la medida estrictamente necesaria para el
         funcionamiento del sitio.
@@ -106,7 +106,7 @@ export default function Privacidad() {
 
       <h2>1. Responsable del tratamiento</h2>
       <p>
-        Sitio: <strong>{SITE_NAME_ES}</strong> ({SITE_DOMAIN}). Contacto:{" "}
+        Sitio: <strong>{SITE_NAME_ES}</strong>. Contacto:{" "}
         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
       </p>
 

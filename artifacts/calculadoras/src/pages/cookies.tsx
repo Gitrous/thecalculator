@@ -75,14 +75,14 @@ export default function Cookies() {
   return (
     <LegalPage
       title="Política de Cookies"
-      description="Información sobre las cookies utilizadas en Simuladores y Calculadoras Online (thecalculator.tech), incluidas las cookies publicitarias de Google AdSense."
+      description="Información sobre las cookies utilizadas en thecalculator.tech, incluidas las cookies publicitarias de Google AdSense."
       path="/cookies"
       alternatePath="/en/cookies"
       updated="Última actualización: 16 de junio de 2026"
     >
       <p>
         Esta Política de Cookies explica qué son las cookies y cuáles se utilizan en{" "}
-        <strong>{SITE_NAME_ES}</strong> ({SITE_DOMAIN}).
+        <strong>{SITE_NAME_ES}</strong>.
       </p>
 
       <h2>1. ¿Qué son las cookies?</h2>

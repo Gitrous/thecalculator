@@ -63,7 +63,6 @@ function applyHead(template: string, head: HeadData): string {
   // every /en/ page advertises a Spanish site name and inLanguage.
   if (head.lang !== "es") {
     html = html
-      .replace(/"name": "Simuladores y Calculadoras Online"/g, `"name": "${escapeAttr(head.siteName)}"`)
       .replace(/"inLanguage": "es"/g, `"inLanguage": "${escapeAttr(head.lang)}"`)
       .replace(
         /"description": "Herramientas gratuitas de cálculo[^"]*"/g,
