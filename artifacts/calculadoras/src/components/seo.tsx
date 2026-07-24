@@ -8,6 +8,14 @@ function isEnPath(path: string): boolean {
   return path === "/en" || path.startsWith("/en/");
 }
 
+/** The site is served from directory-style URLs with a trailing slash (Cloudflare
+ * Pages 308-redirects the slashless form to it). Canonical, hreflang and og:url
+ * must therefore point at the trailing-slash form so they match the 200 response
+ * and the sitemap, instead of a URL that redirects. */
+function withSlash(path: string): string {
+  return path.endsWith("/") ? path : `${path}/`;
+}
+
 interface SeoProps {
   title: string;
   description: string;
@@ -43,20 +51,21 @@ export function computeHead({ title, description, path, jsonLd, alternatePath }:
   const fullTitle = `${title} | ${siteName}`;
   const lang = isEn ? "en" : "es";
   const ogLocale = isEn ? "en_US" : "es_ES";
-  const url = `${SITE}${path}`;
+  const url = `${SITE}${withSlash(path)}`;
+  const altUrl = `${SITE}${withSlash(alternatePath ?? path)}`;
 
   const alternates: { hreflang: string; href: string }[] = [];
   if (alternatePath) {
     if (isEn) {
       alternates.push({ hreflang: "en", href: url });
-      alternates.push({ hreflang: "es", href: `${SITE}${alternatePath}` });
+      alternates.push({ hreflang: "es", href: altUrl });
     } else {
       alternates.push({ hreflang: "es", href: url });
-      alternates.push({ hreflang: "en", href: `${SITE}${alternatePath}` });
+      alternates.push({ hreflang: "en", href: altUrl });
     }
     alternates.push({
       hreflang: "x-default",
-      href: `${SITE}${alternatePath.startsWith("/en") ? alternatePath : path}`,
+      href: `${SITE}${withSlash(alternatePath.startsWith("/en") ? alternatePath : path)}`,
     });
   }
 
