@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "wouter";
 import { Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -647,6 +648,16 @@ export default function Pitagoras() {
           </AccordionItem>
         </Accordion>
       </section>
+
+      <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
+        {locale === "en" ? "Related calculator: " : "Calculadora relacionada: "}
+        <Link
+          href={locale === "en" ? "/en/calculators/education/conversor-unidades" : "/calculadoras/educacion/conversor-unidades"}
+          className="text-primary underline"
+        >
+          {locale === "en" ? "Unit converter" : "Conversor de unidades"}
+        </Link>
+      </p>
 
       <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>

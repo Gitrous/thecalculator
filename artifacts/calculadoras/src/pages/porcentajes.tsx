@@ -26,7 +26,7 @@ const T = {
     subtitle: "Calcula porcentajes al instante: el X% de Y, qué porcentaje representa un valor, la variación entre dos cifras o aplicar un aumento/descuento.",
     intro1: "Los porcentajes son una de las herramientas matemáticas más utilizadas en el día a día: calcular el IVA de un precio, el descuento de unas rebajas, el incremento salarial anual o la variación de un índice bursátil. A pesar de ser un concepto básico, su aplicación práctica genera dudas frecuentes, especialmente cuando se trabaja con porcentajes encadenados o variaciones relativas.",
     intro2: "Esta calculadora resuelve los cuatro casos más comunes: calcular el X% de un número, averiguar qué porcentaje representa A respecto a B, calcular la variación porcentual entre dos valores y aplicar un aumento o descuento a un precio base. Selecciona el tipo de operación y obtendrás el resultado al instante.",
-    disclaimer: "Los resultados son exactos matemáticamente. En contextos fiscales o financieros, verifica siempre los importes con tu asesor.",
+    disclaimer: "Los resultados son exactos matemáticamente. Si aplicas el cálculo a impuestos o a importes financieros, contrasta las cifras con la fuente oficial o el profesional correspondiente.",
     cardTitle: "¿Qué quieres calcular?",
     modes: [
       { id: "percentOf" as Mode, label: "El X% de Y" },
@@ -76,7 +76,7 @@ const T = {
     subtitle: "Calculate percentages instantly: X% of Y, what percentage a value represents, the change between two figures, or apply an increase/discount.",
     intro1: "Percentages are one of the most widely used mathematical tools in everyday life: calculating VAT on a price, the discount in a sale, an annual pay rise or the change in a stock index. Despite being a basic concept, their practical application often causes confusion, especially when dealing with compound percentages or relative changes.",
     intro2: "This calculator solves the four most common cases: calculating X% of a number, finding what percentage A represents of B, calculating the percentage change between two values, and applying an increase or discount to a base price. Select the type of operation and you will get the result instantly.",
-    disclaimer: "Results are mathematically exact. In tax or financial contexts, always verify amounts with your adviser.",
+    disclaimer: "Results are mathematically exact. If you apply the calculation to taxes or financial amounts, check the figures against the official source or a relevant professional.",
     cardTitle: "What do you want to calculate?",
     modes: [
       { id: "percentOf" as Mode, label: "X% of Y" },

@@ -488,6 +488,15 @@ export default function ConsumoElectrico() {
       </div>
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
+      <p className="text-xs text-muted-foreground mb-2">
+        {isEn
+          ? "Reference values (2026). The regulated price per kWh changes hourly — check the current official PVPC price at "
+          : "Valores de referencia (2026). El precio regulado del kWh cambia cada hora; consulta el PVPC oficial actualizado en "}
+        <a href="https://www.esios.ree.es/es/pvpc" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          ESIOS · Red Eléctrica
+        </a>
+        {isEn ? "." : "."}
+      </p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>

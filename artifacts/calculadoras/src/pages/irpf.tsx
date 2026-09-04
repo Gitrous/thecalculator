@@ -19,7 +19,14 @@ const T = {
   es: {
     backHome: "Volver al inicio",
     title: "Calculadora IRPF",
-    subtitle: "Calcula tu sueldo neto y las retenciones del impuesto sobre la renta según tu país y región.",
+    subtitle: "Calcula tu sueldo neto y las retenciones del impuesto sobre la renta según tu país y región. En España corresponde al IRPF (tramos estatal y autonómico); en otros países, al impuesto equivalente.",
+    scopeTitle: "Qué calcula esta herramienta y qué no",
+    scopeIncludesTitle: "Qué tiene en cuenta",
+    scopeIncludes: "Los tramos principales del impuesto sobre la renta del país seleccionado (en España, la escala estatal más la autonómica general), las cotizaciones sociales del trabajador y las reducciones más habituales por rendimientos del trabajo y mínimo personal.",
+    scopeExcludesTitle: "Qué no tiene en cuenta",
+    scopeExcludes: "Deducciones autonómicas y personales específicas, situaciones familiares particulares, rendimientos distintos del trabajo, regímenes especiales y las variaciones que cada territorio aprueba cada año. Por eso no sustituye al cálculo oficial.",
+    scopePrecisionTitle: "Precisión esperada",
+    scopePrecision: "Es una estimación orientativa: para un salario y una situación estándar suele acercarse al resultado real, pero puede desviarse varios cientos de euros al año en casos con deducciones o circunstancias particulares. Para cifras exactas, usa el simulador oficial de la agencia tributaria correspondiente.",
     intro1: "El IRPF (Impuesto sobre la Renta de las Personas Físicas) es el principal impuesto directo en España y grava los ingresos obtenidos por los residentes: salarios, pensiones, rendimientos del capital, ganancias patrimoniales y actividades económicas. Es un impuesto progresivo, lo que significa que a mayor renta, mayor porcentaje se paga: los tramos oscilan entre el 19% y el 47% en la escala estatal, aunque las comunidades autónomas tienen capacidad para modificarlos.",
     intro2: "Esta calculadora estima el impuesto sobre la renta en España y otros países hispanohablantes (México, Argentina, Colombia), aplicando los tramos nacionales principales. El resultado te muestra la retención estimada, las cotizaciones a la Seguridad Social y el neto mensual y anual. Especialmente útil para negociar un salario, comparar condiciones fiscales entre países o preparar la declaración de la renta.",
     disclaimer: "Los cálculos son estimaciones orientativas. Para una declaración de la renta exacta, utiliza el borrador de la AEAT o consulta a un asesor fiscal.",
@@ -73,7 +80,14 @@ const T = {
   en: {
     backHome: "Back to home",
     title: "Income Tax Calculator",
-    subtitle: "Calculate your net salary and income tax withholding based on your country and region.",
+    subtitle: "Calculate your net salary and income tax withholding based on your country and region. For Spain it corresponds to IRPF (state and regional brackets); for other countries, to the equivalent income tax.",
+    scopeTitle: "What this tool calculates and what it doesn't",
+    scopeIncludesTitle: "What it takes into account",
+    scopeIncludes: "The main income-tax brackets of the selected country (in Spain, the state scale plus the general regional scale), the employee's social security contributions and the most common reductions for earned income and the personal allowance.",
+    scopeExcludesTitle: "What it does not take into account",
+    scopeExcludes: "Specific regional and personal deductions, particular family situations, income other than employment, special regimes and the changes each territory approves every year. That is why it does not replace the official calculation.",
+    scopePrecisionTitle: "Expected accuracy",
+    scopePrecision: "It is an indicative estimate: for a standard salary and situation it is usually close to the real result, but it can deviate by several hundred euros a year in cases with deductions or particular circumstances. For exact figures, use the official simulator of the relevant tax authority.",
     intro1: "IRPF (Personal Income Tax) is the main direct tax in Spain and levies income earned by residents: salaries, pensions, capital returns, capital gains and business income. It is a progressive tax, meaning that the higher the income, the higher the percentage paid: bands range from 19% to 47% on the state scale, although the autonomous communities can modify them.",
     intro2: "This calculator estimates income tax in Spain and other Spanish-speaking countries (Mexico, Argentina, Colombia), applying the main national tax bands. The result shows you the estimated withholding, social security contributions and monthly and annual net salary. Particularly useful for negotiating a salary, comparing tax conditions between countries or preparing your tax return.",
     disclaimer: "Calculations are indicative estimates. For an exact tax return, use the AEAT draft or consult a tax adviser.",
@@ -1147,6 +1161,24 @@ export default function IRPF() {
       </div>
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
+
+      <div className="mt-6 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-5 text-sm">
+        <h2 className="font-semibold text-gray-900 dark:text-white mb-3">{t.scopeTitle}</h2>
+        <div className="space-y-3 text-gray-600 dark:text-gray-300">
+          <p>
+            <span className="font-medium text-gray-900 dark:text-white">{t.scopeIncludesTitle}: </span>
+            {t.scopeIncludes}
+          </p>
+          <p>
+            <span className="font-medium text-gray-900 dark:text-white">{t.scopeExcludesTitle}: </span>
+            {t.scopeExcludes}
+          </p>
+          <p>
+            <span className="font-medium text-gray-900 dark:text-white">{t.scopePrecisionTitle}: </span>
+            {t.scopePrecision}
+          </p>
+        </div>
+      </div>
 
       <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>

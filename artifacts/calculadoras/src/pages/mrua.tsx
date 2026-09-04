@@ -420,6 +420,16 @@ export default function MRUA() {
         </Accordion>
       </section>
 
+      <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
+        {isEn ? "Related calculator: " : "Calculadora relacionada: "}
+        <Link
+          href={isEn ? "/en/calculators/education/mru" : "/calculadoras/educacion/mru"}
+          className="text-primary underline"
+        >
+          {isEn ? "Uniform motion (MRU)" : "MRU (movimiento a velocidad constante)"}
+        </Link>
+      </p>
+
       <AdUnit slot={AD_SLOTS.belowFaq} className="mt-8" />
     </div>
   );

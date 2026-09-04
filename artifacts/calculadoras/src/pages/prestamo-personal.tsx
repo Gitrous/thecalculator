@@ -125,7 +125,7 @@ const T = {
     tableCol2: "Cuota mensual",
     tableCol3: "Intereses totales",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "Fíjate en dos cifras, no solo en la cuota. La cuota mensual te dice si el préstamo cabe en tu presupuesto: como referencia, el conjunto de tus deudas no debería superar el 35 % de tus ingresos netos mensuales. Los intereses totales te dicen cuánto te cuesta realmente el dinero prestado y es la cifra clave para comparar ofertas. Ten en cuenta que esta calculadora trabaja con el TIN: si el préstamo lleva comisión de apertura o seguros vinculados, el coste real será mayor y deberás mirar la TAE que la entidad está obligada a facilitarte.",
+    interpret: "Fíjate en dos cifras, no solo en la cuota. La cuota mensual te dice si el préstamo cabe en tu presupuesto: como referencia orientativa, algunas entidades trabajan con ratios de endeudamiento próximos al 30–35 % de los ingresos netos mensuales, aunque el límite adecuado depende de tu situación financiera. Los intereses totales te dicen cuánto te cuesta realmente el dinero prestado y es la cifra clave para comparar ofertas. Ten en cuenta que esta calculadora trabaja con el TIN: si el préstamo lleva comisión de apertura o seguros vinculados, el coste real será mayor y deberás mirar la TAE que la entidad está obligada a facilitarte.",
   },
   en: {
     title: "Personal Loan Calculator",
@@ -162,7 +162,7 @@ const T = {
     tableCol2: "Monthly payment",
     tableCol3: "Total interest",
     interpretTitle: "How to interpret the result",
-    interpret: "Look at two figures, not just the payment. The monthly payment tells you whether the loan fits your budget: as a reference, your total debt payments should not exceed 35% of your net monthly income. The total interest tells you what the borrowed money actually costs you and is the key number for comparing offers. Bear in mind this calculator works with the nominal rate: if the loan carries an arrangement fee or linked insurance, the real cost will be higher and you should look at the APR the lender is legally required to disclose.",
+    interpret: "Look at two figures, not just the payment. The monthly payment tells you whether the loan fits your budget: as a rough reference, some lenders use debt-to-income ratios of around 30–35% of net monthly income, though the appropriate limit depends on your financial situation. The total interest tells you what the borrowed money actually costs you and is the key number for comparing offers. Bear in mind this calculator works with the nominal rate: if the loan carries an arrangement fee or linked insurance, the real cost will be higher and you should look at the APR the lender is legally required to disclose.",
   },
 };
 

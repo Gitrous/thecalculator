@@ -406,6 +406,17 @@ export default function GastoCoche() {
       </div>
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
+      <p className="text-xs text-muted-foreground mb-2">
+        {isEn
+          ? "Reference values (2026). Fuel prices vary daily — check the current official price at the "
+          : "Valores de referencia (2026). El precio del combustible varía a diario; consulta el precio oficial actualizado en el "}
+        <a href="https://geoportalgasolineras.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          {isEn ? "Spanish government fuel-price portal" : "portal de precios de carburantes del Gobierno de España"}
+        </a>
+        {isEn
+          ? ". Maintenance ranges are indicative figures from OCU and DGT references."
+          : ". Los rangos de mantenimiento son cifras orientativas basadas en referencias de la OCU y la DGT."}
+      </p>
 
       <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>

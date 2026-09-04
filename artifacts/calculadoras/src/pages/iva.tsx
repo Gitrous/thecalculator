@@ -20,7 +20,7 @@ const RATES = [
   { rate: 21, labelEs: "General",       labelEn: "Standard" },
   { rate: 10, labelEs: "Reducido",      labelEn: "Reduced" },
   { rate: 4,  labelEs: "Superreducido", labelEn: "Super-reduced" },
-  { rate: 0,  labelEs: "Exento",        labelEn: "Exempt" },
+  { rate: 0,  labelEs: "Sin cuota",     labelEn: "No charge" },
 ];
 
 const T = {
@@ -29,7 +29,7 @@ const T = {
     subtitle: "Suma o resta el IVA a cualquier precio al instante. Diseñado para autónomos, empresas y particulares que buscan precisión absoluta.",
     intro1: "El IVA (Impuesto sobre el Valor Añadido) es un impuesto indirecto que grava el consumo y se aplica en España en tres tipos: superreducido (4%), reducido (10%) y general (21%). En las facturas de autónomos y empresas es imprescindible saber cómo añadir o desglosar el IVA correctamente, ya que los errores de cálculo pueden derivar en problemas con Hacienda.",
     intro2: "Esta calculadora permite tanto sumar el IVA al precio base (precio sin IVA → precio con IVA) como extraerlo de un precio final ya incluido (precio con IVA → base imponible). Especialmente útil para autónomos, contables y cualquier persona que trabaje con facturas en España.",
-    disclaimer: "Los importes son orientativos. Para declaraciones fiscales oficiales, utiliza siempre el software homologado por la AEAT.",
+    disclaimer: "Los importes son orientativos. Los tipos mostrados son los generales de referencia en España; determinadas operaciones pueden estar exentas o sujetas a reglas especiales. Para declaraciones fiscales oficiales, utiliza siempre el software homologado por la AEAT.",
     amountLabel: "Importe Base o Total",
     actionLabel: "Acción",
     addVat: "Sumar IVA",
@@ -52,7 +52,7 @@ const T = {
       "Una factura con base de 100 € al 21% tiene 21 € de IVA y un total de 121 €. Al revés: si un producto cuesta 121 € con IVA incluido, su base es 121 / 1,21 = 100 € y el IVA son 21 €.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué diferencia hay entre IVA general, reducido y superreducido?",
-    a1: "En España existen tres tipos de IVA vigentes. El tipo general (21%) se aplica a la mayoría de bienes y servicios: electrónica, ropa, hostelería, servicios profesionales, bricolaje y peluquería, entre otros. El tipo reducido (10%) se aplica a alimentos no esenciales, transporte de viajeros, viviendas nuevas y espectáculos culturales. El tipo superreducido (4%) se reserva a productos de primera necesidad: pan, leche, frutas, verduras, libros, periódicos, medicamentos con receta y prótesis. El tipo del 0% (exento) aplica a servicios como la educación, la sanidad pública o los seguros.",
+    a1: "En España existen tres tipos de IVA vigentes. El tipo general (21%) se aplica a la mayoría de bienes y servicios: electrónica, ropa, hostelería, servicios profesionales, bricolaje y peluquería, entre otros. El tipo reducido (10%) se aplica a alimentos no esenciales, transporte de viajeros, viviendas nuevas y espectáculos culturales. El tipo superreducido (4%) se reserva a productos de primera necesidad: pan, leche, frutas, verduras, libros, periódicos, medicamentos con receta y prótesis. Conviene no confundir el tipo del 0 % con las operaciones exentas: servicios como la educación, la sanidad pública o los seguros no repercuten IVA (están exentos) y, a diferencia del tipo 0 %, tampoco permiten deducir el IVA soportado.",
     q2: "¿Cómo se quita el IVA de un precio final?",
     a2: "Para obtener la base imponible a partir de un precio con IVA incluido, se divide el importe total entre (1 + tipo/100). Por ejemplo, si el precio final es 121 € con IVA al 21%, la base es 121 / 1,21 = 100 €. La cuota de IVA es la diferencia: 121 − 100 = 21 €. Esta operación se llama 'desglose de IVA' y es habitual en facturas emitidas por autónomos y empresas.",
     q3: "¿Cuándo hay que aplicar el IVA en una factura?",
@@ -76,7 +76,7 @@ const T = {
     subtitle: "Add or remove VAT from any price instantly. Designed for freelancers, businesses and individuals who need absolute accuracy.",
     intro1: "VAT (Value Added Tax) is an indirect tax on consumption applied in Spain at three rates: super-reduced (4%), reduced (10%) and standard (21%). On invoices for freelancers and businesses it is essential to know how to add or break down VAT correctly, since calculation errors can lead to problems with the tax authority.",
     intro2: "This calculator lets you both add VAT to a net price (price excl. VAT → price incl. VAT) and extract it from a gross price already including VAT (price incl. VAT → taxable base). Particularly useful for freelancers, accountants and anyone working with invoices in Spain.",
-    disclaimer: "Amounts are indicative. For official tax filings always use AEAT-approved software.",
+    disclaimer: "Amounts are indicative. The rates shown are Spain's general reference rates; certain transactions may be exempt or subject to special rules. For official tax filings always use AEAT-approved software.",
     amountLabel: "Base or Total Amount",
     actionLabel: "Action",
     addVat: "Add VAT",
@@ -99,7 +99,7 @@ const T = {
       "An invoice with a base of €100 at 21% has €21 of VAT and a total of €121. The other way round: if a product costs €121 including VAT, its base is 121 / 1.21 = €100 and the VAT is €21.",
     faqTitle: "Frequently asked questions",
     q1: "What is the difference between standard, reduced and super-reduced VAT?",
-    a1: "In Spain there are three active VAT rates. The standard rate (21%) applies to most goods and services: electronics, clothing, hospitality, professional services, DIY and hairdressing, among others. The reduced rate (10%) applies to non-essential food, passenger transport, new housing and cultural events. The super-reduced rate (4%) is reserved for essential goods: bread, milk, fruit, vegetables, books, newspapers, prescription medicines and prosthetics. The 0% rate (exempt) applies to services such as education, public healthcare and insurance.",
+    a1: "In Spain there are three active VAT rates. The standard rate (21%) applies to most goods and services: electronics, clothing, hospitality, professional services, DIY and hairdressing, among others. The reduced rate (10%) applies to non-essential food, passenger transport, new housing and cultural events. The super-reduced rate (4%) is reserved for essential goods: bread, milk, fruit, vegetables, books, newspapers, prescription medicines and prosthetics. The 0% rate should not be confused with exempt transactions: services such as education, public healthcare and insurance charge no VAT (they are exempt) and, unlike a 0% rate, do not allow input VAT to be deducted.",
     q2: "How do you remove VAT from a final price?",
     a2: "To obtain the tax base from a VAT-inclusive price, divide the total amount by (1 + rate/100). For example, if the final price is €121 with 21% VAT, the base is 121 / 1.21 = €100. The VAT amount is the difference: 121 − 100 = €21. This operation is called 'VAT breakdown' and is common on invoices issued by freelancers and businesses.",
     q3: "When do you have to apply VAT on an invoice?",
@@ -244,6 +244,20 @@ export default function Iva() {
                 </button>
               ))}
             </div>
+            <p className="text-xs text-gray-500 dark:text-white/40 leading-snug mt-1">
+              {isEn
+                ? "The 0% option covers transactions with no VAT charge. It is not the same as an exempt transaction (education, healthcare, insurance), which charges no VAT and does not allow input VAT to be deducted. See the details at the "
+                : "El 0 % corresponde a operaciones sin cuota de IVA. No es lo mismo que una operación exenta (educación, sanidad, seguros), que no repercute IVA ni permite deducir el IVA soportado. Consulta el detalle en la "}
+              <a
+                href="https://sede.agenciatributaria.gob.es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary"
+              >
+                {isEn ? "Spanish Tax Agency (AEAT)" : "Agencia Tributaria (AEAT)"}
+              </a>
+              .
+            </p>
           </div>
 
           {/* Calculate button */}
