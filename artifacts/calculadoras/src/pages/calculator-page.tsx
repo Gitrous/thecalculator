@@ -142,9 +142,17 @@ export default function CalculatorPage() {
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   };
   const faqNode = getFaqJsonLd(`${categoryId}/${slug}`, isEn ? "en" : "es");
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: homeLabel, item: `https://thecalculator.tech${isEn ? "/en/" : "/"}` },
+      { "@type": "ListItem", position: 2, name: categoryName, item: `https://thecalculator.tech${categoryHref}/` },
+      { "@type": "ListItem", position: 3, name: shortLabel, item: `https://thecalculator.tech${seoPath}/` },
+    ],
+  };
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": faqNode ? [webApp, faqNode] : [webApp],
+    "@graph": faqNode ? [webApp, faqNode, breadcrumb] : [webApp, breadcrumb],
   };
 
   return (

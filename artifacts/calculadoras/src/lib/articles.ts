@@ -1572,3 +1572,57 @@ export function getArticle(slug: string): Article | undefined {
 export function getArticlesByCategory(category: string): Article[] {
   return ARTICLES.filter((a) => a.category === category);
 }
+
+
+/** Primary/official reference sources shown as "Fuentes y referencias" at the
+ * end of YMYL articles (finance, work, health). Keyed by the ES slug. Only real
+ * official bodies, legal texts (BOE) and peer-reviewed references are used. */
+export interface ArticleSource { es: string; en: string; url: string; }
+
+const S = {
+  oms:   { es: "OMS — Organización Mundial de la Salud", en: "WHO — World Health Organization", url: "https://www.who.int/" },
+  efsa:  { es: "EFSA — Autoridad Europea de Seguridad Alimentaria", en: "EFSA — European Food Safety Authority", url: "https://www.efsa.europa.eu/" },
+  aeat:  { es: "Agencia Tributaria (AEAT)", en: "Spanish Tax Agency (AEAT)", url: "https://sede.agenciatributaria.gob.es/" },
+  bde:   { es: "Banco de España", en: "Bank of Spain", url: "https://www.bde.es/" },
+  ss:    { es: "Seguridad Social", en: "Spanish Social Security", url: "https://www.seg-social.es/" },
+  sepe:  { es: "SEPE — Servicio Público de Empleo Estatal", en: "SEPE — Spanish Public Employment Service", url: "https://www.sepe.es/" },
+  et:    { es: "Estatuto de los Trabajadores (BOE)", en: "Workers' Statute (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430" },
+  ley5:  { es: "Ley 5/2019 de crédito inmobiliario (BOE)", en: "Law 5/2019 on real estate credit (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" },
+  rdl8:  { es: "Real Decreto-ley 8/2019 (BOE)", en: "Royal Decree-Law 8/2019 (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2019-3481" },
+  ley39: { es: "Ley 39/2015 del Procedimiento Administrativo (BOE)", en: "Law 39/2015 on Administrative Procedure (BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" },
+  bipm:  { es: "BIPM — Sistema Internacional de Unidades (SI)", en: "BIPM — International System of Units (SI)", url: "https://www.bipm.org/en/measurement-units" },
+  tanaka:{ es: "Tanaka et al. (2001), J Am Coll Cardiol", en: "Tanaka et al. (2001), J Am Coll Cardiol", url: "https://doi.org/10.1016/S0735-1097(00)01054-8" },
+  mifflin:{ es: "Mifflin-St Jeor (1990), Am J Clin Nutr", en: "Mifflin-St Jeor (1990), Am J Clin Nutr", url: "https://doi.org/10.1093/ajcn/51.2.241" },
+  dgt:   { es: "DGT — Dirección General de Tráfico", en: "DGT — Spanish traffic authority", url: "https://www.dgt.es/" },
+  carb:  { es: "Portal de precios de carburantes (Gobierno de España)", en: "Government fuel-price portal", url: "https://geoportalgasolineras.es/" },
+  esios: { es: "ESIOS — Red Eléctrica de España", en: "ESIOS — Red Eléctrica de España", url: "https://www.esios.ree.es/es/pvpc" },
+  idae:  { es: "IDAE — Instituto para la Diversificación y Ahorro de la Energía", en: "IDAE — Spanish energy agency", url: "https://www.idae.es/" },
+  trabajo:{ es: "Ministerio de Trabajo y Economía Social", en: "Spanish Ministry of Labour", url: "https://www.mites.gob.es/" },
+  interior:{ es: "Ministerio del Interior — DNI/NIE", en: "Spanish Ministry of the Interior — DNI/NIE", url: "https://www.interior.gob.es/" },
+} as const;
+
+export const ARTICLE_SOURCES: Record<string, ArticleSource[]> = {
+  "que-es-el-imc": [S.oms],
+  "cuantas-calorias-necesito-al-dia": [S.mifflin, S.oms],
+  "cuanta-agua-debo-beber-al-dia": [S.efsa, S.oms],
+  "frecuencia-cardiaca-maxima-zonas-entrenamiento": [S.tanaka, S.oms],
+  "como-calcular-cuota-hipoteca": [S.bde, S.ley5],
+  "que-es-la-tae-diferencia-tin": [S.bde],
+  "como-funciona-interes-compuesto": [S.bde],
+  "irpf-como-funciona-retencion-nomina": [S.aeat],
+  "alquilar-o-comprar-vivienda": [S.bde],
+  "amortizacion-anticipada-hipoteca-ahorro": [S.bde, S.ley5],
+  "como-calcular-salario-neto-espana": [S.aeat, S.ss],
+  "iva-tipos-espana-guia": [S.aeat],
+  "prestamo-personal-como-comparar": [S.bde],
+  "coste-real-tener-coche": [S.dgt, S.carb],
+  "como-reducir-factura-luz": [S.esios, S.idae],
+  "que-incluye-finiquito-como-calcularlo": [S.et, S.trabajo],
+  "cuota-autonomo-2026-tramos": [S.ss],
+  "prestacion-desempleo-paro-como-calcular": [S.sepe],
+  "pension-jubilacion-espana-como-funciona": [S.ss],
+  "dias-entre-fechas-plazos-legales": [S.ley39],
+  "registro-jornada-horas-trabajadas": [S.rdl8, S.trabajo],
+  "conversor-unidades-guia-completa": [S.bipm],
+  "como-calcular-letra-dni": [S.interior],
+};

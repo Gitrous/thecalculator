@@ -5,7 +5,7 @@ import {
   ThumbsUp, ThumbsDown, CheckCircle2, Share2,
   TrendingUp, Heart, Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { getArticle, ARTICLES, ARTICLE_IMAGES, type ArticleSection } from "@/lib/articles";
+import { getArticle, ARTICLES, ARTICLE_IMAGES, ARTICLE_SOURCES, type ArticleSection } from "@/lib/articles";
 import {
   getCalculator, calcPath, enCalcPath,
   getCalculatorsByCategory, CATEGORIES,
@@ -150,8 +150,8 @@ function FeedbackWidget({ isEn }: { isEn: boolean }) {
           </p>
           <p className="text-sm text-gray-500 dark:text-white/50 mb-4">
             {isEn
-              ? "Your feedback helps us create better content."
-              : "Tu feedback nos ayuda a crear mejor contenido financiero."}
+              ? "Your feedback helps us improve our guides."
+              : "Tu feedback nos ayuda a mejorar nuestras guías."}
           </p>
           <div className="flex justify-center gap-6">
             <button
@@ -221,14 +221,20 @@ export default function BlogArticle() {
   const firstHalf = sections.slice(0, mid);
   const secondHalf = sections.slice(mid);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const articleImage = ARTICLE_IMAGES[article.slug];
+  const sources = ARTICLE_SOURCES[article.slug];
+  const articleNode = {
     "@type": "Article",
     headline: title,
     description,
     datePublished: article.date,
     dateModified: article.date,
-    author: { "@type": "Organization", name: "thecalculator.tech" },
+    ...(articleImage ? { image: articleImage } : {}),
+    author: {
+      "@type": "Organization",
+      name: isEn ? "thecalculator.tech editorial team" : "Equipo editorial de thecalculator.tech",
+      url: `https://thecalculator.tech${isEn ? "/en/about/" : "/sobre-nosotros/"}`,
+    },
     publisher: {
       "@type": "Organization",
       name: "thecalculator.tech",
@@ -236,6 +242,18 @@ export default function BlogArticle() {
     },
     inLanguage: isEn ? "en" : "es",
     url: `https://thecalculator.tech${path}`,
+  };
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEn ? "Home" : "Inicio", item: `https://thecalculator.tech${isEn ? "/en/" : "/"}` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `https://thecalculator.tech${isEn ? "/en/blog/" : "/blog/"}` },
+      { "@type": "ListItem", position: 3, name: title, item: `https://thecalculator.tech${path}/` },
+    ],
+  };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [articleNode, breadcrumb],
   };
 
   return (
@@ -272,7 +290,14 @@ export default function BlogArticle() {
             TC
           </div>
           <div>
-            <p className="text-sm font-semibold text-gray-900 dark:text-white">thecalculator.tech</p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-white">
+              <Link
+                href={isEn ? "/en/about" : "/sobre-nosotros"}
+                className="hover:text-primary transition-colors"
+              >
+                {isEn ? "thecalculator.tech editorial team" : "Equipo editorial de thecalculator.tech"}
+              </Link>
+            </p>
             <p className="text-xs text-gray-500 dark:text-white/50">
               {dateLabel} · {article.readTime} {isEn ? "min read" : "min de lectura"}
             </p>
@@ -336,6 +361,30 @@ export default function BlogArticle() {
                 {isEn ? "Open calculator →" : "Abrir calculadora →"}
               </Link>
             </div>
+          )}
+
+          {/* Fuentes y referencias */}
+          {sources && sources.length > 0 && (
+            <section className="mt-10 rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-6">
+              <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
+                {isEn ? "Sources & references" : "Fuentes y referencias"}
+              </h2>
+              <ul className="space-y-1.5 text-sm">
+                {sources.map((s, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-primary mt-0.5 shrink-0">•</span>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline break-words"
+                    >
+                      {isEn ? s.en : s.es}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           )}
 
           {/* Feedback */}

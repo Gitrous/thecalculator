@@ -50,10 +50,10 @@ const WATER_TABLE_EN = [
 const T = {
   es: {
     title: "Calculadora de Agua Diaria",
-    subtitle: "Descubre cuánta agua debes beber al día según tu peso, nivel de actividad física y el clima donde vives.",
+    subtitle: "Estima tus necesidades orientativas de hidratación según tu peso, tu nivel de actividad física y el clima donde vives.",
     intro1: "El agua es imprescindible para casi todos los procesos del organismo: regula la temperatura corporal, transporta nutrientes, facilita la digestión y elimina residuos metabólicos. Sin embargo, las necesidades hídricas no son iguales para todas las personas: varían en función del peso corporal, la intensidad del ejercicio físico y las condiciones climáticas.",
-    intro2: "Esta calculadora aplica la fórmula utilizada por dietistas y nutricionistas: un factor base de 30 a 40 ml por kilogramo de peso, ajustado según tu nivel de actividad, más un extra de 500 ml en climas cálidos para compensar las pérdidas por sudoración. El resultado te indica los litros de líquido que deberías beber a lo largo del día para mantenerte correctamente hidratado.",
-    disclaimer: "Los resultados son orientativos. Las necesidades de hidratación pueden variar por motivos de salud. Consulta a un profesional sanitario si tienes dudas.",
+    intro2: "Esta calculadora aplica una fórmula orientativa habitual: un factor base de 30 a 40 ml por kilogramo de peso, ajustado según tu nivel de actividad, más un extra en climas cálidos para compensar las pérdidas por sudoración. El resultado es una estimación orientativa de la ingesta de líquidos. Ten en cuenta que parte del agua diaria (en torno al 20-30 %) procede también de los alimentos y de otras bebidas, por lo que no toda debe beberse como agua.",
+    disclaimer: "Los resultados son orientativos. La ingesta total de agua incluye la procedente de alimentos y otras bebidas, no solo el agua bebida. Las necesidades de hidratación pueden variar por motivos de salud; consulta a un profesional sanitario si tienes dudas. Referencia orientativa: EFSA (Autoridad Europea de Seguridad Alimentaria), valores dietéticos de referencia para el agua.",
     cardTitle: "Tus datos",
     weightLabel: "Peso (kg)",
     activityLabel: "Nivel de actividad",
@@ -85,10 +85,10 @@ const T = {
   },
   en: {
     title: "Daily Water Intake Calculator",
-    subtitle: "Find out how much water you should drink per day based on your weight, physical activity level and climate.",
+    subtitle: "Estimate your indicative hydration needs based on your weight, physical activity level and climate.",
     intro1: "Water is essential for almost every process in the body: it regulates body temperature, transports nutrients, aids digestion and removes metabolic waste. However, hydration needs are not the same for everyone — they vary depending on body weight, the intensity of physical activity and climatic conditions.",
-    intro2: "This calculator applies the formula used by dietitians and nutritionists: a base factor of 30 to 40 ml per kilogram of body weight, adjusted for your activity level, plus an extra 500 ml in hot climates to compensate for fluid lost through sweating. The result tells you how many litres of fluid you should drink throughout the day to stay properly hydrated.",
-    disclaimer: "Results are indicative only. Hydration needs may vary for health reasons. Consult a healthcare professional if you have any concerns.",
+    intro2: "This calculator applies a common indicative formula: a base factor of 30 to 40 ml per kilogram of body weight, adjusted for your activity level, plus an extra amount in hot climates to compensate for fluid lost through sweating. The result is an indicative estimate of fluid intake. Bear in mind that part of your daily water (around 20-30%) also comes from food and other drinks, so not all of it needs to be drunk as water.",
+    disclaimer: "Results are indicative only. Total water intake includes water from food and other drinks, not just water you drink. Hydration needs may vary for health reasons; consult a healthcare professional if you have any concerns. Indicative reference: EFSA (European Food Safety Authority), dietary reference values for water.",
     cardTitle: "Your data",
     weightLabel: "Weight (kg)",
     activityLabel: "Activity level",
