@@ -60,8 +60,12 @@ export const ARTICLES: Article[] = [
           "Sobrepeso: 25 – 29,9 — aumenta el riesgo de hipertensión, diabetes tipo 2 y enfermedades cardiovasculares.",
           "Obesidad grado I: 30 – 34,9 — riesgo moderado-alto.",
           "Obesidad grado II: 35 – 39,9 — riesgo alto.",
-          "Obesidad grado III (mórbida): ≥ 40 — riesgo muy elevado, puede requerir intervención médica especializada.",
+          "Obesidad grado III (mórbida): ≥ 40 — asociada al mayor riesgo para la salud según la clasificación de la OMS; conviene una valoración médica individualizada.",
         ],
+      },
+      {
+        type: "p",
+        text: "Estas categorías proceden de la clasificación de la Organización Mundial de la Salud y describen asociaciones estadísticas a nivel poblacional, no un diagnóstico individual: el IMC es una herramienta de cribado y el riesgo real de cada persona depende de otros factores (composición corporal, perímetro de cintura, edad, sexo y estado metabólico).",
       },
       {
         type: "h2",
@@ -126,8 +130,12 @@ export const ARTICLES: Article[] = [
           "Overweight: 25 – 29.9 — increases the risk of hypertension, type 2 diabetes and cardiovascular disease.",
           "Obesity class I: 30 – 34.9 — moderate-to-high risk.",
           "Obesity class II: 35 – 39.9 — high risk.",
-          "Obesity class III (morbid): ≥ 40 — very high risk; may require specialist medical intervention.",
+          "Obesity class III (morbid): ≥ 40 — associated with the highest health risk under the WHO classification; an individualised medical assessment is advisable.",
         ],
+      },
+      {
+        type: "p",
+        text: "These categories come from the World Health Organization classification and describe statistical associations at population level, not an individual diagnosis: BMI is a screening tool and each person's real risk depends on other factors (body composition, waist circumference, age, sex and metabolic status).",
       },
       {
         type: "h2",
@@ -213,7 +221,7 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "Perder peso: reduce el TDEE entre 300 y 500 kcal/día. Un déficit de 500 kcal equivale a perder aproximadamente 0,5 kg por semana de forma sostenible.",
+          "Perder peso: reduce el TDEE entre 300 y 500 kcal/día. No es una cifra universal: el déficit adecuado depende de tu punto de partida, y los déficits agresivos aumentan la pérdida de músculo y el riesgo de abandono. Un déficit moderado equivale a perder en torno a 0,3-0,5 kg por semana.",
           "Mantener peso: consume aproximadamente el mismo número de calorías que tu TDEE.",
           "Ganar músculo: añade entre 200 y 300 kcal al TDEE (superávit moderado) para minimizar el aumento de grasa.",
         ],
@@ -279,7 +287,7 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "Lose weight: reduce TDEE by 300–500 kcal/day. A 500 kcal deficit equates to losing roughly 0.5 kg per week sustainably.",
+          "Lose weight: reduce TDEE by 300–500 kcal/day. This is not a one-size-fits-all figure: the right deficit depends on your starting point, and aggressive deficits increase muscle loss and the risk of giving up. A moderate deficit equates to losing around 0.3-0.5 kg per week.",
           "Maintain weight: eat approximately the same number of calories as your TDEE.",
           "Gain muscle: add 200–300 kcal above TDEE (moderate surplus) to minimise fat gain.",
         ],
@@ -526,7 +534,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "callout",
-        text: "Los valores de FCmáx son estimaciones. Consulta a un médico deportivo antes de iniciar programas de entrenamiento de alta intensidad, especialmente si tienes factores de riesgo cardiovascular.",
+        text: "Los valores de FCmáx son estimaciones. Consulta a un médico deportivo antes de iniciar programas de entrenamiento de alta intensidad, especialmente si tienes factores de riesgo cardiovascular o tomas medicación que altere la frecuencia cardíaca (por ejemplo, betabloqueantes).",
       },
     ],
 
@@ -586,7 +594,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "callout",
-        text: "MHR values are estimates. Consult a sports medicine doctor before starting high-intensity training programmes, especially if you have cardiovascular risk factors.",
+        text: "MHR values are estimates. Consult a sports medicine doctor before starting high-intensity training programmes, especially if you have cardiovascular risk factors or take medication that alters heart rate (for example, beta blockers).",
       },
     ],
   },
@@ -614,6 +622,8 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "En una hipoteca fija el tipo no cambia nunca, lo que da estabilidad pero suele arrancar con un diferencial mayor. En la variable, la cuota se revisa cada 6 o 12 meses según el Euríbor, lo que genera incertidumbre. La mixta combina un período inicial fijo (típicamente 5-10 años) con un tramo variable posterior." },
       { type: "h2", text: "¿Cuándo conviene amortizar anticipadamente?" },
       { type: "p", text: "Cuanto antes en la vida del préstamo se realice una amortización parcial, mayor es el ahorro en intereses, porque el capital pendiente es mayor. Reducir plazo ahorra más intereses que reducir cuota, aunque esta última da más liquidez mensual. Verifica siempre si tu hipoteca tiene comisión por amortización anticipada." },
+      { type: "h2", text: "TIN, TAE y coste total: no los confundas" },
+      { type: "p", text: "El TIN (Tipo de Interés Nominal) es el interés que se aplica al calcular la cuota, como en el ejemplo anterior. La TAE (Tasa Anual Equivalente) añade el efecto de la capitalización y las comisiones obligatorias del préstamo, por lo que es el dato que la normativa obliga a mostrar para comparar hipotecas de forma homogénea. El coste total incluye además los productos vinculados (seguros de hogar o vida), la tasación y los gastos de notaría y registro. Una simulación de cuota parte del TIN; para el coste real de la hipoteca hay que mirar la TAE y la FEIN que entrega el banco. Puedes consultar la información oficial en el Banco de España." },
       { type: "callout", text: "Los cálculos son orientativos. Consulta siempre con tu entidad bancaria o un asesor hipotecario antes de firmar." },
     ],
     enSections: [
@@ -627,6 +637,8 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "A fixed-rate mortgage keeps the same rate throughout, giving stability but often starting higher. A variable rate is reviewed every 6 or 12 months based on Euribor, creating uncertainty. A mixed mortgage combines an initial fixed period (typically 5–10 years) with a subsequent variable tranche." },
       { type: "h2", text: "When does early repayment make sense?" },
       { type: "p", text: "The earlier in the loan life an early partial repayment is made, the greater the interest saving, because the outstanding balance is higher. Shortening the term saves more interest than reducing the payment, though the latter gives more monthly liquidity. Always check whether your mortgage has an early repayment fee." },
+      { type: "h2", text: "Nominal rate, APR and total cost: don't confuse them" },
+      { type: "p", text: "The nominal rate (TIN) is the interest used to calculate the payment, as in the example above. The APR (TAE) adds the effect of compounding and the loan's mandatory fees, which is why it is the figure the rules require to compare mortgages on a like-for-like basis. The total cost also includes linked products (home or life insurance), the appraisal and notary and registry fees. A payment simulation starts from the nominal rate; for the real cost of the mortgage you need to look at the APR and the FEIN document the bank provides. Official information is available from the Bank of Spain." },
       { type: "callout", text: "Calculations are indicative. Always consult your bank or a mortgage advisor before signing." },
     ],
   },
@@ -648,7 +660,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "¿Qué es la TAE?" },
       { type: "p", text: "La TAE (Tasa Anual Equivalente) es el coste real anual del préstamo o el rendimiento real anual del depósito. Incluye el efecto de la capitalización compuesta y las comisiones. Es el único indicador que permite comparar productos financieros en igualdad de condiciones y es de publicación obligatoria en España." },
       { type: "h2", text: "La fórmula de conversión" },
-      { type: "p", text: "TAE = (1 + TIN/m)^m − 1, donde m es el número de capitalizaciones al año. Si un préstamo tiene TIN del 6% con capitalización mensual (m=12): TAE = (1 + 0,06/12)^12 − 1 = 6,168%. La diferencia parece pequeña, pero en 20 años de hipoteca puede suponer miles de euros." },
+      { type: "p", text: "TAE = (1 + TIN/m)^m − 1, donde m es el número de capitalizaciones al año. Si un préstamo tiene TIN del 6% con capitalización mensual (m=12): TAE = (1 + 0,06/12)^12 − 1 = 6,168%. La diferencia parece pequeña, pero en 20 años de hipoteca puede suponer miles de euros. Ojo: esta fórmula solo refleja el efecto de la capitalización, no añade las comisiones. La TAE contractual de un préstamo se calcula incorporando además esas comisiones y gastos obligatorios, por lo que suele ser mayor que la que resulta solo de convertir el TIN." },
       { type: "h2", text: "¿Cuándo la TAE no lo dice todo?" },
       { type: "p", text: "La TAE legal de préstamos incluye comisiones de apertura y otros gastos recurrentes, pero puede no incluir gastos de tasación, notaría o registro en hipotecas. Para una visión completa del coste hipotecario existe la FIPA (Ficha de Información Personalizada) que el banco debe facilitar gratuitamente antes de la firma." },
       { type: "callout", text: "Siempre compara la TAE — no el TIN — cuando evalúes distintas ofertas de préstamo o inversión." },
@@ -659,7 +671,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "What is the APR?" },
       { type: "p", text: "The Annual Percentage Rate (APR) is the true annual cost of a loan or the true annual return of a deposit. It includes the effect of compound capitalisation and fees. It is the only indicator that allows financial products to be compared on equal terms, and its publication is mandatory in Spain." },
       { type: "h2", text: "The conversion formula" },
-      { type: "p", text: "APR = (1 + r/m)^m − 1, where m is the number of compounding periods per year. If a loan has a 6% nominal rate with monthly compounding (m=12): APR = (1 + 0.06/12)^12 − 1 = 6.168%. The difference seems small, but over 20 years of a mortgage it can amount to thousands of euros." },
+      { type: "p", text: "APR = (1 + r/m)^m − 1, where m is the number of compounding periods per year. If a loan has a 6% nominal rate with monthly compounding (m=12): APR = (1 + 0.06/12)^12 − 1 = 6.168%. The difference seems small, but over 20 years of a mortgage it can amount to thousands of euros. Note: this formula only reflects the effect of compounding; it does not add fees. A loan's contractual APR is calculated by additionally incorporating those mandatory fees and charges, so it is usually higher than the one obtained by converting the nominal rate alone." },
       { type: "h2", text: "When APR doesn't tell the whole story" },
       { type: "p", text: "The legal APR for loans includes opening fees and other recurring charges, but may not include valuation, notary or registration fees for mortgages. For a complete view of mortgage costs, the ESIS (European Standardised Information Sheet) must be provided free of charge by the bank before signing." },
       { type: "callout", text: "Always compare APR — not the nominal rate — when evaluating different loan or investment offers." },
@@ -731,7 +743,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "La retención depende de las circunstancias personales: estado civil, número de hijos o descendientes a cargo, discapacidad, pensiones compensatorias, etc. El modelo 145 que rellenaste cuando entraste a trabajar informa al empleador de estas circunstancias para que calcule la retención correcta." },
       { type: "h2", text: "¿Qué pasa si la retención fue incorrecta?" },
       { type: "p", text: "Si la retención fue demasiado alta, Hacienda te devuelve la diferencia en la declaración de la renta (la «devolución»). Si fue demasiado baja, tendrás que pagar la diferencia (la «renta a pagar»). Por eso conviene ajustar la retención actualizando el modelo 145 cuando cambien tus circunstancias personales." },
-      { type: "callout", text: "Para una declaración exacta usa el borrador de la AEAT en Renta Web o consulta a un asesor fiscal. Los resultados de la calculadora son orientativos." },
+      { type: "callout", text: "Los tramos mostrados corresponden al ejercicio 2024-2025; la parte autonómica varía según tu comunidad y la AEAT publica los valores oficiales de cada año. Para una declaración exacta usa el borrador de la AEAT en Renta Web o consulta a un asesor fiscal. Los resultados de la calculadora son orientativos." },
     ],
     enSections: [
       { type: "p", text: "IRPF (Impuesto sobre la Renta de las Personas Físicas) is one of the cornerstones of the Spanish tax system. It is a progressive tax: the same rate does not apply to your entire income — each bracket is taxed at its own rate. Understanding how it works lets you anticipate your tax return and optimise your withholding." },
@@ -748,7 +760,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "Withholding depends on personal circumstances: marital status, number of dependent children, disability, compensatory pensions, etc. The Form 145 you completed when you started work informs your employer of these circumstances so they can calculate the correct withholding." },
       { type: "h2", text: "What if the withholding was incorrect?" },
       { type: "p", text: "If withholding was too high, the tax authority refunds the difference in your annual tax return. If too low, you will need to pay the difference. That is why it is worth ensuring withholding is set correctly from the start by updating Form 145 whenever your personal circumstances change." },
-      { type: "callout", text: "For an accurate return, use the AEAT draft in Renta Web or consult a tax advisor. The calculator results are for guidance only." },
+      { type: "callout", text: "The brackets shown correspond to the 2024-2025 tax year; the regional portion varies by community and the AEAT publishes the official values each year. For an accurate return, use the AEAT draft in Renta Web or consult a tax advisor. The calculator results are for guidance only." },
     ],
   },
   {
@@ -773,7 +785,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "¿Cuándo conviene comprar?" },
       { type: "p", text: "La compra suele compensar cuando: planeas vivir en el mismo lugar más de 7-10 años, el ratio precio/alquiler es bajo (< 20), tienes estabilidad laboral y financiera, y el tipo hipotecario es moderado. Si hay incertidumbre sobre el lugar de residencia o la situación laboral, el alquiler da más flexibilidad." },
       { type: "h2", text: "El punto de equilibrio" },
-      { type: "p", text: "El punto de equilibrio (break-even) es el número de años a partir del cual comprar resulta más barato que alquilar en términos acumulados. Depende de todos los factores anteriores y puede calcularse con precisión usando nuestra calculadora de alquiler vs. compra." },
+      { type: "p", text: "El punto de equilibrio (break-even) es el número de años a partir del cual comprar resulta más barato que alquilar en términos acumulados. Puede estimarse con nuestra calculadora de alquiler vs. compra, pero el resultado depende de supuestos inciertos —la rentabilidad de la inversión alternativa, la revalorización de la vivienda y la fiscalidad de cada caso—, así que conviene probarlo con escenarios optimistas y pesimistas en lugar de tomarlo como una cifra cerrada." },
       { type: "callout", text: "Esta guía es orientativa. La decisión de comprar una vivienda es compleja y personal. Consulta con un asesor financiero e inmobiliario." },
     ],
     enSections: [
@@ -786,7 +798,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "When does buying make sense?" },
       { type: "p", text: "Buying tends to be worthwhile when: you plan to live in the same place for 7–10+ years, the price/rent ratio is low (< 20), you have employment and financial stability, and the mortgage rate is moderate. If there is uncertainty about where you will live or your job situation, renting gives more flexibility." },
       { type: "h2", text: "The break-even point" },
-      { type: "p", text: "The break-even point is the number of years after which buying is cheaper than renting in cumulative terms. It depends on all the above factors and can be calculated precisely using our rent vs. buy calculator." },
+      { type: "p", text: "The break-even point is the number of years after which buying is cheaper than renting in cumulative terms. It can be estimated using our rent vs. buy calculator, but the result depends on uncertain assumptions — the return on the alternative investment, home appreciation and each case's taxation — so it is best to test optimistic and pessimistic scenarios rather than treat it as a fixed figure." },
       { type: "callout", text: "This guide is indicative. Buying a home is a complex and personal decision. Consult a financial and property advisor." },
     ],
   },
@@ -811,7 +823,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "La Ley de Crédito Inmobiliario de 2019 limita la comisión por amortización anticipada: en hipotecas variables, máximo 0,25% los primeros 3 años y 0,15% los siguientes 2 (luego 0%). En hipotecas fijas, máximo 2% los primeros 10 años y 1,5% a partir del año 11. Estas comisiones pueden reducir el ahorro neto." },
       { type: "h2", text: "¿Cuándo NO conviene amortizar?" },
       { type: "p", text: "Si tienes deudas a mayor tipo de interés (tarjetas, préstamos personales), conviene cancelarlas primero. Si la rentabilidad esperada de una inversión alternativa supera al coste de la hipoteca después de impuestos, puede ser mejor invertir. Y si tienes poca liquidez, mantener un colchón de emergencia es prioritario." },
-      { type: "callout", text: "Revisa tu contrato hipotecario antes de amortizar. Consulta con tu banco para confirmar las condiciones exactas." },
+      { type: "callout", text: "La opción más conveniente (reducir plazo o cuota, o incluso invertir en lugar de amortizar) depende de tu situación financiera personal. Revisa tu contrato hipotecario antes de amortizar y consulta con tu banco para confirmar las condiciones exactas." },
     ],
     enSections: [
       { type: "h2", text: "Shorter term vs. lower payment" },
@@ -822,7 +834,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "Spain's 2019 Real Estate Credit Act caps early repayment fees: for variable mortgages, maximum 0.25% in the first 3 years and 0.15% in the next 2 (then 0%). For fixed mortgages, maximum 2% in the first 10 years and 1.5% from year 11. These fees can reduce net savings." },
       { type: "h2", text: "When NOT to repay early" },
       { type: "p", text: "If you have higher-rate debts (credit cards, personal loans), pay those off first. If the expected return on an alternative investment exceeds the after-tax cost of the mortgage, investing may be better. And if you have limited cash, maintaining an emergency fund is the priority." },
-      { type: "callout", text: "Check your mortgage contract before repaying early. Consult your bank to confirm the exact conditions." },
+      { type: "callout", text: "The most suitable option (shortening the term or the payment, or even investing instead of repaying) depends on your personal financial situation. Check your mortgage contract before repaying early and consult your bank to confirm the exact conditions." },
     ],
   },
   {
@@ -846,6 +858,8 @@ export const ARTICLES: Article[] = [
       { type: "ul", items: ["Salario bruto mensual: 2.500 €", "Cotizaciones SS trabajador: −158,75 €/mes (6,35%)", "Base IRPF estimada: ~28.100 € anuales", "Retención IRPF estimada (~16%): −400 €/mes", "Salario neto estimado: ~1.941 €/mes"] },
       { type: "h2", text: "Las pagas extra" },
       { type: "p", text: "En España lo habitual son 14 pagas: 12 mensualidades más dos pagas extraordinarias (habitualmente en junio y diciembre). Algunos convenios incluyen la paga extra prorrateada en las 12 mensualidades, en cuyo caso el salario mensual neto es mayor pero no hay pagas extra." },
+      { type: "h2", text: "La retención no es tu impuesto final" },
+      { type: "p", text: "La retención que ves en la nómina es un pago a cuenta del IRPF, no la cuota definitiva. En la declaración de la renta del año siguiente se calcula el impuesto real según todos tus ingresos, deducciones y circunstancias, y se compara con lo retenido: si te retuvieron de más, te devuelven la diferencia; si de menos, la pagas. Por eso el neto mensual es una estimación y no coincide necesariamente con tu tributación final." },
       { type: "callout", text: "Los cálculos son estimaciones. Tu nómina real depende de tu convenio colectivo, circunstancias personales y comunidad autónoma." },
     ],
     enSections: [
@@ -857,6 +871,8 @@ export const ARTICLES: Article[] = [
       { type: "ul", items: ["Monthly gross: €2,500", "Employee SS contributions: −€158.75/month (6.35%)", "Estimated IRPF base: ~€28,100/year", "Estimated IRPF withholding (~16%): −€400/month", "Estimated net salary: ~€1,941/month"] },
       { type: "h2", text: "Extra payments" },
       { type: "p", text: "In Spain the standard is 14 payments: 12 monthly plus two bonus payments (typically in June and December). Some collective agreements include the bonus pro-rated into the 12 monthly payments, in which case the monthly net is higher but there are no separate bonus payments." },
+      { type: "h2", text: "Withholding is not your final tax" },
+      { type: "p", text: "The withholding you see on your payslip is a payment on account of income tax, not the final liability. In the following year's tax return, the real tax is calculated from all your income, deductions and circumstances and compared with what was withheld: if too much was withheld, you get the difference back; if too little, you pay it. That is why the monthly net is an estimate and does not necessarily match your final tax." },
       { type: "callout", text: "Calculations are estimates. Your actual payslip depends on your collective agreement, personal circumstances and autonomous community." },
     ],
   },
@@ -880,7 +896,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "Cómo extraer el IVA de un precio ya incluido" },
       { type: "p", text: "Base imponible = Precio total / (1 + tipo IVA). Si un artículo cuesta 121 € con IVA del 21%: base = 121 / 1,21 = 100 €; IVA = 21 €. Esta operación es la más habitual cuando recibes un ticket de caja y quieres saber la base para tu contabilidad." },
       { type: "h2", text: "Cambios recientes y exenciones" },
-      { type: "p", text: "En 2023-2024 el gobierno español aplicó rebajas temporales del IVA a alimentos básicos (del 4% al 0% para aceite, pan, pasta y harinas; del 10% al 5% para pastas y aceites) que se han ido revirtiendo progresivamente. Los servicios financieros, educativos y sanitarios están exentos de IVA." },
+      { type: "p", text: "En 2023-2024 el gobierno español aplicó rebajas temporales del IVA a alimentos básicos (del 4% al 0% para aceite, pan, pasta y harinas; del 10% al 5% para pastas y aceites) que se han ido revirtiendo progresivamente. Conviene distinguir además las operaciones exentas (como los servicios financieros, educativos y sanitarios), que no repercuten IVA ni permiten deducir el soportado, del tipo del 0 %. El encuadre exacto de cada producto o servicio tiene excepciones y reglas especiales; consulta siempre la clasificación oficial en la Agencia Tributaria (AEAT)." },
       { type: "callout", text: "Para declaraciones oficiales (modelos 303, 390) usa siempre el software homologado por la AEAT o consulta a un asesor." },
     ],
     enSections: [
@@ -891,7 +907,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "How to extract VAT from a VAT-inclusive price" },
       { type: "p", text: "Tax base = Total price / (1 + VAT rate). If an item costs €121 inclusive of 21% VAT: base = 121 / 1.21 = €100; VAT = €21. This is the most common operation when you receive a receipt and need the base for accounting purposes." },
       { type: "h2", text: "Recent changes and exemptions" },
-      { type: "p", text: "In 2023–2024 the Spanish government applied temporary VAT cuts to basic foods that have been progressively reversed. Financial, educational and healthcare services are VAT-exempt." },
+      { type: "p", text: "In 2023–2024 the Spanish government applied temporary VAT cuts to basic foods that have been progressively reversed. It is also worth distinguishing exempt transactions (such as financial, educational and healthcare services), which charge no VAT and do not allow input VAT to be deducted, from the 0% rate. The exact classification of each product or service has exceptions and special rules; always check the official classification with the Spanish Tax Agency (AEAT)." },
       { type: "callout", text: "For official returns (Forms 303, 390), always use AEAT-approved software or consult an advisor." },
     ],
   },
@@ -951,7 +967,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "El cuadro de amortización desglosa cada cuota: cuánto va a intereses y cuánto reduce el capital. En los primeros meses, casi todo son intereses. Si amortizas anticipadamente en los primeros meses de un préstamo personal (sin comisión), el ahorro en intereses es máximo." },
       { type: "h2", text: "Cuándo tiene sentido pedir un préstamo personal" },
       { type: "p", text: "Los préstamos personales tienen sentido para gastos concretos con un propósito claro: reformas del hogar, compra de vehículo, financiar estudios o consolidar deudas a mayor tipo. No tiene sentido para gastos recurrentes o para financiar consumo que no genera ningún valor." },
-      { type: "callout", text: "Compara siempre la TAE entre entidades y lee la letra pequeña del contrato antes de firmar." },
+      { type: "callout", text: "Compara siempre la TAE entre entidades y lee la letra pequeña del contrato antes de firmar. El Banco de España ofrece información oficial para comparar préstamos." },
     ],
     enSections: [
       { type: "h2", text: "First mistake: focusing on the monthly payment" },
@@ -962,7 +978,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "The amortisation schedule breaks down each payment: how much goes to interest and how much reduces the capital. In the first few months, almost everything is interest. If you make an early repayment in the first months of a personal loan (without a fee), the interest saving is at its maximum." },
       { type: "h2", text: "When does a personal loan make sense?" },
       { type: "p", text: "Personal loans make sense for specific expenses with a clear purpose: home renovations, vehicle purchase, funding studies or consolidating higher-rate debts. They do not make sense for recurring expenses or to fund consumption that generates no value." },
-      { type: "callout", text: "Always compare APRs across lenders and read the small print before signing." },
+      { type: "callout", text: "Always compare APRs across lenders and read the small print before signing. The Bank of Spain provides official information to compare loans." },
     ],
   },
   // ─── HOGAR ──────────────────────────────────────────────────────────────────
@@ -987,7 +1003,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "La depreciación es el mayor gasto de un coche pero el más ignorado. Un coche nuevo pierde entre el 15% y el 25% de su valor el primer año, y entre el 10% y el 15% los siguientes. Un coche de 25.000 € que usas 10 años y vendes por 5.000 € te ha costado 20.000 € solo en depreciación: 2.000 €/año." },
       { type: "h2", text: "El coste por kilómetro" },
       { type: "p", text: "Sumando todos los conceptos (fijos + variables + depreciación), el coste real por kilómetro de un coche de gama media en España suele estar entre 0,30 y 0,60 €/km. Esto significa que un trayecto de 20 km cuesta entre 6 y 12 € — similar o superior al precio de un taxi compartido para ese mismo recorrido." },
-      { type: "callout", text: "Los importes son estimaciones. Los precios del combustible y los seguros varían continuamente." },
+      { type: "callout", text: "Los importes son estimaciones (datos de referencia de 2026). Los precios del combustible y los seguros varían continuamente: consulta los precios actualizados en el portal de carburantes del Gobierno y los datos de la DGT." },
     ],
     enSections: [
       { type: "h2", text: "Fixed vehicle costs" },
@@ -998,7 +1014,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "Depreciation is the biggest car cost but the most ignored. A new car loses 15–25% of its value in the first year and 10–15% in subsequent years. A €25,000 car you use for 10 years and sell for €5,000 has cost you €20,000 in depreciation alone: €2,000/year." },
       { type: "h2", text: "Cost per kilometre" },
       { type: "p", text: "Adding all items (fixed + variable + depreciation), the true per-kilometre cost of a mid-range car in Spain typically falls between €0.30 and €0.60/km. This means a 20 km journey costs €6–12 — similar to or higher than a shared taxi for the same trip." },
-      { type: "callout", text: "Amounts are estimates. Fuel and insurance prices change continuously." },
+      { type: "callout", text: "Amounts are estimates (reference data for 2026). Fuel and insurance prices change continuously: check current prices at the government fuel portal and DGT data." },
     ],
   },
   {
@@ -1093,7 +1109,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "Los nuevos autónomos pueden acogerse a la tarifa plana de 80 €/mes durante los primeros 12 meses. En las comunidades autónomas con bonificaciones propias (como Madrid o Murcia) puede extenderse hasta 24 meses. Para acceder a ella, no deben haber estado dados de alta en el RETA en los últimos 2 años." },
       { type: "h2", text: "Regularización anual" },
       { type: "p", text: "Durante el año se paga una cuota provisional basada en los rendimientos estimados. Al año siguiente, la Seguridad Social cruza los datos con la AEAT: si ganaste más de lo estimado, pagas la diferencia; si ganaste menos, te devuelven la diferencia. Es importante declarar una estimación realista para evitar sorpresas." },
-      { type: "callout", text: "Los importes son estimativos para 2026. Consulta con la TGSS o un asesor para tu situación concreta." },
+      { type: "callout", text: "Los importes son estimativos para 2026 y están revisados en 2026. Consulta los tramos oficiales en la Seguridad Social (TGSS) o con un asesor para tu situación concreta." },
     ],
     enSections: [
       { type: "h2", text: "The new actual-income contribution system" },
@@ -1104,7 +1120,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "New self-employed workers can apply for the €80/month flat rate for the first 12 months. In autonomous communities with their own bonuses (such as Madrid or Murcia) this can extend to 24 months. To qualify, they must not have been registered with the RETA in the previous 2 years." },
       { type: "h2", text: "Annual regularisation" },
       { type: "p", text: "During the year a provisional contribution is paid based on estimated income. The following year, Social Security cross-checks with the tax authority: if you earned more than estimated, you pay the difference; if less, you receive a refund. It is important to declare a realistic estimate to avoid surprises." },
-      { type: "callout", text: "Amounts are indicative for 2026. Consult the TGSS or an advisor for your specific situation." },
+      { type: "callout", text: "Amounts are indicative for 2026 and reviewed in 2026. Check the official brackets with the Social Security (TGSS) or an advisor for your specific situation." },
     ],
   },
   {
@@ -1128,7 +1144,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "La base reguladora es el promedio de las bases de cotización por desempleo de los últimos 180 días (6 meses) antes del paro. Durante los primeros 180 días se cobra el 70% de esa base; a partir del día 181, el 50%. Existen topes mínimos y máximos que dependen de si tienes hijos a cargo." },
       { type: "h2", text: "Plazo de solicitud" },
       { type: "p", text: "La prestación debe solicitarse en los 15 días hábiles siguientes a la situación de desempleo para no perder días de prestación. Puede solicitarse online a través de la sede electrónica del SEPE, por teléfono o presencialmente con cita previa." },
-      { type: "callout", text: "La prestación real la determina el SEPE. Los importes pueden variar por circunstancias personales y actualizaciones normativas." },
+      { type: "callout", text: "La prestación real la determina el SEPE (fuente primaria; datos revisados en 2026). Los importes pueden variar por circunstancias personales y actualizaciones normativas." },
     ],
     enSections: [
       { type: "h2", text: "Requirements to access the benefit" },
@@ -1139,7 +1155,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "The regulatory base is the average of the unemployment contribution bases for the last 180 days (6 months) before becoming unemployed. For the first 180 days, 70% of that base is paid; from day 181, 50%. Minimum and maximum caps apply depending on whether you have dependent children." },
       { type: "h2", text: "Application deadline" },
       { type: "p", text: "The benefit must be applied for within 15 working days of becoming unemployed to avoid losing benefit days. Applications can be made online via the SEPE electronic office, by phone or in person by appointment." },
-      { type: "callout", text: "The actual benefit is determined by the SEPE. Amounts may vary due to personal circumstances and regulatory updates." },
+      { type: "callout", text: "The actual benefit is determined by the SEPE (primary source; reviewed in 2026). Amounts may vary due to personal circumstances and regulatory updates." },
     ],
   },
   {
@@ -1163,7 +1179,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "La edad legal de jubilación en España sube progresivamente hasta los 67 años en 2027. En 2026 es de 66 años y 8 meses para quienes coticen menos de 38 años y 3 meses. Si has cotizado 38 años y 3 meses o más, puedes jubilarte a los 65 años. La jubilación anticipada penaliza la pensión un 0,21-0,25% por mes adelantado." },
       { type: "h2", text: "¿Qué pasa con la pensión si cobras poco?" },
       { type: "p", text: "Existe una pensión mínima garantizada. Si la pensión calculada es inferior al mínimo, el Estado complementa la diferencia siempre que el pensionista no tenga otros ingresos superiores al límite establecido. En 2025, la pensión mínima para jubilado solo/a con cónyuge a cargo rondaba los 900 €/mes." },
-      { type: "callout", text: "Esta calculadora es orientativa. Para conocer tu pensión estimada real, consulta el simulador oficial de la Seguridad Social o solicita un informe de vida laboral en tu oficina de la SS." },
+      { type: "callout", text: "Esta calculadora es orientativa y las reglas mostradas están revisadas para 2026. Para conocer tu pensión estimada real, consulta el simulador oficial de la Seguridad Social o solicita un informe de vida laboral en tu oficina de la SS." },
     ],
     enSections: [
       { type: "h2", text: "The two key factors: regulatory base and percentage" },
@@ -1174,7 +1190,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "The legal retirement age in Spain is rising progressively to 67 by 2027. In 2026 it is 66 years and 8 months for those who have contributed fewer than 38 years and 3 months. If you have contributed 38 years and 3 months or more, you can retire at 65. Early retirement penalises the pension by 0.21–0.25% per month brought forward." },
       { type: "h2", text: "What if the pension is too low?" },
       { type: "p", text: "There is a guaranteed minimum pension. If the calculated pension is below the minimum, the State tops up the difference provided the pensioner has no other income above the established limit. In 2025, the minimum pension for a single pensioner or one with a dependent spouse was around €900/month." },
-      { type: "callout", text: "This calculator is indicative. For your real estimated pension, use the official Social Security simulator or request a working life report at your local Social Security office." },
+      { type: "callout", text: "This calculator is indicative and the rules shown are reviewed for 2026. For your real estimated pension, use the official Social Security simulator or request a working life report at your local Social Security office." },
     ],
   },
   {
@@ -1198,7 +1214,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "En derecho procesal y administrativo, si el último día del plazo es sábado, domingo o festivo nacional, el plazo se prorroga automáticamente hasta el siguiente día hábil. En plazos de días naturales del derecho privado, esto no ocurre automáticamente — depende del contrato." },
       { type: "h2", text: "Festivos que deben conocerse" },
       { type: "p", text: "En España hay festivos nacionales, autonómicos y municipales. Los nacionales son los mismos en todo el país (Año Nuevo, Reyes, Jueves y Viernes Santo, Fiesta Nacional, Todos los Santos, Constitución, Inmaculada, Navidad). Los autonómicos y municipales varían y suman hasta 14 festivos totales al año." },
-      { type: "callout", text: "Para plazos legales importantes, verifica siempre con un abogado o asesor la normativa exacta aplicable a tu caso." },
+      { type: "callout", text: "Ten en cuenta que «día hábil» en sentido legal excluye también los festivos, mientras que el cálculo de «días laborables» de la calculadora solo descarta los fines de semana; para plazos exactos, contrasta el calendario oficial de festivos. Para plazos legales importantes, verifica siempre con un abogado o asesor la normativa exacta aplicable a tu caso." },
     ],
     enSections: [
       { type: "h2", text: "Calendar days vs. working days" },
@@ -1209,7 +1225,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "In procedural and administrative law, if the last day of a deadline is a Saturday, Sunday or national public holiday, the deadline is automatically extended to the next working day. For calendar day deadlines in private law, this does not happen automatically — it depends on the contract." },
       { type: "h2", text: "Public holidays to know" },
       { type: "p", text: "Spain has national, regional and municipal public holidays. National holidays are the same throughout the country (New Year, Epiphany, Holy Thursday and Friday, National Day, All Saints, Constitution Day, Immaculate Conception, Christmas). Regional and municipal ones vary and together total up to 14 public holidays per year." },
-      { type: "callout", text: "For important legal deadlines, always verify with a lawyer or advisor the exact rules applicable to your situation." },
+      { type: "callout", text: "Note that a 'working day' in the legal sense also excludes public holidays, whereas the calculator's 'weekday' count only removes weekends; for exact deadlines, check the official holiday calendar. For important legal deadlines, always verify with a lawyer or advisor the exact rules applicable to your situation." },
     ],
   },
   {
