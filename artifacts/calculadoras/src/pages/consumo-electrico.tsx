@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Trash2, Zap, Lightbulb, Download } from "lucide-react";
 import { downloadChart } from "@/lib/chart-download";
@@ -577,3 +578,5 @@ export default function ConsumoElectrico() {
     </div>
   );
 }
+
+registerFaq("hogar/consumo-electrico", T);

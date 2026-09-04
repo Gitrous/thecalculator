@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Heart } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -230,3 +231,5 @@ export default function FrecuenciaCardiaca() {
     </div>
   );
 }
+
+registerFaq("salud/frecuencia-cardiaca", T);

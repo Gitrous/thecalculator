@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Building } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -395,3 +396,5 @@ export default function AmortizacionAnticipada() {
     </div>
   );
 }
+
+registerFaq("finanzas/amortizacion-anticipada", T);

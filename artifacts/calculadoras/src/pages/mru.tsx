@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { ArrowLeft, Atom, Download } from "lucide-react";
 import { useLocale } from "@/lib/locale";
@@ -483,3 +484,5 @@ export default function MRU() {
     </div>
   );
 }
+
+registerFaq("educacion/mru", T);

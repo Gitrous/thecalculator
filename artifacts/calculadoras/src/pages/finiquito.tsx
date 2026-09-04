@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { FileText, ShieldCheck, Lock, Zap, Info, Sun, CreditCard, Calendar } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -422,3 +423,5 @@ export default function Finiquito() {
     </div>
   );
 }
+
+registerFaq("trabajo/finiquito", T);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Percent } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -339,3 +340,5 @@ export default function Tae() {
     </div>
   );
 }
+
+registerFaq("finanzas/tae", T);

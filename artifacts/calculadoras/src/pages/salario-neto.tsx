@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -433,3 +434,5 @@ export default function SalarioNeto() {
     </div>
   );
 }
+
+registerFaq("finanzas/salario-neto", T);

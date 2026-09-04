@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Droplets } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -280,3 +281,5 @@ export default function AguaDiaria() {
     </div>
   );
 }
+
+registerFaq("salud/agua-diaria", T);

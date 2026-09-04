@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowLeftRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -154,7 +155,7 @@ const T = {
     subtitle: "Convierte entre unidades de longitud, masa, temperatura, energía, velocidad, área y volumen al instante.",
     intro1: "El conversor de unidades te permite transformar al instante valores entre los sistemas de medida más utilizados: el Sistema Internacional (SI), el sistema anglosajón y otras unidades de uso habitual. Las categorías cubiertas son longitud, masa, temperatura, energía, velocidad, área y volumen, abarcando las conversiones más frecuentes en ciencia, ingeniería y vida cotidiana.",
     intro2: "Para cada categoría, selecciona la unidad de origen y la unidad de destino, introduce el valor y obtendrás el resultado al instante. También se muestra una tabla de referencia rápida con los valores equivalentes para 1, 10, 100 y 1.000 unidades. El conversor usa factores de conversión estandarizados o valores de consenso científico.",
-    disclaimer: "Los factores de conversión son los establecidos internacionalmente. Para aplicaciones de ingeniería o científicas de alta precisión, consulta las fuentes normativas oficiales.",
+    disclaimer: "Los factores de conversión son los establecidos internacionalmente. Referencia: Sistema Internacional de Unidades (SI), definido por la Oficina Internacional de Pesas y Medidas (BIPM). Para aplicaciones de ingeniería o científicas de alta precisión, consulta las fuentes normativas oficiales.",
     fromLabel: "De",
     toLabel: "A",
     valueLabel: "Valor a convertir",
@@ -189,7 +190,7 @@ const T = {
     subtitle: "Instantly convert between units of length, mass, temperature, energy, speed, area and volume.",
     intro1: "The unit converter lets you instantly transform values between the most widely used measurement systems: the International System (SI), the imperial system and other commonly used units. The categories covered are length, mass, temperature, energy, speed, area and volume, covering the most frequent conversions in science, engineering and everyday life.",
     intro2: "For each category, select the source unit and target unit, enter the value and you will get the result instantly. A quick reference table is also shown with equivalent values for 1, 10, 100 and 1,000 units. The converter uses standardised conversion factors or scientific consensus values.",
-    disclaimer: "Conversion factors are internationally established. For high-precision engineering or scientific applications, consult the official normative sources.",
+    disclaimer: "Conversion factors are internationally established. Reference: the International System of Units (SI), defined by the International Bureau of Weights and Measures (BIPM). For high-precision engineering or scientific applications, consult the official normative sources.",
     fromLabel: "From",
     toLabel: "To",
     valueLabel: "Value to convert",
@@ -377,6 +378,14 @@ export default function ConversorUnidades() {
       <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.aboutTitle}</h2>
         <p>{t.aboutText}</p>
+        <p>
+          {locale === "en" ? "Source: " : "Fuente: "}
+          <a href="https://www.bipm.org/en/measurement-units" target="_blank" rel="noopener noreferrer">
+            {locale === "en"
+              ? "International System of Units (SI) — BIPM"
+              : "Sistema Internacional de Unidades (SI) — BIPM"}
+          </a>
+        </p>
         <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.howTitle}</h2>
         <p>{t.how1}</p>
       </section>
@@ -450,3 +459,5 @@ export default function ConversorUnidades() {
     </div>
   );
 }
+
+registerFaq("educacion/conversor-unidades", T);

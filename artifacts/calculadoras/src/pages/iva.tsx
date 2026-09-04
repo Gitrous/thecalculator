@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Receipt, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -389,3 +390,5 @@ export default function Iva() {
     </div>
   );
 }
+
+registerFaq("finanzas/iva", T);

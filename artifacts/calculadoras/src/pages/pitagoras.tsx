@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -663,3 +664,5 @@ export default function Pitagoras() {
     </div>
   );
 }
+
+registerFaq("educacion/pitagoras", T);

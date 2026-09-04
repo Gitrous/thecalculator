@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { UserCheck } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -271,3 +272,5 @@ export default function Autonomos() {
     </div>
   );
 }
+
+registerFaq("trabajo/autonomos", T);

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { CalendarDays, Briefcase, GraduationCap, Clock } from "lucide-react";
 import {
   differenceInCalendarDays,
@@ -465,3 +466,5 @@ export default function DiasEntreFechas() {
     </div>
   );
 }
+
+registerFaq("trabajo/dias-entre-fechas", T);

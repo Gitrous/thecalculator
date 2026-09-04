@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -455,3 +456,5 @@ export default function HipotecaAvanzada() {
     </div>
   );
 }
+
+registerFaq("finanzas/hipoteca", T);

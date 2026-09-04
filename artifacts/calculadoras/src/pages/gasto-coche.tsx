@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { Car, Lightbulb, ArrowRight, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -468,3 +469,5 @@ export default function GastoCoche() {
     </div>
   );
 }
+
+registerFaq("hogar/gasto-coche", T);

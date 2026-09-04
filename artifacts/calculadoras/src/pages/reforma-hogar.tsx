@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Plus, Trash2, Hammer, Lightbulb, Download } from "lucide-react";
 import { downloadChart } from "@/lib/chart-download";
 import {
@@ -481,3 +482,5 @@ export default function ReformaHogar() {
     </div>
   );
 }
+
+registerFaq("hogar/reforma-hogar", T);

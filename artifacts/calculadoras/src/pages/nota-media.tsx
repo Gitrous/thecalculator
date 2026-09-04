@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { GraduationCap, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -55,7 +56,7 @@ const T = {
     q2: "¿Cuándo conviene usar la media simple?",
     a2: "La media simple —suma de notas dividida entre el número de asignaturas— es útil cuando todas las materias tienen el mismo peso o cuando solo quieres una referencia rápida. Sin embargo, para becas, solicitudes de máster u oposiciones, lo habitual es pedir la nota media oficial del expediente, que siempre es la ponderada por créditos ECTS.",
     q3: "¿Cómo puede afectar la nota media a tu carrera?",
-    a3: "La nota media importa en convocatorias de becas (como las del MEC, que suelen exigir un mínimo de 6,5 o 7), en el acceso a másteres con plazas limitadas y en oposiciones que valoran el expediente académico. Mejorar una asignatura de muchos créditos tiene mayor impacto que subir una de pocos, por eso merece la pena identificar las de más peso antes de ir a recuperación.",
+    a3: "La nota media importa en convocatorias de becas, en el acceso a másteres con plazas limitadas y en oposiciones que valoran el expediente académico. Los umbrales mínimos los fija cada convocatoria y varían según los estudios, así que conviene consultarlos en sus bases oficiales. Mejorar una asignatura de muchos créditos tiene mayor impacto que subir una de pocos, por eso merece la pena identificar las de más peso antes de ir a recuperación.",
     q4: "¿Cómo se convierte la nota media al sistema GPA anglosajón?",
     a4: "No existe una conversión oficial única, pero la equivalencia más aceptada por las universidades toma como referencia que el GPA estadounidense va de 0 a 4. La correspondencia orientativa es: un 9-10 español equivale a un GPA de 4,0; un 7-8,9 se sitúa en torno a 3,0-3,7; un 6-6,9 ronda el 2,3-2,7; y un 5-5,9 equivale aproximadamente a 2,0. Muchas universidades exigen que la conversión la realice un organismo homologador como WES o similar, porque cada institución aplica sus propias tablas y la equivalencia directa puede no ser aceptada en un proceso de admisión formal.",
     q5: "¿Cuentan los suspensos en la nota media?",
@@ -68,7 +69,7 @@ const T = {
     tableCol1: "Nota numérica",
     tableCol2: "Calificación",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "La nota media que obtienes es el dato que aparecerá en tu expediente y el que se usará para baremar becas, prácticas, másteres y convocatorias públicas. Como referencia práctica, las becas del Ministerio suelen exigir un mínimo de 6,5 en la mayoría de titulaciones, los másteres competitivos se mueven por encima del 7 y los programas de doctorado o las becas de excelencia piden habitualmente más de 8. Si tu media está por debajo del objetivo que persigues, ten en cuenta que las asignaturas con más créditos son las que más pueden moverla: mejorar una nota en un trabajo de fin de grado de 12 créditos tiene mucho más impacto que hacerlo en una optativa de 3.",
+    interpret: "La media ponderada por créditos ECTS es el método más habitual, pero el cálculo oficial y el valor que consta en tu expediente pueden depender de la normativa de tu universidad y del procedimiento de cada convocatoria. Se usa para baremar becas, prácticas, másteres y convocatorias públicas, aunque los umbrales mínimos los fija cada convocatoria y conviene consultarlos en sus bases oficiales. Si tu media está por debajo del objetivo que persigues, ten en cuenta que las asignaturas con más créditos son las que más pueden moverla: mejorar una nota en un trabajo de fin de grado de 12 créditos tiene mucho más impacto que hacerlo en una optativa de 3.",
   },
   en: {
     title: "Grade Average Calculator",
@@ -100,7 +101,7 @@ const T = {
     q2: "When should I use the simple average?",
     a2: "The simple average—the sum of grades divided by the number of subjects—is useful when all subjects carry the same weight or when you just want a quick reference. However, for scholarship applications, master's programmes or public-sector exams, the official transcript average is always the credit-weighted one.",
     q3: "How does the grade average affect your career?",
-    a3: "Your transcript average matters for scholarship applications (government grants typically require a minimum of 6.5 or 7), access to oversubscribed master's programmes, and public-sector exams that reward academic records. Improving a high-credit subject has more impact than raising a low-credit one, so it is worth identifying the heaviest subjects before a resit.",
+    a3: "Your transcript average matters for scholarship applications, access to oversubscribed master's programmes, and public-sector exams that reward academic records. Minimum thresholds are set by each call and vary by programme, so it is best to check them in the official terms. Improving a high-credit subject has more impact than raising a low-credit one, so it is worth identifying the heaviest subjects before a resit.",
     q4: "How do you convert the Spanish average to a GPA?",
     a4: "There is no single official conversion, but the equivalence most widely accepted by universities takes the US GPA scale of 0 to 4 as reference. The indicative correspondence is: a Spanish 9-10 equals a GPA of 4.0; a 7-8.9 sits around 3.0-3.7; a 6-6.9 is roughly 2.3-2.7; and a 5-5.9 equals approximately 2.0. Many universities require the conversion to be carried out by an accrediting body such as WES or similar, because each institution applies its own tables and a direct equivalence may not be accepted in a formal admissions process.",
     q5: "Do failed subjects count towards the average?",
@@ -113,7 +114,7 @@ const T = {
     tableCol1: "Numeric grade",
     tableCol2: "Qualification",
     interpretTitle: "How to interpret the result",
-    interpret: "The average you obtain is the figure that will appear on your transcript and the one used to rank applications for grants, internships, master's programmes and public competitions. As a practical reference, government scholarships usually require a minimum of 6.5 in most degrees, competitive master's programmes sit above 7, and doctoral programmes or excellence grants typically ask for more than 8. If your average falls below the target you are aiming for, bear in mind that subjects with more credits are the ones that can move it most: improving a grade in a 12-credit final project has far more impact than doing so in a 3-credit elective.",
+    interpret: "The ECTS credit-weighted average is the most common method, but the official calculation and the figure recorded on your transcript can depend on your university's rules and on each call's procedure. It is used to rank applications for grants, internships, master's programmes and public competitions, though minimum thresholds are set by each call and should be checked in its official terms. If your average falls below the target you are aiming for, bear in mind that subjects with more credits are the ones that can move it most: improving a grade in a 12-credit final project has far more impact than doing so in a 3-credit elective.",
   },
 };
 
@@ -319,3 +320,5 @@ export default function NotaMedia() {
     </div>
   );
 }
+
+registerFaq("educacion/nota-media", T);

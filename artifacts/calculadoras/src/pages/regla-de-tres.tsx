@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { GitCompare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -271,3 +272,5 @@ export default function ReglaDeTres() {
     </div>
   );
 }
+
+registerFaq("educacion/regla-de-tres", T);

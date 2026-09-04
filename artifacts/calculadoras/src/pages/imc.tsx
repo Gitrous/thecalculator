@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { HeartPulse, Heart, Zap, Activity, ChevronRight } from "lucide-react";
 import {
@@ -32,16 +33,16 @@ const RANGES: ImcRange[] = [
     labelEs: "Peso normal", labelEn: "Normal weight",
     color: "text-emerald-500",
     badgeCls: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
-    descEs: "Estás dentro del rango ideal.",
-    descEn: "You are within the ideal range.",
+    descEs: "Tu IMC está dentro del rango de referencia para adultos.",
+    descEn: "Your BMI is within the reference range for adults.",
   },
   {
     max: 30,
     labelEs: "Sobrepeso", labelEn: "Overweight",
     color: "text-amber-500",
     badgeCls: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
-    descEs: "Tu peso está ligeramente por encima del rango ideal.",
-    descEn: "Your weight is slightly above the ideal range.",
+    descEs: "Tu IMC está ligeramente por encima del rango de referencia para adultos.",
+    descEn: "Your BMI is slightly above the reference range for adults.",
   },
   {
     max: 35,
@@ -73,36 +74,36 @@ const RANGES: ImcRange[] = [
 const RECS = {
   es: [
     {
-      nut: "Aumenta gradualmente la ingesta calórica con alimentos nutritivos: frutos secos, aguacate, proteínas magras y cereales integrales. Evita saltarte comidas.",
-      act: "Los ejercicios de fuerza son los más beneficiosos para ganar masa muscular. Evita el exceso de cardio intenso hasta alcanzar un peso saludable.",
-      seg: "Pésate una vez por semana en las mismas condiciones. Considera consultar a un dietista-nutricionista para un plan personalizado.",
+      nut: "A modo informativo: aumentar de forma gradual la ingesta calórica con alimentos nutritivos (frutos secos, aguacate, proteínas magras y cereales integrales) y no saltarse comidas suele asociarse a una recuperación de peso saludable.",
+      act: "Los ejercicios de fuerza son de los más útiles para ganar masa muscular; conviene moderar el exceso de cardio intenso hasta alcanzar un peso saludable.",
+      seg: "Un control de peso semanal en las mismas condiciones y la valoración por un dietista-nutricionista ayudan a personalizar el enfoque.",
     },
     {
-      nut: "Mantén una dieta equilibrada y variada, rica en frutas, verduras, proteínas magras y grasas saludables. La hidratación adecuada es esencial.",
-      act: "La OMS recomienda al menos 150-300 minutos de actividad aeróbica moderada a la semana, complementada con ejercicios de fuerza 2 días.",
-      seg: "Pésate mensualmente para detectar variaciones. Tu peso puede fluctuar ±2 kg según el día y la hidratación. Registra tu progreso.",
+      nut: "A modo informativo: una dieta equilibrada y variada, rica en frutas, verduras, proteínas magras y grasas saludables, junto con una hidratación adecuada, se asocia a un buen estado general.",
+      act: "La OMS sugiere al menos 150-300 minutos de actividad aeróbica moderada a la semana, complementada con ejercicios de fuerza dos días.",
+      seg: "El peso puede fluctuar ±2 kg según el día y la hidratación; un control mensual ayuda a detectar tendencias reales.",
     },
     {
-      nut: "Un déficit calórico moderado de 300-500 kcal/día es más efectivo y sostenible que las dietas drásticas. Prioriza alimentos ricos en fibra y proteínas.",
-      act: "Empieza con caminatas de 30 minutos al día y aumenta progresivamente la intensidad. La constancia es más importante que la intensidad al inicio.",
-      seg: "Consulta con tu médico o endocrino para un plan personalizado. Establece metas realistas a corto plazo y cél�bralas cuando las alcances.",
+      nut: "A modo informativo: un déficit calórico moderado (300-500 kcal/día) suele ser más efectivo y sostenible que las dietas drásticas; los alimentos ricos en fibra y proteínas ayudan a la saciedad.",
+      act: "Comenzar con caminatas de 30 minutos al día e ir aumentando la intensidad de forma progresiva prioriza la constancia sobre la intensidad inicial.",
+      seg: "Para un plan personalizado conviene consultar con un médico o endocrino y fijar metas realistas a corto plazo.",
     },
   ],
   en: [
     {
-      nut: "Gradually increase caloric intake with nutritious foods: nuts, avocado, lean protein and whole grains. Avoid skipping meals.",
-      act: "Strength training is most beneficial for gaining muscle mass. Avoid excessive intense cardio until you reach a healthy weight.",
-      seg: "Weigh yourself once a week under the same conditions. Consider consulting a registered dietitian for a personalised plan.",
+      nut: "For general information: gradually increasing caloric intake with nutritious foods (nuts, avocado, lean protein and whole grains) and not skipping meals is generally associated with healthy weight gain.",
+      act: "Strength training is among the most useful for gaining muscle mass; excessive intense cardio is best moderated until a healthy weight is reached.",
+      seg: "A weekly weigh-in under the same conditions and an assessment by a registered dietitian help tailor the approach.",
     },
     {
-      nut: "Maintain a balanced and varied diet, rich in fruit, vegetables, lean protein and healthy fats. Staying well hydrated is essential.",
-      act: "The WHO recommends at least 150-300 minutes of moderate aerobic activity per week, plus strength training on 2 days.",
-      seg: "Weigh yourself monthly to detect changes. Your weight can fluctuate ±2 kg depending on the day and hydration levels.",
+      nut: "For general information: a balanced and varied diet, rich in fruit, vegetables, lean protein and healthy fats, together with adequate hydration, is associated with good general health.",
+      act: "The WHO suggests at least 150-300 minutes of moderate aerobic activity per week, plus strength training on two days.",
+      seg: "Weight can fluctuate ±2 kg depending on the day and hydration; a monthly check helps identify real trends.",
     },
     {
-      nut: "A moderate calorie deficit of 300-500 kcal/day is more effective and sustainable than drastic diets. Prioritise fibre- and protein-rich foods.",
-      act: "Start with 30-minute daily walks and gradually increase intensity. Consistency is more important than intensity when starting out.",
-      seg: "Consult your doctor or endocrinologist for a personalised plan. Set realistic short-term goals and celebrate when you achieve them.",
+      nut: "For general information: a moderate calorie deficit (300-500 kcal/day) tends to be more effective and sustainable than drastic diets; fibre- and protein-rich foods help with satiety.",
+      act: "Starting with 30-minute daily walks and progressively increasing intensity prioritises consistency over initial intensity.",
+      seg: "For a personalised plan it is advisable to consult a doctor or endocrinologist and set realistic short-term goals.",
     },
   ],
 };
@@ -124,7 +125,7 @@ const T = {
     barOver: "Sobrepeso",
     barObese: "Obeso",
     yourBmi: "Tu IMC Resultante",
-    idealWeight: "Peso Ideal",
+    idealWeight: "Rango de peso (IMC 18,5–24,9)",
     category: "Categoría",
     related: "Herramientas relacionadas",
     recommendations: "Recomendaciones de Salud",
@@ -176,7 +177,7 @@ const T = {
     barOver: "Overweight",
     barObese: "Obese",
     yourBmi: "Your BMI Result",
-    idealWeight: "Ideal Weight",
+    idealWeight: "Weight range (BMI 18.5–24.9)",
     category: "Category",
     related: "Related tools",
     recommendations: "Health Recommendations",
@@ -542,3 +543,5 @@ export default function Imc() {
     </div>
   );
 }
+
+registerFaq("salud/imc", T);

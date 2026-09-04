@@ -15,6 +15,7 @@ import {
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { Seo } from "@/components/seo";
+import { getFaqJsonLd } from "@/lib/faq-schema";
 import NotFound from "@/pages/not-found";
 import { useLocale } from "@/lib/locale";
 
@@ -129,8 +130,7 @@ export default function CalculatorPage() {
     ? `/en/calculators/${EN_CATEGORY_SLUGS[category.id]}`
     : `/calculadoras/${category.id}`;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const webApp = {
     "@type": "WebApplication",
     name: seoTitle,
     url: `https://thecalculator.tech${seoPath}`,
@@ -140,6 +140,11 @@ export default function CalculatorPage() {
     inLanguage: isEn ? "en" : "es",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  };
+  const faqNode = getFaqJsonLd(`${categoryId}/${slug}`, isEn ? "en" : "es");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": faqNode ? [webApp, faqNode] : [webApp],
   };
 
   return (

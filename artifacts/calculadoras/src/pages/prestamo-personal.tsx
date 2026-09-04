@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -349,3 +350,5 @@ export default function PrestamoPersonal() {
     </div>
   );
 }
+
+registerFaq("finanzas/prestamo-personal", T);

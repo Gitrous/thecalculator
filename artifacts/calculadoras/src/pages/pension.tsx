@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Landmark } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -154,7 +155,18 @@ export default function Pension() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-2">{t.subtitle}</p>
+      <p className="text-xs text-muted-foreground mb-3">
+        {locale === "en" ? "Data reviewed on 01/09/2026 · Official simulator: " : "Datos revisados el 01/09/2026 · Simulador oficial: "}
+        <a href="https://sede.seg-social.gob.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          Tu Seguridad Social
+        </a>
+      </p>
+      <div className="mb-6 rounded-lg border border-amber-300/60 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-500/10 p-3 text-xs text-amber-900 dark:text-amber-200">
+        {locale === "en"
+          ? "Simplified simulation. The official pension depends on your actual contribution bases and personal circumstances."
+          : "Simulación simplificada. La pensión oficial depende de tus bases reales de cotización y de tus circunstancias personales."}
+      </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>
@@ -315,3 +327,5 @@ export default function Pension() {
     </div>
   );
 }
+
+registerFaq("trabajo/pension", T);

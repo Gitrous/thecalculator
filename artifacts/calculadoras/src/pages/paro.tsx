@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Briefcase } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -212,7 +213,18 @@ export default function Paro() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-2">{t.subtitle}</p>
+      <p className="text-xs text-muted-foreground mb-1">
+        {locale === "en" ? "Data reviewed on 01/09/2026 · Source: " : "Datos revisados el 01/09/2026 · Fuente: "}
+        <a href="https://www.sepe.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          {locale === "en" ? "SEPE — Contributory benefit" : "SEPE — Prestación contributiva"}
+        </a>
+      </p>
+      <p className="text-xs text-muted-foreground mb-6">
+        {locale === "en"
+          ? "This tool uses your gross monthly salary as an approximation; the actual benefit depends on your unemployment contribution bases."
+          : "Esta herramienta usa tu salario bruto mensual como aproximación; la prestación real depende de tus bases de cotización por desempleo."}
+      </p>
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>
@@ -390,3 +402,5 @@ export default function Paro() {
     </div>
   );
 }
+
+registerFaq("trabajo/paro", T);

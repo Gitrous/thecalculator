@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { HeartPulse } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -83,11 +84,11 @@ const T = {
     tmbLabel: "TMB (en reposo)",
     tdeeLabel: "TDEE (con actividad)",
     dailyTargetLabel: "Objetivo diario",
-    macroCardTitle: (obj: string) => `Macronutrientes orientativos — ${obj}`,
+    macroCardTitle: (obj: string) => `Reparto energético ilustrativo — ${obj}`,
     proteinLabel: "Proteínas",
     carbsLabel: "Hidratos",
     fatLabel: "Grasas",
-    disclaimer: "Distribución estándar orientativa. Ajusta según tu dieta y objetivos concretos.",
+    disclaimer: "Ejemplo ilustrativo de reparto energético (30 % proteínas, 40 % hidratos, 30 % grasas), no una recomendación nutricional personalizada. El reparto óptimo depende de cada persona; para un plan a tu medida, consulta a un dietista-nutricionista.",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué es la TMB?",
     a1: "La Tasa Metabólica Basal es la energía mínima que tu cuerpo necesita en reposo absoluto para mantener funciones vitales: respiración, circulación, temperatura corporal, etc. Representa entre el 60-75% del gasto calórico total.",
@@ -128,11 +129,11 @@ const T = {
     tmbLabel: "BMR (at rest)",
     tdeeLabel: "TDEE (with activity)",
     dailyTargetLabel: "Daily target",
-    macroCardTitle: (obj: string) => `Daily macros — ${obj}`,
+    macroCardTitle: (obj: string) => `Illustrative energy split — ${obj}`,
     proteinLabel: "Protein",
     carbsLabel: "Carbs",
     fatLabel: "Fat",
-    disclaimer: "Standard indicative distribution. Adjust according to your diet and specific goals.",
+    disclaimer: "Illustrative energy split (30% protein, 40% carbs, 30% fat), not a personalised nutritional recommendation. The optimal split varies from person to person; for a tailored plan, consult a registered dietitian.",
     faqTitle: "Frequently asked questions",
     q1: "What is BMR?",
     a1: "The Basal Metabolic Rate is the minimum energy your body needs at absolute rest to maintain vital functions: breathing, circulation, body temperature, etc. It represents 60–75% of total calorie expenditure.",
@@ -392,3 +393,5 @@ export default function Calorias() {
     </div>
   );
 }
+
+registerFaq("salud/calorias", T);

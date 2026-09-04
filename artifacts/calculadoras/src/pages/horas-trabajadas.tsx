@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { ArrowLeft, Clock, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -464,3 +465,5 @@ export default function HorasTrabajadas() {
     </div>
   );
 }
+
+registerFaq("trabajo/horas-trabajadas", T);
