@@ -58,7 +58,7 @@ const T = {
     breakdownTitle: "Desglose",
     breakdownDesc: "Meses, semanas y días restantes.",
     productivityTitle: "Productividad",
-    productivityDesc: "Días hábiles excluyendo fines de semana.",
+    productivityDesc: "Días de lunes a viernes (sin descontar festivos).",
     progressTitle: "Progreso de hoy",
     progressDesc: (day: number, year: number, pct: number) =>
       `Es el día ${day} de ${year}. Has completado el ${pct}% del año.`,
@@ -114,7 +114,7 @@ const T = {
     breakdownTitle: "Breakdown",
     breakdownDesc: "Months, weeks, and remaining days.",
     productivityTitle: "Productivity",
-    productivityDesc: "Business days excluding weekends.",
+    productivityDesc: "Monday-to-Friday days (public holidays not deducted).",
     progressTitle: "Today's Progress",
     progressDesc: (day: number, year: number, pct: number) =>
       `It's day ${day} of ${year}. You've already completed ${pct}% of the year!`,

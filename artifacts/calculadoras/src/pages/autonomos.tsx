@@ -57,7 +57,7 @@ const T = {
   es: {
     title: "Calculadora Cuota Autónomos 2026",
     subtitle: "Estima tu cuota mensual al RETA según el sistema de tramos por rendimientos netos reales de 2026. Incluye la tarifa plana.",
-    intro1: "Desde 2023, las cuotas de los trabajadores autónomos en España se calculan según los rendimientos netos reales, sustituyendo el antiguo sistema de base libre. El nuevo sistema divide a los autónomos en 15 tramos según su renta mensual, con cuotas que van desde los 230 € hasta los 590 € mensuales. El objetivo es que quien más gana, más cotice.",
+    intro1: "Desde 2023, las cuotas de los trabajadores autónomos en España se calculan según los rendimientos netos reales, sustituyendo el antiguo sistema de base libre. El nuevo sistema divide a los autónomos en 15 tramos según su renta mensual, con cuotas que, según el tramo, van aproximadamente desde 200 € hasta 600 € mensuales (calculadas sobre la base mínima de cada tramo), además de la tarifa plana reducida para nuevos autónomos. El objetivo es que quien más gana, más cotice.",
     intro2: "Esta calculadora te muestra la cuota estimada para 2026 según el tramo al que perteneces, incluyendo la opción de la tarifa plana de 80 €/mes para los nuevos autónomos durante los primeros 12 meses. Recuerda que puedes solicitar cambios de base hasta 6 veces al año para ajustar tu cotización si tu renta real cambia.",
     disclaimer: "Estimación orientativa. Los importes exactos pueden variar. Consulta los tramos actualizados en la web de la Seguridad Social.",
     cardTitle: "Datos",
@@ -92,7 +92,7 @@ const T = {
   en: {
     title: "Spanish Freelancer Social Security Calculator 2026",
     subtitle: "Estimate your monthly RETA contribution based on the 2026 income bracket system. Includes the flat rate.",
-    intro1: "Since 2023, self-employed worker contributions in Spain have been calculated based on actual net income, replacing the old free-base system. The new system divides the self-employed into 15 brackets according to monthly income, with contributions ranging from €230 to €590 per month. The aim is for those who earn more to contribute more.",
+    intro1: "Since 2023, self-employed worker contributions in Spain have been calculated based on actual net income, replacing the old free-base system. The new system divides the self-employed into 15 brackets according to monthly income, with contributions that, depending on the bracket, range roughly from €200 to €600 per month (calculated on the minimum base of each bracket), plus the reduced flat rate for new self-employed workers. The aim is for those who earn more to contribute more.",
     intro2: "This calculator shows you the estimated contribution for 2026 according to your bracket, including the option of the flat rate of €80/month for new self-employed workers during the first 12 months. Remember that you can apply to change your contribution base up to 6 times a year to adjust your contributions if your actual income changes.",
     disclaimer: "Indicative estimate. Exact amounts may vary. Check the updated brackets on the Social Security website.",
     cardTitle: "Data",
@@ -145,7 +145,13 @@ export default function Autonomos() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-2">{t.subtitle}</p>
+      <p className="text-xs text-muted-foreground mb-6">
+        {locale === "en" ? "Data reviewed on 01/09/2026 · Source: " : "Datos revisados el 01/09/2026 · Fuente: "}
+        <a href="https://www.seg-social.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          {locale === "en" ? "Social Security" : "Seguridad Social"}
+        </a>
+      </p>
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

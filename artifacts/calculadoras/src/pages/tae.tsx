@@ -53,7 +53,8 @@ const T = {
     freqLabel: "Frecuencia de capitalización",
     tinLabel: "TIN (%)",
     taeLabel: "TAE (%)",
-    equivalentTae: "TAE equivalente",
+    equivalentTae: "TAE matemática equivalente (por capitalización)",
+    mathNote: "Esta herramienta convierte entre TIN y tasa efectiva únicamente a partir de la frecuencia de capitalización. No calcula la TAE contractual completa de un préstamo con comisiones y otros costes.",
     equivalentTin: "TIN equivalente",
     tableTitle: (tin: string) => `TAE según frecuencia de capitalización — TIN ${tin}%`,
     faqTitle: "Preguntas frecuentes",
@@ -91,7 +92,8 @@ const T = {
     freqLabel: "Compounding frequency",
     tinLabel: "Nominal rate (%)",
     taeLabel: "APR (%)",
-    equivalentTae: "Equivalent APR",
+    equivalentTae: "Mathematical equivalent APR (by compounding)",
+    mathNote: "This tool converts between the nominal rate and the effective rate using only the compounding frequency. It does not calculate the full contractual APR of a loan with fees and other costs.",
     equivalentTin: "Equivalent nominal rate",
     tableTitle: (tin: string) => `APR by compounding frequency — Nominal rate ${tin}%`,
     faqTitle: "Frequently asked questions",
@@ -234,6 +236,10 @@ export default function Tae() {
           </div>
         </CardContent>
       </Card>
+
+      <div className="mb-6 rounded-lg border border-amber-300/60 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-500/10 p-3 text-xs text-amber-900 dark:text-amber-200">
+        {t.mathNote}
+      </div>
 
       <Card className="border-primary/30 bg-primary/5 mb-6">
         <CardContent className="pt-6 text-center">

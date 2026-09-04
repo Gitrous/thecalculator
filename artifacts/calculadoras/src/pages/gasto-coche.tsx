@@ -82,7 +82,7 @@ function AmountInput({
 const T = {
   es: {
     title: "Gasto Real del Coche",
-    subtitle: "Calcula el coste total de mantener tu vehículo, incluyendo gastos ocultos y coste por kilómetro.",
+    subtitle: "Calcula el gasto anual de tu coche, incluyendo los gastos corrientes y el coste por kilómetro.",
     intro1: "El coste real de un coche va mucho más allá del combustible y el seguro. Incluye la financiación o amortización del vehículo, el aparcamiento, el mantenimiento y las revisiones, el impuesto de circulación y la ITV. Muchos conductores infravaloran en un 30–50% el coste real de su vehículo al no tener en cuenta todos estos conceptos de forma conjunta.",
     intro2: "Esta calculadora te ayuda a conocer el coste mensual total y el coste por kilómetro, los dos indicadores más útiles para comparar el coche propio con alternativas como el transporte público, el carsharing o el alquiler de vehículos.",
     drivingDetails: "Detalles de Conducción",
@@ -109,7 +109,7 @@ const T = {
     financing: "Financiación",
     taxes: "Impuestos + ITV",
     proTipLabel: "EFFICIENCY PRO TIP",
-    proTip: "\"Reducir la velocidad de 120 km/h a 110 km/h puede reducir el consumo hasta un 15%. En 15.000 km anuales, eso supone un ahorro de unos €150 en combustible al año.\"",
+    proTip: "\"Según las guías de conducción eficiente del IDAE y la DGT, reducir la velocidad de 120 a 110 km/h puede rebajar el consumo en torno a un 10–15 %. En 15.000 km anuales, eso puede suponer alrededor de €150 menos en combustible.\"",
     articleTitle: "El coste real de tener un coche en España",
     articleDesc: "Analizamos todos los gastos: combustible, seguro, impuestos, mantenimiento y depreciación. ¿Sabes cuánto te cuesta cada kilómetro?",
     articleLink: "Leer artículo →",
@@ -135,11 +135,11 @@ const T = {
     tableCol1: "Concepto",
     tableCol2: "Coste anual",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "La cifra clave no es el total anual sino el coste por kilómetro, porque es lo que te permite comparar de forma justa con otras opciones. Si tu coste por kilómetro supera los 0,35 €, probablemente estés recorriendo pocos kilómetros para los gastos fijos que asumes: en ese escenario el transporte público, el carsharing o el alquiler puntual suelen salir más a cuenta. Por debajo de 0,25 € el coche está bien amortizado. Recuerda que este cálculo no incluye la depreciación del vehículo, que puede añadir fácilmente entre 1.500 y 3.000 € anuales en un coche relativamente nuevo y es el factor que más distorsiona las comparaciones.",
+    interpret: "La cifra clave no es el total anual sino el coste por kilómetro, porque es lo que te permite comparar de forma justa con otras opciones. Si tu coste por kilómetro supera los 0,35 €, probablemente estés recorriendo pocos kilómetros para los gastos fijos que asumes: en ese escenario el transporte público, el carsharing o el alquiler puntual suelen salir más a cuenta. Un coste por kilómetro bajo suele indicar que rentabilizas bien los gastos fijos del vehículo. Recuerda que este cálculo no incluye la depreciación del vehículo, que puede añadir fácilmente entre 1.500 y 3.000 € anuales en un coche relativamente nuevo y es el factor que más distorsiona las comparaciones.",
   },
   en: {
     title: "Real Car Costs",
-    subtitle: "Calculate the total cost of owning your vehicle, including hidden costs and cost per kilometre.",
+    subtitle: "Calculate your car's annual running cost, including everyday costs and cost per kilometre.",
     intro1: "The real cost of a car goes far beyond fuel and insurance. It includes vehicle finance or depreciation, parking, maintenance and servicing, road tax and MOT. Many drivers underestimate their vehicle's real cost by 30–50% by not taking all these items into account together.",
     intro2: "This calculator helps you find the total monthly cost and cost per kilometre, the two most useful indicators for comparing your own car with alternatives such as public transport, car-sharing or vehicle rental.",
     drivingDetails: "Driving Details",
@@ -166,7 +166,7 @@ const T = {
     financing: "Finance",
     taxes: "Taxes + MOT",
     proTipLabel: "EFFICIENCY PRO TIP",
-    proTip: "\"Reducing your highway speed from 120km/h to 110km/h can lower fuel consumption by up to 15%. Over 15,000km, that's roughly €150 saved per year.\"",
+    proTip: "\"According to eco-driving guides from IDAE and the DGT, reducing your speed from 120 to 110 km/h can lower fuel consumption by around 10–15%. Over 15,000 km, that can mean roughly €150 less in fuel.\"",
     articleTitle: "The Real Cost of Owning a Car in Spain",
     articleDesc: "We analyse all the costs: fuel, insurance, taxes, maintenance and depreciation. Do you know how much each kilometre actually costs you?",
     articleLink: "Read article →",
@@ -192,7 +192,7 @@ const T = {
     tableCol1: "Item",
     tableCol2: "Annual cost",
     interpretTitle: "How to interpret the result",
-    interpret: "The key figure is not the annual total but the cost per kilometre, because that is what lets you compare fairly with other options. If your cost per kilometre exceeds €0.35, you are probably driving too few kilometres for the fixed costs you carry: in that scenario public transport, carsharing or occasional rental usually work out cheaper. Below €0.25 the car is well amortised. Remember this calculation does not include vehicle depreciation, which can easily add between €1,500 and €3,000 a year on a relatively new car and is the factor that most distorts comparisons.",
+    interpret: "The key figure is not the annual total but the cost per kilometre, because that is what lets you compare fairly with other options. If your cost per kilometre exceeds €0.35, you are probably driving too few kilometres for the fixed costs you carry: in that scenario public transport, carsharing or occasional rental usually work out cheaper. A low cost per kilometre generally means you are making good use of the vehicle's fixed costs. Remember this calculation does not include vehicle depreciation, which can easily add between €1,500 and €3,000 a year on a relatively new car and is the factor that most distorts comparisons.",
   },
 };
 

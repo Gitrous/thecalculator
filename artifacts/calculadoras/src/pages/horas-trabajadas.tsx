@@ -92,7 +92,7 @@ const T = {
     tableCol1: "Concepto",
     tableCol2: "Límite legal",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "El total en horas y minutos sirve para el registro de jornada, mientras que el equivalente decimal es el que necesitas para cualquier cálculo económico. Ten presente que no todo el tiempo de presencia computa como jornada efectiva: las pausas para comer solo cuentan si el convenio las considera tiempo de trabajo, mientras que el descanso de quince minutos en jornadas continuadas superiores a seis horas sí suele computar. Si al sumar tu semana superas las 40 horas de promedio, ese exceso son horas extraordinarias y deben registrarse como tales, compensarse con descanso en los cuatro meses siguientes o abonarse, con un tope legal de 80 horas al año.",
+    interpret: "El total en horas y minutos sirve para el registro de jornada, mientras que el equivalente decimal es el que necesitas para cualquier cálculo económico. Ten presente que no todo el tiempo de presencia computa como jornada efectiva: las pausas para comer solo cuentan si el convenio las considera tiempo de trabajo, mientras que el descanso de quince minutos en jornadas continuadas superiores a seis horas sí suele computar. Si al sumar tu semana superas las 40 horas de promedio, ese exceso son horas extraordinarias y deben registrarse como tales, compensarse con descanso en los cuatro meses siguientes o abonarse, con un tope legal de 80 horas al año. El resultado no determina por sí solo si una hora tiene la consideración jurídica de hora extraordinaria: eso puede depender del convenio colectivo y de la distribución irregular de la jornada.",
   },
   en: {
     backHome: "Back to home",
@@ -145,7 +145,7 @@ const T = {
     tableCol1: "Item",
     tableCol2: "Legal limit",
     interpretTitle: "How to interpret the result",
-    interpret: "The total in hours and minutes is what you need for the time record, while the decimal equivalent is what you need for any financial calculation. Bear in mind that not all time on site counts as effective working time: lunch breaks only count if the collective agreement treats them as working time, whereas the fifteen-minute break in continuous shifts longer than six hours usually does count. If your weekly total exceeds an average of 40 hours, that excess is overtime and must be recorded as such, compensated with time off within the following four months or paid, with a legal cap of 80 hours a year.",
+    interpret: "The total in hours and minutes is what you need for the time record, while the decimal equivalent is what you need for any financial calculation. Bear in mind that not all time on site counts as effective working time: lunch breaks only count if the collective agreement treats them as working time, whereas the fifteen-minute break in continuous shifts longer than six hours usually does count. If your weekly total exceeds an average of 40 hours, that excess is overtime and must be recorded as such, compensated with time off within the following four months or paid, with a legal cap of 80 hours a year. The result does not by itself determine whether an hour legally qualifies as overtime: that can depend on the collective agreement and on any irregular distribution of working time.",
   },
 };
 
@@ -384,6 +384,12 @@ export default function HorasTrabajadas() {
       )}
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
+      <p className="text-xs text-muted-foreground mb-2">
+        {locale === "en" ? "Legal reference: " : "Referencia legal: "}
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3481" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+          {locale === "en" ? "Royal Decree-Law 8/2019 (time recording)" : "Real Decreto-ley 8/2019 (registro de jornada)"}
+        </a>
+      </p>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.howTitle}</h2>
