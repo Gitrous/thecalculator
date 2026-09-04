@@ -302,6 +302,28 @@ export default function Contacto() {
                     </>
                   )}
                 </Button>
+
+                <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
+                  {isEn ? (
+                    <>
+                      By submitting this form you agree to the processing of the data provided in
+                      order to answer your enquiry. See our{" "}
+                      <a href="/en/privacy" className="underline hover:text-primary">
+                        Privacy Policy
+                      </a>
+                      .
+                    </>
+                  ) : (
+                    <>
+                      Al enviar este formulario aceptas el tratamiento de los datos facilitados para
+                      responder a tu consulta. Consulta nuestra{" "}
+                      <a href="/privacidad" className="underline hover:text-primary">
+                        Política de Privacidad
+                      </a>
+                      .
+                    </>
+                  )}
+                </p>
               </form>
             )}
           </div>

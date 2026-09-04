@@ -378,6 +378,14 @@
     <lastmod>2026-06-16</lastmod>
   </url>
   <url>
+    <loc>https://thecalculator.tech/sobre-nosotros/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/sobre-nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/about/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
     <loc>https://thecalculator.tech/contacto/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/contacto/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/contact/"/>
@@ -1071,6 +1079,14 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/sobre-nosotros/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/en/contact/</loc>

@@ -9,6 +9,8 @@ const LEGAL_ROUTES = [
   "/en/cookies",
   "/aviso-legal",
   "/en/legal-notice",
+  "/sobre-nosotros",
+  "/en/about",
   "/contacto",
   "/en/contact",
 ];

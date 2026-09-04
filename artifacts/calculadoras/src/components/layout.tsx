@@ -57,6 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const legalLinks = isEn
     ? [
         { href: "/en/blog", label: "Blog" },
+        { href: "/en/about", label: "About" },
         { href: "/en/privacy", label: "Privacy Policy" },
         { href: "/en/cookies", label: "Cookie Policy" },
         { href: "/en/legal-notice", label: "Legal Notice" },
@@ -64,6 +65,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       ]
     : [
         { href: "/blog", label: "Blog" },
+        { href: "/sobre-nosotros", label: "Sobre nosotros" },
         { href: "/privacidad", label: "Privacidad" },
         { href: "/cookies", label: "Cookies" },
         { href: "/aviso-legal", label: "Aviso legal" },
@@ -219,6 +221,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   {link.label}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("cookie-consent:open"))}
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+              >
+                {isEn ? "Cookie settings" : "Configurar cookies"}
+              </button>
             </nav>
             <p className="text-center text-sm text-gray-500">{copyright}</p>
           </div>

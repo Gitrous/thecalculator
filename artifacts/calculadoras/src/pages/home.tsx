@@ -375,8 +375,8 @@ export default function Home() {
 
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {isEn
-              ? "The complete ecosystem for finance, health, home, work and education. High-fidelity results, instantly, zero registration required."
-              : "El ecosistema completo de herramientas para finanzas, salud, hogar, trabajo y educación. Resultados precisos al instante, sin registro."}
+              ? "The complete ecosystem for finance, health, home, work and education. Clear results, instantly, zero registration required."
+              : "El ecosistema completo de herramientas para finanzas, salud, hogar, trabajo y educación. Cálculos claros al instante, sin registro."}
           </p>
 
           {/* CTAs */}
@@ -508,8 +508,8 @@ export default function Home() {
                   {isEn ? "Popular This Week" : "Más Populares"}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
-                  {isEn ? "Fast, precise calculators — no loading screens, just results."
-                         : "Calculadoras rápidas y precisas. Sin pantallas de carga, solo resultados."}
+                  {isEn ? "Fast, clear calculators — no loading screens, just results."
+                         : "Calculadoras rápidas y claras. Sin pantallas de carga, solo resultados."}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

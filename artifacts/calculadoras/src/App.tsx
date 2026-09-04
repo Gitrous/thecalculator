@@ -13,6 +13,7 @@ import CalculatorPage from "@/pages/calculator-page";
 import Privacidad from "@/pages/privacidad";
 import Cookies from "@/pages/cookies";
 import AvisoLegal from "@/pages/aviso-legal";
+import SobreNosotros from "@/pages/sobre-nosotros";
 import Contacto from "@/pages/contacto";
 import Blog from "@/pages/blog";
 import BlogArticle from "@/pages/blog-article";
@@ -58,6 +59,8 @@ function Router() {
           <Route path="/en/cookies" component={Cookies} />
           <Route path="/aviso-legal" component={AvisoLegal} />
           <Route path="/en/legal-notice" component={AvisoLegal} />
+          <Route path="/sobre-nosotros" component={SobreNosotros} />
+          <Route path="/en/about" component={SobreNosotros} />
           <Route path="/contacto" component={Contacto} />
           <Route path="/en/contact" component={Contacto} />
 

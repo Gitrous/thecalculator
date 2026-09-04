@@ -31,7 +31,7 @@ const T = {
     infoTitle: "Nota informativa",
     infoText: "Este cálculo es una estimación basada en 20 días por año (despido objetivo). Factores como el convenio colectivo, ausencias injustificadas o tipos de contrato específicos pueden variar el resultado final.",
     f1Title: "Legal Actualizado",
-    f1Desc: "Algoritmos ajustados a la normativa laboral de 2024.",
+    f1Desc: "Algoritmos basados en la normativa laboral española vigente.",
     f2Title: "100% Privado",
     f2Desc: "Tus datos no salen de tu navegador. Sin rastreadores.",
     f3Title: "Cálculo Instantáneo",
@@ -80,7 +80,7 @@ const T = {
     infoTitle: "Informative note",
     infoText: "This calculation is an estimate based on 20 days per year (objective dismissal). Factors such as collective agreements, unjustified absences or specific contract types may alter the final result.",
     f1Title: "Legally Up to Date",
-    f1Desc: "Algorithms aligned with 2024 labour regulations.",
+    f1Desc: "Algorithms based on current Spanish labour regulations.",
     f2Title: "100% Private",
     f2Desc: "Your data never leaves your browser. No trackers.",
     f3Title: "Instant Calculation",
@@ -128,7 +128,7 @@ export default function Finiquito() {
   const isEn = locale === "en";
 
   const [startDate, setStartDate] = useState("2023-01-01");
-  const [endDate, setEndDate] = useState("2024-12-31");
+  const [endDate, setEndDate] = useState("2026-12-31");
   const [monthlySalary, setMonthlySalary] = useState("2500");
   const [vacDays, setVacDays] = useState("10");
   const [pagasProrrateadas, setPagasProrrateadas] = useState(false);

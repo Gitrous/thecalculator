@@ -28,19 +28,33 @@ export default function Privacidad() {
 
         <h2>2. What data we process</h2>
         <p>
-          Our calculators run entirely in your browser. We do not require registration and we do not
-          collect or store personal data such as your name, email or the values you enter into the
-          calculators — those calculations happen locally on your device and are not sent to our
-          servers.
+          Our calculators run entirely in your browser. We do not require registration to use them,
+          and the values you enter into a calculator are processed locally on your device and are not
+          sent to our servers.
         </p>
         <p>
           We may store a small preference (such as your light/dark theme choice) in your browser's
           local storage. This never leaves your device and contains no personal information.
         </p>
+        <p>
+          <strong>Contact form.</strong> If you write to us through our contact form, we process the
+          name, email address, subject and message you provide, for the sole purpose of handling and
+          replying to your enquiry. The form is delivered through our provider FormSubmit
+          (formsubmit.co); we keep your message only for as long as necessary to deal with it. The
+          legal basis for this processing is your consent, which you give by submitting the form.
+        </p>
 
         <h2>3. Third-party services</h2>
         <p>We rely on the following third parties, each with its own privacy policy:</p>
         <ul>
+          <li>
+            <strong>FormSubmit</strong> — delivers our contact form. It receives the data you enter in
+            the form (name, email, subject and message) in order to forward it to us by email. See its{" "}
+            <a href="https://formsubmit.co/privacy-policy" target="_blank" rel="noopener noreferrer">
+              privacy policy
+            </a>
+            .
+          </li>
           <li>
             <strong>Google AdSense</strong> — serves the advertising shown on this site. Google and
             its partners may use cookies and similar technologies to show ads based on your prior
@@ -112,20 +126,36 @@ export default function Privacidad() {
 
       <h2>2. Qué datos tratamos</h2>
       <p>
-        Nuestras calculadoras funcionan íntegramente en tu navegador. No requerimos registro y no
-        recopilamos ni almacenamos datos personales como tu nombre, correo electrónico o los valores
-        que introduces en las calculadoras: esos cálculos se realizan localmente en tu dispositivo y
-        no se envían a nuestros servidores.
+        Nuestras calculadoras funcionan íntegramente en tu navegador. No requerimos registro para
+        usarlas y los valores que introduces en una calculadora se procesan localmente en tu
+        dispositivo, sin enviarse a nuestros servidores.
       </p>
       <p>
         Podemos guardar una pequeña preferencia (como tu elección de tema claro/oscuro) en el
         almacenamiento local de tu navegador. Esa información nunca sale de tu dispositivo y no
         contiene datos personales.
       </p>
+      <p>
+        <strong>Formulario de contacto.</strong> Si nos escribes a través del formulario de contacto,
+        tratamos el nombre, la dirección de correo electrónico, el asunto y el mensaje que facilites,
+        con la única finalidad de gestionar y responder a tu consulta. El formulario se envía a través
+        de nuestro proveedor FormSubmit (formsubmit.co) y conservamos tu mensaje solo durante el
+        tiempo necesario para atenderlo. La base jurídica de este tratamiento es tu consentimiento,
+        que prestas al enviar el formulario.
+      </p>
 
       <h2>3. Servicios de terceros</h2>
       <p>Utilizamos los siguientes servicios de terceros, cada uno con su propia política de privacidad:</p>
       <ul>
+        <li>
+          <strong>FormSubmit</strong> — gestiona el envío de nuestro formulario de contacto. Recibe
+          los datos que introduces en el formulario (nombre, correo, asunto y mensaje) para
+          hacérnoslos llegar por correo electrónico. Consulta su{" "}
+          <a href="https://formsubmit.co/privacy-policy" target="_blank" rel="noopener noreferrer">
+            política de privacidad
+          </a>
+          .
+        </li>
         <li>
           <strong>Google AdSense</strong> — gestiona la publicidad mostrada en este sitio. Google y
           sus colaboradores pueden usar cookies y tecnologías similares para mostrar anuncios basados

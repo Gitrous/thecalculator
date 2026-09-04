@@ -26,6 +26,11 @@ export function CookieConsent() {
     } catch {
       setVisible(true);
     }
+    // Let the "Cookie settings" footer link reopen the banner so the user can
+    // change (or withdraw) a previously stored choice at any time.
+    const reopen = () => setVisible(true);
+    window.addEventListener("cookie-consent:open", reopen);
+    return () => window.removeEventListener("cookie-consent:open", reopen);
   }, []);
 
   function decide(granted: boolean) {
