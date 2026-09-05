@@ -63,10 +63,9 @@ export function computeHead({ title, description, path, jsonLd, alternatePath }:
       alternates.push({ hreflang: "es", href: url });
       alternates.push({ hreflang: "en", href: altUrl });
     }
-    alternates.push({
-      hreflang: "x-default",
-      href: `${SITE}${withSlash(alternatePath.startsWith("/en") ? alternatePath : path)}`,
-    });
+    // x-default points at the Spanish version, which is the site's default
+    // language and what an unmatched visitor should land on.
+    alternates.push({ hreflang: "x-default", href: isEn ? altUrl : url });
   }
 
   return { fullTitle, description, url, alternates, jsonLd, lang, ogLocale, siteName };

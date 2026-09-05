@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
-import { ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronRight, ArrowRight, MapPin } from "lucide-react";
 import {
   getCalculator,
   getCategory,
@@ -190,6 +190,20 @@ export default function CalculatorPage() {
           </div>
         );
       })()}
+
+      {/* The English side keeps Spain-specific tools clearly labelled: their
+          rates, thresholds and prices come from Spanish law, not from a
+          generic international model. */}
+      {isEn && calc.spainSpecific && (
+        <div className="mb-6 flex items-start gap-2.5 rounded-lg border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 p-3 text-sm text-blue-900 dark:text-blue-200">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+          <p>
+            <strong>Calculator for Spain.</strong> The rates, thresholds and
+            reference prices used here come from Spanish legislation and market
+            data, so the result does not apply to other countries.
+          </p>
+        </div>
+      )}
 
       <Component />
       <AdUnit slot={AD_SLOTS.afterResult} className="mt-10" />

@@ -75,6 +75,10 @@ export interface CalculatorMeta {
   enShortLabel: string;
   enSeoTitle: string;
   enSeoDescription: string;
+  /** True when the calculation depends on Spanish law, tax rates or market
+   * prices, so the English version must state it is a calculator for Spain
+   * rather than a generic international tool. */
+  spainSpecific?: boolean;
 }
 
 export const CATEGORIES: Category[] = [
@@ -144,10 +148,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Hipoteca: cuota, amortización e intereses",
     seoDescription:
       "Calcula la cuota mensual de tu hipoteca, la tabla de amortización completa y los intereses totales. Compara tipo fijo y variable.",
-    enTitle: "Mortgage Calculator",
+    enTitle: "Mortgage Calculator (Spain)",
     enShortLabel: "Mortgage",
-    enSeoTitle: "Mortgage Calculator - Monthly Payment & Amortisation",
+    enSeoTitle: "Mortgage Calculator - Monthly Payment & Amortisation (Spain)",
     enSeoDescription: "Calculate your monthly mortgage payment, total interest and amortisation schedule. Free online mortgage calculator.",
+    spainSpecific: true,
     enDescription: "Calculate your mortgage payment and see a full amortisation schedule.",
   },
   {
@@ -198,10 +203,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de IVA: sumar o quitar el IVA",
     seoDescription:
       "Suma o resta el IVA a cualquier precio. Tipos 21%, 10%, 4% y 0%. Ideal para autónomos, empresas y particulares.",
-    enTitle: "VAT Calculator",
+    enTitle: "Spanish VAT (IVA) Calculator",
     enShortLabel: "VAT",
-    enSeoTitle: "VAT Calculator - Add or Remove VAT",
+    enSeoTitle: "VAT Calculator - Add or Remove VAT (Spain)",
     enSeoDescription: "Add or remove VAT from any amount. Supports 21%, 10% and 4% VAT rates.",
+    spainSpecific: true,
     enDescription: "Add or remove VAT from any amount instantly.",
   },
   {
@@ -220,6 +226,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Income Tax (IRPF)",
     enSeoTitle: "Spanish Income Tax Calculator (IRPF) 2026",
     enSeoDescription: "Calculate your Spanish income tax (IRPF) withholding and net salary from gross pay.",
+    spainSpecific: true,
     enDescription: "Calculate Spanish income tax (IRPF) and your net take-home pay.",
   },
   {
@@ -256,6 +263,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Net Salary",
     enSeoTitle: "Net Salary Calculator Spain 2026",
     enSeoDescription: "Calculate your net take-home salary in Spain after IRPF and Social Security deductions.",
+    spainSpecific: true,
     enDescription: "Calculate your net take-home pay after taxes and Social Security in Spain.",
   },
   {
@@ -270,10 +278,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora Alquiler vs Compra de vivienda",
     seoDescription:
       "Compara si te sale más rentable alquilar o comprar vivienda según tu situación concreta.",
-    enTitle: "Rent vs Buy Calculator",
+    enTitle: "Rent vs Buy Calculator (Spain)",
     enShortLabel: "Rent vs Buy",
-    enSeoTitle: "Rent vs Buy Calculator - Is It Better to Rent or Buy?",
+    enSeoTitle: "Rent vs Buy Calculator - Is It Better to Rent or Buy? (Spain)",
     enSeoDescription: "Compare the long-term cost of renting vs buying a home. Find out which is better for your situation.",
+    spainSpecific: true,
     enDescription: "Compare renting vs buying a home over the long term.",
   },
 
@@ -290,10 +299,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Gasto de Coche anual",
     seoDescription:
       "Descubre el coste real anual de tu vehículo: combustible, seguro, mantenimiento, impuestos y más.",
-    enTitle: "Annual Car Cost Calculator",
+    enTitle: "Annual Car Cost Calculator (Spain)",
     enShortLabel: "Car Costs",
-    enSeoTitle: "Annual Car Cost Calculator",
+    enSeoTitle: "Annual Car Cost Calculator (Spain)",
     enSeoDescription: "Calculate the true annual cost of your car: fuel, insurance, maintenance and taxes.",
+    spainSpecific: true,
     enDescription: "Calculate the real annual cost of owning your car.",
   },
   {
@@ -308,10 +318,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Consumo Eléctrico y factura de la luz",
     seoDescription:
       "Estima tu factura de la luz por electrodoméstico y descubre qué aparatos consumen más en tu hogar.",
-    enTitle: "Electricity Consumption Calculator",
+    enTitle: "Electricity Cost Calculator (Spain)",
     enShortLabel: "Electricity Usage",
-    enSeoTitle: "Electricity Consumption Calculator - Estimate Your Bill",
+    enSeoTitle: "Electricity Consumption Calculator - Estimate Your Bill (Spain)",
     enSeoDescription: "Estimate your electricity bill by appliance and find out what uses the most energy.",
+    spainSpecific: true,
     enDescription: "Estimate your electricity bill and find out what consumes most.",
   },
 
@@ -324,13 +335,14 @@ export const CALCULATORS: CalculatorMeta[] = [
     shortLabel: "Reforma Hogar",
     icon: Hammer,
     color: "text-amber-600 bg-amber-100 dark:bg-amber-900/30",
-    seoTitle: "Calculadora de Presupuesto de Reforma del Hogar 2025",
+    seoTitle: "Calculadora de Presupuesto de Reforma del Hogar 2026",
     seoDescription:
       "Calcula el presupuesto de tu reforma del hogar por partidas: pintura, suelo, baño, cocina, ventanas e instalaciones. Precios orientativos 2025-2026.",
-    enTitle: "Home Renovation Budget Calculator",
+    enTitle: "Home Renovation Budget Calculator (Spain)",
     enShortLabel: "Home Renovation",
-    enSeoTitle: "Home Renovation Budget Calculator 2025 - Spain",
+    enSeoTitle: "Home Renovation Budget Calculator 2026 - Spain",
     enSeoDescription: "Estimate your home renovation cost by item: painting, flooring, bathroom, kitchen, windows and installations. Spanish market prices 2025-2026.",
+    spainSpecific: true,
     enDescription: "Estimate your renovation cost by item: flooring, bathroom, kitchen, windows and more.",
   },
 
@@ -351,6 +363,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Finiquito",
     enSeoTitle: "Finiquito Calculator Spain 2026 — Final Settlement",
     enSeoDescription: "Estimate your finiquito (final settlement) in Spain: unused holidays, pro-rata bonuses and unpaid worked days, shown separately from any dismissal indemnity.",
+    spainSpecific: true,
     enDescription: "Estimate your Spanish finiquito (final settlement), shown separately from the dismissal indemnity.",
   },
   {
@@ -369,6 +382,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "DNI Letter",
     enSeoTitle: "Spanish DNI / NIE Letter Calculator",
     enSeoDescription: "Calculate the check letter of a Spanish DNI or NIE identification number instantly.",
+    spainSpecific: true,
     enDescription: "Calculate the check letter for a Spanish DNI or NIE number.",
   },
   {
@@ -387,6 +401,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Freelancer Tax",
     enSeoTitle: "Spanish Freelancer (Autónomo) Social Security Calculator 2026",
     enSeoDescription: "Calculate your monthly Spanish freelancer Social Security contribution (RETA) based on real income.",
+    spainSpecific: true,
     enDescription: "Calculate your Spanish freelancer Social Security contribution (RETA) 2026.",
   },
   {
@@ -419,10 +434,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Horas Trabajadas y horas extra",
     seoDescription:
       "Registra entradas y salidas, calcula horas extra y controla tu jornada laboral.",
-    enTitle: "Work Hours Calculator",
+    enTitle: "Work Hours Calculator (Spain)",
     enShortLabel: "Work Hours",
-    enSeoTitle: "Work Hours Calculator - Track Overtime",
+    enSeoTitle: "Work Hours Calculator - Track Overtime (Spain)",
     enSeoDescription: "Track your work hours, calculate overtime and monitor your working day.",
+    spainSpecific: true,
     enDescription: "Track work hours, calculate overtime and monitor your schedule.",
   },
 
@@ -475,10 +491,11 @@ export const CALCULATORS: CalculatorMeta[] = [
     seoTitle: "Calculadora de Nota Media (simple y ponderada)",
     seoDescription:
       "Calcula tu nota media simple o ponderada por créditos ECTS añadiendo todas tus asignaturas.",
-    enTitle: "Grade Average Calculator",
+    enTitle: "Grade Average Calculator (Spain, 0–10 scale)",
     enShortLabel: "Grade Average",
-    enSeoTitle: "Grade Average Calculator - Simple and Weighted",
+    enSeoTitle: "Grade Average Calculator - Simple and Weighted (Spain)",
     enSeoDescription: "Calculate your simple or credit-weighted grade average. Add all your subjects and get your GPA.",
+    spainSpecific: true,
     enDescription: "Calculate your simple or weighted grade average.",
   },
   {
@@ -662,6 +679,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Unemployment Benefit",
     enSeoTitle: "Spanish Unemployment Benefit Calculator 2026",
     enSeoDescription: "Estimate your Spanish unemployment benefit (paro) from your regulatory base and days contributed: monthly amount, duration and total.",
+    spainSpecific: true,
     enDescription: "Estimate your Spanish unemployment benefit from your regulatory base and days contributed.",
   },
   {
@@ -680,6 +698,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     enShortLabel: "Retirement Pension",
     enSeoTitle: "Spanish Retirement Pension Calculator 2026",
     enSeoDescription: "Estimate your Spanish state retirement pension based on years contributed and regulatory base.",
+    spainSpecific: true,
     enDescription: "Estimate your Spanish state retirement pension.",
   },
 ];
