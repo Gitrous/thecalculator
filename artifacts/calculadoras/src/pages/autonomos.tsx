@@ -68,9 +68,12 @@ const T = {
     tramoLabel: "Tramo",
     baseLabel: "Base mínima",
     note: "Estimación sobre la base mínima de cada tramo aplicando el tipo general (~31,4%). Puedes cotizar por una base superior y la cuota real puede variar. Verifica los importes vigentes en la Seguridad Social.",
+    regularizacion: "La cuota final puede depender de la regularización posterior según los rendimientos netos comunicados a la Administración.",
+    sourceNote: "Parámetros correspondientes a 2026.",
+    sourceLabel: "Fuente: ",
     faqTitle: "Preguntas frecuentes",
     q1: "¿Qué son los rendimientos netos?",
-    a1: "Los rendimientos netos son los ingresos de tu actividad menos los gastos deducibles, y sobre ese resultado se aplica una deducción adicional del 7 % en concepto de gastos genéricos (3 % si eres autónomo societario). El importe obtenido, dividido entre doce, es el rendimiento neto mensual que determina tu tramo de cotización. Es importante entender que no se cotiza sobre la facturación bruta sino sobre el beneficio real: si facturas 3.000 € al mes pero tienes 1.000 € de gastos deducibles, tu rendimiento neto rondará los 1.860 € tras aplicar la deducción del 7 %, no los 3.000 € facturados.",
+    a1: "Los rendimientos netos son los ingresos de tu actividad menos los gastos deducibles, y sobre ese resultado se aplica una deducción adicional del 7 % en concepto de gastos genéricos (3 % si eres autónomo societario). El importe anual resultante, prorrateado entre los meses de alta en el RETA (doce si has estado de alta todo el año), da el rendimiento neto mensual medio que determina tu tramo de cotización; conviene comprobar el detalle del cálculo en la Seguridad Social, porque hay reglas específicas según el régimen fiscal, la forma jurídica y las cuotas ya satisfechas. Es importante entender que no se cotiza sobre la facturación bruta sino sobre el beneficio real: si facturas 3.000 € al mes pero tienes 1.000 € de gastos deducibles, tu rendimiento neto rondará los 1.860 € tras aplicar la deducción del 7 %, no los 3.000 € facturados.",
     q2: "¿Cuánto dura la tarifa plana?",
     a2: "En 2026 la tarifa plana consiste en una cuota reducida de 80 € al mes más el mecanismo de equidad intergeneracional (0,9 %), lo que supone unos 88,64 € mensuales en total. Se aplica durante los primeros 12 meses de alta en el RETA y puede prorrogarse otros 12 meses adicionales siempre que tus rendimientos netos se mantengan por debajo del salario mínimo interprofesional (1.221 €/mes en 2026). Para acceder a ella no puedes haber estado de alta como autónomo en los dos años anteriores, o tres si ya disfrutaste de la tarifa plana en el pasado.",
     q3: "¿Puedo cambiar mi base de cotización durante el año?",
@@ -103,9 +106,12 @@ const T = {
     tramoLabel: "Income bracket",
     baseLabel: "Minimum base",
     note: "Estimate based on the minimum base for each bracket applying the general rate (~31.4%). You can contribute on a higher base and the actual fee may vary. Check the current amounts at the Social Security.",
+    regularizacion: "The final contribution may depend on the subsequent reconciliation against the net income reported to the tax authorities.",
+    sourceNote: "Parameters for 2026.",
+    sourceLabel: "Source: ",
     faqTitle: "Frequently asked questions",
     q1: "What is net income?",
-    a1: "Net income is your business revenue minus deductible expenses, with an additional 7% deduction applied to that result for generic expenses (3% for company-based self-employed workers). The resulting amount, divided by twelve, is the monthly net income that determines your contribution bracket. It is important to understand that contributions are not based on gross invoicing but on actual profit: if you invoice €3,000 a month but have €1,000 of deductible expenses, your net income will be around €1,860 after the 7% deduction, not the €3,000 invoiced.",
+    a1: "Net income is your business revenue minus deductible expenses, with an additional 7% deduction applied to that result for generic expenses (3% for company-based self-employed workers). The resulting annual amount, spread across the months registered with the RETA scheme (twelve if you were registered all year), gives the average monthly net income that determines your contribution bracket; it is worth checking the detailed rules at the Social Security, since specific rules apply depending on your tax regime, legal form and the contributions already paid. It is important to understand that contributions are not based on gross invoicing but on actual profit: if you invoice €3,000 a month but have €1,000 of deductible expenses, your net income will be around €1,860 after the 7% deduction, not the €3,000 invoiced.",
     q2: "How long does the flat rate last?",
     a2: "In 2026 the flat rate is a reduced fee of €80 per month plus the intergenerational equity mechanism (0.9%), around €88.64 per month in total. It applies during the first 12 months registered with the RETA scheme and can be extended for another 12 months provided your net income stays below the national minimum wage (€1,221/month in 2026). To qualify, you must not have been registered as self-employed in the previous two years, or three if you already benefited from the flat rate in the past.",
     q3: "Can I change my contribution base during the year?",
@@ -197,11 +203,19 @@ export default function Autonomos() {
               <p className="text-lg font-semibold">{eur(tramo.base)}</p>
             </div>
           </div>
+          <p className="mt-6 pt-4 border-t border-primary/20 text-xs text-muted-foreground text-center">
+            {t.sourceNote}{" "}{t.sourceLabel}
+            <a href="https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/36537" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+              {locale === "en" ? "Social Security" : "Seguridad Social"}
+            </a>
+            .
+          </p>
         </CardContent>
       </Card>
 
-      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300">
-        {t.note}
+      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-8 text-sm text-amber-800 dark:text-amber-300 space-y-2">
+        <p>{t.note}</p>
+        <p>{t.regularizacion}</p>
       </div>
 
       <p className="text-xs text-muted-foreground italic mt-4 mb-2">{t.disclaimer}</p>
@@ -233,6 +247,13 @@ export default function Autonomos() {
             ))}
           </tbody>
         </table>
+        <p className="mt-3 text-xs text-muted-foreground">
+          {t.sourceNote}{" "}{t.sourceLabel}
+          <a href="https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/36537" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+            {locale === "en" ? "Social Security" : "Seguridad Social"}
+          </a>
+          . {t.regularizacion}
+        </p>
       </div>
 
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">

@@ -16,7 +16,7 @@ import { useLocale } from "@/lib/locale";
 const T = {
   es: {
     title: "Calculadora de Finiquito",
-    subtitle: "Estima el finiquito que te corresponde: vacaciones no disfrutadas, días trabajados sin cobrar y parte proporcional de las pagas extra.",
+    subtitle: "Estima el finiquito que te corresponde —vacaciones no disfrutadas, días trabajados sin cobrar y parte proporcional de las pagas extra— y, por separado, la indemnización si la causa de extinción la genera.",
     intro1: "El finiquito es la liquidación económica que la empresa está obligada a entregar al trabajador cuando se extingue el contrato laboral, sea por despido, renuncia voluntaria, fin del contrato o mutuo acuerdo. Recoge tres conceptos básicos: los días de vacaciones no disfrutados, los salarios del mes en curso pendientes de cobro y la parte proporcional de las pagas extraordinarias.",
     intro2: "Es importante distinguir el finiquito de la indemnización por despido: el finiquito siempre se cobra, mientras que la indemnización solo corresponde en determinados tipos de despido (improcedente: 33 días/año, objetivo: 20 días/año). Esta calculadora te ayuda a estimar el importe bruto del finiquito para que puedas verificar que el documento que te propone la empresa es correcto.",
     disclaimer: "Cálculo orientativo en bruto. No incluye retenciones de IRPF. La indemnización por despido objetivo es de 20 días/año. Consulta con un asesor laboral para el importe exacto.",
@@ -25,7 +25,12 @@ const T = {
     monthlyLabel: "Salario bruto mensual (€)",
     vacLabel: "Vacaciones pendientes (días)",
     pagasProrrLabel: "Pagas extra prorrateadas",
-    totalEstimado: "Total Estimado",
+    finiquitoTitle: "Finiquito",
+    finiquitoLabel: "Finiquito estimado",
+    finiquitoNote: "Se cobra siempre, sea cual sea la causa de la extinción.",
+    indemnTitle: "Indemnización",
+    indemnNote: "Solo si corresponde según la causa de extinción. La baja voluntaria y el despido disciplinario procedente no generan indemnización.",
+    totalEstimado: "Total estimado (finiquito + indemnización)",
     indemnLabel: "Indemnización (20 días/año)",
     vacacionesLabel: "Vacaciones pendientes",
     pagasLabel: "Pagas extraordinarias",
@@ -64,8 +69,8 @@ const T = {
     interpret: "La cifra obtenida es un importe bruto y orientativo. Sobre él se aplican la retención de IRPF y las cotizaciones a la Seguridad Social correspondientes a los conceptos salariales, aunque la indemnización por despido está exenta de tributación hasta 180.000 € cuando no supera los límites legales. Antes de dar el finiquito por bueno, comprueba tres cosas: que el salario diario utilizado incluya el prorrateo de pagas extra si procede, que los días de vacaciones pendientes coincidan con tu registro, y que se hayan incluido conceptos variables como comisiones o pluses. Si algo no cuadra, firma indicando «no conforme» y reclama dentro de los plazos legales.",
   },
   en: {
-    title: "Severance Pay Calculator (Spain)",
-    subtitle: "Estimate your severance pay: unused holidays, unpaid worked days and pro-rata bonus payments.",
+    title: "Finiquito Calculator (Spain) — Final Settlement",
+    subtitle: "Estimate your finiquito (final settlement): unused holidays, unpaid worked days and pro-rata bonus payments — shown separately from any dismissal indemnity.",
     intro1: "Severance pay (finiquito) is the financial settlement the company is obliged to give an employee when the employment contract ends, whether through dismissal, voluntary resignation, end of contract or mutual agreement. It covers three basic items: unused holiday days, wages for the current month not yet paid, and the pro-rata share of bonus payments.",
     intro2: "It is important to distinguish severance pay from dismissal compensation: severance pay is always owed, while compensation is only applicable in certain types of dismissal (unfair dismissal: 33 days/year, objective dismissal: 20 days/year). This calculator helps you estimate the gross severance amount so you can verify that the document proposed by the company is correct.",
     disclaimer: "Indicative gross estimate. Does not include income tax withholding. Objective dismissal compensation is 20 days/year. Consult a labour adviser for the exact amount.",
@@ -74,7 +79,12 @@ const T = {
     monthlyLabel: "Monthly gross salary (€)",
     vacLabel: "Pending holiday days",
     pagasProrrLabel: "Bonus payments already pro-rated",
-    totalEstimado: "Total Estimated",
+    finiquitoTitle: "Final settlement (finiquito)",
+    finiquitoLabel: "Estimated final settlement",
+    finiquitoNote: "Always owed, whatever the reason the contract ends.",
+    indemnTitle: "Dismissal indemnity",
+    indemnNote: "Only where it applies, depending on the reason for termination. Voluntary resignation and justified disciplinary dismissal generate no indemnity.",
+    totalEstimado: "Total estimated (settlement + indemnity)",
     indemnLabel: "Compensation (20 days/year)",
     vacacionesLabel: "Pending holidays",
     pagasLabel: "Bonus payments",
@@ -153,7 +163,8 @@ export default function Finiquito() {
     pagasExtra = (monthsInSemester / 6) * monthly;
   }
 
-  const total = indemnizacion + vacaciones + pagasExtra;
+  const finiquito = vacaciones + pagasExtra;
+  const total = finiquito + indemnizacion;
 
   const fmt = (n: number) =>
     n.toLocaleString(isEn ? "en-GB" : "es-ES", {
@@ -274,26 +285,18 @@ export default function Finiquito() {
         {/* ── RIGHT: Results ── */}
         <div className="w-full lg:w-96 shrink-0 space-y-4">
 
-          {/* Total card */}
+          {/* Finiquito card */}
           <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">
-              {t.totalEstimado}
+              {t.finiquitoLabel}
             </p>
-            <p className="text-5xl font-bold text-primary mb-6 leading-none">
-              {fmt(total)}{" "}
+            <p className="text-5xl font-bold text-primary mb-2 leading-none">
+              {fmt(finiquito)}{" "}
               <span className="text-2xl font-semibold text-primary/70">€</span>
             </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-5">{t.finiquitoNote}</p>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">{t.indemnLabel}</span>
-                </div>
-                <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                  {fmt(indemnizacion)}€
-                </span>
-              </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <Sun className="w-5 h-5 text-orange-400 shrink-0" />
@@ -313,6 +316,31 @@ export default function Finiquito() {
                 </span>
               </div>
             </div>
+          </div>
+
+          {/* Indemnización card — concepto jurídicamente distinto */}
+          <div className="rounded-2xl border border-dashed border-gray-300 dark:border-white/15 bg-gray-50 dark:bg-white/5 p-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">
+              {t.indemnTitle}
+            </p>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
+                <span className="text-sm text-gray-600 dark:text-gray-400">{t.indemnLabel}</span>
+              </div>
+              <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                {fmt(indemnizacion)}€
+              </span>
+            </div>
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{t.indemnNote}</p>
+          </div>
+
+          {/* Total */}
+          <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-6 py-4 flex items-center justify-between gap-4">
+            <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+              {t.totalEstimado}
+            </span>
+            <span className="text-xl font-bold text-primary whitespace-nowrap">{fmt(total)}€</span>
           </div>
 
           {/* Info note */}

@@ -51,12 +51,13 @@ function getDuracion(diasCotizados: number): number {
 const T = {
   es: {
     title: "Calculadora de Prestación por Desempleo (Paro) 2026",
-    subtitle: "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario y los meses cotizados.",
+    subtitle: "Estima tu prestación contributiva por desempleo según tu base reguladora y los días cotizados: cuantía mensual, duración y total.",
     intro1: "La prestación por desempleo (comúnmente llamada 'el paro') es una prestación contributiva del sistema de Seguridad Social español que compensa la pérdida de ingresos cuando un trabajador queda en situación legal de desempleo. Para tener derecho a ella es necesario haber cotizado al menos 360 días (12 meses) en los últimos 6 años antes de quedarse sin trabajo.",
-    intro2: "Esta calculadora estima el importe de la prestación y su duración en función de los meses cotizados y el salario. La cuantía es el 70% de la base reguladora durante los primeros 180 días (6 meses) y el 60% a partir del séptimo mes, con un tope máximo y mínimo establecido por el IPREM. Los resultados son orientativos; el SEPE aplica los datos reales de las bases de cotización.",
+    intro2: "Esta calculadora estima el importe de la prestación y su duración a partir de tu base reguladora —la media de las bases de cotización por desempleo de los últimos 180 días, que aproximamos con tu salario bruto mensual— y de los días cotizados. La cuantía es el 70% de la base reguladora durante los primeros 180 días (6 meses) y el 60% a partir del séptimo mes, con un tope máximo y mínimo establecido por el IPREM. Los resultados son orientativos; el SEPE aplica los datos reales de las bases de cotización.",
     disclaimer: "Estimación orientativa. Para calcular tu prestación exacta, consulta la sede electrónica del SEPE con tu informe de vida laboral.",
     cardTitle: "Tus datos",
-    salaryLabel: "Salario bruto mensual (€)",
+    salaryLabel: "Base reguladora mensual (€)",
+    salaryHint: "Media de tus bases de cotización por desempleo de los últimos 180 días. Si no la conoces, tu salario bruto mensual es una aproximación razonable.",
     monthsLabel: "Meses cotizados (últimos 6 años)",
     childrenLabel: "Hijos a cargo",
     noChildren: "Sin hijos",
@@ -107,12 +108,13 @@ const T = {
   },
   en: {
     title: "Spanish Unemployment Benefit Calculator 2026",
-    subtitle: "Calculate how much unemployment benefit you will receive, for how long, and the total amount based on your salary and contributions.",
+    subtitle: "Estimate your contributory unemployment benefit from your regulatory base and days contributed: monthly amount, duration and total.",
     intro1: "Unemployment benefit (commonly known as 'el paro') is a contributory benefit from the Spanish Social Security system that compensates for income loss when a worker is in a legal situation of unemployment. To be entitled to it, you must have contributed at least 360 days (12 months) in the last 6 years before becoming unemployed.",
-    intro2: "This calculator estimates the benefit amount and its duration based on months contributed and salary. The benefit is 70% of the regulatory base for the first 180 days (6 months) and 60% from the seventh month onwards, with a maximum and minimum cap set by the IPREM. Results are indicative; the SEPE applies actual contribution base data.",
+    intro2: "This calculator estimates the benefit amount and its duration from your regulatory base — the average of your unemployment contribution bases over the last 180 days, which we approximate with your monthly gross salary — and the days contributed. The benefit is 70% of the regulatory base for the first 180 days (6 months) and 60% from the seventh month onwards, with a maximum and minimum cap set by the IPREM. Results are indicative; the SEPE applies actual contribution base data.",
     disclaimer: "Indicative estimate. For your exact benefit calculation, consult the SEPE electronic office with your Social Security contributions report.",
     cardTitle: "Your data",
-    salaryLabel: "Monthly gross salary (€)",
+    salaryLabel: "Monthly regulatory base (€)",
+    salaryHint: "Average of your unemployment contribution bases over the last 180 days. If you do not know it, your monthly gross salary is a reasonable approximation.",
     monthsLabel: "Months contributed (last 6 years)",
     childrenLabel: "Dependent children",
     noChildren: "No children",
@@ -240,6 +242,7 @@ export default function Paro() {
           <div>
             <Label htmlFor="salario">{t.salaryLabel}</Label>
             <Input id="salario" type="number" value={salario} onChange={(e) => setSalario(e.target.value)} className="mt-1" />
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{t.salaryHint}</p>
           </div>
           <div>
             <Label htmlFor="meses">{t.monthsLabel}</Label>
