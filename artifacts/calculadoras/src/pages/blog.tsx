@@ -4,7 +4,7 @@ import {
   Search, X, ArrowRight, TrendingUp, Heart,
   Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { ARTICLES, ARTICLE_IMAGES, type Article } from "@/lib/articles";
+import { ARTICLES, ARTICLE_IMAGES, getReadTime, type Article } from "@/lib/articles";
 import { CATEGORIES } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
 import { useLocale } from "@/lib/locale";
@@ -81,7 +81,7 @@ function FeaturedCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateSt
         <div className="lg:w-1/2 p-6 lg:p-9 flex flex-col justify-between">
           <div>
             <p className="text-xs font-semibold text-gray-400 dark:text-white/40 uppercase tracking-wide mb-3">
-              {catLabel} · {article.readTime} {isEn ? "min read" : "min de lectura"}
+              {catLabel} · {getReadTime(article, isEn ? "en" : "es")} {isEn ? "min read" : "min de lectura"}
             </p>
             <h2 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-snug group-hover:text-primary transition-colors">
               {isEn ? article.enTitle : article.title}
@@ -134,7 +134,7 @@ function MediumCard({ article, isEn, href, catLabel, dateStr }: CardProps) {
         </p>
         <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
           <span className="text-xs text-gray-400 dark:text-white/40">
-            {dateStr} · {article.readTime} {isEn ? "min read" : "min lectura"}
+            {dateStr} · {getReadTime(article, isEn ? "en" : "es")} {isEn ? "min read" : "min lectura"}
           </span>
           <Icon className="w-4 h-4 text-gray-300 dark:text-white/30" />
         </div>
@@ -164,7 +164,7 @@ function SmallCard({ article, isEn, href, catLabel }: Omit<CardProps, "dateStr">
         </h3>
         <div className="flex items-center justify-between mt-3 pt-2 border-t border-gray-100 dark:border-white/5">
           <span className="text-xs text-gray-400 dark:text-white/40">
-            {article.readTime} {isEn ? "min read" : "min lectura"}
+            {getReadTime(article, isEn ? "en" : "es")} {isEn ? "min read" : "min lectura"}
           </span>
           <Icon className="w-3.5 h-3.5 text-gray-300 dark:text-white/30" />
         </div>

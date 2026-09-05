@@ -18,14 +18,29 @@ function eur(n: number) {
   return n.toLocaleString("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 2 });
 }
 
+/**
+ * Escala del art. 210.1 LGSS: 50 % por los primeros 15 años cotizados y, a
+ * partir del año 16, un 0,19 % por cada mes entre el 1 y el 248, y un 0,18 %
+ * por cada mes posterior. Con esta escala el 100 % se alcanza justo a los
+ * 37 años (264 meses sobre el mínimo). En 2026 la disposición transitoria
+ * novena permite llegar al 100 % algo antes (36 años y 6 meses), por lo que
+ * esta estimación es ligeramente conservadora para ese caso.
+ */
+const ANIOS_MINIMOS = 15;
+const MESES_TRAMO_1 = 248; // meses al 0,19 %
+const PCT_TRAMO_1 = 0.19;
+const PCT_TRAMO_2 = 0.18;
+
 function getPorcentaje(anios: number): number {
-  if (anios < 15) return 0;
-  let pct = 50;
-  const extra1 = Math.min(Math.max(anios - 15, 0), 10) * 2.52;
-  const extra2 = Math.min(Math.max(anios - 25, 0), 12) * 2.28;
-  pct += extra1 + extra2;
-  return Math.min(pct, 100);
+  if (anios < ANIOS_MINIMOS) return 0;
+  const mesesExtra = (anios - ANIOS_MINIMOS) * 12;
+  const tramo1 = Math.min(mesesExtra, MESES_TRAMO_1) * PCT_TRAMO_1;
+  const tramo2 = Math.max(mesesExtra - MESES_TRAMO_1, 0) * PCT_TRAMO_2;
+  return Math.min(50 + tramo1 + tramo2, 100);
 }
+
+/** Años cotizados necesarios para alcanzar el 100 % con la escala anterior. */
+const ANIOS_PENSION_COMPLETA = 37;
 
 const PENSION_MAX = 3359.6;
 const PENSION_MIN_65 = 936.2;
@@ -62,13 +77,13 @@ const T = {
     q3: "¿Los autónomos tienen la misma pensión?",
     a3: "Los autónomos cotizan por la base elegida dentro de los tramos del RETA. Históricamente cotizaban por la mínima, lo que generaba pensiones bajas. Desde 2023 rige un sistema de cotización por ingresos reales (con tramos que se revisan cada año, también en 2026), que acerca la cotización a los ingresos reales y mejora la futura pensión de los nuevos autónomos.",
     q4: "¿Cuántos años hay que cotizar para cobrar el 100 %?",
-    a4: "Con la reforma en vigor, se necesitan 36 años y 6 meses de cotización para percibir el 100 % de la base reguladora, cifra que se eleva a 37 años a partir de 2027. Con el mínimo de 15 años cotizados solo se accede al 50 % de la base. Entre ambos extremos la escala es progresiva: los primeros años tras el mínimo aportan un porcentaje mayor que los últimos, de modo que cotizar de 15 a 20 años sube bastante más el porcentaje que cotizar de 30 a 35. Además, al menos 2 de esos 15 años deben estar comprendidos dentro de los 15 anteriores a la jubilación.",
+    a4: "Con la escala general del artículo 210 de la Ley General de la Seguridad Social se necesitan 37 años de cotización para percibir el 100 % de la base reguladora, y es la que aplica esta calculadora. Durante los años de transición la disposición transitoria novena permite alcanzarlo algo antes —en 2026, con 36 años y 6 meses—, de modo que si estás cerca de ese umbral conviene contrastar tu caso con el simulador oficial. Con el mínimo de 15 años cotizados solo se accede al 50 % de la base. Entre ambos extremos la escala es progresiva: los primeros años tras el mínimo aportan un porcentaje mayor que los últimos, de modo que cotizar de 15 a 20 años sube bastante más el porcentaje que cotizar de 30 a 35. Además, al menos 2 de esos 15 años deben estar comprendidos dentro de los 15 anteriores a la jubilación.",
     q5: "¿Puedo jubilarme antes de la edad legal?",
     a5: "Sí, existen dos modalidades. La jubilación anticipada voluntaria permite adelantar hasta 2 años la edad ordinaria, siempre que se acrediten al menos 35 años cotizados, y aplica coeficientes reductores que oscilan aproximadamente entre el 2,81 % y el 21 % según los meses de adelanto y los años cotizados. La involuntaria, por causas ajenas al trabajador como un despido colectivo, permite adelantar hasta 4 años con 33 años cotizados y coeficientes algo más suaves. Conviene calcular bien el impacto: la reducción es vitalicia y se aplica sobre todas las pensiones futuras, no solo durante los años adelantados.",
     deepTitle: "Cómo se calcula la pensión de jubilación",
-    deep: "El cálculo tiene dos componentes. El primero es la base reguladora, que se obtiene sumando las bases de cotización de los últimos años y dividiendo el resultado entre el número de meses correspondiente; el periodo de cómputo se ha ido ampliando con las sucesivas reformas hasta los 25 años, con la posibilidad de descartar los peores meses. El segundo componente es el porcentaje aplicable, que depende exclusivamente de los años cotizados según una escala progresiva: el 50 % con 15 años y el 100 % al alcanzar 36 años y 6 meses. La pensión resultante es el producto de ambos y queda sujeta a un importe mínimo y a un tope máximo fijados anualmente.",
+    deep: "El cálculo tiene dos componentes. El primero es la base reguladora, que se obtiene sumando las bases de cotización de los últimos años y dividiendo el resultado entre el número de meses correspondiente; el periodo de cómputo se ha ido ampliando con las sucesivas reformas hasta los 25 años, con la posibilidad de descartar los peores meses. El segundo componente es el porcentaje aplicable, que depende exclusivamente de los años cotizados según una escala progresiva: el 50 % con 15 años y, sumando un 0,19 % por cada mes cotizado de más hasta el mes 248 y un 0,18 % por los siguientes, el 100 % al alcanzar los 37 años. La pensión resultante es el producto de ambos y queda sujeta a un importe mínimo y a un tope máximo fijados anualmente.",
     exampleTitle: "Ejemplo resuelto",
-    example: "Supongamos una base reguladora de 2.000 € mensuales y 30 años cotizados. Según la escala, 30 años dan derecho a alrededor del 83,6 % de la base reguladora, de modo que la pensión sería 2.000 × 0,836 = 1.672 € mensuales en 14 pagas. Si esa misma persona cotizara 5 años más hasta alcanzar los 35, el porcentaje subiría al 95 % aproximadamente y la pensión pasaría a 1.900 €, es decir, 228 € más al mes. Ese cálculo es el que conviene hacer antes de decidir si compensa prolongar la vida laboral.",
+    example: "Supongamos una base reguladora de 2.000 € mensuales y 30 años cotizados. Sobre el mínimo de 15 años hay 180 meses adicionales, que al 0,19 % suman 34,2 puntos: el porcentaje aplicable es del 84,2 %, de modo que la pensión sería 2.000 × 0,842 = 1.684 € mensuales en 14 pagas. Si esa misma persona cotizara 5 años más hasta alcanzar los 35, el porcentaje subiría al 95,6 % y la pensión pasaría a 1.912 €, es decir, 228 € más al mes. Ese cálculo es el que conviene hacer antes de decidir si compensa prolongar la vida laboral.",
     tableTitle: "Porcentaje de la base reguladora según años cotizados",
     tableCol1: "Años cotizados",
     tableCol2: "% de la base reguladora",
@@ -106,13 +121,13 @@ const T = {
     q3: "Do the self-employed get the same pension?",
     a3: "The self-employed contribute on the chosen base within the RETA brackets. Historically they contributed at the minimum, which generated low pensions. Since 2023 a real-income contribution system has been in force (with brackets reviewed every year, including 2026), bringing contributions closer to real income and improving the future pension of new self-employed workers.",
     q4: "How many years must I contribute to get 100%?",
-    a4: "Under the current reform, you need 36 years and 6 months of contributions to receive 100% of the regulatory base, rising to 37 years from 2027. With the minimum of 15 contributed years you only qualify for 50% of the base. Between those extremes the scale is progressive: the first years after the minimum add a larger percentage than the last ones, so contributing from 15 to 20 years raises the percentage considerably more than going from 30 to 35. In addition, at least 2 of those 15 years must fall within the 15 years preceding retirement.",
+    a4: "Under the general scale of Article 210 of the Spanish Social Security Act you need 37 years of contributions to receive 100% of the regulatory base, and that is the scale this calculator applies. During the transitional years, the ninth transitional provision allows it to be reached slightly earlier — in 2026, with 36 years and 6 months — so if you are close to that threshold it is worth checking your case against the official simulator. With the minimum of 15 contributed years you only qualify for 50% of the base. Between those extremes the scale is progressive: the first years after the minimum add a larger percentage than the last ones, so contributing from 15 to 20 years raises the percentage considerably more than going from 30 to 35. In addition, at least 2 of those 15 years must fall within the 15 years preceding retirement.",
     q5: "Can I retire before the legal age?",
     a5: "Yes, there are two routes. Voluntary early retirement allows you to bring retirement forward by up to 2 years, provided you have at least 35 contributed years, and applies reduction coefficients ranging roughly between 2.81% and 21% depending on the months brought forward and years contributed. Involuntary early retirement, for reasons beyond the worker's control such as collective redundancy, allows up to 4 years early with 33 contributed years and somewhat gentler coefficients. It is worth calculating the impact carefully: the reduction is for life and applies to all future pension payments, not just the years brought forward.",
     deepTitle: "How the retirement pension is calculated",
-    deep: "The calculation has two components. The first is the regulatory base, obtained by adding up the contribution bases of recent years and dividing by the corresponding number of months; the computation period has been progressively extended by successive reforms to 25 years, with the option of discarding the worst months. The second component is the applicable percentage, which depends exclusively on years contributed according to a progressive scale: 50% at 15 years and 100% on reaching 36 years and 6 months. The resulting pension is the product of both and is subject to a minimum amount and a maximum cap set annually.",
+    deep: "The calculation has two components. The first is the regulatory base, obtained by adding up the contribution bases of recent years and dividing by the corresponding number of months; the computation period has been progressively extended by successive reforms to 25 years, with the option of discarding the worst months. The second component is the applicable percentage, which depends exclusively on years contributed according to a progressive scale: 50% at 15 years and, adding 0.19% for each additional month contributed up to month 248 and 0.18% for those beyond, 100% on reaching 37 years. The resulting pension is the product of both and is subject to a minimum amount and a maximum cap set annually.",
     exampleTitle: "Worked example",
-    example: "Take a regulatory base of €2,000 a month and 30 contributed years. According to the scale, 30 years entitles you to around 83.6% of the regulatory base, so the pension would be 2,000 × 0.836 = €1,672 a month across 14 payments. If that same person contributed 5 more years to reach 35, the percentage would rise to approximately 95% and the pension would become €1,900 — that is, €228 more per month. That is the calculation worth doing before deciding whether extending your working life pays off.",
+    example: "Take a regulatory base of €2,000 a month and 30 contributed years. Above the 15-year minimum there are 180 additional months, which at 0.19% add 34.2 points: the applicable percentage is 84.2%, so the pension would be 2,000 × 0.842 = €1,684 a month across 14 payments. If that same person contributed 5 more years to reach 35, the percentage would rise to 95.6% and the pension would become €1,912 — that is, €228 more per month. That is the calculation worth doing before deciding whether extending your working life pays off.",
     tableTitle: "Percentage of the regulatory base by years contributed",
     tableCol1: "Years contributed",
     tableCol2: "% of regulatory base",
@@ -121,14 +136,16 @@ const T = {
   },
 };
 
-const PENSION_TABLE = [
-  { es: "15 años", en: "15 years", pct: "50 %" },
-  { es: "20 años", en: "20 years", pct: "60,5 %" },
-  { es: "25 años", en: "25 years", pct: "72,2 %" },
-  { es: "30 años", en: "30 years", pct: "83,6 %" },
-  { es: "35 años", en: "35 years", pct: "95,0 %" },
-  { es: "36 años y 6 meses", en: "36 years 6 months", pct: "100 %" },
-];
+// Derivada de getPorcentaje() para que tabla y cálculo no puedan divergir.
+const PENSION_TABLE = [15, 20, 25, 30, 35, ANIOS_PENSION_COMPLETA].map((anios) => ({
+  anios,
+  es: `${anios} años`,
+  en: `${anios} years`,
+  pct: getPorcentaje(anios).toLocaleString("es-ES", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }) + " %",
+}));
 
 export default function Pension() {
   const locale = useLocale();
@@ -145,7 +162,7 @@ export default function Pension() {
   const pensionBruta = Math.min((b * porcentaje) / 100, PENSION_MAX);
   const pensionAnual = pensionBruta * 14;
 
-  const aniosFull = 36.5;
+  const aniosFull = ANIOS_PENSION_COMPLETA;
 
   return (
     <div>

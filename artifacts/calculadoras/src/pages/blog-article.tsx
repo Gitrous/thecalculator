@@ -5,7 +5,7 @@ import {
   ThumbsUp, ThumbsDown, CheckCircle2, Share2,
   TrendingUp, Heart, Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { getArticle, ARTICLES, ARTICLE_IMAGES, ARTICLE_SOURCES, type ArticleSection } from "@/lib/articles";
+import { getArticle, ARTICLES, ARTICLE_IMAGES, ARTICLE_SOURCES, getReadTime, type ArticleSection } from "@/lib/articles";
 import {
   getCalculator, calcPath, enCalcPath,
   getCalculatorsByCategory, CATEGORIES,
@@ -299,7 +299,7 @@ export default function BlogArticle() {
               </Link>
             </p>
             <p className="text-xs text-gray-500 dark:text-white/50">
-              {dateLabel} · {article.readTime} {isEn ? "min read" : "min de lectura"}
+              {dateLabel} · {getReadTime(article, isEn ? "en" : "es")} {isEn ? "min read" : "min de lectura"}
             </p>
           </div>
         </div>

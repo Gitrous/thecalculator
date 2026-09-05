@@ -53,7 +53,7 @@ const T = {
     title: "Calculadora de Prestación por Desempleo (Paro) 2026",
     subtitle: "Calcula cuánto cobrarás de paro, durante cuánto tiempo y el total de la prestación según tu salario y los meses cotizados.",
     intro1: "La prestación por desempleo (comúnmente llamada 'el paro') es una prestación contributiva del sistema de Seguridad Social español que compensa la pérdida de ingresos cuando un trabajador queda en situación legal de desempleo. Para tener derecho a ella es necesario haber cotizado al menos 360 días (12 meses) en los últimos 6 años antes de quedarse sin trabajo.",
-    intro2: "Esta calculadora estima el importe de la prestación y su duración en función de los meses cotizados y el salario. La cuantía es el 70% de la base reguladora durante los primeros 180 días (6 meses) y el 50% a partir del séptimo mes, con un tope máximo y mínimo establecido por el IPREM. Los resultados son orientativos; el SEPE aplica los datos reales de las bases de cotización.",
+    intro2: "Esta calculadora estima el importe de la prestación y su duración en función de los meses cotizados y el salario. La cuantía es el 70% de la base reguladora durante los primeros 180 días (6 meses) y el 60% a partir del séptimo mes, con un tope máximo y mínimo establecido por el IPREM. Los resultados son orientativos; el SEPE aplica los datos reales de las bases de cotización.",
     disclaimer: "Estimación orientativa. Para calcular tu prestación exacta, consulta la sede electrónica del SEPE con tu informe de vida laboral.",
     cardTitle: "Tus datos",
     salaryLabel: "Salario bruto mensual (€)",
@@ -71,15 +71,15 @@ const T = {
     first6Label: "Primeros 6 meses",
     pct70: "70% base reguladora",
     from7Label: "A partir del 7.º mes",
-    pct50: "50% base reguladora",
+    pct60: "60% base reguladora",
     totalLabel: "Total estimado bruto",
     detailTitle: "Detalle del cálculo",
     baseReg: "Base reguladora",
     diasCotizados: "Días cotizados",
     maxApplicable: "Máximo aplicable",
     minApplicable: "Mínimo aplicable",
-    breakdown: (m70: number, prest70: string, m50: number, prest50: string) =>
-      `${m70} meses × ${prest70} + ${m50} meses × ${prest50}`,
+    breakdown: (m70: number, prest70: string, m60: number, prest60: string) =>
+      `${m70} meses × ${prest70} + ${m60} meses × ${prest60}`,
     breakdownLabel: "Desglose temporal",
     note: (<><strong>Nota:</strong> Las cantidades son brutas. El SEPE descuenta las cotizaciones a la Seguridad Social (4,7%) y aplica retención de IRPF. La base reguladora real es la media de las bases de cotización por desempleo de los últimos 180 días.</>),
     faqTitle: "Preguntas frecuentes",
@@ -109,7 +109,7 @@ const T = {
     title: "Spanish Unemployment Benefit Calculator 2026",
     subtitle: "Calculate how much unemployment benefit you will receive, for how long, and the total amount based on your salary and contributions.",
     intro1: "Unemployment benefit (commonly known as 'el paro') is a contributory benefit from the Spanish Social Security system that compensates for income loss when a worker is in a legal situation of unemployment. To be entitled to it, you must have contributed at least 360 days (12 months) in the last 6 years before becoming unemployed.",
-    intro2: "This calculator estimates the benefit amount and its duration based on months contributed and salary. The benefit is 70% of the regulatory base for the first 180 days (6 months) and 50% from the seventh month onwards, with a maximum and minimum cap set by the IPREM. Results are indicative; the SEPE applies actual contribution base data.",
+    intro2: "This calculator estimates the benefit amount and its duration based on months contributed and salary. The benefit is 70% of the regulatory base for the first 180 days (6 months) and 60% from the seventh month onwards, with a maximum and minimum cap set by the IPREM. Results are indicative; the SEPE applies actual contribution base data.",
     disclaimer: "Indicative estimate. For your exact benefit calculation, consult the SEPE electronic office with your Social Security contributions report.",
     cardTitle: "Your data",
     salaryLabel: "Monthly gross salary (€)",
@@ -127,15 +127,15 @@ const T = {
     first6Label: "First 6 months",
     pct70: "70% regulatory base",
     from7Label: "From month 7",
-    pct50: "50% regulatory base",
+    pct60: "60% regulatory base",
     totalLabel: "Estimated gross total",
     detailTitle: "Calculation details",
     baseReg: "Regulatory base",
     diasCotizados: "Days contributed",
     maxApplicable: "Maximum applicable",
     minApplicable: "Minimum applicable",
-    breakdown: (m70: number, prest70: string, m50: number, prest50: string) =>
-      `${m70} months × ${prest70} + ${m50} months × ${prest50}`,
+    breakdown: (m70: number, prest70: string, m60: number, prest60: string) =>
+      `${m70} months × ${prest70} + ${m60} months × ${prest60}`,
     breakdownLabel: "Time breakdown",
     note: (<><strong>Note:</strong> Amounts are gross. The SEPE deducts Social Security contributions (4.7%) and applies income tax (IRPF) withholding. The actual regulatory base is the average of unemployment contribution bases over the last 180 days.</>),
     faqTitle: "Frequently asked questions",
@@ -190,20 +190,21 @@ export default function Paro() {
   const baseReg = s;
 
   const bruto70 = baseReg * 0.7;
-  const bruto50 = baseReg * 0.5;
+  // Desde el RDL 2/2024, a partir del día 181 se cobra el 60 % (antes, el 50 %).
+  const bruto60 = baseReg * 0.6;
 
   const maxFactor = h === 0 ? 1.75 : h === 1 ? 2.0 : 2.25;
   const max = IPREM * maxFactor;
   const minVal = h === 0 ? IPREM * 0.8 : IPREM * 1.07;
 
   const prest70 = Math.min(Math.max(bruto70, minVal), max);
-  const prest50 = Math.min(Math.max(bruto50, minVal), max);
+  const prest60 = Math.min(Math.max(bruto60, minVal), max);
 
   const dias70 = Math.min(duracion, 180);
-  const dias50 = Math.max(duracion - 180, 0);
+  const dias60 = Math.max(duracion - 180, 0);
   const meses70 = dias70 / 30;
-  const meses50 = dias50 / 30;
-  const totalBruto = prest70 * meses70 + prest50 * meses50;
+  const meses60 = dias60 / 30;
+  const totalBruto = prest70 * meses70 + prest60 * meses60;
 
   return (
     <div>
@@ -283,8 +284,8 @@ export default function Paro() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t.from7Label}</p>
-                  <p className="text-2xl font-bold">{eur(prest50)}</p>
-                  <p className="text-xs text-muted-foreground">{t.pct50}</p>
+                  <p className="text-2xl font-bold">{eur(prest60)}</p>
+                  <p className="text-xs text-muted-foreground">{t.pct60}</p>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t.totalLabel}</p>
@@ -316,10 +317,10 @@ export default function Paro() {
                   <span className="text-muted-foreground">{t.minApplicable}</span>
                   <span className="font-medium">{eur(minVal)}/mes ({h === 0 ? "80%" : "107%"} IPREM)</span>
                 </div>
-                {dias50 > 0 && (
+                {dias60 > 0 && (
                   <div className="flex justify-between py-1 border-b">
                     <span className="text-muted-foreground">{t.breakdownLabel}</span>
-                    <span className="font-medium">{t.breakdown(meses70, eur(prest70), meses50, eur(prest50))}</span>
+                    <span className="font-medium">{t.breakdown(meses70, eur(prest70), meses60, eur(prest60))}</span>
                   </div>
                 )}
               </div>
