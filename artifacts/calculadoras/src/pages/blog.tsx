@@ -4,7 +4,8 @@ import {
   Search, X, ArrowRight, TrendingUp, Heart,
   Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { ARTICLES, ARTICLE_IMAGES, getReadTime, type Article } from "@/lib/articles";
+import { ARTICLES, ARTICLE_IMAGES, type Article } from "@/lib/articles";
+import { getReadTime, getSections } from "@/lib/article-bodies";
 import { CATEGORIES } from "@/lib/calculators";
 import { Seo } from "@/components/seo";
 import { useLocale } from "@/lib/locale";
@@ -193,7 +194,7 @@ export default function Blog() {
   const filtered = ARTICLES.filter((a) => {
     const t = isEn ? a.enTitle : a.title;
     const d = isEn ? a.enDescription : a.description;
-    const sections = isEn ? a.enSections : a.sections;
+    const sections = getSections(a.slug, isEn ? "en" : "es");
     const sectionText = sections
       .flatMap((s) => [s.text ?? "", ...(s.items ?? [])])
       .join(" ")

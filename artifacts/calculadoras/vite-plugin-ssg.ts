@@ -134,10 +134,15 @@ export function ssgPlugin(): Plugin {
 
         // 2. Load the server render() and the route list from the bundle.
         const serverEntry = pathToFileURL(path.join(SERVER_OUT, "entry-server.js")).href;
-        const { render, getAllRoutes } = (await import(serverEntry)) as {
+        const { render, getAllRoutes, preloadRoutes } = (await import(serverEntry)) as {
           render: (url: string) => { html: string; head: HeadData | null };
           getAllRoutes: () => string[];
+          preloadRoutes: () => Promise<void>;
         };
+
+        // Resolve on-demand chunks up front: render() is synchronous, so a
+        // still-pending import would prerender as an empty fallback.
+        await preloadRoutes();
 
         const template = await fs.readFile(path.join(CLIENT_OUT, "index.html"), "utf8");
         const routes = getAllRoutes();

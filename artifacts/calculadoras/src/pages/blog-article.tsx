@@ -5,7 +5,8 @@ import {
   ThumbsUp, ThumbsDown, CheckCircle2, Share2,
   TrendingUp, Heart, Briefcase, Home, GraduationCap, Zap,
 } from "lucide-react";
-import { getArticle, ARTICLES, ARTICLE_IMAGES, ARTICLE_SOURCES, getReadTime, type ArticleSection } from "@/lib/articles";
+import { getArticle, ARTICLES, ARTICLE_IMAGES, ARTICLE_SOURCES, type ArticleSection } from "@/lib/articles";
+import { getReadTime, getSections } from "@/lib/article-bodies";
 import {
   getCalculator, calcPath, enCalcPath,
   getCalculatorsByCategory, CATEGORIES,
@@ -185,7 +186,7 @@ export default function BlogArticle() {
 
   const title = isEn ? article.enTitle : article.title;
   const description = isEn ? article.enDescription : article.description;
-  const sections = isEn ? article.enSections : article.sections;
+  const sections = getSections(article.slug, isEn ? "en" : "es");
   const path = isEn ? `/en/blog/${article.enSlug}` : `/blog/${article.slug}`;
   const alternatePath = isEn ? `/blog/${article.slug}` : `/en/blog/${article.enSlug}`;
 

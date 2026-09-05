@@ -16,8 +16,7 @@ import AvisoLegal from "@/pages/aviso-legal";
 import SobreNosotros from "@/pages/sobre-nosotros";
 import Metodologia from "@/pages/metodologia";
 import Contacto from "@/pages/contacto";
-import Blog from "@/pages/blog";
-import BlogArticle from "@/pages/blog-article";
+import { BlogArticleRoute, BlogIndexRoute } from "@/pages/blog-routes";
 
 const queryClient = new QueryClient();
 
@@ -67,10 +66,10 @@ function Router() {
           <Route path="/contacto" component={Contacto} />
           <Route path="/en/contact" component={Contacto} />
 
-          <Route path="/blog" component={Blog} />
-          <Route path="/en/blog" component={Blog} />
-          <Route path="/blog/:slug" component={BlogArticle} />
-          <Route path="/en/blog/:slug" component={BlogArticle} />
+          <Route path="/blog" component={BlogIndexRoute} />
+          <Route path="/en/blog" component={BlogIndexRoute} />
+          <Route path="/blog/:slug" component={BlogArticleRoute} />
+          <Route path="/en/blog/:slug" component={BlogArticleRoute} />
 
           <Route path="/calculadoras/:categoria/:slug" component={CalculatorPage} />
           <Route path="/calculadoras/:categoria" component={Category} />

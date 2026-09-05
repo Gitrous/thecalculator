@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Heart } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -52,7 +53,7 @@ const T = {
     q2: "¿Para qué sirven las zonas de entrenamiento?",
     a2: "Cada zona cardíaca produce adaptaciones fisiológicas distintas. La Zona 2 (60-70%) es ideal para mejorar la capacidad aeróbica de base y quemar grasa como combustible principal; los corredores de fondo dedican hasta el 80% de su volumen de entrenamiento aquí. La Zona 4 (80-90%) entrena el umbral de lactato y mejora el rendimiento en esfuerzos sostenidos de 20-60 minutos. La Zona 5 (>90%) desarrolla la potencia máxima y el VO₂máx, pero no debe mantenerse más de unos minutos.",
     q3: "¿Es seguro entrenar cerca de la FCmáx?",
-    a3: "Para personas sanas y sin factores de riesgo cardiovascular, entrenar puntualmente en Zona 4 o 5 es seguro si se ha construido previamente una base aeróbica sólida (Zonas 1-3). Sin embargo, si tienes más de 40 años, llevas tiempo sedentario, o tienes antecedentes de enfermedades del corazón, consulta a tu médico antes de realizar entrenamientos de alta intensidad. Como norma general, nunca superes el 85% de tu FCmáx sin supervisión médica si eres principiante.",
+    a3: "Para personas sanas y sin factores de riesgo cardiovascular, entrenar puntualmente en Zona 4 o 5 es seguro si se ha construido previamente una base aeróbica sólida (Zonas 1-3). Sin embargo, si tienes más de 40 años, llevas tiempo sedentario, o tienes antecedentes de enfermedades del corazón, consulta a tu médico antes de realizar entrenamientos de alta intensidad. Si estás empezando, una pauta prudente habitual es construir primero base aeróbica en las zonas bajas antes de acercarse al 85 % de la FCmáx, y consultar con un profesional antes de entrenar por encima de forma regular.",
     q4: "¿Qué es la frecuencia cardíaca en reposo y qué indica?",
     a4: "Es el número de latidos por minuto cuando estás completamente relajado, y se mide idealmente por la mañana antes de levantarte de la cama. En un adulto sano suele situarse entre 60 y 100 lpm, aunque en personas entrenadas puede bajar de 50 e incluso a 40 lpm en deportistas de resistencia de élite, porque el corazón bombea más sangre en cada latido. Una frecuencia en reposo que desciende con las semanas es una buena señal de que tu forma física mejora. Por el contrario, si aparece elevada varios días seguidos puede indicar fatiga acumulada, falta de sueño, deshidratación o el inicio de una infección.",
     q5: "¿Por qué mi pulsómetro marca valores distintos a los calculados?",
@@ -86,7 +87,7 @@ const T = {
     q2: "What are training zones used for?",
     a2: "Each heart rate zone produces different physiological adaptations. Zone 2 (60-70%) is ideal for improving base aerobic capacity and burning fat as the primary fuel; endurance runners spend up to 80% of their training volume here. Zone 4 (80-90%) trains the lactate threshold and improves performance in sustained efforts of 20-60 minutes. Zone 5 (>90%) develops maximum power and VO₂max, but cannot be sustained for more than a few minutes.",
     q3: "Is it safe to train near MHR?",
-    a3: "For healthy people with no cardiovascular risk factors, occasionally training in Zone 4 or 5 is safe if a solid aerobic base (Zones 1-3) has been built beforehand. However, if you are over 40, have been sedentary for a long time, or have a history of heart disease, consult your doctor before high-intensity training. As a general rule, never exceed 85% of your MHR without medical supervision if you are a beginner.",
+    a3: "For healthy people with no cardiovascular risk factors, occasionally training in Zone 4 or 5 is safe if a solid aerobic base (Zones 1-3) has been built beforehand. However, if you are over 40, have been sedentary for a long time, or have a history of heart disease, consult your doctor before high-intensity training. If you are just starting out, a common prudent approach is to build aerobic base in the lower zones before going near 85% of your MHR, and to check with a professional before training above it regularly.",
     q4: "What is resting heart rate and what does it tell you?",
     a4: "It is the number of beats per minute when you are completely relaxed, ideally measured in the morning before getting out of bed. In a healthy adult it usually sits between 60 and 100 bpm, though trained people can drop below 50 and even to 40 bpm in elite endurance athletes, because the heart pumps more blood with each beat. A resting rate that falls over the weeks is a good sign that your fitness is improving. Conversely, if it is elevated for several days in a row it may indicate accumulated fatigue, lack of sleep, dehydration or the onset of an infection.",
     q5: "Why does my heart rate monitor show different values from the calculated ones?",
@@ -122,7 +123,8 @@ export default function FrecuenciaCardiaca() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-3">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "Tanaka et al. (J Am Coll Cardiol, 2001)", href: "https://pubmed.ncbi.nlm.nih.gov/11153730/" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

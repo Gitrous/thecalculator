@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { HeartPulse, Heart, Zap, Activity, ChevronRight } from "lucide-react";
@@ -25,8 +26,8 @@ const RANGES: ImcRange[] = [
     labelEs: "Bajo peso", labelEn: "Underweight",
     color: "text-blue-500",
     badgeCls: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    descEs: "Tu peso está por debajo del rango saludable.",
-    descEn: "Your weight is below the healthy range.",
+    descEs: "El índice queda por debajo del rango de referencia de la OMS para adultos.",
+    descEn: "The index falls below the WHO reference range for adults.",
   },
   {
     max: 25,
@@ -49,24 +50,24 @@ const RANGES: ImcRange[] = [
     labelEs: "Obesidad grado I", labelEn: "Obesity class I",
     color: "text-orange-500",
     badgeCls: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
-    descEs: "Se recomienda consultar con un profesional de la salud.",
-    descEn: "Consulting a healthcare professional is recommended.",
+    descEs: "El índice entra en el rango que la OMS clasifica como obesidad grado I. Un profesional sanitario puede valorar qué significa en tu caso concreto.",
+    descEn: "The index falls in the range the WHO classifies as class I obesity. A healthcare professional can assess what that means in your particular case.",
   },
   {
     max: 40,
     labelEs: "Obesidad grado II", labelEn: "Obesity class II",
     color: "text-red-500",
     badgeCls: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
-    descEs: "Es importante consultar con tu médico.",
-    descEn: "It is important to consult a doctor.",
+    descEs: "El índice entra en el rango que la OMS clasifica como obesidad grado II. Una valoración médica ayuda a interpretarlo junto con el resto de tu historial.",
+    descEn: "The index falls in the range the WHO classifies as class II obesity. A medical assessment helps interpret it alongside the rest of your history.",
   },
   {
     max: Infinity,
     labelEs: "Obesidad grado III", labelEn: "Obesity class III",
     color: "text-red-700",
     badgeCls: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200",
-    descEs: "Se requiere atención médica especializada.",
-    descEn: "Specialised medical care is required.",
+    descEs: "El índice entra en el rango que la OMS clasifica como obesidad grado III. Es el tramo en el que la valoración por un profesional sanitario resulta más relevante.",
+    descEn: "The index falls in the range the WHO classifies as class III obesity. This is the band where assessment by a healthcare professional is most relevant.",
   },
 ];
 
@@ -288,7 +289,8 @@ export default function Imc() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-3">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "OMS — obesidad y sobrepeso", href: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

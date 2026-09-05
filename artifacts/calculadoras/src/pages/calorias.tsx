@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { HeartPulse } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -206,7 +207,8 @@ export default function Calorias() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-3">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "Mifflin-St Jeor (Am J Clin Nutr, 1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" }, { label: "OMS — actividad física", href: "https://www.who.int/news-room/fact-sheets/detail/physical-activity" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

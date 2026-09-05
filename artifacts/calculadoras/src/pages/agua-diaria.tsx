@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Droplets } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -65,9 +66,9 @@ const T = {
     q1: "¿Cómo se calcula la cantidad de agua diaria?",
     a1: "La fórmula más utilizada por dietistas y nutricionistas parte de un factor base de 30-40 ml por kilogramo de peso corporal, ajustado según el nivel de actividad física. A ese resultado se añaden entre 300 y 700 ml extra en climas cálidos para compensar las pérdidas por sudoración. Esta calculadora usa 30 ml/kg para personas sedentarias, hasta 40 ml/kg para deportistas de alta intensidad, más 500 ml adicionales en climas calurosos.",
     q2: "¿Cuenta el agua de los alimentos?",
-    a2: "Sí. Aproximadamente el 20-30% de la ingesta hídrica diaria proviene de los alimentos sólidos, especialmente frutas y verduras (la sandía, el pepino o la lechuga tienen más de un 90% de agua). Sin embargo, los valores de esta calculadora se refieren exclusivamente a líquidos que debes beber, ya que es la forma más fácil de controlar la hidratación. Si tu dieta es rica en frutas y verduras, puedes estar en el límite inferior del rango.",
+    a2: "Sí. Aproximadamente el 20-30% de la ingesta hídrica diaria proviene de los alimentos sólidos, especialmente frutas y verduras (la sandía, el pepino o la lechuga tienen más de un 90% de agua). Sin embargo, los valores de esta calculadora se refieren exclusivamente a los líquidos ingeridos como bebida, que es la parte más fácil de controlar. Si tu dieta es rica en frutas y verduras, puedes estar en el límite inferior del rango.",
     q3: "¿Cuáles son las señales de deshidratación?",
-    a3: "Los primeros signos de deshidratación leve son la sed, la orina de color amarillo oscuro, el cansancio y la dificultad para concentrarse. Con una deshidratación del 2% del peso corporal ya se observa una reducción del rendimiento físico y cognitivo. La deshidratación severa (>5%) puede causar mareos, taquicardia y confusión, y requiere atención médica. Como norma práctica, la orina debe ser de color amarillo pálido; si es transparente estás bien hidratado, si es oscura debes beber más.",
+    a3: "Los primeros signos de deshidratación leve son la sed, la orina de color amarillo oscuro, el cansancio y la dificultad para concentrarse. Con una deshidratación del 2% del peso corporal ya se observa una reducción del rendimiento físico y cognitivo. La deshidratación severa (>5%) puede causar mareos, taquicardia y confusión, y requiere atención médica. Como referencia práctica, un amarillo pálido suele acompañar a una buena hidratación, un tono transparente a una ingesta abundante y un tono oscuro a una ingesta baja; es un indicador aproximado, no una medida clínica, y algunos medicamentos y suplementos alteran el color.",
     q4: "¿Es malo beber demasiada agua?",
     a4: "Sí, aunque es poco frecuente. Beber cantidades excesivas de agua en muy poco tiempo puede provocar hiponatremia, una dilución peligrosa del sodio en sangre que causa dolor de cabeza, náuseas, confusión y, en casos graves, convulsiones. Suele darse en deportistas de resistencia que beben en exceso o en retos de ingesta rápida. Para una persona sana, los riñones eliminan sin problema el líquido sobrante repartido a lo largo del día; el riesgo aparece solo con volúmenes muy altos ingeridos de golpe. Por eso la recomendación es beber de forma regular y moderada, no forzarse a alcanzar una cifra concreta de una sola vez.",
     q5: "¿El café y el té cuentan como hidratación?",
@@ -81,7 +82,7 @@ const T = {
     tableCol2: "ml por kg",
     tableCol3: "Ejemplo (70 kg)",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "La cifra que obtienes es una guía diaria, no una obligación estricta hora a hora. Lo mejor es repartirla bebiendo de forma constante a lo largo del día en lugar de grandes cantidades de golpe, y usar el color de la orina como indicador práctico: un amarillo pálido señala buena hidratación, mientras que un tono oscuro indica que debes beber más. En días de mucho calor, ejercicio prolongado, fiebre, diarrea o vómitos, tus necesidades aumentan y conviene beber por encima de la cifra calculada.",
+    interpret: "La cifra que obtienes es una guía diaria, no una obligación estricta hora a hora. Lo mejor es repartirla bebiendo de forma constante a lo largo del día en lugar de grandes cantidades de golpe, y usar el color de la orina como indicador práctico: un amarillo pálido suele acompañar a una buena hidratación, mientras que un tono oscuro suele apuntar a una ingesta baja. En días de mucho calor, ejercicio prolongado, fiebre, diarrea o vómitos, tus necesidades aumentan y conviene beber por encima de la cifra calculada.",
   },
   en: {
     title: "Daily Water Intake Calculator",
@@ -100,9 +101,9 @@ const T = {
     q1: "How is the daily water requirement calculated?",
     a1: "The most widely used formula among dietitians and nutritionists starts with a base factor of 30-40 ml per kilogram of body weight, adjusted for physical activity level. An extra 300-700 ml is added in hot climates to compensate for sweat losses. This calculator uses 30 ml/kg for sedentary people up to 40 ml/kg for high-intensity athletes, plus an additional 500 ml in hot climates.",
     q2: "Does water from food count?",
-    a2: "Yes. Approximately 20-30% of daily fluid intake comes from solid foods, especially fruits and vegetables (watermelon, cucumber and lettuce contain over 90% water). However, the values in this calculator refer exclusively to fluids you should drink, as this is the easiest way to monitor hydration. If your diet is rich in fruit and vegetables, you may sit at the lower end of the range.",
+    a2: "Yes. Approximately 20-30% of daily fluid intake comes from solid foods, especially fruits and vegetables (watermelon, cucumber and lettuce contain over 90% water). However, the values in this calculator refer exclusively to fluids taken as drinks, which is the easiest part to monitor. If your diet is rich in fruit and vegetables, you may sit at the lower end of the range.",
     q3: "What are the signs of dehydration?",
-    a3: "The first signs of mild dehydration are thirst, dark yellow urine, fatigue and difficulty concentrating. A dehydration of just 2% of body weight already leads to a measurable reduction in physical and cognitive performance. Severe dehydration (>5%) can cause dizziness, rapid heartbeat and confusion, and requires medical attention. As a practical rule, your urine should be pale yellow; if it is clear you are well hydrated, if it is dark you need to drink more.",
+    a3: "The first signs of mild dehydration are thirst, dark yellow urine, fatigue and difficulty concentrating. A dehydration of just 2% of body weight already leads to a measurable reduction in physical and cognitive performance. Severe dehydration (>5%) can cause dizziness, rapid heartbeat and confusion, and requires medical attention. As a practical reference, pale yellow tends to accompany good hydration, a clear tone a generous intake and a dark tone a low intake; it is an approximate indicator rather than a clinical measure, and some medicines and supplements change the colour.",
     q4: "Can drinking too much water be harmful?",
     a4: "Yes, although it is uncommon. Drinking excessive amounts of water in a very short time can cause hyponatremia, a dangerous dilution of blood sodium that leads to headache, nausea, confusion and, in severe cases, seizures. It usually happens in endurance athletes who overdrink or in rapid-intake challenges. In a healthy person, the kidneys easily clear surplus fluid spread across the day; the risk only appears with very large volumes taken all at once. That is why the recommendation is to drink regularly and moderately rather than forcing a specific figure in one go.",
     q5: "Do coffee and tea count towards hydration?",
@@ -116,7 +117,7 @@ const T = {
     tableCol2: "ml per kg",
     tableCol3: "Example (70 kg)",
     interpretTitle: "How to interpret the result",
-    interpret: "The figure you get is a daily guide, not a strict hour-by-hour obligation. The best approach is to spread it out by drinking steadily throughout the day rather than large amounts at once, and to use urine colour as a practical indicator: pale yellow means good hydration, while a dark shade means you should drink more. On very hot days, during prolonged exercise, or with fever, diarrhoea or vomiting, your needs rise and it is wise to drink above the calculated figure.",
+    interpret: "The figure you get is a daily guide, not a strict hour-by-hour obligation. The best approach is to spread it out by drinking steadily throughout the day rather than large amounts at once, and to use urine colour as a practical indicator: pale yellow means good hydration, while a dark shade tends to point to a low intake. On very hot days, during prolonged exercise, or with fever, diarrhoea or vomiting, your needs rise and it is wise to drink above the calculated figure.",
   },
 };
 
@@ -146,7 +147,8 @@ export default function AguaDiaria() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-3">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "EFSA — valores de referencia para el agua", href: "https://www.efsa.europa.eu/en/efsajournal/pub/1459" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>
