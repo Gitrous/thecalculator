@@ -8,11 +8,11 @@ export default function SobreNosotros() {
   if (isEn) {
     return (
       <LegalPage
-        title="About & Methodology"
-        description="Who is behind Online Calculators (thecalculator.tech), how we build our calculators and which sources we rely on."
+        title="About us"
+        description="Who is behind Online Calculators (thecalculator.tech) and how to reach Transparent Calculators (CT), the editorial signature of the site."
         path="/en/about"
         alternatePath="/sobre-nosotros"
-        updated="Last updated: September 4, 2026"
+        updated="Last updated: September 5, 2026"
       >
         <h2>What thecalculator.tech is</h2>
         <p>
@@ -25,55 +25,23 @@ export default function SobreNosotros() {
 
         <h2>Who is behind the site</h2>
         <p>
-          The site is maintained by an independent editorial team. We do not present ourselves as
+          The site is maintained by an independent editorial team, and every article and calculator
+          is signed under the editorial pseudonym <strong>Transparent Calculators (CT)</strong> — the
+          initials you see next to each article. It is a fixed, transparent pseudonym rather than the
+          name of a single individual, and we are open about that: we do not present ourselves as
           licensed financial advisers, tax specialists or doctors, and we do not claim credentials we
-          do not have: the calculators are informational tools built on public formulas and official
+          do not have. The calculators are informational tools built on public formulas and official
           data, not personalised professional advice. If you want to reach the person responsible for
           the content, you can always write to us through our{" "}
           <a href="/en/contact">contact page</a>.
         </p>
 
-        <h2>How we build our calculators</h2>
+        <h2>Methodology and sources</h2>
         <p>
-          Every calculator is built from an identifiable basis: a mathematical formula, a piece of
-          regulation or a recognised technical reference. Before publishing a tool we test it against
-          known cases and worked examples to check that the results match, and we review periodically
-          those whose parameters can change over time (tax brackets, contribution rates, legal
-          limits). Each page explains how the result is obtained so you can understand the number,
-          not just read it.
-        </p>
-
-        <h2>Reference sources by area</h2>
-        <p>Depending on the calculator, we work from sources such as:</p>
-        <ul>
-          <li>
-            <strong>Finance</strong> — standard financial formulas plus, where a calculation depends
-            on Spanish regulation, parameters from the Spanish Tax Agency (AEAT), the Bank of Spain,
-            Social Security and the Official State Gazette (BOE).
-          </li>
-          <li>
-            <strong>Work</strong> — Social Security, the State Employment Service (SEPE), the Ministry
-            of Labour and the BOE for unemployment benefit, severance, self-employed contributions
-            and working-time rules.
-          </li>
-          <li>
-            <strong>Health</strong> — the World Health Organisation's BMI classification, the
-            Mifflin-St Jeor equation (1990) for energy expenditure and the Tanaka formula for maximum
-            heart rate, among other peer-reviewed references. Health results are estimates and never
-            replace medical advice.
-          </li>
-          <li>
-            <strong>Education &amp; physics</strong> — the International System of Units (SI/BIPM) and
-            standard academic references.
-          </li>
-        </ul>
-
-        <h2>Keeping data up to date</h2>
-        <p>
-          Calculators that depend on figures which change over time are reviewed at the start of each
-          fiscal year and whenever a relevant reform comes into force, as soon as the competent body
-          publishes the official values. Even so, results remain indicative and some parameters may
-          depend on your collective agreement, contract or personal situation.
+          Every calculator is built on an identifiable basis — a mathematical formula, a piece of
+          regulation or a recognised technical reference — and we review periodically the ones whose
+          parameters change over time. You can read the full detail — how we build our calculators
+          and which sources we use by area — on our <a href="/en/methodology">methodology page</a>.
         </p>
 
         <h2>Corrections policy</h2>
@@ -97,11 +65,11 @@ export default function SobreNosotros() {
 
   return (
     <LegalPage
-      title="Sobre nosotros y metodología"
-      description="Quién está detrás de thecalculator.tech, cómo elaboramos las calculadoras y qué fuentes utilizamos."
+      title="Sobre nosotros"
+      description="Quién está detrás de thecalculator.tech y qué significa la firma Calculadoras Transparentes (CT)."
       path="/sobre-nosotros"
       alternatePath="/en/about"
-      updated="Última actualización: 4 de septiembre de 2026"
+      updated="Última actualización: 5 de septiembre de 2026"
     >
       <h2>Qué es thecalculator.tech</h2>
       <p>
@@ -114,55 +82,23 @@ export default function SobreNosotros() {
 
       <h2>Quién está detrás del sitio</h2>
       <p>
-        El sitio lo mantiene un equipo editorial independiente. No nos presentamos como asesores
-        financieros colegiados, especialistas fiscales ni médicos, y no atribuimos titulaciones que
-        no tenemos: las calculadoras son herramientas informativas construidas sobre fórmulas
-        públicas y datos oficiales, no asesoramiento profesional personalizado. Si quieres dirigirte
-        a la persona responsable del contenido, puedes escribirnos siempre a través de nuestra{" "}
+        El sitio lo mantiene un equipo editorial independiente, y cada artículo y calculadora se firma
+        bajo el seudónimo editorial <strong>Calculadoras Transparentes (CT)</strong> —las iniciales
+        que ves junto a cada artículo—. Es un seudónimo fijo y transparente, no el nombre de una
+        persona concreta, y lo decimos abiertamente: no nos presentamos como asesores financieros
+        colegiados, especialistas fiscales ni médicos, y no atribuimos titulaciones que no tenemos.
+        Las calculadoras son herramientas informativas construidas sobre fórmulas públicas y datos
+        oficiales, no asesoramiento profesional personalizado. Si quieres dirigirte a la persona
+        responsable del contenido, puedes escribirnos siempre a través de nuestra{" "}
         <a href="/contacto">página de contacto</a>.
       </p>
 
-      <h2>Cómo elaboramos las calculadoras</h2>
+      <h2>Metodología y fuentes</h2>
       <p>
-        Cada calculadora se construye a partir de una base identificable: una fórmula matemática, una
-        norma o una referencia técnica reconocida. Antes de publicar una herramienta la comprobamos
-        con casos conocidos y ejemplos resueltos para verificar que los resultados coinciden, y
-        revisamos periódicamente aquellas cuyos parámetros pueden cambiar con el tiempo (tramos
-        fiscales, tipos de cotización, límites legales). Cada página explica cómo se obtiene el
-        resultado para que entiendas el número, no solo lo leas.
-      </p>
-
-      <h2>Fuentes de referencia por área</h2>
-      <p>Según la calculadora, trabajamos con fuentes como:</p>
-      <ul>
-        <li>
-          <strong>Finanzas</strong> — fórmulas financieras estándar y, cuando el cálculo depende de
-          normativa española, parámetros de la Agencia Tributaria (AEAT), el Banco de España, la
-          Seguridad Social y el Boletín Oficial del Estado (BOE).
-        </li>
-        <li>
-          <strong>Trabajo</strong> — Seguridad Social, Servicio Público de Empleo Estatal (SEPE),
-          Ministerio de Trabajo y BOE para el paro, el finiquito, la cuota de autónomos y las reglas
-          de jornada.
-        </li>
-        <li>
-          <strong>Salud</strong> — la clasificación del IMC de la Organización Mundial de la Salud, la
-          ecuación de Mifflin-St Jeor (1990) para el gasto energético y la fórmula de Tanaka para la
-          frecuencia cardíaca máxima, entre otras referencias científicas revisadas por pares. Los
-          resultados de salud son estimaciones y nunca sustituyen el consejo médico.
-        </li>
-        <li>
-          <strong>Educación y física</strong> — el Sistema Internacional de Unidades (SI/BIPM) y
-          bibliografía académica de referencia.
-        </li>
-      </ul>
-
-      <h2>Actualización de los datos</h2>
-      <p>
-        Las calculadoras que dependen de cifras que cambian con el tiempo se revisan al inicio de cada
-        ejercicio y cuando entra en vigor una reforma relevante, en cuanto el organismo competente
-        publica los valores oficiales. Aun así, los resultados siguen siendo orientativos y algunos
-        parámetros pueden depender de tu convenio, tu contrato o tu situación personal.
+        Cada calculadora se construye sobre una base identificable —una fórmula matemática, una norma
+        o una referencia técnica reconocida— y revisamos periódicamente aquellas cuyos parámetros
+        cambian con el tiempo. Puedes consultar el detalle completo —cómo elaboramos las calculadoras
+        y qué fuentes usamos por área— en nuestra <a href="/metodologia">página de metodología</a>.
       </p>
 
       <h2>Política de correcciones</h2>

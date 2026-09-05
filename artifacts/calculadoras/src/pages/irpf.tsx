@@ -860,6 +860,12 @@ export default function IRPF() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
+        <p className="text-xs text-gray-400 dark:text-gray-500 mt-3">
+          {locale === "en" ? "Data reviewed on 01/09/2026 · Source: " : "Datos revisados el 01/09/2026 · Fuente: "}
+          <a href="https://www.agenciatributaria.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+            {locale === "en" ? "Spanish Tax Agency (AEAT)" : "Agencia Tributaria (AEAT)"}
+          </a>
+        </p>
       </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">

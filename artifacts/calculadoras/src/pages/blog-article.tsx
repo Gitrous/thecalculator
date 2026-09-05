@@ -232,7 +232,7 @@ export default function BlogArticle() {
     ...(articleImage ? { image: articleImage } : {}),
     author: {
       "@type": "Organization",
-      name: isEn ? "thecalculator.tech editorial team" : "Equipo editorial de thecalculator.tech",
+      name: isEn ? "Transparent Calculators (CT)" : "Calculadoras Transparentes (CT)",
       url: `https://thecalculator.tech${isEn ? "/en/about/" : "/sobre-nosotros/"}`,
     },
     publisher: {
@@ -287,7 +287,7 @@ export default function BlogArticle() {
       <div className="flex items-center justify-between mb-8 pb-5 border-b border-gray-100 dark:border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-sm font-bold shrink-0">
-            TC
+            CT
           </div>
           <div>
             <p className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -295,7 +295,7 @@ export default function BlogArticle() {
                 href={isEn ? "/en/about" : "/sobre-nosotros"}
                 className="hover:text-primary transition-colors"
               >
-                {isEn ? "thecalculator.tech editorial team" : "Equipo editorial de thecalculator.tech"}
+                {isEn ? "Transparent Calculators" : "Calculadoras Transparentes"}
               </Link>
             </p>
             <p className="text-xs text-gray-500 dark:text-white/50">

@@ -58,6 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     ? [
         { href: "/en/blog", label: "Blog" },
         { href: "/en/about", label: "About" },
+        { href: "/en/methodology", label: "Methodology" },
         { href: "/en/privacy", label: "Privacy Policy" },
         { href: "/en/cookies", label: "Cookie Policy" },
         { href: "/en/legal-notice", label: "Legal Notice" },
@@ -66,6 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     : [
         { href: "/blog", label: "Blog" },
         { href: "/sobre-nosotros", label: "Sobre nosotros" },
+        { href: "/metodologia", label: "Metodología" },
         { href: "/privacidad", label: "Privacidad" },
         { href: "/cookies", label: "Cookies" },
         { href: "/aviso-legal", label: "Aviso legal" },

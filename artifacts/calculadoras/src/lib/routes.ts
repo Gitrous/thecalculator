@@ -11,6 +11,8 @@ const LEGAL_ROUTES = [
   "/en/legal-notice",
   "/sobre-nosotros",
   "/en/about",
+  "/metodologia",
+  "/en/methodology",
   "/contacto",
   "/en/contact",
 ];

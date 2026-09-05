@@ -14,6 +14,7 @@ import Privacidad from "@/pages/privacidad";
 import Cookies from "@/pages/cookies";
 import AvisoLegal from "@/pages/aviso-legal";
 import SobreNosotros from "@/pages/sobre-nosotros";
+import Metodologia from "@/pages/metodologia";
 import Contacto from "@/pages/contacto";
 import Blog from "@/pages/blog";
 import BlogArticle from "@/pages/blog-article";
@@ -61,6 +62,8 @@ function Router() {
           <Route path="/en/legal-notice" component={AvisoLegal} />
           <Route path="/sobre-nosotros" component={SobreNosotros} />
           <Route path="/en/about" component={SobreNosotros} />
+          <Route path="/metodologia" component={Metodologia} />
+          <Route path="/en/methodology" component={Metodologia} />
           <Route path="/contacto" component={Contacto} />
           <Route path="/en/contact" component={Contacto} />
 

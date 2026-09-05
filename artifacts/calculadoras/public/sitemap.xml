@@ -383,7 +383,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/about/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/metodologia/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/metodologia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/methodology/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/contacto/</loc>
@@ -1086,7 +1094,15 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/sobre-nosotros/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/methodology/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/methodology/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/metodologia/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/en/contact/</loc>
