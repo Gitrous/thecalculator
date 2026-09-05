@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Landmark } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -49,7 +50,7 @@ const T = {
   es: {
     title: "Calculadora de Pensión de Jubilación 2026",
     subtitle: "Estima tu pensión mensual de jubilación según los años cotizados y tu base reguladora. Calculadora orientativa basada en el sistema español.",
-    intro1: "La pensión contributiva de jubilación en España es el pilar del sistema público de previsión social para la vejez. Su cálculo depende de dos factores clave: el número de años cotizados (que determina el porcentaje de la base reguladora) y la base reguladora en sí, que es la media de las bases de cotización de los últimos 25 años. A más años cotizados y mayor salario histórico, mayor pensión.",
+    intro1: "La pensión contributiva de jubilación en España es el pilar del sistema público de previsión social para la vejez. Su cálculo depende de dos factores clave: el número de años cotizados (que determina el porcentaje de la base reguladora) y la base reguladora en sí, que en el régimen general vigente se obtiene a partir de la media de las bases de cotización de los últimos 25 años, un periodo de cómputo que las reformas han ido ampliando y que convive con reglas transitorias y opciones de descarte de los peores meses. A más años cotizados y mayor salario histórico, mayor pensión.",
     intro2: "Esta calculadora te permite estimar la pensión mensual bruta aproximada según tus años de cotización y tu base reguladora media. También te muestra cuántos años te faltan para alcanzar el 100% de la prestación y te compara con la pensión máxima y mínima vigentes en 2026. El resultado es orientativo pero útil para planificar el ahorro para la jubilación.",
     disclaimer: "Estimación orientativa. La pensión real la calcula la Seguridad Social con tus bases de cotización históricas exactas. Consulta tu informe de vida laboral.",
     cardTitle: "Tus datos",
@@ -93,7 +94,7 @@ const T = {
   en: {
     title: "Spanish Retirement Pension Calculator 2026",
     subtitle: "Estimate your monthly retirement pension based on years contributed and your regulatory base. Indicative calculator based on the Spanish pension system.",
-    intro1: "The contributory retirement pension in Spain is the pillar of the public social provision system for old age. Its calculation depends on two key factors: the number of years contributed (which determines the percentage of the regulatory base) and the regulatory base itself, which is the average of contribution bases over the last 25 years. More years contributed and a higher historical salary mean a higher pension.",
+    intro1: "The contributory retirement pension in Spain is the pillar of the public social provision system for old age. Its calculation depends on two key factors: the number of years contributed (which determines the percentage of the regulatory base) and the regulatory base itself, which under the current general scheme is derived from the average of contribution bases over the last 25 years — a computation period that successive reforms have progressively extended and that coexists with transitional rules and options to discard the worst months. More years contributed and a higher historical salary mean a higher pension.",
     intro2: "This calculator lets you estimate the approximate gross monthly pension based on your years of contributions and your average regulatory base. It also shows how many more years you need to reach 100% of the benefit and compares it with the maximum and minimum pensions in force in 2026. The result is indicative but useful for planning retirement savings.",
     disclaimer: "Indicative estimate. The actual pension is calculated by Social Security using your exact historical contribution bases. Consult your Social Security contributions report.",
     cardTitle: "Your data",
@@ -173,16 +174,18 @@ export default function Pension() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-2">{t.subtitle}</p>
-      <p className="text-xs text-muted-foreground mb-3">
-        {locale === "en" ? "Data reviewed on 01/09/2026 · Official simulator: " : "Datos revisados el 01/09/2026 · Simulador oficial: "}
-        <a href="https://sede.seg-social.gob.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-          Tu Seguridad Social
-        </a>
-      </p>
-      <div className="mb-6 rounded-lg border border-amber-300/60 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-500/10 p-3 text-xs text-amber-900 dark:text-amber-200">
-        {locale === "en"
-          ? "Simplified simulation. The official pension depends on your actual contribution bases and personal circumstances."
-          : "Simulación simplificada. La pensión oficial depende de tus bases reales de cotización y de tus circunstancias personales."}
+      <ReviewedNote date="05/09/2026" sources={[{ label: "Seguridad Social", href: "https://sede.seg-social.gob.es/" }]} className="mb-6" />
+      <div className="mb-6 rounded-lg border border-amber-300/60 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-500/10 p-3 text-xs text-amber-900 dark:text-amber-200 space-y-1.5">
+        <p>
+          {locale === "en"
+            ? "Simplified simulation. The official pension depends on your actual contribution bases and personal circumstances."
+            : "Simulación simplificada. La pensión oficial depende de tus bases reales de cotización y de tus circunstancias personales."}
+        </p>
+        <p>
+          {locale === "en"
+            ? "The calculation methodology may vary depending on your retirement year and the rules applicable at that time: the computation period, the transitional arrangements and the applicable percentages have been amended by successive reforms and are still being phased in."
+            : "La metodología de cálculo puede variar según el año de jubilación y la normativa aplicable: el periodo de cómputo, los regímenes transitorios y los porcentajes aplicables han cambiado con las sucesivas reformas y siguen en despliegue progresivo."}
+        </p>
       </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { ArrowLeft, Clock, Plus, Trash2 } from "lucide-react";
@@ -82,7 +83,7 @@ const T = {
     q4: "¿Cuántas horas es la jornada ordinaria en España?",
     a4: "La jornada máxima ordinaria es de 40 horas semanales de promedio en cómputo anual, lo que permite distribuciones irregulares siempre que se respete esa media. Con la nueva legislación prevista, se reducirá a 37,5 horas semanales. La jornada diaria máxima es de 9 horas ordinarias, salvo que el convenio colectivo establezca otra distribución respetando el descanso mínimo de 12 horas entre el fin de una jornada y el inicio de la siguiente. Los menores de 18 años tienen un límite inferior, de 8 horas diarias.",
     q5: "¿Es obligatorio el registro de jornada?",
-    a5: "Sí. Desde mayo de 2019, el Real Decreto-ley 8/2019 obliga a todas las empresas españolas a registrar diariamente la jornada de cada trabajador, incluyendo la hora concreta de inicio y de finalización. El registro debe conservarse durante cuatro años y estar a disposición de los trabajadores, sus representantes y la Inspección de Trabajo. La norma nació para combatir las horas extra no remuneradas y su incumplimiento puede acarrear sanciones de entre 751 y 7.500 euros. No existe un formato obligatorio: vale desde una hoja firmada hasta una aplicación digital, siempre que sea fiable y no manipulable.",
+    a5: "Sí. Desde mayo de 2019, el Real Decreto-ley 8/2019 obliga a todas las empresas españolas a registrar diariamente la jornada de cada trabajador, incluyendo la hora concreta de inicio y de finalización. El registro debe conservarse durante cuatro años y estar a disposición de los trabajadores, sus representantes y la Inspección de Trabajo. La norma nació para combatir las horas extra no remuneradas y su incumplimiento puede acarrear sanciones de entre 751 y 7.500 euros. La normativa no impone un único formato tecnológico —caben desde una hoja firmada hasta una aplicación digital—, pero el sistema debe cumplir los requisitos de fiabilidad, trazabilidad y disponibilidad exigibles: debe ser objetivo, no manipulable, reflejar la jornada realmente realizada y poder consultarse en el centro de trabajo.",
     q6: "¿Cómo se calcula el precio de mi hora de trabajo?",
     a6: "Divide tu salario bruto anual entre las horas efectivas de trabajo al año. Para una jornada completa de 40 horas semanales, el cómputo anual ronda las 1.760 horas una vez descontadas las vacaciones y los festivos: 40 horas × 52 semanas son 2.080 horas, menos unas 240 horas de vacaciones y 80 de festivos. Con un salario bruto de 30.000 €, el precio de la hora sería de unos 17 €. Este cálculo resulta útil para valorar si compensa una hora extra, para presupuestar trabajos por cuenta propia o para comparar ofertas con jornadas distintas.",
     deepTitle: "Cómo se calculan las horas trabajadas",
@@ -135,7 +136,7 @@ const T = {
     q4: "How many hours is the standard working day in Spain?",
     a4: "The maximum ordinary working week is 40 hours averaged over the year, which allows irregular distributions as long as that average is respected. With the new planned legislation, it will be reduced to 37.5 hours per week. The maximum ordinary working day is 9 hours, unless the collective agreement establishes a different distribution while respecting the minimum 12-hour rest between the end of one day and the start of the next. Workers under 18 have a lower limit of 8 hours a day.",
     q5: "Is time tracking mandatory?",
-    a5: "Yes. Since May 2019, Royal Decree-Law 8/2019 requires all Spanish companies to record each worker's hours daily, including the specific start and finish times. The record must be kept for four years and be available to workers, their representatives and the Labour Inspectorate. The rule was created to combat unpaid overtime and non-compliance can carry fines of between €751 and €7,500. There is no mandatory format: anything from a signed sheet to a digital app is valid, as long as it is reliable and tamper-proof.",
+    a5: "Yes. Since May 2019, Royal Decree-Law 8/2019 requires all Spanish companies to record each worker's hours daily, including the specific start and finish times. The record must be kept for four years and be available to workers, their representatives and the Labour Inspectorate. The rule was created to combat unpaid overtime and non-compliance can carry fines of between €751 and €7,500. The rules do not impose a single technological format — anything from a signed sheet to a digital app can work — but the system must meet the applicable requirements of reliability, traceability and availability: it must be objective, tamper-proof, reflect the hours actually worked and be consultable at the workplace.",
     q6: "How do I work out my hourly rate?",
     a6: "Divide your gross annual salary by your effective working hours per year. For a full-time 40-hour week, the annual count is around 1,760 hours once holidays and public holidays are deducted: 40 hours × 52 weeks is 2,080 hours, minus about 240 hours of holiday and 80 of public holidays. On a gross salary of €30,000, the hourly rate would be about €17. This calculation is useful for judging whether overtime is worth it, for pricing freelance work, or for comparing offers with different working hours.",
     deepTitle: "How worked hours are calculated",
@@ -235,6 +236,7 @@ export default function HorasTrabajadas() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "BOE — RDL 8/2019", href: "https://www.boe.es/buscar/act.php?id=BOE-A-2019-3481" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

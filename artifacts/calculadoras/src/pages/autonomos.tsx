@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { UserCheck } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -75,7 +76,7 @@ const T = {
     q1: "¿Qué son los rendimientos netos?",
     a1: "Los rendimientos netos son los ingresos de tu actividad menos los gastos deducibles, y sobre ese resultado se aplica una deducción adicional del 7 % en concepto de gastos genéricos (3 % si eres autónomo societario). El importe anual resultante, prorrateado entre los meses de alta en el RETA (doce si has estado de alta todo el año), da el rendimiento neto mensual medio que determina tu tramo de cotización; conviene comprobar el detalle del cálculo en la Seguridad Social, porque hay reglas específicas según el régimen fiscal, la forma jurídica y las cuotas ya satisfechas. Es importante entender que no se cotiza sobre la facturación bruta sino sobre el beneficio real: si facturas 3.000 € al mes pero tienes 1.000 € de gastos deducibles, tu rendimiento neto rondará los 1.860 € tras aplicar la deducción del 7 %, no los 3.000 € facturados.",
     q2: "¿Cuánto dura la tarifa plana?",
-    a2: "En 2026 la tarifa plana consiste en una cuota reducida de 80 € al mes más el mecanismo de equidad intergeneracional (0,9 %), lo que supone unos 88,64 € mensuales en total. Se aplica durante los primeros 12 meses de alta en el RETA y puede prorrogarse otros 12 meses adicionales siempre que tus rendimientos netos se mantengan por debajo del salario mínimo interprofesional (1.221 €/mes en 2026). Para acceder a ella no puedes haber estado de alta como autónomo en los dos años anteriores, o tres si ya disfrutaste de la tarifa plana en el pasado.",
+    a2: "En 2026 la tarifa plana consiste en una cuota reducida de 80 € al mes más el mecanismo de equidad intergeneracional (0,9 % sobre la base de cotización), de modo que el total ronda los 86-89 € mensuales según la base por la que coticen. Esta calculadora usa 88,64 € como referencia. Se aplica durante los primeros 12 meses de alta en el RETA y puede prorrogarse otros 12 meses adicionales siempre que tus rendimientos netos se mantengan por debajo del salario mínimo interprofesional (1.221 €/mes en 2026). Para acceder a ella no puedes haber estado de alta como autónomo en los dos años anteriores, o tres si ya disfrutaste de la tarifa plana en el pasado.",
     q3: "¿Puedo cambiar mi base de cotización durante el año?",
     a3: "Sí, y es una de las claves del sistema actual. Puedes solicitar hasta seis cambios de base de cotización al año, con efectos bimestrales: los cambios solicitados entre enero y febrero se aplican en marzo, los de marzo y abril en mayo, y así sucesivamente. Esta flexibilidad existe porque los ingresos de un autónomo pueden variar mucho de un mes a otro, y el sistema pretende que la cotización se ajuste a la realidad de cada momento. Conviene revisar tus previsiones al menos un par de veces al año para no cotizar de más ni quedarte corto.",
     q4: "¿Qué cubre la cuota de autónomos?",
@@ -85,7 +86,7 @@ const T = {
     deepTitle: "Cómo funciona el sistema de cotización por tramos",
     deep: "Desde 2023 la cuota de autónomos ya no se elige libremente, sino que depende de los rendimientos netos que prevés obtener. El sistema define quince tramos de renta, cada uno con una base mínima de cotización asociada. El procedimiento es el siguiente: calculas tu rendimiento neto mensual previsto, localizas el tramo en el que encaja y aplicas el tipo de cotización general —en torno al 31,4 %— sobre la base mínima de ese tramo. Puedes elegir cotizar por una base superior a la mínima de tu tramo si quieres mejorar tus prestaciones futuras, pero nunca por debajo de ella.",
     exampleTitle: "Ejemplo resuelto",
-    example: "Supongamos un autónomo que factura 2.500 € al mes y tiene 400 € de gastos deducibles. Su rendimiento antes de la deducción genérica es de 2.100 €; aplicando el 7 % de deducción adicional (147 €), el rendimiento neto queda en 1.953 €. Ese importe cae en el tramo de 1.850 a 2.030 €, cuya base mínima es de 1.209,15 €. Aplicando el tipo del 31,4 %, la cuota mensual estimada es de unos 380 €. Si ese mismo autónomo fuera nuevo y tuviera derecho a la tarifa plana, pagaría solo 88,64 € durante los primeros doce meses.",
+    example: "Supongamos un autónomo que factura 2.500 € al mes y tiene 400 € de gastos deducibles. Su rendimiento antes de la deducción genérica es de 2.100 €; aplicando el 7 % de deducción adicional (147 €), el rendimiento neto queda en 1.953 €. Ese importe cae en el tramo de 1.850 a 2.030 €, cuya base mínima es de 1.209,15 €. Aplicando el tipo del 31,4 %, la cuota mensual estimada es de unos 380 €. Si ese mismo autónomo fuera nuevo y tuviera derecho a la tarifa plana, pagaría en torno a 88,64 € durante los primeros doce meses, según su base de cotización.",
     tableTitle: "Tramos de cotización y cuota estimada (2026)",
     tableCol1: "Rendimiento neto mensual",
     tableCol2: "Base mínima",
@@ -113,7 +114,7 @@ const T = {
     q1: "What is net income?",
     a1: "Net income is your business revenue minus deductible expenses, with an additional 7% deduction applied to that result for generic expenses (3% for company-based self-employed workers). The resulting annual amount, spread across the months registered with the RETA scheme (twelve if you were registered all year), gives the average monthly net income that determines your contribution bracket; it is worth checking the detailed rules at the Social Security, since specific rules apply depending on your tax regime, legal form and the contributions already paid. It is important to understand that contributions are not based on gross invoicing but on actual profit: if you invoice €3,000 a month but have €1,000 of deductible expenses, your net income will be around €1,860 after the 7% deduction, not the €3,000 invoiced.",
     q2: "How long does the flat rate last?",
-    a2: "In 2026 the flat rate is a reduced fee of €80 per month plus the intergenerational equity mechanism (0.9%), around €88.64 per month in total. It applies during the first 12 months registered with the RETA scheme and can be extended for another 12 months provided your net income stays below the national minimum wage (€1,221/month in 2026). To qualify, you must not have been registered as self-employed in the previous two years, or three if you already benefited from the flat rate in the past.",
+    a2: "In 2026 the flat rate is a reduced fee of €80 per month plus the intergenerational equity mechanism (0.9% of the contribution base), so the total comes to roughly €86-89 per month depending on the base you contribute on. This calculator uses €88.64 as a reference. It applies during the first 12 months registered with the RETA scheme and can be extended for another 12 months provided your net income stays below the national minimum wage (€1,221/month in 2026). To qualify, you must not have been registered as self-employed in the previous two years, or three if you already benefited from the flat rate in the past.",
     q3: "Can I change my contribution base during the year?",
     a3: "Yes, and it is one of the key features of the current system. You can request up to six changes of contribution base per year, taking effect every two months: changes requested in January and February apply from March, those in March and April from May, and so on. This flexibility exists because a self-employed worker's income can vary a lot from month to month, and the system aims for contributions to match reality. It is worth reviewing your forecast at least twice a year so you neither overpay nor fall short.",
     q4: "What does the self-employed contribution cover?",
@@ -123,7 +124,7 @@ const T = {
     deepTitle: "How the bracket-based contribution system works",
     deep: "Since 2023 the self-employed contribution is no longer freely chosen but depends on the net income you expect to earn. The system defines fifteen income brackets, each with an associated minimum contribution base. The procedure is as follows: you calculate your expected monthly net income, find the bracket it falls into, and apply the general contribution rate — around 31.4% — to that bracket's minimum base. You may choose to contribute on a base higher than your bracket's minimum if you want to improve your future benefits, but never below it.",
     exampleTitle: "Worked example",
-    example: "Take a self-employed worker who invoices €2,500 a month and has €400 of deductible expenses. Their income before the generic deduction is €2,100; applying the additional 7% deduction (€147), net income comes to €1,953. That amount falls in the €1,850–2,030 bracket, whose minimum base is €1,209.15. Applying the 31.4% rate, the estimated monthly contribution is about €380. If that same worker were newly registered and entitled to the flat rate, they would pay only €88.64 during the first twelve months.",
+    example: "Take a self-employed worker who invoices €2,500 a month and has €400 of deductible expenses. Their income before the generic deduction is €2,100; applying the additional 7% deduction (€147), net income comes to €1,953. That amount falls in the €1,850–2,030 bracket, whose minimum base is €1,209.15. Applying the 31.4% rate, the estimated monthly contribution is about €380. If that same worker were newly registered and entitled to the flat rate, they would pay around €88.64 during the first twelve months, depending on their contribution base.",
     tableTitle: "Contribution brackets and estimated fee (2026)",
     tableCol1: "Monthly net income",
     tableCol2: "Minimum base",
@@ -153,12 +154,7 @@ export default function Autonomos() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-2">{t.subtitle}</p>
-      <p className="text-xs text-muted-foreground mb-6">
-        {locale === "en" ? "Data reviewed on 01/09/2026 · Source: " : "Datos revisados el 01/09/2026 · Fuente: "}
-        <a href="https://www.seg-social.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-          {locale === "en" ? "Social Security" : "Seguridad Social"}
-        </a>
-      </p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "Seguridad Social", href: "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/36537" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

@@ -364,7 +364,7 @@ export default function Home() {
           {/* Trust badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-400 text-xs font-semibold tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-            {isEn ? "OVER 25 FREE CALCULATORS" : "MÁS DE 25 CALCULADORAS GRATUITAS"}
+            {isEn ? `${CALCULATORS.length} FREE CALCULATORS` : `${CALCULATORS.length} CALCULADORAS GRATUITAS`}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">

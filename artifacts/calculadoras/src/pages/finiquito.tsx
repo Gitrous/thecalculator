@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { FileText, ShieldCheck, Lock, Zap, Info, Sun, CreditCard, Calendar } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -181,6 +182,7 @@ export default function Finiquito() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "BOE — Estatuto de los Trabajadores", href: "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

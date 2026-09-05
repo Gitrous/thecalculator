@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -196,6 +197,7 @@ export default function SalarioNeto() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "AEAT", href: "https://sede.agenciatributaria.gob.es/" }, { label: "Seguridad Social", href: "https://www.seg-social.es/" }]} className="mb-6" />
       </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">

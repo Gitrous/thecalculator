@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Receipt, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -163,6 +164,7 @@ export default function Iva() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "AEAT", href: "https://sede.agenciatributaria.gob.es/" }]} className="mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

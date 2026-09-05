@@ -136,7 +136,7 @@ const T = {
     tableCol1: "Concepto",
     tableCol2: "Coste anual",
     interpretTitle: "Cómo interpretar el resultado",
-    interpret: "La cifra clave no es el total anual sino el coste por kilómetro, porque es lo que te permite comparar de forma justa con otras opciones. Si tu coste por kilómetro supera los 0,35 €, probablemente estés recorriendo pocos kilómetros para los gastos fijos que asumes: en ese escenario el transporte público, el carsharing o el alquiler puntual suelen salir más a cuenta. Un coste por kilómetro bajo suele indicar que rentabilizas bien los gastos fijos del vehículo. Recuerda que este cálculo no incluye la depreciación del vehículo, que puede añadir fácilmente entre 1.500 y 3.000 € anuales en un coche relativamente nuevo y es el factor que más distorsiona las comparaciones.",
+    interpret: "La cifra clave no es el total anual sino el coste por kilómetro, porque es lo que te permite comparar de forma justa con otras opciones. No existe un umbral universal que separe un coste \"bueno\" de uno \"malo\": la cifra depende del vehículo, de si está financiado, del precio del combustible, del seguro, del aparcamiento y, sobre todo, de los kilómetros que recorras al año, ya que los gastos fijos se reparten entre ellos. Por eso la comparación útil es contra tu propia alternativa concreta: calcula lo que te costaría el mismo desplazamiento en transporte público, carsharing o alquiler puntual y contrástalo con el coste por kilómetro que obtengas aquí. Recuerda además que este cálculo no incluye la depreciación del vehículo, que puede añadir fácilmente entre 1.500 y 3.000 € anuales en un coche relativamente nuevo y es el factor que más distorsiona las comparaciones.",
   },
   en: {
     title: "Real Car Costs",
@@ -193,7 +193,7 @@ const T = {
     tableCol1: "Item",
     tableCol2: "Annual cost",
     interpretTitle: "How to interpret the result",
-    interpret: "The key figure is not the annual total but the cost per kilometre, because that is what lets you compare fairly with other options. If your cost per kilometre exceeds €0.35, you are probably driving too few kilometres for the fixed costs you carry: in that scenario public transport, carsharing or occasional rental usually work out cheaper. A low cost per kilometre generally means you are making good use of the vehicle's fixed costs. Remember this calculation does not include vehicle depreciation, which can easily add between €1,500 and €3,000 a year on a relatively new car and is the factor that most distorts comparisons.",
+    interpret: "The key figure is not the annual total but the cost per kilometre, because that is what lets you compare fairly with other options. There is no universal threshold separating a \"good\" cost from a \"bad\" one: the figure depends on the vehicle, whether it is financed, fuel prices, insurance, parking and above all the kilometres you drive each year, since fixed costs are spread across them. The useful comparison is therefore against your own concrete alternative: work out what the same journeys would cost by public transport, car-sharing or occasional rental and compare that with the cost per kilometre you get here. Remember too that this calculation does not include vehicle depreciation, which can easily add between €1,500 and €3,000 a year on a relatively new car and is the factor that most distorts comparisons.",
   },
 };
 

@@ -18,9 +18,10 @@ export default function SobreNosotros() {
         <p>
           <strong>{SITE_NAME_EN}</strong> ({SITE_DOMAIN}) is an independent project that offers free
           online calculators and simulators for finance, work, home, education and health. It is not
-          owned by any bank, insurer, public body or brand, and no advertiser influences the content
-          of the tools: advertising (Google AdSense) is what keeps the site free, and it is kept
-          separate from how each calculator is designed.
+          owned by any bank, insurer, public body or brand. The plan is to fund the project through
+          advertising so the tools stay free, and advertising is kept separate from the editorial
+          content and from how each calculator is designed: ad slots never determine which
+          calculators we build, what a result says or which option a page recommends.
         </p>
 
         <h2>Who is behind the site</h2>
@@ -75,9 +76,11 @@ export default function SobreNosotros() {
       <p>
         <strong>{SITE_NAME_ES}</strong> es un proyecto independiente que ofrece calculadoras y
         simuladores online gratuitos de finanzas, trabajo, hogar, educación y salud. No pertenece a
-        ninguna entidad financiera, aseguradora, organismo público ni marca, y ningún anunciante
-        influye en el contenido de las herramientas: la publicidad (Google AdSense) es lo que permite
-        mantener el sitio gratuito y se mantiene separada del diseño de cada calculadora.
+        ninguna entidad financiera, aseguradora, organismo público ni marca. Nuestro objetivo es
+        financiar el proyecto mediante publicidad para que las herramientas sigan siendo gratuitas,
+        y la publicidad se mantiene separada del contenido editorial y del diseño de cada
+        calculadora: los espacios publicitarios no determinan qué calculadoras hacemos, qué dice un
+        resultado ni qué opción recomienda una página.
       </p>
 
       <h2>Quién está detrás del sitio</h2>

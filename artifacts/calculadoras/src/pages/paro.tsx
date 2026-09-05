@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Briefcase } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -217,12 +218,7 @@ export default function Paro() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-2">{t.subtitle}</p>
-      <p className="text-xs text-muted-foreground mb-1">
-        {locale === "en" ? "Data reviewed on 01/09/2026 · Source: " : "Datos revisados el 01/09/2026 · Fuente: "}
-        <a href="https://www.sepe.es/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-          {locale === "en" ? "SEPE — Contributory benefit" : "SEPE — Prestación contributiva"}
-        </a>
-      </p>
+      <ReviewedNote date="05/09/2026" sources={[{ label: "SEPE", href: "https://www.sepe.es/" }, { label: "Seguridad Social", href: "https://www.seg-social.es/" }]} className="mb-6" />
       <p className="text-xs text-muted-foreground mb-6">
         {locale === "en"
           ? "This tool uses your gross monthly salary as an approximation; the actual benefit depends on your unemployment contribution bases."

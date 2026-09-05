@@ -57,6 +57,9 @@ const T = {
     subtitle: "Estima el coste de tu reforma con precios orientativos del mercado español 2025-2026.",
     intro1: "Reformar una vivienda es una de las inversiones más importantes que puede hacer un propietario. Conocer de antemano un presupuesto orientativo permite planificar la financiación, negociar con contratistas con criterio y evitar sorpresas desagradables. Los precios varían según la calidad de los materiales elegidos, la zona geográfica y la empresa contratada, pero esta calculadora te ofrece un rango de referencia basado en precios de mercado actualizados para 2025-2026.",
     intro2: "Añade las partidas de tu reforma —pintura, suelo, baño, ventanas, instalación eléctrica...— con la superficie en metros cuadrados o el número de unidades. Obtendrás al instante un presupuesto mínimo y máximo orientativo. Los precios incluyen materiales y mano de obra, pero no incluyen IVA.",
+    priceScope: "Ámbito: España (media nacional)",
+    pricePeriod: "Precios de referencia del periodo 2025-2026",
+    priceSource: "Los importes son rangos orientativos recopilados de referencias de mercado del sector de la construcción y reforma; no proceden de una tarifa oficial ni de un único proveedor.",
     disclaimer: "Estimaciones orientativas basadas en precios medios del mercado español, de ámbito nacional y recopilados para el periodo 2025-2026. Los precios varían de forma notable según la comunidad autónoma. El presupuesto real depende de la calidad de materiales, la zona y la empresa. Solicita siempre al menos 3 presupuestos antes de contratar.",
     addItem: "Añadir partida",
     typeLabel: "Tipo de trabajo",
@@ -100,6 +103,9 @@ const T = {
     subtitle: "Estimate the cost of your renovation based on Spanish market prices 2025-2026.",
     intro1: "Renovating a home is one of the most significant investments a homeowner can make. Knowing a rough budget in advance allows you to plan financing, negotiate with contractors confidently and avoid unpleasant surprises. Prices vary depending on the quality of materials chosen, the geographical area and the company hired, but this calculator gives you a reference range based on updated market prices for 2025-2026.",
     intro2: "Add the different items in your renovation — painting, flooring, bathroom, windows, electrical installation... — with the surface area in square metres or number of units. You'll instantly get an indicative minimum and maximum budget. Prices include materials and labour, but do not include VAT.",
+    priceScope: "Scope: Spain (national average)",
+    pricePeriod: "Reference prices for the 2025-2026 period",
+    priceSource: "The amounts are indicative ranges compiled from construction and renovation market references; they do not come from an official price list or from a single supplier.",
     disclaimer: "Indicative estimates based on average Spanish market prices, at a national level and compiled for the 2025-2026 period. Prices vary considerably by region. The actual budget depends on material quality, location and contractor. Always request at least 3 quotes before hiring.",
     addItem: "Add item",
     typeLabel: "Type of work",
@@ -208,7 +214,11 @@ export default function ReformaHogar() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
-      <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <p className="text-muted-foreground mb-3">{t.subtitle}</p>
+      <div className="mb-6 rounded-lg border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-3 text-xs text-muted-foreground space-y-1">
+        <p>{t.pricePeriod} · {t.priceScope}</p>
+        <p>{t.priceSource}</p>
+      </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>
