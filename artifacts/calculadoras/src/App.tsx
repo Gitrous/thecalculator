@@ -15,6 +15,7 @@ import Cookies from "@/pages/cookies";
 import AvisoLegal from "@/pages/aviso-legal";
 import SobreNosotros from "@/pages/sobre-nosotros";
 import Metodologia from "@/pages/metodologia";
+import HistorialDeCambios from "@/pages/historial-de-cambios";
 import Contacto from "@/pages/contacto";
 import { BlogArticleRoute, BlogIndexRoute } from "@/pages/blog-routes";
 
@@ -63,6 +64,8 @@ function Router() {
           <Route path="/en/about" component={SobreNosotros} />
           <Route path="/metodologia" component={Metodologia} />
           <Route path="/en/methodology" component={Metodologia} />
+          <Route path="/historial-de-cambios" component={HistorialDeCambios} />
+          <Route path="/en/changelog" component={HistorialDeCambios} />
           <Route path="/contacto" component={Contacto} />
           <Route path="/en/contact" component={Contacto} />
 

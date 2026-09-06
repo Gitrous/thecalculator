@@ -26,14 +26,23 @@ export default function SobreNosotros() {
 
         <h2>Who is behind the site</h2>
         <p>
-          The site is maintained by an independent editorial team, and every article and calculator
-          is signed under the editorial pseudonym <strong>Transparent Calculators (CT)</strong> — the
-          initials you see next to each article. It is a fixed, transparent pseudonym rather than the
-          name of a single individual, and we are open about that: we do not present ourselves as
-          licensed financial advisers, tax specialists or doctors, and we do not claim credentials we
-          do not have. The calculators are informational tools built on public formulas and official
-          data, not personalised professional advice. If you want to reach the person responsible for
-          the content, you can always write to us through our{" "}
+          Every article and calculator is signed under the editorial identity{" "}
+          <strong>Transparent Calculators (CT)</strong> — the initials you see next to each article.
+          CT is a collective editorial identity, not the name of a single individual, and it is not
+          anonymity: the person who owns and is legally responsible for this site is identified by
+          name and tax number in the <a href="/en/legal-notice">legal notice</a>, and answers for
+          everything published here.
+        </p>
+        <p>
+          We would rather be explicit about the limits of that signature. CT signs the writing,
+          the arithmetic and the sourcing of each tool: the formula used, where the figures come
+          from and when they were last checked. CT does not sign professional advice. We are not
+          licensed financial advisers, tax specialists or doctors, we claim no credentials we do
+          not hold, and none of these calculators is personalised advice for your situation —
+          which is exactly why every page states its sources and its review date, so you can check
+          the basis of the result rather than take our word for it. How we work is set out in
+          our <a href="/en/methodology">methodology</a>, and every revision is logged in the{" "}
+          <a href="/en/changelog">change history</a>. To reach us, use the{" "}
           <a href="/en/contact">contact page</a>.
         </p>
 
@@ -85,15 +94,23 @@ export default function SobreNosotros() {
 
       <h2>Quién está detrás del sitio</h2>
       <p>
-        El sitio lo mantiene un equipo editorial independiente, y cada artículo y calculadora se firma
-        bajo el seudónimo editorial <strong>Calculadoras Transparentes (CT)</strong> —las iniciales
-        que ves junto a cada artículo—. Es un seudónimo fijo y transparente, no el nombre de una
-        persona concreta, y lo decimos abiertamente: no nos presentamos como asesores financieros
-        colegiados, especialistas fiscales ni médicos, y no atribuimos titulaciones que no tenemos.
-        Las calculadoras son herramientas informativas construidas sobre fórmulas públicas y datos
-        oficiales, no asesoramiento profesional personalizado. Si quieres dirigirte a la persona
-        responsable del contenido, puedes escribirnos siempre a través de nuestra{" "}
-        <a href="/contacto">página de contacto</a>.
+        Cada artículo y calculadora se firma bajo la identidad editorial{" "}
+        <strong>Calculadoras Transparentes (CT)</strong> —las iniciales que ves junto a cada
+        artículo—. CT es una identidad editorial colectiva, no el nombre de una persona concreta, y
+        no es anonimato: el titular del sitio, responsable legal de lo que aquí se publica, está
+        identificado con nombre y NIF en el <a href="/aviso-legal">aviso legal</a>.
+      </p>
+      <p>
+        Preferimos ser explícitos sobre qué alcanza esa firma. CT firma la redacción, el cálculo y
+        las fuentes de cada herramienta: qué fórmula se usa, de dónde salen las cifras y cuándo se
+        revisaron por última vez. CT no firma asesoramiento profesional. No somos asesores
+        financieros colegiados, ni especialistas fiscales, ni médicos, no atribuimos titulaciones
+        que no tenemos, y ninguna de estas calculadoras es asesoramiento personalizado para tu
+        caso. Precisamente por eso cada página indica sus fuentes y su fecha de revisión: para que
+        puedas comprobar la base del resultado en lugar de fiarte de nuestra palabra. Cómo
+        trabajamos está detallado en nuestra <a href="/metodologia">metodología</a>, y cada
+        revisión queda registrada en el <a href="/historial-de-cambios">historial de cambios</a>.
+        Para escribirnos, usa la <a href="/contacto">página de contacto</a>.
       </p>
 
       <h2>Metodología y fuentes</h2>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewedNote } from "@/components/reviewed-note";
 import { registerFaq } from "@/lib/faq-schema";
 import { Building } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -69,7 +70,7 @@ const T = {
     sinAmortizar: "Sin amortizar",
     conAmortizacion: "Con amortización",
     rowLabels: ["Cuota mensual", "Plazo restante", "Intereses restantes", "Capital pendiente"],
-    note: (<><strong>Comisión indicativa:</strong> Hipoteca variable: 0,15% (primeros 3 años) o 0,25% (años 4–5), 0% desde el 6.º año. Hipoteca fija: 2% (primeros 10 años), 1,5% desde el 11.º año. La compensación mostrada es una referencia máxima orientativa; el importe efectivo depende del contrato y de las condiciones legales aplicables (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Ley 5/2019</a>).</>),
+    note: (<><strong>Comisión indicativa:</strong> En hipoteca variable la ley fija dos regímenes alternativos, y el contrato elige uno: 0,25% si el reembolso ocurre en los 3 primeros años, o 0,15% si ocurre en los 5 primeros. Pasado el periodo pactado, la comisión es 0%. En hipoteca fija: 2% durante los 10 primeros años y 1,5% después. Esta calculadora aplica el 0,15% en variable y el 2% en fija como referencia máxima, sin conocer la antigüedad de tu préstamo: si ya has superado el periodo aplicable, tu comisión sería cero. Además el banco solo puede cobrarla si acredita una pérdida financiera real, y nunca por encima de esa pérdida (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Ley 5/2019</a>).</>),
     faqTitle: "Preguntas frecuentes",
     q1: "¿Es mejor reducir cuota o plazo?",
     a1: (<>Reducir el <strong>plazo</strong> ahorra más en intereses totales porque el capital queda menos tiempo generando intereses. Reducir la <strong>cuota</strong> da más liquidez mensual pero el ahorro es menor. Si tienes margen económico, muchas personas eligen reducir plazo; si necesitas liquidez, reducir cuota.</>),
@@ -118,7 +119,7 @@ const T = {
     sinAmortizar: "Without repayment",
     conAmortizacion: "With repayment",
     rowLabels: ["Monthly payment", "Remaining term", "Remaining interest", "Outstanding balance"],
-    note: (<><strong>Indicative fee:</strong> Variable mortgage: 0.15% (first 3 years) or 0.25% (years 4–5), 0% from year 6. Fixed mortgage: 2% (first 10 years), 1.5% from year 11. The compensation shown is an indicative maximum reference; the actual amount depends on the contract and the applicable legal conditions (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Law 5/2019</a>).</>),
+    note: (<><strong>Indicative fee:</strong> For variable-rate mortgages the law sets two alternative regimes and the contract picks one: 0.25% if repayment happens within the first 3 years, or 0.15% if within the first 5. Once the agreed period has passed, the fee is 0%. For fixed-rate mortgages: 2% during the first 10 years and 1.5% thereafter. This calculator applies 0.15% on variable and 2% on fixed as a maximum reference, without knowing how old your loan is: if you are already past the applicable period, your fee would be zero. The lender can also only charge it if it can prove an actual financial loss, and never above that loss (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Law 5/2019</a>).</>),
     faqTitle: "Frequently asked questions",
     q1: "Is it better to reduce the payment or the term?",
     a1: (<>Reducing the <strong>term</strong> saves more in total interest because the capital generates interest for less time. Reducing the <strong>payment</strong> gives more monthly liquidity but less savings. If you have financial room, many people choose to reduce the term; if you need liquidity, reduce the payment.</>),
@@ -206,6 +207,7 @@ export default function AmortizacionAnticipada() {
         <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
       </div>
       <p className="text-muted-foreground mb-6">{t.subtitle}</p>
+      <ReviewedNote date="06/09/2026" sources={[{ label: "BOE — Ley 5/2019", href: "https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" }]} className="mt-3 mb-6" />
 
       <div className="prose prose-sm dark:prose-invert max-w-none mb-8 space-y-3 text-gray-700 dark:text-gray-300">
         <p>{t.intro1}</p>

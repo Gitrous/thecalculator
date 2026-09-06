@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { Link, useParams } from "wouter";
 import {
   ChevronRight, Calculator, Lightbulb,
@@ -240,7 +241,24 @@ export default function BlogArticle() {
       "@type": "Organization",
       name: "thecalculator.tech",
       url: "https://thecalculator.tech",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://thecalculator.tech/favicon.svg",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "editorial",
+        email: CONTACT_EMAIL,
+        url: `https://thecalculator.tech${isEn ? "/en/contact/" : "/contacto/"}`,
+        availableLanguage: ["es", "en"],
+      },
     },
+    // The signature is a collective editorial identity, so author stays an
+    // Organization: declaring a Person here would name someone who does not
+    // exist. The editorial process behind that signature is what these two
+    // properties point at.
+    publishingPrinciples: `https://thecalculator.tech${isEn ? "/en/methodology/" : "/metodologia/"}`,
+    correctionsPolicy: `https://thecalculator.tech${isEn ? "/en/about/" : "/sobre-nosotros/"}`,
     inLanguage: isEn ? "en" : "es",
     url: `https://thecalculator.tech${path}`,
   };

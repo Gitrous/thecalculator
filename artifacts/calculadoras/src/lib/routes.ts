@@ -13,6 +13,8 @@ const LEGAL_ROUTES = [
   "/en/about",
   "/metodologia",
   "/en/methodology",
+  "/historial-de-cambios",
+  "/en/changelog",
   "/contacto",
   "/en/contact",
 ];
