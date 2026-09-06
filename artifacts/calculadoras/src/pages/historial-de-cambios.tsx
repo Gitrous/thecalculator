@@ -11,6 +11,25 @@ interface Entry {
  * to the site — do not add entries for work that has not shipped. */
 const ENTRIES: Entry[] = [
   {
+    date: "2026-09-06",
+    es: [
+      "Se publicó esta página de historial de cambios, para que cada revisión quede registrada con su fecha y su alcance.",
+      "Metodología: se detalló el proceso editorial —cómo se elige una fuente, cómo se verifica una cifra antes de publicarla, qué ocurre cuando cambia la normativa y cómo se corrige un error— y se declaró la cadencia de revisión: anual y ante cada cambio normativo.",
+      "Sobre nosotros: se precisó el alcance de la firma editorial CT, indicando qué firma (redacción, cálculo y fuentes) y qué no firma (asesoramiento profesional), y remitiendo al titular responsable identificado en el aviso legal.",
+      "Amortización anticipada: se corrigió la nota de comisiones, que contradecía a la propia sección de preguntas frecuentes de la página. La Ley 5/2019 fija dos regímenes alternativos —0,25 % si el reembolso ocurre en los tres primeros años, o 0,15 % si ocurre en los cinco primeros— y no una escala del 0,15 % los años 1 a 3 y del 0,25 % los años 4 y 5, como se venía indicando. Se añadió que la comisión es cero pasado el periodo pactado y que la entidad solo puede cobrarla si acredita una pérdida financiera real.",
+      "Se añadió fecha de revisión y fuentes a las calculadoras de hipoteca, interés compuesto, alquiler frente a compra y amortización anticipada.",
+      "Reforma del hogar: se aclaró que sus precios son estimaciones orientativas sin una fuente publicada contra la que verificarlos, y que por eso esa página no lleva fecha de revisión de datos.",
+    ],
+    en: [
+      "This change history page was published, so that every revision is recorded with its date and its scope.",
+      "Methodology: the editorial process was spelled out — how a source is chosen, how a figure is verified before publication, what happens when the rules change and how an error is corrected — and the review cadence was stated: annual, plus whenever a rule changes.",
+      "About: the scope of the CT editorial signature was clarified, setting out what it signs (the writing, the arithmetic and the sourcing) and what it does not (professional advice), and pointing to the owner identified in the legal notice.",
+      "Early mortgage repayment: the fee note was corrected, as it contradicted the page's own FAQ. Law 5/2019 sets two alternative regimes — 0.25% if repayment happens within the first three years, or 0.15% if within the first five — rather than a scale of 0.15% for years 1 to 3 and 0.25% for years 4 and 5, as previously stated. It now also notes that the fee is zero once the agreed period has passed and that the lender may only charge it if it proves an actual financial loss.",
+      "A review date and sources were added to the mortgage, compound interest, rent-versus-buy and early repayment calculators.",
+      "Home renovation: it was made clear that its prices are indicative estimates with no published source to check them against, which is why that page carries no data review date.",
+    ],
+  },
+  {
     date: "2026-09-05",
     es: [
       "TAE: la calculadora deja claro que convierte TIN en tasa efectiva por capitalización y que no calcula la TAE contractual de un préstamo con comisiones. Se corrigió la explicación de la categoría Finanzas, que atribuía a la TAE costes que legalmente quedan fuera (seguros vinculados, notaría y registro).",

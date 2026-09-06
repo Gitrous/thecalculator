@@ -1,6 +1,6 @@
 import { LegalPage } from "@/components/legal-page";
 import { useLocale } from "@/lib/locale";
-import { CONTACT_EMAIL, SITE_NAME_ES, SITE_NAME_EN, SITE_DOMAIN, SITE_URL } from "@/lib/site";
+import { CONTACT_EMAIL, SITE_NAME_ES, SITE_NAME_EN, SITE_DOMAIN, SITE_URL, SITE_OWNER, SITE_LOCATION } from "@/lib/site";
 
 export default function AvisoLegal() {
   const isEn = useLocale() === "en";
@@ -17,8 +17,22 @@ export default function AvisoLegal() {
         <h2>1. Site information</h2>
         <p>
           This website, <strong>{SITE_NAME_EN}</strong>, is available at{" "}
-          <a href={SITE_URL}>{SITE_DOMAIN}</a>. For any enquiry you can contact us at{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          <a href={SITE_URL}>{SITE_DOMAIN}</a>.
+        </p>
+        <ul>
+          <li><strong>Owner:</strong> {SITE_OWNER}</li>
+          <li><strong>Location:</strong> {SITE_LOCATION}</li>
+          <li>
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          </li>
+        </ul>
+        <p>
+          The site is run by a private individual, not by a company. Content is published under the
+          editorial identity <strong>Transparent Calculators (CT)</strong>, described on our{" "}
+          <a href="/en/about">about page</a>, and the owner named above answers for everything
+          published here. The email above is the channel for any enquiry, correction or complaint,
+          and it is also where the <a href="/en/contact">contact form</a> sends messages.
         </p>
 
         <h2>2. Purpose</h2>
@@ -69,8 +83,23 @@ export default function AvisoLegal() {
       <h2>1. Información del sitio</h2>
       <p>
         Este sitio web, <strong>{SITE_NAME_ES}</strong>, está disponible en{" "}
-        <a href={SITE_URL}>{SITE_DOMAIN}</a>. Para cualquier consulta puedes contactar con nosotros en{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        <a href={SITE_URL}>{SITE_DOMAIN}</a>.
+      </p>
+      <ul>
+        <li><strong>Titular:</strong> {SITE_OWNER}</li>
+        <li><strong>Localidad:</strong> {SITE_LOCATION}</li>
+        <li>
+          <strong>Correo electrónico:</strong>{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        </li>
+      </ul>
+      <p>
+        El sitio lo gestiona una persona física, no una sociedad. El contenido se publica bajo la
+        identidad editorial <strong>Calculadoras Transparentes (CT)</strong>, descrita en la página{" "}
+        <a href="/sobre-nosotros">sobre nosotros</a>, y el titular indicado arriba responde de todo
+        lo que aquí se publica. El correo anterior es el canal para cualquier consulta, corrección o
+        reclamación, y es también el destino de los mensajes del{" "}
+        <a href="/contacto">formulario de contacto</a>.
       </p>
 
       <h2>2. Objeto</h2>
