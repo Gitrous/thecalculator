@@ -197,7 +197,19 @@ export default function SalarioNeto() {
           {t.title}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">{t.subtitle}</p>
-      <ReviewedNote date="05/09/2026" sources={[{ label: "AEAT", href: "https://sede.agenciatributaria.gob.es/" }, { label: "Seguridad Social", href: "https://www.seg-social.es/" }]} className="mb-6" />
+      <ReviewedNote
+        date="05/09/2026"
+        sources={[
+          { label: "AEAT", href: "https://sede.agenciatributaria.gob.es/" },
+          { label: "Seguridad Social", href: "https://www.seg-social.es/" },
+        ]}
+        scope={
+          locale === "en"
+            ? "The date and sources refer to the data for Spain. The other 16 countries offered by this calculator use approximate tax tables, with no official source attached and no verified review date, and some correspond to earlier tax years: treat them as an order of magnitude only."
+            : "La fecha y las fuentes se refieren a los datos de España. Los otros 16 países que ofrece esta calculadora usan tablas fiscales aproximadas, sin fuente oficial asociada ni fecha de revisión verificada, y algunas corresponden a ejercicios anteriores: úsalas solo como orden de magnitud."
+        }
+        className="mb-6"
+      />
       </div>
 
       <div className="prose prose-sm dark:prose-invert max-w-none my-6 space-y-3 text-gray-700 dark:text-gray-300">

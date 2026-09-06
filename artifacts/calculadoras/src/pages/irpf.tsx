@@ -864,6 +864,11 @@ export default function IRPF() {
         <ReviewedNote
           date="05/09/2026"
           sources={[{ label: "Agencia Tributaria (AEAT)", href: "https://sede.agenciatributaria.gob.es/" }]}
+          scope={
+            locale === "en"
+              ? "The date and sources refer to the data for Spain. The other 19 countries offered by this calculator use approximate tax tables, with no official source attached and no verified review date: treat them as an order of magnitude only and always check with that country's tax authority."
+              : "La fecha y las fuentes se refieren a los datos de España. Los otros 19 países que ofrece esta calculadora usan tablas fiscales aproximadas, sin fuente oficial asociada ni fecha de revisión verificada: úsalas solo como orden de magnitud y contrasta siempre con la agencia tributaria del país."
+          }
           className="mt-3"
         />
       </div>
