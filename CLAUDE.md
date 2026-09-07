@@ -24,10 +24,10 @@ Guía para Claude Code en este repositorio.
     habitualmente entre 1 y 3 minutos.
 - Mensajes de commit en imperativo y descriptivos; terminar con la línea
   `Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>`.
-- **Después de cada cambio, antes de preguntar `s`/`g`, valora si algo de lo
-  aprendido merece quedarse en este fichero** y añádelo a la sección que
-  corresponda, o crea una nueva. El criterio es que le ahorre trabajo a una
-  sesión futura que no tenga este contexto.
+- **Después de cada cambio, antes de preguntar `s`/`g`, pregúntate: ¿qué me ha
+  costado más de esto?** Si la respuesta le ahorraría trabajo a una sesión
+  futura que no tenga este contexto, apúntala en la sección que corresponda de
+  este fichero, o crea una nueva. Lo que costó una vez vuelve a costar.
 
   Merece apuntarse:
   - Una trampa que **no da error**: el build pasa, el navegador se ve bien, y
