@@ -89,9 +89,11 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1123812992313934" crossorigin="anonymous"></script>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "da0a8fc56d03498ba5ab19a084f87ed6"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics: injected at the edge (RUM set to "Enable" in
+         the dashboard), so no snippet belongs here. The manual third-party
+         script that used to sit here loaded from static.cloudflareinsights.com,
+         which returned 503, and its presence stopped Cloudflare injecting its
+         own first-party beacon. -->
 
     <!-- JSON-LD: WebSite -->
     <script type="application/ld+json">
