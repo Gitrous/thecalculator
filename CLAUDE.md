@@ -24,6 +24,23 @@ Guía para Claude Code en este repositorio.
     habitualmente entre 1 y 3 minutos.
 - Mensajes de commit en imperativo y descriptivos; terminar con la línea
   `Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>`.
+- **Después de cada cambio, antes de preguntar `s`/`g`, valora si algo de lo
+  aprendido merece quedarse en este fichero** y añádelo a la sección que
+  corresponda, o crea una nueva. El criterio es que le ahorre trabajo a una
+  sesión futura que no tenga este contexto.
+
+  Merece apuntarse:
+  - Una trampa que **no da error**: el build pasa, el navegador se ve bien, y
+    aun así algo está roto (ver la sección de prerenderizado y la de analítica).
+  - Una **comprobación** que hay que hacer sí o sí, con el comando concreto.
+  - Una **decisión** que un futuro yo revertiría por desconocer el motivo.
+  - Dónde vive algo que costó encontrar.
+
+  No apuntar: lo que ya cuentan el código, `git log` o
+  `/historial-de-cambios/`; listas de cambios; ni consejos genéricos del tipo
+  «verifica antes de concluir», que no cambian el comportamiento de nadie. Si
+  no hay nada que aporte, no fuerces una entrada: este fichero se lee entero en
+  cada sesión y el ruido le resta valor.
 
 ## Estructura
 
@@ -82,6 +99,49 @@ Políticas clave a revisar en cada página/calculadora:
 - Salida publicada: `artifacts/calculadoras/dist/public/` (incluye `_redirects`
   con el SPA fallback `/* /index.html 200`, imprescindible para que los deep
   links a calculadoras no den pantalla en blanco).
+
+## Prerenderizado y carga diferida (trampa conocida)
+
+El build prerenderiza cada ruta con `renderToString`, que es **síncrono**. Por
+eso un `React.lazy` envuelto en `Suspense` sin más **vacía el HTML publicado**:
+el prerender emite el fallback en lugar del contenido, y la página se queda sin
+texto para los rastreadores. No se nota en el navegador, solo en el HTML.
+
+Si añades carga diferida (p. ej. al partir las calculadoras en chunks):
+
+1. Expón un `preload…()` en el módulo de la ruta que resuelva el `import()`.
+2. Llámalo desde `preloadRoutes()` en `src/entry-server.tsx`.
+3. `vite-plugin-ssg.ts` lo espera antes del primer render, así que el servidor
+   renderiza el componente ya resuelto y el HTML sale completo.
+
+Ver `src/pages/blog-routes.tsx`, que es el patrón ya implementado para el blog.
+
+**Verificación obligatoria** tras tocar esto: comprobar que el HTML generado
+sigue conteniendo el texto real, no solo que el build no falle. Por ejemplo:
+
+```bash
+grep -c "Adolphe Quetelet" dist/public/blog/que-es-el-imc/index.html   # debe ser 1
+```
+
+## Analítica (Cloudflare Web Analytics)
+
+La medición la **inyecta Cloudflare en el borde** (RUM en modo `Enable` en el
+panel). **No añadas un `<script>` del beacon a `index.html`**: si Cloudflare
+detecta uno, deja de inyectar el suyo para no duplicar, y la analítica se queda
+en cero **en silencio**, sin ningún error visible. Costó una sesión entera
+localizarlo.
+
+Cómo verificar que funciona:
+
+- **No sirve `curl`**: la inyección solo se aplica a peticiones de navegador
+  real. Con `curl` el HTML sale sin beacon aunque todo esté bien.
+- En un navegador, busca una petición a
+  `static.cloudflareinsights.com/beacon.min.js/v<hash>`. **El sufijo de versión
+  es la señal** de que la inyección automática está activa; sin él, el beacon es
+  manual.
+- Un **503** en ese host no implica que el sitio esté mal: los bloqueadores de
+  anuncios lo devuelven de forma sintética. Comprueba siempre desde un navegador
+  sin extensiones antes de concluir nada.
 
 ## Despliegue
 
