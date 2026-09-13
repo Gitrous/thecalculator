@@ -213,6 +213,12 @@ export default function BlogArticle() {
     .filter((c) => c.slug !== article.relatedCalcSlug)
     .slice(0, 2);
 
+  // "Sigue leyendo": same-category articles first, then the rest, 3 in total
+  const moreArticles = [
+    ...ARTICLES.filter((a) => a.category === article.category && a.slug !== article.slug),
+    ...ARTICLES.filter((a) => a.category !== article.category),
+  ].slice(0, 3);
+
   // Popular topics: category tags
   const popularTags = ARTICLES.reduce<string[]>((acc, a) => {
     if (!acc.includes(a.category)) acc.push(a.category);
@@ -403,6 +409,31 @@ export default function BlogArticle() {
                   </li>
                 ))}
               </ul>
+            </section>
+          )}
+
+          {/* Sigue leyendo */}
+          {moreArticles.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                {isEn ? "Keep reading" : "Sigue leyendo"}
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {moreArticles.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={isEn ? `/en/blog/${a.enSlug}` : `/blog/${a.slug}`}
+                    className="flex flex-col gap-1.5 p-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-[11px] font-semibold uppercase tracking-wide text-primary">
+                      {CATEGORY_LABELS[a.category]?.[isEn ? "en" : "es"] ?? a.category}
+                    </span>
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">
+                      {isEn ? a.enTitle : a.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </section>
           )}
 

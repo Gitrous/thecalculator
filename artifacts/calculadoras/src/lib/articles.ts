@@ -373,7 +373,7 @@ export const ARTICLES: Article[] = [
     category: "educacion",
     date: "2026-06-30",
     relatedCalcSlug: "letra-dni",
-    relatedCalcCategory: "educacion",
+    relatedCalcCategory: "trabajo",
 
     title: "Cómo se calcula la letra del DNI (y por qué existe)",
     description:

@@ -703,6 +703,50 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
 ];
 
+/** Hand-picked links across categories ("categoria/slug"), shown first under
+ * "Calculadoras relacionadas". A salary tool belongs to finanzas but its users
+ * next need paro or finiquito (trabajo), which same-category siblings miss. */
+const RELATED: Record<string, string[]> = {
+  "finanzas/salario-neto": ["finanzas/irpf", "trabajo/paro", "trabajo/finiquito", "trabajo/autonomos"],
+  "finanzas/irpf": ["finanzas/salario-neto", "trabajo/autonomos", "trabajo/pension"],
+  "trabajo/autonomos": ["finanzas/irpf", "finanzas/iva", "finanzas/salario-neto"],
+  "trabajo/finiquito": ["trabajo/paro", "finanzas/salario-neto", "trabajo/dias-entre-fechas"],
+  "trabajo/paro": ["trabajo/finiquito", "finanzas/salario-neto", "trabajo/pension"],
+  "trabajo/pension": ["trabajo/paro", "finanzas/interes-compuesto"],
+  "trabajo/horas-trabajadas": ["finanzas/salario-neto", "trabajo/finiquito"],
+  "finanzas/hipoteca": ["finanzas/amortizacion-anticipada", "finanzas/alquiler-vs-compra", "finanzas/tae"],
+  "finanzas/amortizacion-anticipada": ["finanzas/hipoteca", "finanzas/interes-compuesto"],
+  "finanzas/alquiler-vs-compra": ["finanzas/hipoteca", "hogar/reforma-hogar"],
+  "finanzas/tae": ["finanzas/prestamo-personal", "finanzas/hipoteca"],
+  "finanzas/prestamo-personal": ["finanzas/tae", "hogar/gasto-coche"],
+  "hogar/gasto-coche": ["finanzas/prestamo-personal", "hogar/consumo-electrico"],
+  "hogar/reforma-hogar": ["finanzas/hipoteca", "finanzas/iva"],
+  "hogar/consumo-electrico": ["hogar/gasto-coche", "finanzas/porcentajes"],
+  "salud/imc": ["salud/calorias", "salud/agua-diaria"],
+  "salud/calorias": ["salud/imc", "salud/frecuencia-cardiaca"],
+  "educacion/mru": ["educacion/mrua", "educacion/conversor-unidades"],
+  "educacion/nota-media": ["finanzas/porcentajes", "educacion/regla-de-tres"],
+};
+
+/** Curated related calculators first, then same-category siblings, no repeats. */
+export function getRelatedCalculators(c: CalculatorMeta, limit = 5): CalculatorMeta[] {
+  const out: CalculatorMeta[] = [];
+  const seen = new Set([`${c.category}/${c.slug}`]);
+  const push = (x: CalculatorMeta | undefined) => {
+    if (!x || out.length >= limit) return;
+    const key = `${x.category}/${x.slug}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(x);
+  };
+  for (const key of RELATED[`${c.category}/${c.slug}`] ?? []) {
+    const [cat, slug] = key.split("/");
+    push(getCalculator(cat, slug));
+  }
+  for (const x of getCalculatorsByCategory(c.category)) push(x);
+  return out;
+}
+
 export function getCategory(id: string): Category | undefined {
   return CATEGORIES.find((c) => c.id === id);
 }

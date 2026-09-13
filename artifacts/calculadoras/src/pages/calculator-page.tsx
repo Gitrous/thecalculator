@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import type { ComponentType } from "react";
-import { ChevronRight, ArrowRight, MapPin } from "lucide-react";
+import { ChevronRight, ArrowRight, MapPin, BookOpen } from "lucide-react";
 import {
   getCalculator,
   getCategory,
-  getCalculatorsByCategory,
+  getRelatedCalculators,
   type CategoryId,
   EN_TO_ES_CATEGORY,
   EN_CATEGORY_SLUGS,
   calcPath,
   enCalcPath,
 } from "@/lib/calculators";
+import { ARTICLES } from "@/lib/articles";
 import { AdUnit } from "@/components/ad-unit";
 import { AD_SLOTS } from "@/lib/ads";
 import { Seo } from "@/components/seo";
@@ -208,14 +209,50 @@ export default function CalculatorPage() {
       <Component />
       <AdUnit slot={AD_SLOTS.afterResult} className="mt-10" />
 
+      {/* Guides written for this calculator */}
+      {(() => {
+        const guides = ARTICLES.filter(
+          (a) => a.relatedCalcCategory === categoryId && a.relatedCalcSlug === slug,
+        );
+        if (guides.length === 0) return null;
+        return (
+          <section className="mt-12 pt-8 border-t border-gray-200 dark:border-white/10">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">
+              {isEn
+                ? guides.length > 1 ? "Related guides" : "Related guide"
+                : guides.length > 1 ? "Guías relacionadas" : "Guía relacionada"}
+            </h2>
+            <div className="space-y-3">
+              {guides.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={isEn ? `/en/blog/${a.enSlug}` : `/blog/${a.slug}`}
+                  className="flex items-start gap-4 p-5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-primary/10">
+                    <BookOpen className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white leading-tight">
+                      {isEn ? a.enTitle : a.title}
+                    </span>
+                    <span className="text-xs text-gray-500 dark:text-white/50 line-clamp-2">
+                      {isEn ? a.enDescription : a.description}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
+
       {/* Related calculators */}
       {(() => {
-        const siblings = getCalculatorsByCategory(categoryId).filter((c) => c.slug !== slug).slice(0, 5);
+        const siblings = getRelatedCalculators(calc);
         if (siblings.length === 0) return null;
-        const label = isEn
-          ? `Other ${category.enName} calculators`
-          : `Otras calculadoras de ${category.name.toLowerCase()}`;
-        const seeAllLabel = isEn ? "See all" : "Ver todas";
+        const label = isEn ? "Related calculators" : "Calculadoras relacionadas";
+        const seeAllLabel = isEn ? `All ${category.enName}` : `Todas de ${category.name}`;
         const catHref = isEn
           ? `/en/calculators/${EN_CATEGORY_SLUGS[category.id]}`
           : `/calculadoras/${category.id}`;
@@ -228,13 +265,14 @@ export default function CalculatorPage() {
                 const title = isEn ? c.enShortLabel : c.shortLabel;
                 const desc = isEn ? c.enDescription : c.description;
                 const CalcIcon = c.icon;
+                const chipColor = getCategory(c.category)?.color ?? category.color;
                 return (
                   <Link
-                    key={c.slug}
+                    key={`${c.category}/${c.slug}`}
                     href={href}
                     className="flex flex-col gap-3 p-5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
                   >
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${category.color}`}>
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${chipColor}`}>
                       <CalcIcon className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col gap-1">

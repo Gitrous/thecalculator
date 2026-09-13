@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Search, X, ArrowRight, ChevronRight, Clock, Info } from "lucide-react";
+import { Search, X, ArrowDown, ChevronRight, Clock, Info } from "lucide-react";
 import {
   CATEGORIES,
   CALCULATORS,
@@ -262,6 +262,22 @@ export default function Home() {
     : [];
   const isSearching = normalized.length > 0;
 
+  /** El CTA principal baja al directorio de categorías en lugar de meter a
+   * todo el mundo en Finanzas. Si hay una búsqueda activa el directorio no
+   * está montado, así que se limpia la búsqueda y se hace scroll cuando React
+   * ya lo ha pintado. */
+  function scrollToDirectorio(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    const go = () =>
+      document.getElementById("directorio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (isSearching) {
+      setQuery("");
+      requestAnimationFrame(() => requestAnimationFrame(go));
+    } else {
+      go();
+    }
+  }
+
   const finanzas  = CATEGORIES.find((c) => c.id === "finanzas")!;
   const salud     = CATEGORIES.find((c) => c.id === "salud")!;
   const educacion = CATEGORIES.find((c) => c.id === "educacion")!;
@@ -381,11 +397,13 @@ export default function Home() {
 
           {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-3 pt-1">
-            <Link href={isEn ? `/en/calculators/${EN_CATEGORY_SLUGS["finanzas"]}` : "/calculadoras/finanzas"}>
-              <div className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors cursor-pointer shadow-sm">
-                {isEn ? "Explore Directory" : "Explorar Calculadoras"} <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
+            <a
+              href="#directorio"
+              onClick={scrollToDirectorio}
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors cursor-pointer shadow-sm"
+            >
+              {isEn ? "Explore Directory" : "Explorar Calculadoras"} <ArrowDown className="w-4 h-4" />
+            </a>
             <Link href={isEn ? "/en/blog" : "/blog"}>
               <div className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-xl font-semibold transition-colors cursor-pointer">
                 {isEn ? "Read the Blog" : "Ver el Blog"}
@@ -462,7 +480,7 @@ export default function Home() {
           )}
 
           {/* ── Tools Directory ─────────────────────────────────── */}
-          <section className="bg-white dark:bg-gray-900 py-16 px-4">
+          <section id="directorio" className="scroll-mt-24 bg-white dark:bg-gray-900 py-16 px-4">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-end justify-between mb-10">
                 <div>

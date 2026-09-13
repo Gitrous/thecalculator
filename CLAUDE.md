@@ -123,6 +123,24 @@ sigue conteniendo el texto real, no solo que el build no falle. Por ejemplo:
 grep -c "Adolphe Quetelet" dist/public/blog/que-es-el-imc/index.html   # debe ser 1
 ```
 
+## Enlazado interno blog ↔ calculadoras (trampa conocida)
+
+Los enlaces entre artículos y calculadoras salen de `relatedCalcCategory` +
+`relatedCalcSlug` en `src/lib/articles.ts` (en ambos sentidos: CTA del artículo
+y bloque «Guía relacionada» de la calculadora). La categoría debe ser la de la
+**calculadora** en `calculators.ts`, no la del artículo. Si no coincide, el
+enlace **desaparece sin error** (le pasó a letra-dni: artículo en `educacion`,
+calculadora en `trabajo`). Los cruces entre categorías de «Calculadoras
+relacionadas» están en `RELATED` de `calculators.ts`.
+
+Tras tocar artículos o calculadoras, comprobar tras el build (desde
+`dist/public`):
+
+```bash
+for f in blog/*/index.html; do grep -q 'Abrir calculadora' $f || echo "SIN CTA $f"; done
+for f in calculadoras/*/*/index.html; do grep -q 'Guía' $f || echo "SIN GUÍA $f"; done  # solo reforma-hogar
+```
+
 ## Analítica (Cloudflare Web Analytics)
 
 La medición la **inyecta Cloudflare en el borde** (RUM en modo `Enable` en el
