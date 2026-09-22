@@ -158,6 +158,24 @@ Al añadir una calculadora: `enSlug` en `calculators.ts`, entrada en
 `public/_redirects` **antes** del fallback SPA (`/*  /index.html  200`), que al
 ser comodín captura todo lo que vaya después.
 
+**Las reglas de `_redirects` no cubren las dos formas de la URL**: una regla
+escrita sin barra final no captura la URL con barra, que cae en el fallback SPA
+y devuelve **200 con el esqueleto de la app** (un soft 404, sin error visible).
+Y la forma con barra es justo la que Google indexa, porque es la que usan la
+canonical y el sitemap. Escribe siempre las dos líneas, cada una apuntando a su
+destino con la misma forma:
+
+```
+/en/calculators/finance/salario-neto    /en/calculators/finance/net-salary    301
+/en/calculators/finance/salario-neto/   /en/calculators/finance/net-salary/   301
+```
+
+Comprobar tras desplegar (`%{http_code}` debe ser 301 en ambas):
+
+```bash
+curl -s -o /dev/null -w "%{http_code} -> %{redirect_url}\n" https://thecalculator.tech/en/calculators/work/paro/
+```
+
 ## Analítica (Cloudflare Web Analytics)
 
 La medición la **inyecta Cloudflare en el borde** (RUM en modo `Enable` en el
