@@ -78,6 +78,10 @@ const T = {
     tableCol2: "TAE",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "La TAE es el único indicador que la ley obliga a publicar precisamente para que puedas comparar productos entre entidades en igualdad de condiciones, así que úsala siempre como criterio principal. Dicho esto, conviene recordar dos límites. Primero, una TAE más baja no siempre implica el producto más barato en tu caso concreto: si piensas amortizar anticipadamente, el reparto de comisiones puede pesar más que el tipo. Segundo, en las hipotecas la TAE deja fuera los seguros vinculados, que pueden encarecer notablemente el coste real; para compararlas de verdad, pide siempre el cuadro de amortización completo y suma aparte el coste anual de los productos que te exijan contratar.",
+    compareTitle:
+      "Cómo comparar dos ofertas de préstamo sin equivocarse",
+    compare:
+      "Imagina dos préstamos de 10.000 € a cinco años. El primero ofrece un 6 % nominal sin comisiones. El segundo, un 5,5 % nominal con una comisión de apertura del 2 % y un seguro obligatorio de 15 € al mes. A simple vista gana el segundo, pero la comisión son 200 € pagados de entrada y el seguro suma 900 € a lo largo del préstamo, de modo que su coste real es claramente mayor. Esa es exactamente la información que resume la TAE, y por eso es el único dato comparable entre entidades. Tres cautelas al usarla. Primera: la TAE solo incluye los gastos obligatorios para conceder el préstamo, así que un seguro que te venden como voluntario pero condiciona el tipo puede quedar fuera. Segunda: compara siempre el mismo plazo, porque alargarlo baja la cuota y sube el coste total. Y tercera, mira el importe total adeudado que figura en la información precontractual: es la cifra que de verdad sale de tu bolsillo.",
     explanationTinToTae: (tin: string, freq: string, tae: string) =>
       `Con capitalización ${freq}, un TIN del ${tin}% equivale a una TAE del ${tae}`,
     explanationTaeToTin: (tae: string, freq: string, tin: string) =>
@@ -117,6 +121,10 @@ const T = {
     tableCol2: "APR",
     interpretTitle: "How to interpret the result",
     interpret: "The APR is the only indicator the law requires to be published precisely so you can compare products across lenders on equal terms, so always use it as your main criterion. That said, two limits are worth remembering. First, a lower APR does not always mean the cheapest product in your particular case: if you plan to repay early, the distribution of fees may matter more than the rate. Second, in mortgages the APR leaves out linked insurance, which can raise the real cost considerably; to compare properly, always ask for the full amortisation schedule and add the annual cost of any products you are required to take out.",
+    compareTitle:
+      "How to compare two loan offers without getting it wrong",
+    compare:
+      "Picture two €10,000 loans over five years. The first offers 6% nominal with no fees. The second, 5.5% nominal with a 2% arrangement fee and compulsory insurance at €15 a month. At first glance the second wins, but the fee is €200 paid up front and the insurance adds €900 over the life of the loan, so its real cost is clearly higher. That is exactly the information the APR summarises, and why it is the only figure comparable between lenders. Three cautions when using it. First: the APR only includes costs that are compulsory to obtain the loan, so insurance sold as voluntary but conditioning the rate may fall outside it. Second: always compare the same term, because stretching it lowers the payment and raises the total cost. And third, look at the total amount owed shown in the pre-contractual information: that is the figure that actually leaves your pocket.",
     explanationTinToTae: (tin: string, freq: string, tae: string) =>
       `With ${freq} compounding, a nominal rate of ${tin}% equals an APR of ${tae}`,
     explanationTaeToTin: (tae: string, freq: string, tin: string) =>
@@ -306,6 +314,11 @@ export default function Tae() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.compareTitle}</h2>
+        <p>{t.compare}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

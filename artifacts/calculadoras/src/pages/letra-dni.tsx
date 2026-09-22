@@ -76,6 +76,14 @@ const T = {
     tableColLetter: "Letra",
     interpretTitle: "Para qué sirve realmente la letra",
     interpret: "La letra del DNI es un dígito de control, no un dato identificativo. Su única función es detectar errores al teclear o transcribir el número, y lo hace con notable eficacia: si te equivocas en una sola cifra, la probabilidad de que la letra siga cuadrando es de aproximadamente 1 entre 23, es decir, en torno al 4 %. Esto significa que el sistema detecta alrededor del 96 % de los errores de un solo dígito antes de que lleguen a una base de datos. Por eso los formularios de bancos, administraciones y comercios electrónicos validan la letra en el momento de introducir el número. Ten en cuenta, no obstante, que la validación de la letra solo confirma que el número es coherente, no que corresponda a una persona realmente existente.",
+    whyTitle:
+      "Por qué 23 y no otro número",
+    why:
+      "La letra del DNI es un dígito de control, y el 23 no se eligió al azar. Al ser un número primo, los 23 restos posibles se reparten de forma uniforme entre todos los números de documento, de modo que ninguna letra es mucho más frecuente que otra. Además, un divisor primo hace que el sistema detecte los dos errores humanos más comunes al copiar un número: equivocarse en una cifra y permutar dos cifras contiguas. Con 23 restos, la probabilidad de que un número mal tecleado conserve por casualidad la letra correcta es de aproximadamente una entre veintitrés, algo más del cuatro por ciento. Por eso el sistema es bueno detectando erratas, pero no es un mecanismo de seguridad: cualquiera puede calcular la letra que corresponde a un número, que es justamente lo que hace esta herramienta. La letra no valida que el documento exista, solo que el número y la letra son coherentes entre sí.",
+    nieTitle:
+      "El NIE y otros casos que no siguen la regla sin más",
+    nie:
+      "El NIE, el número de identidad de extranjero, usa el mismo algoritmo con un paso previo: empieza por una letra X, Y o Z que hay que sustituir por 0, 1 o 2 respectivamente antes de dividir entre 23. Así, un NIE que empiece por Y se calcula como si el 1 fuera su primera cifra. Ese detalle es el motivo de que muchas comprobaciones automáticas fallen con documentos de extranjeros. Conviene saber además que las letras I, Ñ, O y U no se usan nunca en la tabla de control, precisamente para evitar confusiones con los dígitos 1 y 0 y con otras letras al leerlas a mano. Y un caso que sorprende: el DNI de las personas jurídicas no existe como tal, porque las empresas se identifican con el CIF, hoy integrado en el NIF, que utiliza un sistema de control distinto y que puede terminar en número o en letra según el tipo de entidad.",
   },
   en: {
     title: "Spanish DNI Letter Calculator",
@@ -112,6 +120,14 @@ const T = {
     tableColLetter: "Letter",
     interpretTitle: "What the letter is actually for",
     interpret: "The DNI letter is a check digit, not identifying data. Its only function is to detect errors when typing or transcribing the number, and it does so remarkably well: if you get a single digit wrong, the probability that the letter still matches is roughly 1 in 23, around 4%. That means the system catches about 96% of single-digit errors before they reach a database. This is why forms at banks, public administrations and online shops validate the letter as soon as you enter the number. Bear in mind, however, that validating the letter only confirms the number is internally consistent, not that it belongs to a real person.",
+    whyTitle:
+      "Why 23 and not some other number",
+    why:
+      "The DNI letter is a check digit, and 23 was not chosen at random. Being prime, the 23 possible remainders spread evenly across all document numbers, so no letter is much more frequent than another. A prime divisor also makes the system detect the two commonest human errors when copying a number: getting one digit wrong and swapping two adjacent digits. With 23 remainders, the probability that a mistyped number happens to keep the correct letter is about one in twenty-three, a little over four per cent. That is why the system is good at catching typos but is not a security mechanism: anyone can compute the letter for a given number, which is exactly what this tool does. The letter does not validate that the document exists, only that number and letter are consistent with each other.",
+    nieTitle:
+      "The NIE and other cases that do not simply follow the rule",
+    nie:
+      "The NIE, the foreigner identity number, uses the same algorithm with one preliminary step: it starts with the letter X, Y or Z, which must be replaced by 0, 1 or 2 respectively before dividing by 23. So a NIE beginning with Y is computed as if 1 were its first digit. That detail is why many automated checks fail with foreigners' documents. It is also worth knowing that the letters I, Ñ, O and U are never used in the control table, precisely to avoid confusion with the digits 1 and 0 and with other letters when read by hand. And a surprising case: there is no such thing as a DNI for legal entities, because companies are identified by the CIF, now integrated into the NIF, which uses a different control system and can end in either a number or a letter depending on the type of entity.",
   },
 };
 
@@ -202,6 +218,13 @@ export default function LetraDni() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.whyTitle}</h2>
+        <p>{t.why}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.nieTitle}</h2>
+        <p>{t.nie}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

@@ -60,6 +60,14 @@ const T = {
     tableCol2: "Tipo de relación",
     interpretTitle: "Cómo comprobar que el resultado es correcto",
     interpret: "Una verificación rápida y muy fiable consiste en comparar la magnitud del resultado con la del dato de partida. En una relación directa, si el valor que introduces es mayor que el de referencia, el resultado también debe ser mayor; si es menor, el resultado debe ser menor. En una relación inversa ocurre justo al contrario. Si obtienes un resultado que va en la dirección opuesta a la esperada, casi con seguridad has confundido el tipo de proporcionalidad. Otra comprobación útil es calcular la constante de proporcionalidad: en una regla directa, el cociente entre las dos magnitudes debe mantenerse constante, mientras que en una inversa lo que permanece constante es el producto.",
+    typeTitle:
+      "Directa o inversa: cómo distinguirlas sin equivocarse",
+    type:
+      "La pregunta que resuelve la duda es siempre la misma: si una magnitud aumenta, ¿la otra aumenta también o disminuye? Si aumentan juntas, la proporción es directa y se resuelve multiplicando en cruz. Si una sube cuando la otra baja, es inversa y lo que se mantiene constante es el producto de ambas. Tres kilos de naranjas cuestan el triple que uno: directa. Tres pintores tardan un tercio de tiempo que uno solo: inversa. El error clásico consiste en aplicar la regla directa a todo por costumbre, y da resultados absurdos que se detectan con una comprobación rápida: si al aumentar los trabajadores te sale más tiempo, el planteamiento está invertido. Hay un tercer caso que conviene reconocer: las magnitudes que no son proporcionales en absoluto. Que un bebé tarde nueve meses en gestarse no significa que nueve bebés tarden ochenta y un meses, ni que nueve madres tarden un mes.",
+    solvedTitle:
+      "Cuatro situaciones cotidianas resueltas",
+    solved:
+      "Descuento: una chaqueta de 80 € está rebajada un 35 %. El descuento es 80 × 35 / 100 = 28 €, así que pagas 52 €. Receta: una receta para 4 personas lleva 320 g de arroz y quieres cocinar para 6. Como es proporción directa, 320 × 6 / 4 = 480 g. Escala de un plano: en un mapa 1:25.000, cada centímetro del papel son 25.000 cm reales, es decir, 250 metros; una distancia de 3,2 cm equivale a 800 metros. Ritmo de trabajo, que es el caso inverso: si 4 operarios descargan un camión en 3 horas, el trabajo total son 12 horas-operario, de modo que 6 operarios tardarían 12 / 6 = 2 horas. Fíjate en que en los tres primeros se multiplica en cruz y en el último se conserva el producto: es exactamente la diferencia entre proporción directa e inversa.",
   },
   en: {
     title: "Rule of Three Calculator",
@@ -99,6 +107,14 @@ const T = {
     tableCol2: "Type of relationship",
     interpretTitle: "How to check the result is correct",
     interpret: "A quick and very reliable check is to compare the size of the result with the reference figure. In a direct relationship, if the value you enter is larger than the reference, the result must also be larger; if it is smaller, the result must be smaller. In an inverse relationship exactly the opposite happens. If you get a result that goes in the opposite direction to what you expected, you have almost certainly confused the type of proportionality. Another useful check is to calculate the constant of proportionality: in a direct rule, the ratio between the two quantities must stay constant, while in an inverse rule what stays constant is the product.",
+    typeTitle:
+      "Direct or inverse: telling them apart without error",
+    type:
+      "The question that settles the doubt is always the same: if one quantity increases, does the other increase too, or decrease? If they rise together, the proportion is direct and you cross-multiply. If one rises as the other falls, it is inverse and what stays constant is the product of both. Three kilos of oranges cost three times as much as one: direct. Three painters take a third of the time one takes: inverse. The classic mistake is applying the direct rule to everything out of habit, which gives absurd results that a quick check reveals: if adding workers yields more time, the setup is inverted. There is a third case worth recognising: quantities that are not proportional at all. A baby taking nine months to gestate does not mean nine babies take eighty-one months, or that nine mothers take one month.",
+    solvedTitle:
+      "Four everyday situations solved",
+    solved:
+      "Discount: an €80 jacket is reduced by 35%. The discount is 80 × 35 / 100 = €28, so you pay €52. Recipe: a recipe for 4 people uses 320 g of rice and you want to cook for 6. Being a direct proportion, 320 × 6 / 4 = 480 g. Map scale: on a 1:25,000 map, each centimetre on paper is 25,000 real cm, that is 250 metres; a distance of 3.2 cm equals 800 metres. Work rate, the inverse case: if 4 workers unload a lorry in 3 hours, the total work is 12 worker-hours, so 6 workers would take 12 / 6 = 2 hours. Note that the first three cross-multiply and the last conserves the product: that is exactly the difference between direct and inverse proportion.",
   },
 };
 
@@ -238,6 +254,13 @@ export default function ReglaDeTres() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.typeTitle}</h2>
+        <p>{t.type}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.solvedTitle}</h2>
+        <p>{t.solved}</p>
       </section>
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>

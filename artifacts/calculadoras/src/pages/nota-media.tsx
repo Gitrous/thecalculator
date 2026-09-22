@@ -70,6 +70,18 @@ const T = {
     tableCol2: "Calificación",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "La media ponderada por créditos ECTS es el método más habitual, pero el cálculo oficial y el valor que consta en tu expediente pueden depender de la normativa de tu universidad y del procedimiento de cada convocatoria. Se usa para baremar becas, prácticas, másteres y convocatorias públicas, aunque los umbrales mínimos los fija cada convocatoria y conviene consultarlos en sus bases oficiales. Si tu media está por debajo del objetivo que persigues, ten en cuenta que las asignaturas con más créditos son las que más pueden moverla: mejorar una nota en un trabajo de fin de grado de 12 créditos tiene mucho más impacto que hacerlo en una optativa de 3.",
+    weightTitle:
+      "Por qué el TFG pesa tanto (y otras ponderaciones que sorprenden)",
+    weight:
+      "En el sistema español la media no es la suma de las notas dividida entre el número de asignaturas, sino una media ponderada por créditos ECTS: cada asignatura pesa en proporción a su carga de trabajo. Un trabajo de fin de grado de 12 créditos pesa el doble que una asignatura de 6 y cuatro veces más que una optativa de 3, de modo que una buena nota en el TFG mueve la media mucho más de lo que la gente calcula. Las prácticas externas, que suelen tener bastantes créditos y notas altas, también empujan al alza. Conviene saber además que las asignaturas suspendidas cuentan con la nota obtenida hasta que se aprueban, que las convalidadas y reconocidas siguen reglas propias según la universidad, y que el matrícula de honor se computa con un 10 a efectos de media, aunque además dé derecho a la matrícula gratuita de un número equivalente de créditos.",
+    useTitle:
+      "Para qué se usa la nota media además de para presumir",
+    use:
+      "La media del expediente decide más cosas de las que parece. Es el criterio principal para las becas de carácter general, que exigen un mínimo que varía según la rama de conocimiento, y para las becas de excelencia y de movilidad como Erasmus, donde se usa para ordenar a los candidatos cuando hay más solicitudes que plazas. También es determinante en el acceso a muchos másteres con límite de plazas, en las bolsas de empleo público que la baremaban y en algunos procesos de selección de grandes empresas, sobre todo en consultoría y banca. Y en la universidad misma condiciona la posibilidad de matricularse de más créditos de los ordinarios o de optar a plazas de colaboración en departamentos. Por eso conviene calcularla con la ponderación correcta y no con una media simple, que casi siempre da un número distinto.",
+    q6:
+      "¿Cómo se convierte mi nota media al sistema de otro país?",
+    a6:
+      "No existe una fórmula oficial universal, y ese es el origen de muchos malentendidos. La escala española va de 0 a 10 con el aprobado en 5, mientras que el sistema anglosajón usa letras o un GPA sobre 4, y el alemán funciona al revés, con el 1 como mejor nota. Lo que hacen las universidades es aplicar tablas de equivalencia propias, y en el ámbito europeo se emplea además la distribución estadística de las notas de cada titulación, de forma que lo que se compara no es el número en bruto sino la posición relativa dentro de la promoción. Por eso, para una solicitud internacional, lo que se pide no es una conversión hecha por ti sino el expediente oficial con las calificaciones, el número de créditos y, si es posible, el suplemento europeo al título.",
   },
   en: {
     title: "Grade Average Calculator",
@@ -115,6 +127,18 @@ const T = {
     tableCol2: "Qualification",
     interpretTitle: "How to interpret the result",
     interpret: "The ECTS credit-weighted average is the most common method, but the official calculation and the figure recorded on your transcript can depend on your university's rules and on each call's procedure. It is used to rank applications for grants, internships, master's programmes and public competitions, though minimum thresholds are set by each call and should be checked in its official terms. If your average falls below the target you are aiming for, bear in mind that subjects with more credits are the ones that can move it most: improving a grade in a 12-credit final project has far more impact than doing so in a 3-credit elective.",
+    weightTitle:
+      "Why the final project weighs so much (and other surprising weightings)",
+    weight:
+      "In the Spanish system the average is not the sum of marks divided by the number of subjects, but an average weighted by ECTS credits: each subject counts in proportion to its workload. A 12-credit final degree project weighs twice as much as a 6-credit subject and four times as much as a 3-credit elective, so a good mark there moves the average far more than people expect. External placements, which usually carry many credits and high marks, also push it up. It is also worth knowing that failed subjects count with the mark obtained until they are passed, that validated and recognised subjects follow their own rules depending on the university, and that a distinction counts as a 10 for the average, besides entitling you to free enrolment for an equivalent number of credits.",
+    useTitle:
+      "What the average is actually used for",
+    use:
+      "Your transcript average decides more than it seems. It is the main criterion for general scholarships, which require a minimum that varies by field of knowledge, and for excellence and mobility grants such as Erasmus, where it is used to rank candidates when there are more applications than places. It is also decisive for access to many master's degrees with limited places, for public employment pools that score it, and in some selection processes at large companies, especially in consulting and banking. Within the university itself it affects whether you can enrol in more credits than usual or apply for departmental collaboration grants. That is why it is worth computing it with the correct weighting rather than a simple average, which almost always gives a different number.",
+    q6:
+      "How do I convert my average to another country's system?",
+    a6:
+      "There is no universal official formula, and that is the source of many misunderstandings. The Spanish scale runs from 0 to 10 with a pass at 5, while the Anglo-Saxon system uses letters or a GPA out of 4, and the German one works in reverse, with 1 as the best mark. What universities do is apply their own equivalence tables, and within Europe the statistical distribution of marks in each degree is also used, so what gets compared is not the raw number but your relative position within the cohort. That is why an international application does not ask you to convert anything yourself, but to provide the official transcript with marks and credits and, where possible, the diploma supplement.",
   },
 };
 
@@ -288,6 +312,13 @@ export default function NotaMedia() {
         <p>{t.interpret}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.weightTitle}</h2>
+        <p>{t.weight}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.useTitle}</h2>
+        <p>{t.use}</p>
+      </section>
+
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -314,6 +345,10 @@ export default function NotaMedia() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

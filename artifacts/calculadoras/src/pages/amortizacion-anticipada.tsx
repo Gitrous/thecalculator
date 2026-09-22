@@ -84,6 +84,22 @@ const T = {
     a5: "La comparación se reduce a contrastar el tipo de interés de tu hipoteca con la rentabilidad neta que esperas de la inversión. Si tu hipoteca está al 3 % y esperas obtener un 6 % invirtiendo, matemáticamente sale mejor invertir, aunque debes descontar la fiscalidad del ahorro (entre el 19 % y el 30 %), lo que reduce ese 6 % a algo más de un 4,5 % neto. Amortizar, en cambio, ofrece una rentabilidad segura y libre de impuestos equivalente al tipo de tu préstamo. Con hipotecas por encima del 4 % suele compensar amortizar; por debajo del 2,5 %, invertir. Entre medias entra en juego tu tolerancia al riesgo y el valor que des a la tranquilidad de deber menos.",
     deepTitle: "Reducir cuota o reducir plazo: cómo funciona",
     deep: "Al amortizar anticipadamente entregas un capital que se descuenta directamente de la deuda pendiente, y a partir de ahí puedes elegir entre dos efectos. Si reduces cuota, el plazo se mantiene y la mensualidad baja, lo que alivia tu presupuesto mensual pero sigues pagando intereses durante los mismos años. Si reduces plazo, la cuota se mantiene igual y lo que se acorta es el número de mensualidades restantes, con lo que dejas de pagar intereses en los últimos años del préstamo. Como los intereses se calculan sobre el capital pendiente a lo largo del tiempo, eliminar años completos de deuda ahorra bastante más que rebajar ligeramente cada mensualidad.",
+    decideTitle:
+      "Cuota o plazo: cómo decidir con números y no con intuición",
+    decide:
+      "Reducir plazo casi siempre ahorra más intereses, porque los intereses se calculan sobre el capital pendiente y cada mes que eliminas es un mes que deja de generarlos. Reducir cuota ahorra menos, pero libera dinero cada mes, y eso tiene un valor que no aparece en la tabla: margen ante un imprevisto, capacidad de ahorro o simplemente dormir mejor. Una forma sensata de decidirlo es mirar tu situación, no solo el total ahorrado. Si tu empleo es estable y no te aprieta la cuota, reducir plazo es lo más eficiente. Si vas justo cada mes, tienes ingresos variables o esperas un gasto grande, reducir cuota compra tranquilidad. Y existe una tercera vía que funciona muy bien: reducir cuota y seguir pagando voluntariamente el importe antiguo mediante amortizaciones periódicas, lo que da el ahorro de reducir plazo conservando la posibilidad de bajar el pago cuando haga falta.",
+    whenTitle:
+      "Cuándo amortizar y cuándo es mejor no hacerlo",
+    when:
+      "Amortizar interesa más cuanto antes se hace, porque en los primeros años de una hipoteca francesa la mayor parte de la cuota son intereses y el capital baja despacio; el mismo dinero aportado al principio elimina muchos más intereses futuros que aportado al final. Dicho esto, no siempre es la mejor decisión. Antes de amortizar conviene tener un colchón de emergencia, porque el dinero que entregas al banco no se puede recuperar: lo que reduces es deuda, no liquidez disponible. Si tu tipo de interés es bajo y podrías obtener una rentabilidad razonablemente segura por encima de ese tipo, la comparación deja de ser evidente, aunque amortizar tiene una ventaja que las inversiones no dan: el ahorro es cierto y no paga impuestos. Y si compraste tu vivienda habitual antes de 2013 y conservas la deducción estatal, amortizar hasta el límite deducible cada año suele salir a cuenta por la devolución que genera.",
+    q6:
+      "¿Me conviene amortizar o invertir ese dinero?",
+    a6:
+      "La comparación correcta no es contra la rentabilidad que esperas, sino contra la que puedes obtener con un riesgo equivalente, que en el caso de amortizar es prácticamente nulo. Al amortizar obtienes un rendimiento seguro igual al tipo de interés de tu hipoteca, garantizado y libre de impuestos. Invertir puede rendir más, pero con incertidumbre y tributando por las ganancias. Con tipos bajos, invertir en productos diversificados y a largo plazo ha sido históricamente más rentable; con tipos altos, amortizar gana con facilidad. En la práctica, mucha gente acierta repartiendo: amortizar una parte para bajar el riesgo de la deuda y destinar otra a inversión. Lo que casi nunca sale bien es endeudarse a un tipo alto para invertir buscando batirlo.",
+    q7:
+      "¿Puedo amortizar cuando quiera y cuánto quiera?",
+    a7:
+      "En general sí. La amortización anticipada es un derecho del prestatario y puede hacerse de forma parcial, tantas veces como quieras, o total, cancelando el préstamo. Lo que puede existir es una comisión, limitada por ley y solo si figura en tu escritura: para los préstamos hipotecarios sujetos a la ley de crédito inmobiliario, los límites dependen del tipo de interés y del momento en que amortices, y en los préstamos a tipo variable esa comisión solo puede aplicarse durante los primeros años. Revisa tu escritura antes de hacer números, y comprueba también dos detalles prácticos: si tu banco exige un importe mínimo por operación y si la amortización se aplica el mismo día o espera a la siguiente cuota, porque eso cambia ligeramente el ahorro.",
     exampleTitle: "Ejemplo resuelto",
     example: "Partimos de una hipoteca de 150.000 € al 3 % a 25 años, con una cuota mensual de unos 711 € y un coste total en intereses de unos 63.400 €. Si amortizas 10.000 € al comienzo y eliges reducir cuota, la mensualidad baja a unos 664 € y el ahorro total en intereses ronda los 4.200 €. Si en cambio eliges reducir plazo, mantienes la cuota de 711 € pero terminas de pagar 29 meses antes, y el ahorro en intereses asciende a unos 10.600 €. Con la misma aportación, reducir plazo ahorra aquí más del doble.",
     tableTitle: "Efecto de amortizar 10.000 € (hipoteca de 150.000 € al 3 % a 25 años)",
@@ -133,6 +149,22 @@ const T = {
     a5: "The comparison boils down to contrasting your mortgage rate with the net return you expect from the investment. If your mortgage is at 3% and you expect 6% from investing, mathematically investing wins, though you must deduct savings taxation (between 19% and 30%), which cuts that 6% to just over 4.5% net. Early repayment, by contrast, offers a certain, tax-free return equal to your loan's rate. With mortgages above 4% repaying usually pays off; below 2.5%, investing does. In between, your risk tolerance and the value you place on owing less come into play.",
     deepTitle: "Reducing the payment or the term: how it works",
     deep: "When you repay early you hand over capital that is deducted directly from the outstanding debt, and from there you can choose between two effects. If you reduce the payment, the term stays the same and the monthly amount falls, easing your monthly budget but you keep paying interest for the same number of years. If you reduce the term, the payment stays the same and what shortens is the number of remaining instalments, so you stop paying interest in the loan's final years. Since interest is calculated on the outstanding capital over time, eliminating whole years of debt saves considerably more than slightly lowering each monthly payment.",
+    decideTitle:
+      "Payment or term: deciding with numbers, not intuition",
+    decide:
+      "Cutting the term almost always saves more interest, because interest is charged on the outstanding capital and every month you remove is a month that stops generating it. Cutting the payment saves less, but frees up money every month, and that has a value the table does not show: room for the unexpected, capacity to save, or simply sleeping better. A sensible way to decide is to look at your situation, not only at the total saved. If your job is stable and the payment does not squeeze you, cutting the term is the most efficient option. If money is tight each month, your income is variable or you expect a large expense, cutting the payment buys peace of mind. And there is a third route that works very well: cut the payment and keep paying the old amount voluntarily through regular partial repayments, which gives you the saving of a shorter term while keeping the option to lower the payment when needed.",
+    whenTitle:
+      "When to repay early and when not to",
+    when:
+      "Early repayment is worth more the sooner you do it, because in the first years of a French-amortisation mortgage most of the payment is interest and the capital falls slowly; the same money paid at the start eliminates far more future interest than paid at the end. That said, it is not always the best decision. Before repaying early it is wise to have an emergency fund, because the money you hand the bank cannot be recovered: what you reduce is debt, not available liquidity. If your interest rate is low and you could obtain a reasonably safe return above it, the comparison stops being obvious, although early repayment has an advantage investments do not: the saving is certain and tax-free. And if you bought your main home before 2013 and keep the state deduction, repaying up to the deductible limit each year usually pays off through the refund it generates.",
+    q6:
+      "Should I repay early or invest the money?",
+    a6:
+      "The right comparison is not against the return you hope for, but against the one you can obtain at equivalent risk, which in the case of early repayment is practically nil. Repaying early gives you a certain return equal to your mortgage rate, guaranteed and tax-free. Investing may yield more, but with uncertainty and paying tax on the gains. With low rates, investing in diversified long-term products has historically been more profitable; with high rates, early repayment wins easily. In practice, many people do well by splitting: repaying part to reduce debt risk and investing the rest. What rarely works out is staying in high-rate debt in order to invest and try to beat it.",
+    q7:
+      "Can I repay whenever and however much I want?",
+    a7:
+      "Generally yes. Early repayment is a borrower's right and can be partial, as many times as you wish, or total, cancelling the loan. What may exist is a fee, capped by law and only if it appears in your deed: for mortgage loans under the real-estate credit law, the caps depend on the interest rate and on when you repay, and on variable-rate loans that fee can only be applied during the first years. Check your deed before doing the maths, and also check two practical details: whether your bank requires a minimum amount per transaction, and whether the repayment is applied the same day or waits for the next instalment, because that slightly changes the saving.",
     exampleTitle: "Worked example",
     example: "Start from a €150,000 mortgage at 3% over 25 years, with a monthly payment of about €711 and a total interest cost of roughly €63,400. If you repay €10,000 at the start and choose to reduce the payment, the monthly amount falls to about €664 and total interest savings come to around €4,200. If instead you choose to reduce the term, you keep the €711 payment but finish 29 months earlier, and interest savings rise to about €10,600. With the same contribution, reducing the term saves more than twice as much here.",
     tableTitle: "Effect of repaying €10,000 (€150,000 mortgage at 3% over 25 years)",
@@ -364,6 +396,10 @@ export default function AmortizacionAnticipada() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.decideTitle}</h2>
+        <p>{t.decide}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.whenTitle}</h2>
+        <p>{t.when}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -390,6 +426,14 @@ export default function AmortizacionAnticipada() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

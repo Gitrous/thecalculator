@@ -214,8 +214,11 @@ export default function CalculatorPage() {
 
       {/* Guides written for this calculator */}
       {(() => {
+        const key = `${categoryId}/${calc.slug}`;
         const guides = ARTICLES.filter(
-          (a) => a.relatedCalcCategory === categoryId && a.relatedCalcSlug === calc.slug,
+          (a) =>
+            (a.relatedCalcCategory === categoryId && a.relatedCalcSlug === calc.slug) ||
+            a.alsoCalcs?.includes(key),
         );
         if (guides.length === 0) return null;
         return (

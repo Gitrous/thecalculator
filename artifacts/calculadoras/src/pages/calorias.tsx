@@ -111,6 +111,10 @@ const T = {
     tableDesc: "A quién corresponde",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "El número que obtienes es un punto de partida, no una cifra exacta e inmutable. La mejor forma de usarlo es mantener ese aporte calórico durante 2 o 3 semanas y pesarte siempre en las mismas condiciones: si el peso evoluciona según tu objetivo, la estimación es correcta; si no se mueve, ajusta en ±100–150 kcal y vuelve a observar. Recuerda que la balanza fluctúa a diario por el agua, el glucógeno y el tránsito intestinal, así que fíjate en la tendencia semanal y no en el dato de un solo día.",
+    deficitTitle:
+      "Cuánto déficit o superávit tiene sentido",
+    deficit:
+      "Una vez conoces tu gasto diario, el paso siguiente es decidir cuánto te separas de él, y ahí la prisa juega en contra. Un déficit moderado, del orden del 15 al 20 % de tu gasto total, suele traducirse en una pérdida de peso sostenible de entre 0,3 y 0,7 kg por semana, y tiene una ventaja importante: preserva mejor la masa muscular y es más fácil de mantener durante meses. Los déficits agresivos hacen bajar la báscula más rápido las primeras semanas, en buena parte por agua y glucógeno, pero aumentan el hambre, la fatiga y la probabilidad de abandonar. En sentido contrario, para ganar masa muscular basta un superávit pequeño, en torno al 10 %, acompañado de entrenamiento de fuerza; comer mucho más no acelera la ganancia muscular, solo añade grasa. Y conviene recalcular cada pocos kilos: a menos peso corporal, menor gasto, de modo que el mismo menú que antes creaba déficit acaba siendo mantenimiento.",
   },
   en: {
     title: "Calorie & BMR Calculator",
@@ -156,6 +160,10 @@ const T = {
     tableDesc: "Who it applies to",
     interpretTitle: "How to interpret the result",
     interpret: "The number you get is a starting point, not an exact, fixed figure. The best way to use it is to keep that calorie intake for 2 to 3 weeks and weigh yourself under the same conditions each time: if your weight moves in line with your goal, the estimate is right; if it doesn't budge, adjust by ±100–150 kcal and observe again. Remember the scale fluctuates daily due to water, glycogen and gut transit, so watch the weekly trend rather than a single day's reading.",
+    deficitTitle:
+      "How big a deficit or surplus makes sense",
+    deficit:
+      "Once you know your daily expenditure, the next step is deciding how far to move away from it, and haste works against you here. A moderate deficit, around 15 to 20% of total expenditure, usually translates into sustainable weight loss of 0.3 to 0.7 kg per week, and it has an important advantage: it preserves muscle mass better and is easier to sustain for months. Aggressive deficits drop the scale faster in the first weeks, largely through water and glycogen, but they increase hunger, fatigue and the chance of quitting. In the other direction, gaining muscle needs only a small surplus, around 10%, combined with strength training; eating much more does not speed muscle gain, it only adds fat. And recalculate every few kilos: lower body weight means lower expenditure, so the same menu that once created a deficit ends up being maintenance.",
   },
 };
 
@@ -361,6 +369,11 @@ export default function Calorias() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.deficitTitle}</h2>
+        <p>{t.deficit}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

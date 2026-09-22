@@ -77,6 +77,14 @@ const T = {
     tableCol2: "Gravedad (m/s²)",
     interpretTitle: "Cómo interpretar las gráficas del MRUA",
     interpret: "En un MRUA la gráfica de velocidad frente al tiempo es una línea recta cuya pendiente es la aceleración: ascendente si el objeto acelera y descendente si frena. El área comprendida bajo esa recta equivale a la distancia recorrida, un recurso muy útil para resolver problemas gráficamente. La gráfica de posición frente al tiempo, en cambio, es una parábola: su curvatura hacia arriba indica aceleración positiva y hacia abajo, desaceleración. Si la parábola alcanza un máximo y después desciende, significa que el objeto se detuvo y cambió de sentido, como ocurre en un tiro vertical cuando la pelota llega a su altura máxima.",
+    solvedTitle:
+      "Frenada y caída libre, resueltas",
+    solved:
+      "Distancia de frenado: un coche a 100 km/h (27,8 m/s) frena con una desaceleración de 7 m/s², un valor razonable sobre asfalto seco. La distancia hasta detenerse es v² / (2a) = 27,8² / 14 ≈ 55 metros, a los que hay que sumar la distancia de reacción: si el conductor tarda un segundo en pisar el freno, recorre 27,8 metros más antes de empezar a frenar. En total, unos 83 metros. La clave es que la distancia crece con el cuadrado de la velocidad: a 120 km/h la frenada sola pasa de 55 a unos 79 metros. Caída libre: un objeto que se suelta desde 45 metros, despreciando el rozamiento del aire, tarda t = √(2h/g) = √(90/9,8) ≈ 3,03 segundos y llega al suelo a 29,7 m/s, es decir, a más de 100 km/h. Por eso una caída desde un tercer piso es tan peligrosa.",
+    signsTitle:
+      "Los signos: el error que más nota cuesta",
+    signs:
+      "Casi todos los fallos en los problemas de MRUA vienen de los signos, no de las fórmulas. La regla es sencilla: elige un sentido positivo antes de empezar y mantenlo hasta el final. Si tomas como positivo el sentido del movimiento, una frenada tiene aceleración negativa, y si un objeto sube y luego cae, la aceleración de la gravedad es negativa durante todo el recorrido, también en la subida. Ese es el punto que más confunde: en el punto más alto la velocidad es cero, pero la aceleración sigue siendo 9,8 m/s² hacia abajo, porque la gravedad no deja de actuar. Otro detalle: si el resultado de un tiempo sale negativo, no es que el problema esté mal, es que esa solución matemática corresponde a un instante anterior al inicio del movimiento y hay que descartarla.",
   },
   en: {
     backHome: "Back to home",
@@ -125,6 +133,14 @@ const T = {
     tableCol2: "Gravity (m/s²)",
     interpretTitle: "How to read UARM graphs",
     interpret: "In UARM the graph of velocity against time is a straight line whose slope is the acceleration: rising if the object speeds up and falling if it brakes. The area under that line equals the distance travelled, a very useful trick for solving problems graphically. The position-time graph, by contrast, is a parabola: curvature upwards indicates positive acceleration and downwards, deceleration. If the parabola reaches a maximum and then descends, it means the object stopped and reversed direction, as happens in a vertical throw when the ball reaches its highest point.",
+    solvedTitle:
+      "Braking and free fall, solved",
+    solved:
+      "Braking distance: a car at 100 km/h (27.8 m/s) brakes with a deceleration of 7 m/s², a reasonable value on dry asphalt. The distance to a stop is v² / (2a) = 27.8² / 14 ≈ 55 metres, to which you must add the reaction distance: if the driver takes one second to hit the brake, another 27.8 metres pass before braking begins. That is about 83 metres in total. The key point is that distance grows with the square of speed: at 120 km/h the braking distance alone goes from 55 to about 79 metres. Free fall: an object dropped from 45 metres, ignoring air resistance, takes t = √(2h/g) = √(90/9.8) ≈ 3.03 seconds and reaches the ground at 29.7 m/s, that is over 100 km/h. This is why a fall from a third floor is so dangerous.",
+    signsTitle:
+      "Signs: the mistake that costs the most marks",
+    signs:
+      "Almost every error in accelerated-motion problems comes from signs, not formulas. The rule is simple: choose a positive direction before starting and keep it to the end. If you take the direction of motion as positive, braking has negative acceleration, and if an object goes up and then falls, gravitational acceleration is negative throughout, including on the way up. That is the point that confuses most: at the highest point the velocity is zero, but the acceleration is still 9.8 m/s² downwards, because gravity never stops acting. Another detail: if a time comes out negative, the problem is not wrong — that mathematical solution corresponds to an instant before the motion started and must be discarded.",
   },
 };
 
@@ -387,6 +403,13 @@ export default function MRUA() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{tr.interpretTitle}</h2>
         <p>{tr.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{tr.solvedTitle}</h2>
+        <p>{tr.solved}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{tr.signsTitle}</h2>
+        <p>{tr.signs}</p>
       </section>
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{tr.disclaimer}</p>

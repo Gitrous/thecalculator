@@ -85,6 +85,22 @@ const T = {
     a5: "El sistema se regulariza al año siguiente. La Seguridad Social cruza los datos con la Agencia Tributaria una vez presentada tu declaración de la renta y compara lo que cotizaste con lo que realmente ganaste. Si cotizaste por debajo del tramo que te correspondía, tendrás que abonar la diferencia; si cotizaste por encima, te devolverán el exceso de oficio. Por eso no es grave equivocarse en la previsión inicial, pero sí conviene ajustarla a lo largo del año para evitar encontrarte con una regularización elevada.",
     deepTitle: "Cómo funciona el sistema de cotización por tramos",
     deep: "Desde 2023 la cuota de autónomos ya no se elige libremente, sino que depende de los rendimientos netos que prevés obtener. El sistema define quince tramos de renta, cada uno con una base mínima de cotización asociada. El procedimiento es el siguiente: calculas tu rendimiento neto mensual previsto, localizas el tramo en el que encaja y aplicas el tipo de cotización general —en torno al 31,4 %— sobre la base mínima de ese tramo. Puedes elegir cotizar por una base superior a la mínima de tu tramo si quieres mejorar tus prestaciones futuras, pero nunca por debajo de ella.",
+    expensesTitle:
+      "Qué gastos puedes deducirte (y cuáles no)",
+    expenses:
+      "La cuota es solo una parte de la cuenta: lo que acabas pagando depende también de los gastos que puedas deducir. Son deducibles los que estén vinculados a la actividad, justificados con factura y anotados en tus libros: la propia cuota de autónomos, el material, el software, la formación relacionada, los seguros, la cuota de colegios profesionales, los servicios de gestoría y los suministros de un local afecto a la actividad. Si trabajas desde casa, puedes deducir la parte proporcional de los metros dedicados a la actividad en los gastos de titularidad (IBI, comunidad, seguro) y un porcentaje reducido de los suministros de esa misma proporción: agua, luz, gas e internet. El vehículo es el caso más conflictivo: salvo actividades concretas como transporte, taxi o agentes comerciales, Hacienda solo admite su deducción íntegra si se demuestra uso exclusivo profesional, algo difícil si es tu único coche. Las comidas de trabajo se admiten con límites diarios y siempre pagadas por medios electrónicos.",
+    startTitle:
+      "Alta, tarifa plana y obligaciones trimestrales",
+    start:
+      "El alta tiene dos pasos que no se pueden invertir: primero Hacienda, con el alta censal donde declaras la actividad y las obligaciones fiscales, y después la Seguridad Social, con un plazo máximo de sesenta días naturales de antelación al inicio. Quien se da de alta por primera vez, o no lo ha estado en los años inmediatamente anteriores, suele poder acogerse a la tarifa plana: una cuota reducida fija durante el primer año, prorrogable un año más si los rendimientos netos se mantienen por debajo del salario mínimo. A partir de ahí, las obligaciones son trimestrales: el modelo 303 para liquidar el IVA repercutido menos el soportado, y el modelo 130 para el pago fraccionado del IRPF si no facturas mayoritariamente a empresas con retención. A cierre de año se presentan los resúmenes anuales y la declaración de la renta, donde todo se ajusta.",
+    q6:
+      "¿Qué pasa si gano menos de lo que había estimado?",
+    a6:
+      "No pasa nada grave, porque el sistema está pensado para eso. Al darte de alta eliges un tramo según los rendimientos netos que prevés, y puedes cambiar esa previsión varias veces a lo largo del año si ves que te has quedado corto o largo. Al cerrar el ejercicio, la Seguridad Social compara lo que realmente ganaste, según los datos que le facilita Hacienda, con las bases por las que cotizaste. Si cotizaste de más, te devuelven la diferencia de oficio; si cotizaste de menos, te reclaman lo que falta y se paga sin recargo dentro del plazo que te indiquen. Por eso conviene ajustar la previsión en cuanto notes que el año va distinto de lo esperado: evita sustos y reparte el pago.",
+    q7:
+      "¿Puedo facturar sin ser autónomo si es algo puntual?",
+    a7:
+      "Legalmente hay dos obligaciones distintas y se confunden a menudo. Darse de alta en Hacienda para emitir facturas es obligatorio siempre, incluso por un único trabajo, y no cuesta dinero. Darse de alta en la Seguridad Social como autónomo es obligatorio cuando la actividad es habitual, personal y directa. La habitualidad no está definida por una cifra exacta en la ley, y existen sentencias que han considerado no habitual una actividad con ingresos inferiores al salario mínimo anual, pero eso es jurisprudencia, no una exención automática: la Inspección puede reclamar las cuotas y el criterio no es uniforme. Si vas a facturar de forma esporádica y por importes pequeños, consulta tu caso concreto con una gestoría antes de decidir.",
     exampleTitle: "Ejemplo resuelto",
     example: "Supongamos un autónomo que factura 2.500 € al mes y tiene 400 € de gastos deducibles. Su rendimiento antes de la deducción genérica es de 2.100 €; aplicando el 7 % de deducción adicional (147 €), el rendimiento neto queda en 1.953 €. Ese importe cae en el tramo de 1.850 a 2.030 €, cuya base mínima es de 1.209,15 €. Aplicando el tipo del 31,4 %, la cuota mensual estimada es de unos 380 €. Si ese mismo autónomo fuera nuevo y tuviera derecho a la tarifa plana, pagaría en torno a 88,64 € durante los primeros doce meses, según su base de cotización.",
     tableTitle: "Tramos de cotización y cuota estimada (2026)",
@@ -123,6 +139,22 @@ const T = {
     a5: "The system is reconciled the following year. Social Security cross-checks data with the tax authority once you have filed your income tax return and compares what you contributed with what you actually earned. If you contributed below the bracket that applied to you, you will have to pay the difference; if you contributed above it, the excess is refunded automatically. That is why getting the initial forecast wrong is not serious, but it is still worth adjusting it during the year to avoid a large reconciliation bill.",
     deepTitle: "How the bracket-based contribution system works",
     deep: "Since 2023 the self-employed contribution is no longer freely chosen but depends on the net income you expect to earn. The system defines fifteen income brackets, each with an associated minimum contribution base. The procedure is as follows: you calculate your expected monthly net income, find the bracket it falls into, and apply the general contribution rate — around 31.4% — to that bracket's minimum base. You may choose to contribute on a base higher than your bracket's minimum if you want to improve your future benefits, but never below it.",
+    expensesTitle:
+      "Which expenses you can deduct (and which you cannot)",
+    expenses:
+      "The contribution is only part of the bill: what you finally pay also depends on the expenses you can deduct. Deductible ones are those linked to the activity, backed by an invoice and recorded in your books: the self-employed contribution itself, materials, software, related training, insurance, professional association fees, accountancy services and the utilities of premises used for the activity. If you work from home, you can deduct the proportional share of the square metres devoted to the activity in ownership costs (property tax, community fees, insurance) and a reduced percentage of the utilities for that same proportion: water, electricity, gas and internet. The vehicle is the most contentious case: except for specific activities such as transport, taxi or sales representatives, the tax agency only accepts full deduction where exclusive professional use is proven, which is hard if it is your only car. Business meals are accepted within daily limits and always paid electronically.",
+    startTitle:
+      "Registration, the flat rate and quarterly obligations",
+    start:
+      "Registration has two steps that cannot be swapped: first the tax agency, with the census registration declaring your activity and tax obligations, and then social security, with a maximum of sixty calendar days before the activity starts. Anyone registering for the first time, or who has not been registered in the immediately preceding years, can usually take the flat rate: a fixed reduced contribution during the first year, extendable for a second year if net earnings stay below the minimum wage. From then on, obligations are quarterly: form 303 to settle output VAT minus input VAT, and form 130 for income tax instalments if you do not mostly invoice companies that withhold tax. At year end you file the annual summaries and the income tax return, where everything is reconciled.",
+    q6:
+      "What if I earn less than I estimated?",
+    a6:
+      "Nothing serious, because the system is designed for that. When you register you choose a band based on the net earnings you expect, and you can change that forecast several times during the year if you find you aimed too low or too high. At year end, social security compares what you actually earned, using the data the tax agency provides, with the bases you contributed on. If you over-contributed, the difference is refunded automatically; if you under-contributed, the shortfall is claimed and paid without surcharge within the deadline you are given. That is why it pays to adjust the forecast as soon as you notice the year is going differently than expected: it avoids surprises and spreads the payment.",
+    q7:
+      "Can I invoice without registering as self-employed for one-off work?",
+    a7:
+      "Legally there are two separate obligations that are often confused. Registering with the tax agency to issue invoices is always compulsory, even for a single job, and costs nothing. Registering with social security as self-employed is compulsory when the activity is habitual, personal and direct. Habituality is not defined by an exact figure in the law, and there are rulings that have treated activity with income below the annual minimum wage as non-habitual, but that is case law, not an automatic exemption: the labour inspectorate can still claim the contributions and the criterion is not uniform. If you plan to invoice occasionally and for small amounts, check your specific case with an accountant first.",
     exampleTitle: "Worked example",
     example: "Take a self-employed worker who invoices €2,500 a month and has €400 of deductible expenses. Their income before the generic deduction is €2,100; applying the additional 7% deduction (€147), net income comes to €1,953. That amount falls in the €1,850–2,030 bracket, whose minimum base is €1,209.15. Applying the 31.4% rate, the estimated monthly contribution is about €380. If that same worker were newly registered and entitled to the flat rate, they would pay around €88.64 during the first twelve months, depending on their contribution base.",
     tableTitle: "Contribution brackets and estimated fee (2026)",
@@ -255,6 +287,10 @@ export default function Autonomos() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.expensesTitle}</h2>
+        <p>{t.expenses}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.startTitle}</h2>
+        <p>{t.start}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -281,6 +317,14 @@ export default function Autonomos() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

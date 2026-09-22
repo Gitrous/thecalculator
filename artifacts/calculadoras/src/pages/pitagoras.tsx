@@ -383,6 +383,18 @@ const T = {
     tableColC: "Hipotenusa c",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "El resultado que muestra la calculadora es matemáticamente exacto, pero a menudo tendrá decimales porque la mayoría de triángulos no forman ternas pitagóricas perfectas. En un problema de clase suele pedirse redondear a dos decimales; en un trabajo de obra o de carpintería basta con redondear a la unidad de medida que estés usando (milímetros o centímetros). Recuerda que las unidades de los tres lados deben ser las mismas: si los catetos están en metros, la hipotenusa también saldrá en metros.",
+    solvedTitle:
+      "Tres problemas reales resueltos",
+    solved:
+      "Una escalera apoyada en la pared: si mide 5 m y separas la base 1,5 m del muro, la altura que alcanza es √(5² − 1,5²) = √(25 − 2,25) = √22,75 ≈ 4,77 m. Es el cálculo que hacen los bomberos y los pintores, y también el que indica si la inclinación es segura, porque una escalera demasiado vertical vuelca hacia atrás. El televisor: las pulgadas de un televisor miden la diagonal, no el ancho. Un panel de 16:9 con 120 cm de ancho y 67,5 cm de alto tiene una diagonal de √(120² + 67,5²) ≈ 137,7 cm, es decir, unas 54 pulgadas. Por eso dos televisores de las mismas pulgadas y distinta proporción ocupan un ancho diferente. Escuadrar una habitación: mide 3 m sobre una pared, 4 m sobre la otra y comprueba que la distancia entre ambos puntos sea exactamente 5 m. Si lo es, la esquina forma un ángulo recto perfecto. Es el viejo truco del 3-4-5 que los albañiles usan desde hace siglos y no necesita más herramienta que una cinta métrica.",
+    limitsTitle:
+      "Cuándo el teorema no se puede aplicar",
+    limits:
+      "El teorema solo funciona en triángulos rectángulos, es decir, aquellos que tienen un ángulo de exactamente 90 grados, y sobre una superficie plana. Si el triángulo no tiene ángulo recto, la relación correcta es el teorema del coseno, que añade un término de corrección: c² = a² + b² − 2ab·cos(C). Cuando el ángulo C vale 90 grados su coseno es cero, el término desaparece y se recupera Pitágoras, que resulta ser un caso particular. Tampoco se aplica tal cual sobre superficies curvas: en la geometría esférica, la que se usa para navegar o para calcular distancias sobre la Tierra, los ángulos de un triángulo suman más de 180 grados y las distancias siguen otras fórmulas. Y un detalle práctico: verifica siempre que el lado que llamas hipotenusa sea el más largo, porque confundirlo con un cateto es el error más habitual al plantear el problema.",
+    q6:
+      "¿El teorema sirve en tres dimensiones?",
+    a6:
+      "Sí, y la extensión es muy natural. Para conocer la diagonal de una caja rectangular basta aplicar el teorema dos veces, lo que da d = √(largo² + ancho² + alto²). Con una caja de 3 × 4 × 12 cm, la diagonal interior mide √(9 + 16 + 144) = √169 = 13 cm exactos. Es el cálculo que determina si un objeto largo cabe en diagonal dentro de un maletero, de una caja de envío o de una maleta de cabina, y también el que usan los programas de diseño para calcular distancias en el espacio. La misma idea se generaliza a cualquier número de dimensiones, y es la base de la distancia euclídea que emplean la estadística y el aprendizaje automático para medir cuánto se parecen dos conjuntos de datos.",
   },
   en: {
     title: "Pythagorean Theorem Calculator",
@@ -422,6 +434,18 @@ const T = {
     tableColC: "Hypotenuse c",
     interpretTitle: "How to interpret the result",
     interpret: "The result shown by the calculator is mathematically exact, but it will often have decimals because most triangles do not form perfect Pythagorean triples. In a classroom problem you are usually asked to round to two decimal places; in construction or carpentry it is enough to round to the unit of measurement you are using (millimetres or centimetres). Remember that the three sides must share the same units: if the legs are in metres, the hypotenuse will also come out in metres.",
+    solvedTitle:
+      "Three real problems solved",
+    solved:
+      "A ladder against a wall: if it is 5 m long and you place the base 1.5 m from the wall, the height it reaches is √(5² − 1.5²) = √(25 − 2.25) = √22.75 ≈ 4.77 m. This is the calculation firefighters and painters make, and it also tells you whether the angle is safe, because a ladder that is too vertical tips backwards. The television: a TV's inches measure the diagonal, not the width. A 16:9 panel 120 cm wide and 67.5 cm high has a diagonal of √(120² + 67.5²) ≈ 137.7 cm, that is about 54 inches. This is why two TVs with the same inches but different proportions take up different widths. Squaring a room: measure 3 m along one wall, 4 m along the other, and check that the distance between those two points is exactly 5 m. If it is, the corner is a perfect right angle. It is the old 3-4-5 trick builders have used for centuries, and it needs no tool beyond a tape measure.",
+    limitsTitle:
+      "When the theorem cannot be applied",
+    limits:
+      "The theorem only works in right triangles, that is, those with an angle of exactly 90 degrees, and on a flat surface. If the triangle has no right angle, the correct relation is the law of cosines, which adds a correction term: c² = a² + b² − 2ab·cos(C). When angle C is 90 degrees its cosine is zero, the term vanishes and Pythagoras is recovered, turning out to be a particular case. Nor does it apply as such on curved surfaces: in spherical geometry, used for navigation or for distances over the Earth, a triangle's angles add up to more than 180 degrees and distances follow other formulas. And a practical detail: always check that the side you call the hypotenuse is the longest one, because confusing it with a leg is the most common mistake when setting up the problem.",
+    q6:
+      "Does the theorem work in three dimensions?",
+    a6:
+      "Yes, and the extension is very natural. To find the diagonal of a rectangular box you simply apply the theorem twice, which gives d = √(length² + width² + height²). For a 3 × 4 × 12 cm box, the internal diagonal is √(9 + 16 + 144) = √169 = exactly 13 cm. This is the calculation that determines whether a long object fits diagonally inside a car boot, a shipping box or a cabin suitcase, and the one design software uses to compute distances in space. The same idea generalises to any number of dimensions, and it is the basis of the Euclidean distance that statistics and machine learning use to measure how similar two sets of data are.",
   },
 };
 
@@ -622,6 +646,13 @@ export default function Pitagoras() {
         <p>{t.interpret}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.solvedTitle}</h2>
+        <p>{t.solved}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.limitsTitle}</h2>
+        <p>{t.limits}</p>
+      </section>
+
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -648,6 +679,10 @@ export default function Pitagoras() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

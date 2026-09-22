@@ -83,6 +83,10 @@ const T = {
     tableCol3: "Ejemplo (70 kg)",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "La cifra que obtienes es una guía diaria, no una obligación estricta hora a hora. Lo mejor es repartirla bebiendo de forma constante a lo largo del día en lugar de grandes cantidades de golpe, y usar el color de la orina como indicador práctico: un amarillo pálido suele acompañar a una buena hidratación, mientras que un tono oscuro suele apuntar a una ingesta baja. En días de mucho calor, ejercicio prolongado, fiebre, diarrea o vómitos, tus necesidades aumentan y conviene beber por encima de la cifra calculada.",
+    signsTitle:
+      "Señales fiables de que bebes lo suficiente (y mitos que no lo son)",
+    signs:
+      "El indicador más práctico no es contar vasos sino mirar el color de la orina: un tono amarillo claro, parecido a la limonada, indica una hidratación adecuada, mientras que un amarillo oscuro sugiere que conviene beber más. La frecuencia también orienta: lo habitual es orinar cada tres o cuatro horas durante el día. La sed es un mecanismo fiable en adultos sanos, aunque se vuelve menos sensible con la edad, motivo por el que las personas mayores deben beber de forma pautada sin esperar a tenerla. Dos mitos conviene desmontar. El primero, que el café y el té deshidratan: su efecto diurético es leve y el balance neto de líquido sigue siendo positivo, así que cuentan para el total. El segundo, que más agua siempre es mejor: beber cantidades muy superiores a las necesidades, sobre todo en poco tiempo, puede diluir el sodio en sangre y provocar una hiponatremia, un cuadro poco frecuente pero grave que se ha descrito en corredores de fondo.",
   },
   en: {
     title: "Daily Water Intake Calculator",
@@ -118,6 +122,10 @@ const T = {
     tableCol3: "Example (70 kg)",
     interpretTitle: "How to interpret the result",
     interpret: "The figure you get is a daily guide, not a strict hour-by-hour obligation. The best approach is to spread it out by drinking steadily throughout the day rather than large amounts at once, and to use urine colour as a practical indicator: pale yellow means good hydration, while a dark shade tends to point to a low intake. On very hot days, during prolonged exercise, or with fever, diarrhoea or vomiting, your needs rise and it is wise to drink above the calculated figure.",
+    signsTitle:
+      "Reliable signs you are drinking enough (and myths that are not)",
+    signs:
+      "The most practical indicator is not counting glasses but looking at urine colour: a pale yellow, similar to lemonade, indicates adequate hydration, while dark yellow suggests you should drink more. Frequency also helps: urinating every three or four hours during the day is typical. Thirst is a reliable mechanism in healthy adults, although it becomes less sensitive with age, which is why older people should drink on a schedule rather than waiting to feel it. Two myths are worth dismantling. First, that coffee and tea dehydrate you: their diuretic effect is mild and the net fluid balance remains positive, so they count towards the total. Second, that more water is always better: drinking far beyond your needs, especially in a short time, can dilute blood sodium and cause hyponatraemia, an uncommon but serious condition described in endurance runners.",
   },
 };
 
@@ -264,6 +272,11 @@ export default function AguaDiaria() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.signsTitle}</h2>
+        <p>{t.signs}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

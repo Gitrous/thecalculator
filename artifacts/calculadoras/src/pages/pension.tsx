@@ -83,6 +83,22 @@ const T = {
     a5: "Sí, existen dos modalidades. La jubilación anticipada voluntaria permite adelantar hasta 2 años la edad ordinaria, siempre que se acrediten al menos 35 años cotizados, y aplica coeficientes reductores que oscilan aproximadamente entre el 2,81 % y el 21 % según los meses de adelanto y los años cotizados. La involuntaria, por causas ajenas al trabajador como un despido colectivo, permite adelantar hasta 4 años con 33 años cotizados y coeficientes algo más suaves. Conviene calcular bien el impacto: la reducción es vitalicia y se aplica sobre todas las pensiones futuras, no solo durante los años adelantados.",
     deepTitle: "Cómo se calcula la pensión de jubilación",
     deep: "El cálculo tiene dos componentes. El primero es la base reguladora, que se obtiene sumando las bases de cotización de los últimos años y dividiendo el resultado entre el número de meses correspondiente; el periodo de cómputo se ha ido ampliando con las sucesivas reformas hasta los 25 años, con la posibilidad de descartar los peores meses. El segundo componente es el porcentaje aplicable, que depende exclusivamente de los años cotizados según una escala progresiva: el 50 % con 15 años y, sumando un 0,19 % por cada mes cotizado de más hasta el mes 248 y un 0,18 % por los siguientes, el 100 % al alcanzar los 37 años. La pensión resultante es el producto de ambos y queda sujeta a un importe mínimo y a un tope máximo fijados anualmente.",
+    earlyTitle:
+      "Jubilarse antes o después de la edad ordinaria",
+    early:
+      "La edad ordinaria de jubilación no es única: depende de los años que hayas cotizado, de modo que quien acumula una carrera larga puede retirarse antes que quien tiene lagunas. Adelantar la jubilación es posible en dos modalidades, la voluntaria y la derivada del cese en el trabajo por causas ajenas, y cada trimestre de anticipo aplica un coeficiente reductor que rebaja la pensión de forma permanente, no solo durante los primeros años. Cuanto más cerca estés de la edad ordinaria y más larga sea tu carrera de cotización, menor es el recorte. En sentido contrario, retrasar la jubilación premia: por cada año completo trabajado más allá de la edad ordinaria se reconoce un incentivo, que se puede cobrar como un porcentaje adicional en la pensión, como un pago único, o combinando ambas fórmulas. Antes de decidir conviene pedir en la Seguridad Social una simulación con tus datos reales, porque la diferencia entre adelantar dos años y retrasar uno puede suponer varios cientos de euros al mes durante el resto de tu vida.",
+    gapsTitle:
+      "Lagunas de cotización y cómo revisarlas",
+    gaps:
+      "El dato que más sorpresas da es el informe de vida laboral, que puede pedirse en cualquier momento y conviene revisar mucho antes de jubilarse. Ahí aparecen los periodos sin cotizar, las llamadas lagunas, que para los trabajadores por cuenta ajena se rellenan con bases ficticias según reglas de integración, mientras que para los autónomos no se integran: un hueco cuenta como cero. También se comprueban ahí los convenios especiales, los periodos de excedencia por cuidado de hijos que computan como cotizados y los años trabajados en el extranjero, que en la Unión Europea se suman a efectos de acceso gracias a los reglamentos de coordinación. Si detectas un error, cuanto antes se corrija, mejor: reconstruir una cotización de hace veinte años exige documentos que no siempre se conservan, y los errores que se descubren al solicitar la pensión retrasan el cobro varios meses.",
+    q6:
+      "¿Puedo cobrar la pensión y seguir trabajando?",
+    a6:
+      "Sí, existen varias fórmulas compatibles. La jubilación activa permite compaginar el cobro de una parte de la pensión con el trabajo por cuenta propia o ajena, con porcentajes que varían según las condiciones y que son más favorables cuanto más se retrasa. La jubilación parcial permite reducir la jornada y cobrar la parte proporcional de la pensión, normalmente ligada a un contrato de relevo. Y el envejecimiento activo ha ido ampliando los supuestos en los que se puede cobrar el cien por cien de la pensión trabajando, sujeto a requisitos concretos. Las condiciones de cada modalidad se han reformado varias veces en los últimos años, así que conviene contrastar la situación vigente en la Seguridad Social antes de tomar la decisión y, sobre todo, antes de comunicar nada a la empresa.",
+    q7:
+      "¿Qué pasa si no llego a los años mínimos cotizados?",
+    a7:
+      "Para acceder a la pensión contributiva de jubilación hacen falta quince años cotizados, de los cuales al menos dos deben estar dentro de los quince años anteriores a la jubilación. Si no se alcanza ese mínimo, existe la pensión no contributiva, que no depende de lo cotizado sino de la edad, la residencia y los ingresos de la unidad familiar, y cuya cuantía es sensiblemente menor. Hay dos vías intermedias que mucha gente desconoce: suscribir un convenio especial con la Seguridad Social para seguir cotizando voluntariamente y completar los años que faltan, y comprobar si computan periodos que no aparecen a simple vista, como el servicio militar en determinados supuestos, los años de cuidado de hijos o las cotizaciones hechas en otros países de la Unión Europea.",
     exampleTitle: "Ejemplo resuelto",
     example: "Supongamos una base reguladora de 2.000 € mensuales y 30 años cotizados. Sobre el mínimo de 15 años hay 180 meses adicionales, que al 0,19 % suman 34,2 puntos: el porcentaje aplicable es del 84,2 %, de modo que la pensión sería 2.000 × 0,842 = 1.684 € mensuales en 14 pagas. Si esa misma persona cotizara 5 años más hasta alcanzar los 35, el porcentaje subiría al 95,6 % y la pensión pasaría a 1.912 €, es decir, 228 € más al mes. Ese cálculo es el que conviene hacer antes de decidir si compensa prolongar la vida laboral.",
     tableTitle: "Porcentaje de la base reguladora según años cotizados",
@@ -127,6 +143,22 @@ const T = {
     a5: "Yes, there are two routes. Voluntary early retirement allows you to bring retirement forward by up to 2 years, provided you have at least 35 contributed years, and applies reduction coefficients ranging roughly between 2.81% and 21% depending on the months brought forward and years contributed. Involuntary early retirement, for reasons beyond the worker's control such as collective redundancy, allows up to 4 years early with 33 contributed years and somewhat gentler coefficients. It is worth calculating the impact carefully: the reduction is for life and applies to all future pension payments, not just the years brought forward.",
     deepTitle: "How the retirement pension is calculated",
     deep: "The calculation has two components. The first is the regulatory base, obtained by adding up the contribution bases of recent years and dividing by the corresponding number of months; the computation period has been progressively extended by successive reforms to 25 years, with the option of discarding the worst months. The second component is the applicable percentage, which depends exclusively on years contributed according to a progressive scale: 50% at 15 years and, adding 0.19% for each additional month contributed up to month 248 and 0.18% for those beyond, 100% on reaching 37 years. The resulting pension is the product of both and is subject to a minimum amount and a maximum cap set annually.",
+    earlyTitle:
+      "Retiring before or after the standard age",
+    early:
+      "The standard retirement age is not a single figure: it depends on how many years you have contributed, so someone with a long career can retire earlier than someone with gaps. Early retirement is possible in two forms, voluntary and resulting from job loss for reasons beyond your control, and each quarter brought forward applies a reduction coefficient that lowers the pension permanently, not just during the first years. The closer you are to the standard age and the longer your contribution record, the smaller the cut. In the opposite direction, delaying retirement is rewarded: for each full year worked beyond the standard age an incentive is granted, payable as an additional percentage on the pension, as a lump sum, or as a combination of both. Before deciding, ask social security for a simulation with your real data, because the difference between retiring two years early and one year late can amount to several hundred euros a month for the rest of your life.",
+    gapsTitle:
+      "Contribution gaps and how to review them",
+    gaps:
+      "The figure that surprises people most is in the working-life report, which can be requested at any time and is worth reviewing long before retiring. It shows the periods without contributions, known as gaps, which for employees are filled with notional bases under integration rules, whereas for the self-employed they are not integrated: a gap counts as zero. It also shows special agreements, periods of leave for childcare that count as contributed, and years worked abroad, which within the European Union are aggregated for access purposes thanks to the coordination regulations. If you spot an error, the sooner it is corrected the better: reconstructing a contribution from twenty years ago requires documents that are not always kept, and errors discovered when applying for the pension delay payment by several months.",
+    q6:
+      "Can I draw my pension and keep working?",
+    a6:
+      "Yes, several compatible arrangements exist. Active retirement allows combining part of the pension with self-employment or employment, at percentages that vary with the conditions and are more favourable the longer you delay. Partial retirement allows reducing your hours and drawing the proportional part of the pension, usually tied to a relief contract. And successive active-ageing reforms have widened the cases in which the full pension can be drawn while working, subject to specific requirements. The conditions of each arrangement have been reformed several times in recent years, so check the current situation with social security before deciding and, above all, before telling your employer anything.",
+    q7:
+      "What if I do not reach the minimum years of contributions?",
+    a7:
+      "Accessing the contributory retirement pension requires fifteen years of contributions, at least two of them within the fifteen years before retirement. If that minimum is not met, there is the non-contributory pension, which does not depend on contributions but on age, residence and household income, and whose amount is appreciably lower. There are two intermediate routes many people are unaware of: signing a special agreement with social security to keep contributing voluntarily and complete the missing years, and checking whether periods that are not obvious count, such as military service in certain cases, years spent caring for children, or contributions made in other European Union countries.",
     exampleTitle: "Worked example",
     example: "Take a regulatory base of €2,000 a month and 30 contributed years. Above the 15-year minimum there are 180 additional months, which at 0.19% add 34.2 points: the applicable percentage is 84.2%, so the pension would be 2,000 × 0.842 = €1,684 a month across 14 payments. If that same person contributed 5 more years to reach 35, the percentage would rise to 95.6% and the pension would become €1,912 — that is, €228 more per month. That is the calculation worth doing before deciding whether extending your working life pays off.",
     tableTitle: "Percentage of the regulatory base by years contributed",
@@ -313,6 +345,10 @@ export default function Pension() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.earlyTitle}</h2>
+        <p>{t.early}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.gapsTitle}</h2>
+        <p>{t.gaps}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -339,6 +375,14 @@ export default function Pension() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

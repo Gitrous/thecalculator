@@ -64,6 +64,10 @@ const T = {
     tableCol2: "Coste orientativo",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "El punto de equilibrio es la cifra que debes mirar, pero contrástalo con tu horizonte real de permanencia. Si prevés mudarte antes de ese año, el alquiler sale ganando casi con seguridad, porque los gastos de compraventa se amortizan muy lentamente y vender implica nuevos costes. Si vas a quedarte más tiempo, la compra suele imponerse. Ten presente que el resultado es muy sensible a dos supuestos que nadie puede predecir: la revalorización de la vivienda y la rentabilidad de la inversión alternativa. Prueba a variarlos en escenarios pesimistas y optimistas para ver cuán robusta es la conclusión, y recuerda que la compra añade además un valor no financiero, la estabilidad, que no aparece en ninguna hoja de cálculo.",
+    hiddenTitle:
+      "Lo que la comparación pura de números deja fuera",
+    hidden:
+      "El cálculo financiero es necesario pero no suficiente, porque hay factores que pesan mucho y no caben en una hoja de cálculo. La movilidad es el principal: comprar tiene unos costes de entrada y de salida altos, entre impuestos, notaría y comisiones, de modo que si existe una probabilidad razonable de cambiar de ciudad en menos de cinco o seis años, alquilar suele ganar aunque los números a largo plazo digan lo contrario. La estabilidad laboral influye en la misma dirección. Del lado de la compra hay dos ventajas que tampoco aparecen: el pago de la hipoteca funciona como un ahorro forzoso que mucha gente no haría de forma voluntaria, y ser propietario protege de las subidas del alquiler cuando llegas a la jubilación, que es cuando los ingresos bajan. Y está el factor que ningún modelo captura: poder reformar la cocina a tu gusto, o la tranquilidad de no depender de que un propietario no renueve el contrato.",
   },
   en: {
     backHome: "Back to home",
@@ -113,6 +117,10 @@ const T = {
     tableCol2: "Indicative cost",
     interpretTitle: "How to interpret the result",
     interpret: "The break-even point is the figure to look at, but weigh it against how long you realistically expect to stay. If you foresee moving before that year, renting almost certainly wins, because transaction costs are amortised very slowly and selling brings new costs of its own. If you plan to stay longer, buying usually comes out ahead. Keep in mind that the result is highly sensitive to two assumptions nobody can predict: home appreciation and the return on the alternative investment. Try varying them in pessimistic and optimistic scenarios to see how robust the conclusion is, and remember that buying also adds a non-financial value — stability — that no spreadsheet captures.",
+    hiddenTitle:
+      "What a pure comparison of numbers leaves out",
+    hidden:
+      "The financial calculation is necessary but not sufficient, because some factors weigh heavily and do not fit in a spreadsheet. Mobility is the main one: buying carries high entry and exit costs, between taxes, notary and fees, so if there is a reasonable chance of moving city within five or six years, renting usually wins even when the long-run numbers say otherwise. Job stability points the same way. On the buying side there are two advantages that also go unrecorded: mortgage payments act as forced saving that many people would not do voluntarily, and owning protects you from rent increases when you reach retirement, which is when income falls. And there is the factor no model captures: being able to redo the kitchen your way, or the peace of mind of not depending on a landlord renewing your contract.",
   },
 };
 
@@ -423,6 +431,11 @@ export default function AlquilerVsCompra() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+      </section>
+
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.hiddenTitle}</h2>
+        <p>{t.hidden}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />

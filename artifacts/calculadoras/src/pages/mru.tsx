@@ -90,6 +90,18 @@ const T = {
     tableCol3: "m/s",
     interpretTitle: "Cómo interpretar la gráfica posición-tiempo",
     interpret: "En un MRU, la gráfica de posición frente al tiempo es siempre una línea recta, y su pendiente es precisamente la velocidad: cuanto más inclinada está la recta, más rápido se mueve el objeto. Una recta horizontal significa que el objeto está en reposo. Esto contrasta con el MRUA, donde la gráfica posición-tiempo es una parábola porque la velocidad cambia de forma continua. Si en cambio representas la velocidad frente al tiempo en un MRU obtendrás una línea horizontal, y el área encerrada bajo esa línea equivale a la distancia recorrida.",
+    solvedTitle:
+      "Dos problemas resueltos paso a paso",
+    solved:
+      "Un tren de 200 metros circula a 72 km/h y atraviesa un túnel de 1.300 metros. ¿Cuánto tarda en salir por completo? El error típico es usar solo la longitud del túnel: el tren no ha salido hasta que su último vagón cruza la boca de salida, así que la distancia recorrida es 1.300 + 200 = 1.500 m. Pasando la velocidad a metros por segundo, 72 / 3,6 = 20 m/s, y el tiempo es 1.500 / 20 = 75 segundos. Segundo problema: dos coches salen a la vez de dos ciudades separadas 300 km y circulan uno hacia el otro a 90 y 110 km/h. Como se acercan, sus velocidades se suman: la velocidad de aproximación es 200 km/h, y se encuentran a los 300 / 200 = 1,5 horas. El primero habrá recorrido 135 km y el segundo 165 km, que suman los 300 de partida: comprobar esa suma es la forma rápida de saber si el planteamiento es correcto.",
+    graphTitle:
+      "Cómo leer una gráfica de movimiento",
+    graph:
+      "En una gráfica de posición frente a tiempo, el movimiento rectilíneo uniforme se dibuja como una línea recta, y su pendiente es exactamente la velocidad: cuanto más inclinada, más rápido. Una recta horizontal significa que el objeto está parado, y una recta descendente que retrocede, es decir, que su velocidad es negativa respecto al sentido elegido como positivo. Dos rectas que se cruzan indican el instante y la posición en que dos móviles se encuentran, que es la forma gráfica de resolver el problema de los dos coches. En cambio, en una gráfica de velocidad frente a tiempo el MRU aparece como una línea horizontal, porque la velocidad no cambia, y el área que queda bajo esa línea es la distancia recorrida. Saber pasar de una gráfica a la otra ahorra la mitad de los cálculos en los exámenes.",
+    q6:
+      "¿Existe de verdad el movimiento rectilíneo uniforme?",
+    a6:
+      "En estado puro, casi nunca. Mantener una velocidad exactamente constante exige que la fuerza resultante sobre el objeto sea cero, y en la vida cotidiana siempre hay rozamiento, resistencia del aire o pequeñas variaciones de la fuerza que lo impulsa. Lo que sí hay son movimientos que se aproximan mucho durante un tramo: un coche con el control de crucero en una autovía llana, una cinta transportadora, un ascensor en su tramo central, una sonda espacial lejos de cualquier masa importante. El MRU es un modelo, y su utilidad no está en describir la realidad al detalle sino en dar una respuesta suficientemente buena con un cálculo sencillo. Cuando la aproximación deja de valer, porque la velocidad cambia de forma apreciable, se pasa al modelo siguiente, el movimiento uniformemente acelerado.",
     resultLabels: { distance: "Distancia", velocity: "Velocidad", time: "Tiempo" } as Record<string, string>,
   },
   en: {
@@ -142,6 +154,18 @@ const T = {
     tableCol3: "m/s",
     interpretTitle: "How to read the position-time graph",
     interpret: "In URM, the graph of position against time is always a straight line, and its slope is precisely the velocity: the steeper the line, the faster the object moves. A horizontal line means the object is at rest. This contrasts with UARM, where the position-time graph is a parabola because the velocity changes continuously. If instead you plot velocity against time in URM you get a horizontal line, and the area enclosed under that line equals the distance travelled.",
+    solvedTitle:
+      "Two problems solved step by step",
+    solved:
+      "A 200-metre train travels at 72 km/h through a 1,300-metre tunnel. How long does it take to clear it completely? The typical mistake is using only the tunnel's length: the train has not cleared it until its last carriage passes the exit, so the distance travelled is 1,300 + 200 = 1,500 m. Converting the speed to metres per second, 72 / 3.6 = 20 m/s, the time is 1,500 / 20 = 75 seconds. Second problem: two cars leave at the same time from cities 300 km apart and drive towards each other at 90 and 110 km/h. Since they are approaching, their speeds add up: the closing speed is 200 km/h, and they meet after 300 / 200 = 1.5 hours. The first will have covered 135 km and the second 165 km, which add up to the original 300: checking that sum is the quick way to know whether the setup is right.",
+    graphTitle:
+      "How to read a motion graph",
+    graph:
+      "On a position-versus-time graph, uniform rectilinear motion appears as a straight line, and its slope is exactly the velocity: the steeper it is, the faster the object moves. A horizontal line means the object is at rest, and a descending line means it is moving backwards, that is, its velocity is negative with respect to the direction chosen as positive. Two lines crossing mark the instant and position at which two objects meet, which is the graphical way of solving the two-car problem. On a velocity-versus-time graph, by contrast, uniform motion appears as a horizontal line, because velocity does not change, and the area under that line is the distance travelled. Knowing how to move from one graph to the other saves half the calculations in exams.",
+    q6:
+      "Does uniform rectilinear motion really exist?",
+    a6:
+      "In its pure form, almost never. Keeping a velocity exactly constant requires the net force on the object to be zero, and in everyday life there is always friction, air resistance or small variations in the driving force. What does exist are motions that come very close over a stretch: a car with cruise control on a flat motorway, a conveyor belt, a lift in its middle section, a space probe far from any significant mass. Uniform motion is a model, and its usefulness lies not in describing reality in detail but in giving a good enough answer with a simple calculation. When the approximation stops holding, because the velocity changes appreciably, you move to the next model: uniformly accelerated motion.",
     resultLabels: { distance: "Distance", velocity: "Velocity", time: "Time" } as Record<string, string>,
   },
 };
@@ -442,6 +466,13 @@ export default function MRU() {
         <p>{tr.interpret}</p>
       </section>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{tr.solvedTitle}</h2>
+        <p>{tr.solved}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{tr.graphTitle}</h2>
+        <p>{tr.graph}</p>
+      </section>
+
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{tr.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -468,6 +499,10 @@ export default function MRU() {
           <AccordionItem value="q5">
             <AccordionTrigger>{tr.q5}</AccordionTrigger>
             <AccordionContent>{tr.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{tr.q6}</AccordionTrigger>
+            <AccordionContent>{tr.a6}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

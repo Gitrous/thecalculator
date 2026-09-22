@@ -99,6 +99,22 @@ const T = {
     a6: "La prestación contributiva es lo que coloquialmente llamamos paro: se cobra por haber cotizado previamente, su importe depende de tu base de cotización y su duración de los días cotizados. El subsidio por desempleo es una ayuda asistencial de cuantía fija, en torno al 80 % del IPREM, destinada a quienes han agotado la prestación o no cotizaron los 360 días mínimos exigidos. Para acceder al subsidio se exige carecer de rentas superiores al 75 % del salario mínimo y, en algunas modalidades, tener responsabilidades familiares o una edad determinada.",
     deepTitle: "Cómo se calcula la prestación por desempleo",
     deep: "El cálculo combina dos elementos independientes. El primero es la cuantía, que parte de la base reguladora —la media de las bases de cotización por desempleo de los últimos 180 días trabajados— y aplica el 70 % durante los seis primeros meses y el 60 % después, siempre dentro de los topes mínimo y máximo vinculados al IPREM. El segundo es la duración, que depende exclusivamente de los días cotizados en los seis años anteriores a la situación legal de desempleo, según una escala que concede 120 días de prestación por los primeros 360 cotizados y va sumando 60 días por cada 180 adicionales, hasta un máximo de 720 días.",
+    rightsTitle:
+      "Quién tiene derecho y quién no",
+    rights:
+      "No basta con quedarse sin trabajo: hace falta estar en lo que la ley llama situación legal de desempleo. Dan derecho el despido (sea procedente, improcedente o colectivo), el fin de un contrato temporal, la no superación del periodo de prueba cuando la decisión parte de la empresa, la resolución del contrato durante los nueve meses siguientes a un cambio sustancial de condiciones, y la extinción por voluntad del trabajador cuando existe causa justificada, como impagos reiterados del salario. No dan derecho la baja voluntaria sin causa, la excedencia voluntaria ni la jubilación. Además hay que tener cotizados al menos 360 días en los seis años anteriores, estar inscrito como demandante de empleo y firmar el compromiso de actividad. Si no llegas a esos 360 días, la vía no es la prestación contributiva sino el subsidio, que tiene requisitos de renta y cuantías distintas.",
+    stepsTitle:
+      "Plazos y trámites que más problemas dan",
+    steps:
+      "El plazo para solicitarla es de quince días hábiles desde el día siguiente al cese; pedirla más tarde no acorta la duración total, pero sí hace perder los días que hayan pasado desde que venció el plazo, y esos días no se recuperan. Mientras la cobras estás obligado a mantener la inscripción como demandante de empleo y a cumplir el compromiso de actividad: rechazar una oferta de empleo adecuada, no acudir a una convocatoria o no presentarse a una acción formativa puede suponer desde la suspensión temporal hasta la extinción de la prestación en caso de reincidencia. Si encuentras un trabajo a tiempo parcial, la prestación se reduce en proporción a la jornada y el consumo de días se ajusta. Y si sales al extranjero, hay que comunicarlo: estancias cortas están permitidas con autorización previa, pero irse sin avisar es una de las causas más frecuentes de extinción.",
+    q7:
+      "¿Puedo cobrar el paro de una vez para montar un negocio?",
+    a7:
+      "Sí, es lo que se conoce como capitalización de la prestación o pago único. Permite cobrar de golpe el importe pendiente para iniciar una actividad como trabajador autónomo, incorporarte a una cooperativa o sociedad laboral, o crear una sociedad mercantil en la que vayas a tener el control. El dinero debe destinarse a la inversión necesaria para la actividad, y también puede usarse para subvencionar las cuotas de autónomo durante los primeros meses; hay quien combina ambas modalidades. Es imprescindible solicitarlo antes de darse de alta en la actividad: si primero te das de alta y luego lo pides, lo habitual es que te lo denieguen. Conviene además hacer números con calma, porque renuncias a la red de seguridad que supone cobrar mes a mes.",
+    q8:
+      "¿Qué pasa si dejo de sellar o me sancionan?",
+    a8:
+      "La renovación de la demanda de empleo, lo que popularmente se llama sellar el paro, es una obligación con fechas concretas. No hacerla a tiempo suele conllevar la suspensión de la prestación, y esos días no se recuperan: se pierden. Si la falta se repite, la sanción puede escalar hasta la extinción, es decir, perder lo que quedara por cobrar. Existen causas justificadas que permiten recuperar la prestación, como una enfermedad acreditada o un error de la propia Administración, pero hay que alegarlas y demostrarlas. Ante cualquier notificación de sanción conviene responder dentro del plazo indicado en la propia carta, aunque solo sea para dejar constancia de tu versión: el silencio se interpreta como conformidad.",
     exampleTitle: "Ejemplo resuelto",
     example: "Una persona con una base reguladora de 1.800 € mensuales y 1.080 días cotizados. Por duración, 1.080 días le dan derecho a 360 días de prestación, es decir, un año. Por cuantía, los primeros 180 días cobraría el 70 % de 1.800 €, unos 1.260 € mensuales; a partir del día 181 pasaría al 60 %, unos 1.080 €. A esos importes brutos hay que restarles la retención de IRPF y la cotización a la Seguridad Social que sigue corriendo a cargo del trabajador durante la prestación.",
     tableTitle: "Duración de la prestación según días cotizados",
@@ -156,6 +172,22 @@ const T = {
     a6: "The contributory benefit is what is colloquially called 'paro': it is paid because you contributed beforehand, its amount depends on your contribution base and its duration on days contributed. The unemployment subsidy is a flat-rate welfare payment, around 80% of the IPREM, for those who have exhausted the benefit or did not contribute the minimum 360 days. To qualify for the subsidy you must have no income above 75% of the minimum wage and, in some forms, have family responsibilities or be of a certain age.",
     deepTitle: "How unemployment benefit is calculated",
     deep: "The calculation combines two independent elements. The first is the amount, which starts from the regulatory base — the average of unemployment contribution bases over the last 180 days worked — and applies 70% for the first six months and 60% thereafter, always within the minimum and maximum caps linked to the IPREM. The second is the duration, which depends solely on days contributed in the six years preceding legal unemployment, following a scale that grants 120 days of benefit for the first 360 contributed and adds 60 days for each additional 180, up to a maximum of 720 days.",
+    rightsTitle:
+      "Who is entitled and who is not",
+    rights:
+      "Losing your job is not enough on its own: you must be in what the law calls a legal situation of unemployment. Entitlement arises from dismissal (fair, unfair or collective), the end of a temporary contract, failing the probation period when the employer takes that decision, terminating the contract within nine months of a substantial change of conditions, and resignation with just cause, such as repeated non-payment of wages. Voluntary resignation without cause, voluntary leave of absence and retirement do not qualify. You also need at least 360 days contributed within the previous six years, registration as a jobseeker and a signed activity commitment. If you fall short of those 360 days, the route is not the contributory benefit but the subsidy, which has different income requirements and amounts.",
+    stepsTitle:
+      "Deadlines and procedures that cause the most trouble",
+    steps:
+      "You have fifteen working days from the day after your job ends to apply; applying later does not shorten the total duration, but you do lose the days that passed since the deadline expired, and those days are gone for good. While claiming, you must keep your jobseeker registration active and meet the activity commitment: turning down a suitable job offer, missing an appointment or failing to attend training can lead to anything from temporary suspension to termination of the benefit if repeated. If you find part-time work, the benefit is reduced in proportion to your hours and the consumption of days is adjusted accordingly. And if you travel abroad, you must report it: short stays are allowed with prior authorisation, but leaving without notice is one of the most frequent causes of termination.",
+    q7:
+      "Can I receive unemployment benefit as a lump sum to start a business?",
+    a7:
+      "Yes — it is known as capitalisation of the benefit, or the single payment. It lets you receive the outstanding amount in one go to start an activity as a self-employed worker, join a cooperative or employee-owned company, or set up a company you will control. The money must go towards the investment the activity requires, and it can also be used to subsidise self-employed contributions during the first months; many people combine both. You must apply before registering the activity: if you register first and apply afterwards, it is usually refused. It is also worth doing the maths calmly, because you are giving up the safety net of a monthly payment.",
+    q8:
+      "What happens if I miss a renewal or get sanctioned?",
+    a8:
+      "Renewing your jobseeker registration is an obligation with specific dates. Missing it usually means suspension of the benefit, and those days are not recovered: they are lost. If it happens repeatedly, the sanction can escalate to termination, meaning you lose whatever was left to claim. There are justified causes that allow the benefit to be restored, such as documented illness or an administrative error, but you must raise and evidence them. Whenever you receive a sanction notice, reply within the deadline stated in the letter, if only to put your version on record: silence is taken as agreement.",
     exampleTitle: "Worked example",
     example: "Someone with a regulatory base of €1,800 a month and 1,080 days contributed. On duration, 1,080 days entitles them to 360 days of benefit, that is, one year. On amount, for the first 180 days they would receive 70% of €1,800, about €1,260 a month; from day 181 they would move to 60%, about €1,080. From those gross amounts you must deduct income tax withholding and the social security contribution that the worker continues to pay during the benefit period.",
     tableTitle: "Benefit duration by days contributed",
@@ -364,6 +396,10 @@ export default function Paro() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.rightsTitle}</h2>
+        <p>{t.rights}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.stepsTitle}</h2>
+        <p>{t.steps}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -394,6 +430,14 @@ export default function Paro() {
           <AccordionItem value="q6">
             <AccordionTrigger>{t.q6}</AccordionTrigger>
             <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q8">
+            <AccordionTrigger>{t.q8}</AccordionTrigger>
+            <AccordionContent>{t.a8}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

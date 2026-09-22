@@ -365,33 +365,6 @@
     <priority>0.7</priority>
     <lastmod>2026-06-28</lastmod>
   </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/cuantas-calorias-necesito-al-dia/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/cuantas-calorias-necesito-al-dia/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-many-calories-do-i-need-per-day/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/cuantas-calorias-necesito-al-dia/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/cuanta-agua-debo-beber-al-dia/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/cuanta-agua-debo-beber-al-dia/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-much-water-should-i-drink-per-day/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/cuanta-agua-debo-beber-al-dia/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/frecuencia-cardiaca-maxima-zonas-entrenamiento/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/frecuencia-cardiaca-maxima-zonas-entrenamiento/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/maximum-heart-rate-and-training-zones/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/frecuencia-cardiaca-maxima-zonas-entrenamiento/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
 
   <!-- Páginas legales ES -->
   <url>
@@ -821,33 +794,6 @@
     <priority>0.7</priority>
     <lastmod>2026-06-28</lastmod>
   </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/how-many-calories-do-i-need-per-day/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-many-calories-do-i-need-per-day/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/cuantas-calorias-necesito-al-dia/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/cuantas-calorias-necesito-al-dia/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/how-much-water-should-i-drink-per-day/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-much-water-should-i-drink-per-day/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/cuanta-agua-debo-beber-al-dia/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/cuanta-agua-debo-beber-al-dia/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/maximum-heart-rate-and-training-zones/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/maximum-heart-rate-and-training-zones/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/frecuencia-cardiaca-maxima-zonas-entrenamiento/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/frecuencia-cardiaca-maxima-zonas-entrenamiento/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-06-28</lastmod>
-  </url>
 
   <!-- Blog articles ES - Finanzas -->
   <url>
@@ -872,25 +818,11 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-03</lastmod>
   </url>
   <url>
-    <loc>https://thecalculator.tech/blog/irpf-como-funciona-retencion-nomina/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/irpf-como-funciona-retencion-nomina/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/income-tax-spain-how-withholding-works/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/irpf-como-funciona-retencion-nomina/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-04</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/blog/alquilar-o-comprar-vivienda/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/alquilar-o-comprar-vivienda/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/rent-or-buy-home-spain/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/alquilar-o-comprar-vivienda/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-05</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/amortizacion-anticipada-hipoteca-ahorro/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/amortizacion-anticipada-hipoteca-ahorro/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/early-mortgage-repayment-savings/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/amortizacion-anticipada-hipoteca-ahorro/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/blog/como-calcular-salario-neto-espana/</loc>
@@ -906,20 +838,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/iva-tipos-espana-guia/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-08</lastmod>
   </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/porcentajes-calculos-cotidianos/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/porcentajes-calculos-cotidianos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/percentage-calculations-everyday-use/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/porcentajes-calculos-cotidianos/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/prestamo-personal-como-comparar/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/prestamo-personal-como-comparar/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/personal-loan-how-to-compare/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/prestamo-personal-como-comparar/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-10</lastmod>
-  </url>
   <!-- Blog articles ES - Hogar -->
   <url>
     <loc>https://thecalculator.tech/blog/coste-real-tener-coche/</loc>
@@ -927,13 +845,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/real-cost-owning-a-car/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/coste-real-tener-coche/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-11</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/como-reducir-factura-luz/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-reducir-factura-luz/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-reduce-electricity-bill/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/como-reducir-factura-luz/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-12</lastmod>
   </url>
   <!-- Blog articles ES - Trabajo -->
   <url>
@@ -951,25 +862,11 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-14</lastmod>
   </url>
   <url>
-    <loc>https://thecalculator.tech/blog/prestacion-desempleo-paro-como-calcular/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/prestacion-desempleo-paro-como-calcular/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unemployment-benefit-spain-how-to-calculate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/prestacion-desempleo-paro-como-calcular/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-15</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/blog/pension-jubilacion-espana-como-funciona/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/pension-jubilacion-espana-como-funciona/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/retirement-pension-spain-how-it-works/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/pension-jubilacion-espana-como-funciona/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/dias-entre-fechas-plazos-legales/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/dias-entre-fechas-plazos-legales/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/days-between-dates-legal-deadlines/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/dias-entre-fechas-plazos-legales/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-17</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/blog/registro-jornada-horas-trabajadas/</loc>
@@ -980,25 +877,11 @@
   </url>
   <!-- Blog articles ES - Educación -->
   <url>
-    <loc>https://thecalculator.tech/blog/teorema-pitagoras-aplicaciones-reales/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/teorema-pitagoras-aplicaciones-reales/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/pythagorean-theorem-real-applications/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/teorema-pitagoras-aplicaciones-reales/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-19</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/blog/regla-de-tres-directa-inversa/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/regla-de-tres-directa-inversa/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/rule-of-three-direct-inverse/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/regla-de-tres-directa-inversa/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-20</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/nota-media-ponderada-universidad/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/nota-media-ponderada-universidad/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/weighted-grade-average-university/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/nota-media-ponderada-universidad/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-21</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/blog/mru-mrua-fisica-ejemplos/</loc>
@@ -1008,24 +891,10 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://thecalculator.tech/blog/conversor-unidades-guia-completa/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/conversor-unidades-guia-completa/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unit-converter-complete-guide/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/conversor-unidades-guia-completa/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/blog/como-calcular-letra-dni/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-calcular-letra-dni/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-calculate-dni-letter/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/como-calcular-letra-dni/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
   </url>
   <!-- Blog articles EN - Finanzas -->
@@ -1051,25 +920,11 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-03</lastmod>
   </url>
   <url>
-    <loc>https://thecalculator.tech/en/blog/income-tax-spain-how-withholding-works/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/income-tax-spain-how-withholding-works/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/irpf-como-funciona-retencion-nomina/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/irpf-como-funciona-retencion-nomina/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-04</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/en/blog/rent-or-buy-home-spain/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/rent-or-buy-home-spain/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/alquilar-o-comprar-vivienda/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/alquilar-o-comprar-vivienda/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-05</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/early-mortgage-repayment-savings/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/early-mortgage-repayment-savings/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/amortizacion-anticipada-hipoteca-ahorro/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/amortizacion-anticipada-hipoteca-ahorro/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-06</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/en/blog/how-to-calculate-net-salary-spain/</loc>
@@ -1085,20 +940,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/iva-tipos-espana-guia/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-08</lastmod>
   </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/percentage-calculations-everyday-use/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/percentage-calculations-everyday-use/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/porcentajes-calculos-cotidianos/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/porcentajes-calculos-cotidianos/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-09</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/personal-loan-how-to-compare/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/personal-loan-how-to-compare/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/prestamo-personal-como-comparar/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/prestamo-personal-como-comparar/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-10</lastmod>
-  </url>
   <!-- Blog articles EN - Hogar -->
   <url>
     <loc>https://thecalculator.tech/en/blog/real-cost-owning-a-car/</loc>
@@ -1106,13 +947,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/coste-real-tener-coche/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/coste-real-tener-coche/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-11</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/how-to-reduce-electricity-bill/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-reduce-electricity-bill/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/como-reducir-factura-luz/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-reducir-factura-luz/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-12</lastmod>
   </url>
   <!-- Blog articles EN - Trabajo -->
   <url>
@@ -1130,25 +964,11 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-14</lastmod>
   </url>
   <url>
-    <loc>https://thecalculator.tech/en/blog/unemployment-benefit-spain-how-to-calculate/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unemployment-benefit-spain-how-to-calculate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/prestacion-desempleo-paro-como-calcular/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/prestacion-desempleo-paro-como-calcular/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-15</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/en/blog/retirement-pension-spain-how-it-works/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/retirement-pension-spain-how-it-works/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/pension-jubilacion-espana-como-funciona/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/pension-jubilacion-espana-como-funciona/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/days-between-dates-legal-deadlines/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/days-between-dates-legal-deadlines/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/dias-entre-fechas-plazos-legales/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/dias-entre-fechas-plazos-legales/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-17</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/en/blog/working-hours-tracking-spain/</loc>
@@ -1159,25 +979,11 @@
   </url>
   <!-- Blog articles EN - Educación -->
   <url>
-    <loc>https://thecalculator.tech/en/blog/pythagorean-theorem-real-applications/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/pythagorean-theorem-real-applications/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/teorema-pitagoras-aplicaciones-reales/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/teorema-pitagoras-aplicaciones-reales/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-19</lastmod>
-  </url>
-  <url>
     <loc>https://thecalculator.tech/en/blog/rule-of-three-direct-inverse/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/rule-of-three-direct-inverse/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/regla-de-tres-directa-inversa/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/regla-de-tres-directa-inversa/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-20</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/weighted-grade-average-university/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/weighted-grade-average-university/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/nota-media-ponderada-universidad/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/nota-media-ponderada-universidad/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-21</lastmod>
   </url>
   <url>
     <loc>https://thecalculator.tech/en/blog/uniform-motion-physics-examples/</loc>
@@ -1186,13 +992,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/mru-mrua-fisica-ejemplos/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-22</lastmod>
   </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/unit-converter-complete-guide/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/unit-converter-complete-guide/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/conversor-unidades-guia-completa/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/conversor-unidades-guia-completa/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-23</lastmod>
-  </url>
 
   <!-- Blog articles EN (new) -->
   <url>
@@ -1200,13 +999,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/how-to-calculate-dni-letter/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/como-calcular-letra-dni/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/como-calcular-letra-dni/"/>
-    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/mrua-uniformly-accelerated-motion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/mrua-movimiento-uniformemente-acelerado/"/>
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-06-30</lastmod>
   </url>
 

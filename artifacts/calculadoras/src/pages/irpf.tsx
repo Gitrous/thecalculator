@@ -78,6 +78,28 @@ const T = {
     tableCol2: "Tipo aplicable",
     interpretTitle: "Tipo marginal frente a tipo efectivo",
     interpret: "Conviene distinguir dos conceptos que se confunden a menudo. El tipo marginal es el porcentaje que pagarías por el siguiente euro que ganases, es decir, el del tramo más alto que alcanzas; es el dato relevante para decidir si te compensa una hora extra o una aportación a un plan de pensiones. El tipo efectivo es el resultado de dividir la cuota total entre tu renta y siempre es bastante menor que el marginal, porque los primeros tramos tributan a tipos más bajos. En el ejemplo anterior el marginal es del 30 % pero el efectivo ronda el 18 %. Cuando alguien dice «me quitan un tercio del sueldo» suele estar confundiendo su tipo marginal con lo que realmente paga.",
+    example2Title:
+      "Segundo ejemplo: por qué subir de tramo no te deja peor",
+    example2:
+      "Es el miedo más repetido: «si me suben el sueldo y paso de tramo, cobraré menos». No funciona así. Imagina a alguien con una base liquidable de 20.000 €, justo por debajo del límite de 20.200 €. Sus primeros 12.450 € tributan al 19 % (2.365,50 €) y los 7.550 € siguientes al 24 % (1.812 €): en total 4.177,50 €. Si le suben el sueldo y su base pasa a 21.000 €, los primeros 20.200 € siguen tributando exactamente igual (2.365,50 € + 1.860 € = 4.225,50 €) y solo los 800 € que sobrepasan el límite tributan al 30 %, es decir, 240 € más. Ha ganado 1.000 € brutos y paga 288 € más de impuesto: le quedan unos 712 € netos de más. Nunca se pierde dinero por cruzar un tramo, porque el tipo superior se aplica solo a la porción que lo supera, no a todo el salario.",
+    generalTableTitle:
+      "Escala general del IRPF (parte estatal + autonómica de referencia)",
+    deductionsTitle:
+      "Deducciones que la gente olvida aplicar",
+    deductions:
+      "La cuota que sale de la escala no es la factura final: después se restan las deducciones, y varias pasan desapercibidas. Las aportaciones a planes de pensiones reducen la base imponible, con un límite anual bastante bajo en los planes individuales y más alto cuando la aportación la hace la empresa. Los donativos a entidades sin ánimo de lucro dan derecho a deducción, con un porcentaje mayor sobre los primeros euros donados y para donaciones recurrentes. Existen deducciones por maternidad, por familia numerosa y por personas con discapacidad a cargo, que además pueden cobrarse por anticipado mes a mes en vez de esperar a la declaración. Quien compró su vivienda habitual antes de 2013 conserva la deducción estatal, suprimida para compras posteriores. Y cada comunidad autónoma añade las suyas: alquiler para jóvenes, gastos de estudios, nacimiento, reformas de eficiencia energética. Los importes se actualizan, así que conviene confirmarlos en la AEAT antes de contar con ellos.",
+    calendarTitle:
+      "Cuándo se declara y qué hacer si te equivocas",
+    calendar:
+      "La campaña de la renta suele abrirse a principios de abril y cerrarse a finales de junio, con unos días menos de plazo si el resultado sale a pagar y quieres domiciliarlo. Antes de confirmar el borrador conviene revisarlo: Hacienda conoce tus nóminas y tus datos bancarios, pero no sabe si has tenido un hijo, si pagas alquiler o si donaste a una ONG. Si al presentar la declaración detectas un error, hay dos caminos. Si el error te perjudicó (pagaste de más o te devolvieron de menos), se pide una rectificación de la autoliquidación. Si el error perjudicó a Hacienda, se presenta una declaración complementaria; hacerlo por iniciativa propia antes de que te reclamen evita la sanción y deja solo un recargo, que es menor cuanto antes se corrige.",
+    q7:
+      "¿Estoy obligado a presentar la declaración de la renta?",
+    a7:
+      "Depende sobre todo de cuánto has cobrado y de cuántos pagadores has tenido. Con un solo pagador, el límite general por rendimientos del trabajo está en 22.000 € anuales: por debajo, normalmente no hay obligación. Con dos o más pagadores el umbral baja mucho cuando lo que cobras del segundo y siguientes supera una cantidad pequeña, y ese umbral se ha ido actualizando en los últimos años, así que conviene comprobar el vigente en la AEAT. Ojo: no estar obligado no siempre significa que no te convenga declarar. Si te han retenido más de lo que corresponde, o tienes derecho a deducciones, presentarla es la única forma de recuperar ese dinero. Y hay situaciones que obligan a declarar al margen del importe, como haber cobrado determinadas ayudas o haber vendido un inmueble.",
+    q8:
+      "He cobrado el paro este año, ¿cuenta como segundo pagador?",
+    a8:
+      "Sí. El SEPE es un pagador más a efectos del IRPF, y es la causa más frecuente de que a alguien le salga la declaración a pagar sin entender por qué. El motivo es que la prestación por desempleo apenas se retiene, o se retiene a un tipo muy bajo, porque se calcula de forma aislada sin saber lo que has cobrado o vas a cobrar de tu empresa ese mismo año. Cuando en la declaración se suman ambos ingresos, el total puede situarte en un tramo superior al que se aplicó a cada parte por separado, y la diferencia se paga entonces de golpe. Si prevés esa situación, puedes pedir al SEPE que te aplique una retención voluntaria más alta, o reservar una parte de la prestación para la declaración del año siguiente.",
   },
   en: {
     backHome: "Back to home",
@@ -139,8 +161,39 @@ const T = {
     tableCol2: "Rate",
     interpretTitle: "Marginal rate versus effective rate",
     interpret: "It is worth distinguishing two concepts that are often confused. The marginal rate is the percentage you would pay on the next euro you earned, that is, the rate of the highest bracket you reach; it is the relevant figure for deciding whether overtime or a pension contribution is worth it. The effective rate is the total liability divided by your income and is always considerably lower than the marginal rate, because the first brackets are taxed at lower rates. In the example above the marginal rate is 30% but the effective rate is around 18%. When someone says 'they take a third of my salary' they are usually confusing their marginal rate with what they actually pay.",
+    example2Title:
+      "Second example: why moving up a bracket never leaves you worse off",
+    example2:
+      "It is the most repeated fear: \u0022if I get a raise and move into the next bracket, I will take home less\u0022. It does not work that way. Picture someone with a taxable base of €20,000, just below the €20,200 threshold. Their first €12,450 is taxed at 19% (€2,365.50) and the next €7,550 at 24% (€1,812): €4,177.50 in total. If a raise pushes their base to €21,000, the first €20,200 is still taxed exactly the same (€2,365.50 + €1,860 = €4,225.50) and only the €800 above the threshold is taxed at 30%, that is €240 more. They earned €1,000 gross and pay €288 more tax: about €712 net more in their pocket. You never lose money by crossing a bracket, because the higher rate applies only to the portion above the threshold, not to the whole salary.",
+    generalTableTitle:
+      "General income tax scale (state plus reference regional half)",
+    deductionsTitle:
+      "Deductions people forget to claim",
+    deductions:
+      "The amount produced by the scale is not the final bill: deductions are subtracted afterwards, and several go unnoticed. Pension plan contributions reduce the taxable base, with a fairly low annual cap for individual plans and a higher one when the employer makes the contribution. Donations to non-profit organisations qualify for a deduction, at a higher percentage on the first euros donated and for recurring donations. There are deductions for maternity, large families and dependants with a disability, which can also be collected monthly in advance instead of waiting for the tax return. Anyone who bought their main home before 2013 keeps the state deduction, abolished for later purchases. And each autonomous community adds its own: rent for young people, education costs, childbirth, energy-efficiency refurbishments. The amounts are updated regularly, so confirm them with the tax agency before counting on them.",
+    calendarTitle:
+      "When to file and what to do if you get it wrong",
+    calendar:
+      "The tax return campaign usually opens in early April and closes at the end of June, with a few days less if the result is a payment and you want it charged to your account. Review the draft before confirming it: the tax agency knows your payslips and bank details, but not whether you have had a child, pay rent or donated to a charity. If you spot an error after filing, there are two routes. If the error harmed you (you paid too much or were refunded too little), you request a rectification of the self-assessment. If the error harmed the tax agency, you file a supplementary return; doing so on your own initiative before being asked avoids the penalty and leaves only a surcharge, which is smaller the sooner you correct it.",
+    q7:
+      "Am I required to file a tax return?",
+    a7:
+      "It depends mainly on how much you earned and how many payers you had. With a single payer, the general threshold for employment income is €22,000 a year: below that, there is usually no obligation. With two or more payers the threshold drops considerably once what you receive from the second and subsequent payers exceeds a small amount, and that threshold has been updated in recent years, so check the current one with the tax agency. Note that not being required to file does not always mean it is not worth filing. If too much was withheld, or you are entitled to deductions, filing is the only way to recover that money. And some situations require filing regardless of the amount, such as receiving certain benefits or selling a property.",
+    q8:
+      "I received unemployment benefit this year — does it count as a second payer?",
+    a8:
+      "Yes. The public employment service is another payer for income tax purposes, and it is the most frequent reason someone ends up owing money without understanding why. Unemployment benefit is barely withheld, or withheld at a very low rate, because it is computed in isolation without knowing what you have earned or will earn from your employer that same year. When both incomes are added together in the return, the total can place you in a higher bracket than the one applied to each part separately, and the difference is then paid in one go. If you expect this, you can ask the employment service to apply a higher voluntary withholding, or set aside part of the benefit for next year's return.",
   },
 };
+
+const GENERAL_TABLE = [
+  { es: "Hasta 12.450 €", en: "Up to €12,450", tipo: "19 %" },
+  { es: "12.450 – 20.200 €", en: "€12,450 – €20,200", tipo: "24 %" },
+  { es: "20.200 – 35.200 €", en: "€20,200 – €35,200", tipo: "30 %" },
+  { es: "35.200 – 60.000 €", en: "€35,200 – €60,000", tipo: "37 %" },
+  { es: "60.000 – 300.000 €", en: "€60,000 – €300,000", tipo: "45 %" },
+  { es: "Más de 300.000 €", en: "Over €300,000", tipo: "47 %" },
+];
 
 const AHORRO_TABLE = [
   { es: "Hasta 6.000 €", en: "Up to €6,000", tipo: "19 %" },
@@ -1197,7 +1250,29 @@ export default function IRPF() {
         <p>{t.deep}</p>
         <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.exampleTitle}</h3>
         <p>{t.example}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.example2Title}</h3>
+        <p>{t.example2}</p>
       </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.generalTableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.tableCol1}</th>
+              <th className="py-2 font-medium">{t.tableCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {GENERAL_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white whitespace-nowrap">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.tipo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <div className="mt-8 overflow-x-auto">
         <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.tableTitle}</h3>
@@ -1222,6 +1297,10 @@ export default function IRPF() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.deductionsTitle}</h2>
+        <p>{t.deductions}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.calendarTitle}</h2>
+        <p>{t.calendar}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -1252,6 +1331,14 @@ export default function IRPF() {
           <AccordionItem value="item-6">
             <AccordionTrigger>{t.q6}</AccordionTrigger>
             <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-8">
+            <AccordionTrigger>{t.q8}</AccordionTrigger>
+            <AccordionContent>{t.a8}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

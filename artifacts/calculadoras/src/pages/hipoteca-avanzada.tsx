@@ -69,6 +69,22 @@ const T = {
     a5: "El Euríbor es el tipo de interés medio al que las principales entidades europeas se prestan dinero entre sí, y funciona como índice de referencia para la mayoría de hipotecas variables en España. En una hipoteca variable, tu tipo se calcula sumando el Euríbor vigente más un diferencial fijo pactado en la escritura, por ejemplo Euríbor + 0,9 %. La revisión se hace normalmente cada seis o doce meses, momento en que la cuota se recalcula con el nuevo valor del índice. Por eso una hipoteca variable puede encarecerse de forma notable si el Euríbor sube: un incremento de un punto sobre 200.000 € a treinta años añade en torno a 110 € a la cuota mensual.",
     deepTitle: "Cómo funciona el sistema de amortización francés",
     deep: "Es el método utilizado por prácticamente todas las hipotecas en España y se caracteriza por una cuota mensual constante durante toda la vida del préstamo. Lo que varía mes a mes es su composición interna. Cada mes se calculan primero los intereses aplicando el tipo mensual al capital pendiente; el resto de la cuota se destina a amortizar principal. Como el capital pendiente disminuye con cada pago, los intereses del mes siguiente son menores y la parte destinada a amortizar aumenta. El resultado es que al principio del préstamo pagas sobre todo intereses y muy poco capital, mientras que en los últimos años ocurre lo contrario. Esa es la razón por la que amortizar anticipadamente resulta mucho más rentable en los primeros años.",
+    costsTitle:
+      "Los gastos que no aparecen en la cuota",
+    costs:
+      "La cuota mensual es solo una parte del dinero que necesitas. En la compra hay una entrada que ronda el veinte por ciento del precio, porque los bancos financian habitualmente hasta el ochenta por ciento del menor valor entre tasación y compraventa, y además unos gastos de operación que suelen situarse entre el diez y el doce por ciento del precio. Ahí entran el impuesto de transmisiones si la vivienda es de segunda mano, cuyo tipo fija cada comunidad autónoma, o el IVA más el impuesto de actos jurídicos documentados si es obra nueva; la notaría, el registro de la propiedad y la gestoría; y la tasación, que se paga aunque finalmente no se firme. Desde la ley hipotecaria de 2019, la mayoría de esos gastos los asume el banco salvo la tasación y la copia de la escritura, pero el impuesto sigue siendo del comprador. A todo ello hay que sumar el seguro de hogar, obligatorio, y el de vida, que no lo es aunque se ofrezca como bonificación.",
+    typesTitle:
+      "Fija, variable o mixta: cómo comparar sin engañarse",
+    types:
+      "En una hipoteca fija el tipo no cambia en toda la vida del préstamo: pagas lo mismo el primer mes que el último, lo que da tranquilidad a cambio de un tipo de partida más alto. En una variable la cuota se revisa cada seis o doce meses sumando un diferencial al euríbor, de modo que puede bajar mucho pero también subir, como se vio cuando el euríbor pasó de negativo a superar el cuatro por ciento en menos de dos años. La mixta combina un periodo fijo inicial, habitualmente de tres a diez años, y después variable. Para comparar ofertas no mires el tipo nominal sino la TAE, que incorpora comisiones y gastos obligatorios, y desconfía de las bonificaciones: bajar el diferencial contratando nómina, seguros y alarma puede salir más caro que el ahorro conseguido. Haz siempre la cuenta del coste total del producto vinculado frente a los puntos de diferencial que te descuentan.",
+    q6:
+      "¿Cuánto dinero me puede prestar el banco?",
+    a6:
+      "Los bancos aplican dos límites a la vez. El primero es el porcentaje sobre el valor de la vivienda: lo habitual es financiar como máximo el ochenta por ciento del menor valor entre la tasación y el precio de compra, de modo que el resto debe salir de tus ahorros, junto con los gastos e impuestos. El segundo es tu capacidad de pago: la referencia más extendida es que la suma de todas tus cuotas mensuales, incluida la hipoteca y cualquier otro préstamo, no supere entre el treinta y el treinta y cinco por ciento de tus ingresos netos. De los dos límites manda siempre el más restrictivo. Influyen además la estabilidad del empleo, la antigüedad, la edad al final del plazo y si hay avalistas. Antes de firmar arras conviene tener una preaprobación por escrito, no una estimación verbal.",
+    q7:
+      "¿Qué es la FEIN y por qué hay que esperar diez días?",
+    a7:
+      "La FEIN es la ficha europea de información normalizada: el documento que recoge todas las condiciones de tu hipoteca en un formato común que permite comparar ofertas entre bancos. Junto a ella se entrega la FiAE, con las advertencias específicas, y un proyecto de contrato. Desde la ley de crédito inmobiliario de 2019, entre la entrega de esta documentación y la firma ante notario deben transcurrir al menos diez días naturales, durante los cuales el banco queda vinculado por la oferta y tú puedes acudir gratuitamente al notario para que te explique el contrato y resuelva dudas. Esa visita previa es obligatoria y en ella el notario levanta un acta confirmando que has entendido las cláusulas. Úsala: es el único momento del proceso en que alguien independiente te explica lo que vas a firmar.",
     exampleTitle: "Ejemplo resuelto",
     example: "Para una hipoteca de 200.000 € al 3 % a 30 años, la cuota mensual es de unos 843 €. En el primer recibo, los intereses son 200.000 × 0,03 / 12 = 500 €, de modo que solo 343 € amortizan capital. Diez años después, con un capital pendiente cercano a 152.000 €, los intereses del mes bajan a unos 380 € y la amortización sube a 463 €. En el último año de la hipoteca, prácticamente la totalidad de la cuota se destina a capital. A lo largo de los treinta años habrás pagado unos 103.500 € solo en intereses.",
     refTableTitle: "Cuota e intereses según el plazo (200.000 € al 3 %)",
@@ -122,6 +138,22 @@ const T = {
     a5: "The Euribor is the average interest rate at which major European banks lend to each other, and it serves as the reference index for most variable-rate mortgages in Spain. On a variable mortgage, your rate is calculated by adding the current Euribor to a fixed spread agreed in the deed, for example Euribor + 0.9%. The review is normally done every six or twelve months, at which point the payment is recalculated with the new index value. That is why a variable mortgage can become considerably more expensive if the Euribor rises: a one-point increase on €200,000 over thirty years adds around €110 to the monthly payment.",
     deepTitle: "How the French amortisation system works",
     deep: "This is the method used by practically all mortgages in Spain and is characterised by a constant monthly payment throughout the life of the loan. What varies month to month is its internal composition. Each month the interest is calculated first by applying the monthly rate to the outstanding capital; the rest of the payment goes towards repaying principal. Since the outstanding capital falls with each payment, the following month's interest is lower and the portion repaying principal rises. The result is that at the start of the loan you pay mostly interest and very little capital, while in the final years the opposite happens. That is why early repayment is far more profitable in the first years.",
+    costsTitle:
+      "The costs that never show up in the monthly payment",
+    costs:
+      "The monthly payment is only part of the money you need. Buying requires a deposit of around twenty per cent of the price, because banks typically finance up to eighty per cent of the lower of the valuation and the purchase price, plus transaction costs that usually run between ten and twelve per cent of the price. These include transfer tax on a resale home, at a rate set by each autonomous community, or VAT plus stamp duty on a new build; the notary, the land registry and the processing agency; and the valuation, which is paid even if the deal falls through. Since the 2019 mortgage law, most of those costs fall on the bank except the valuation and the copy of the deed, but the tax is still the buyer's. On top of that come home insurance, which is compulsory, and life insurance, which is not, even when offered as a discount.",
+    typesTitle:
+      "Fixed, variable or mixed: comparing without fooling yourself",
+    types:
+      "On a fixed-rate mortgage the rate never changes: you pay the same in the first month as in the last, which buys peace of mind in exchange for a higher starting rate. On a variable one the payment is revised every six or twelve months by adding a margin to the Euribor, so it can fall a lot but also rise, as was seen when the Euribor went from negative to above four per cent in under two years. A mixed mortgage combines an initial fixed period, usually three to ten years, and a variable one afterwards. To compare offers, look at the APR rather than the nominal rate, since it incorporates fees and compulsory costs, and be wary of discounts: cutting the margin by taking out salary deposit, insurance and an alarm can cost more than the saving achieved. Always compare the total cost of the tied products against the margin points they take off.",
+    q6:
+      "How much can the bank lend me?",
+    a6:
+      "Banks apply two limits at once. The first is the percentage of the property value: the norm is to finance at most eighty per cent of the lower of the valuation and the purchase price, so the rest must come from your savings, along with costs and taxes. The second is your ability to pay: the most widespread reference is that all your monthly instalments together, including the mortgage and any other loan, should not exceed thirty to thirty-five per cent of your net income. Of the two limits, the more restrictive one always wins. Job stability, seniority, your age at the end of the term and whether there are guarantors also weigh in. Before signing a deposit contract, get a written pre-approval, not a verbal estimate.",
+    q7:
+      "What is the FEIN and why the ten-day wait?",
+    a7:
+      "The FEIN is the European standardised information sheet: the document setting out all the conditions of your mortgage in a common format that lets you compare offers between banks. It comes with the FiAE, containing specific warnings, and a draft contract. Under the 2019 real-estate credit law, at least ten calendar days must pass between delivery of this documentation and signing before the notary, during which the bank is bound by its offer and you can visit the notary free of charge to have the contract explained and your questions answered. That prior visit is compulsory and the notary records a formal act confirming you have understood the clauses. Use it: it is the only moment in the process when someone independent explains what you are about to sign.",
     exampleTitle: "Worked example",
     example: "For a €200,000 mortgage at 3% over 30 years, the monthly payment is about €843. On the first instalment, interest is 200,000 × 0.03 / 12 = €500, so only €343 repays capital. Ten years later, with outstanding capital near €152,000, the month's interest falls to about €380 and repayment rises to €463. In the mortgage's final year, virtually the entire payment goes to capital. Over the thirty years you will have paid roughly €103,500 in interest alone.",
     refTableTitle: "Payment and interest by term (€200,000 at 3%)",
@@ -424,6 +456,10 @@ export default function HipotecaAvanzada() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.costsTitle}</h2>
+        <p>{t.costs}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.typesTitle}</h2>
+        <p>{t.types}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -450,6 +486,14 @@ export default function HipotecaAvanzada() {
           <AccordionItem value="item-5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

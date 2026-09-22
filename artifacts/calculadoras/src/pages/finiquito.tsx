@@ -63,6 +63,28 @@ const T = {
     worked: "Un trabajador con un salario bruto anual de 30.000 € tiene un salario diario de 30.000 / 365 = 82,19 €. Si al finalizar el contrato le quedan 12 días de vacaciones no disfrutadas, le corresponden 12 × 82,19 = 986,28 €. Si además trabajó 10 días del mes en curso sin cobrar, suma otros 821,90 €. Y si las pagas extra no están prorrateadas y han transcurrido 5 meses desde la última, la parte proporcional sería aproximadamente (2.500 / 12) × 5 = 1.041,67 €. El finiquito bruto ascendería así a unos 2.849,85 €, sobre los que se aplicarán las retenciones correspondientes.",
     deepTitle: "Qué conceptos integran el finiquito",
     deep: "El finiquito liquida todo lo que la empresa te adeuda en el momento de extinguir el contrato, con independencia del motivo. Se compone de tres partidas principales. La primera son las vacaciones devengadas y no disfrutadas, que se calculan multiplicando los días pendientes por el salario diario. La segunda son los días efectivamente trabajados del mes en curso que aún no se han abonado. Y la tercera es la parte proporcional de las pagas extraordinarias, aplicable solo si no están prorrateadas en las nóminas mensuales. A estas tres partidas pueden sumarse conceptos como comisiones pendientes, horas extra no abonadas o bolsas de vacaciones, y en su caso la indemnización por despido, que es un concepto jurídicamente distinto del finiquito.",
+    example2Title:
+      "Ejemplo completo: fin de contrato el 20 de septiembre",
+    example2:
+      "Una persona con 2.100 € brutos al mes, pagas extra no prorrateadas, que deja la empresa el 20 de septiembre con 8 días de vacaciones pendientes. Su salario diario es 2.100 / 30 = 70 €. Primero, los días trabajados de septiembre: 20 × 70 = 1.400 €. Segundo, las vacaciones no disfrutadas: 8 × 70 = 560 €. Tercero, la parte proporcional de las pagas extra: si la de Navidad se devenga de enero a diciembre y lleva 263 días devengados de 365, le corresponden 2.100 × 263 / 365 = 1.513 €; si la de verano ya la cobró en julio, esa no genera nada más. El finiquito bruto sumaría unos 3.473 €, a los que se aplican IRPF y cotizaciones. Si además el contrato termina por decisión de la empresa, la indemnización se calcula aparte y no forma parte del finiquito.",
+    indemTableTitle:
+      "Indemnización según el motivo de la extinción",
+    indemCol1:
+      "Motivo",
+    indemCol2:
+      "Indemnización",
+    claimTitle:
+      "Qué hacer si el finiquito no cuadra",
+    claim:
+      "Firmar el finiquito no siempre implica renunciar a reclamar, pero conviene hacerlo bien. Si no estás de acuerdo, escribe «no conforme» junto a tu firma antes de firmar: firmar sin esa mención puede interpretarse como aceptación y saldo de cuentas. Pide siempre una copia del documento desglosado, concepto por concepto, y compáralo con tus nóminas. Para reclamar por despido el plazo es de veinte días hábiles desde la fecha de efectos, un plazo muy corto que no se interrumpe por estar negociando con la empresa; el trámite empieza con una papeleta de conciliación ante el organismo de mediación de tu comunidad autónoma, previa a la demanda judicial. Si lo que reclamas son cantidades adeudadas y no el despido en sí, el plazo general es de un año. Ante cualquier duda, los sindicatos y los servicios de orientación laboral revisan finiquitos gratuitamente.",
+    q6:
+      "¿Me pueden descontar del finiquito el preaviso que no he cumplido?",
+    a6:
+      "Sí. Cuando la baja es voluntaria, el convenio colectivo o el contrato suelen fijar un preaviso, habitualmente de quince días, para que la empresa pueda organizar tu sustitución. Si te vas sin respetarlo, la empresa puede descontar del finiquito el importe correspondiente a los días de preaviso incumplidos, calculados sobre tu salario diario. Lo que no puede hacer es aplicar una penalización superior a eso, ni retener el finiquito entero como castigo: lo que te deba por días trabajados, vacaciones y pagas sigue siendo tuyo. Conviene comprobar en el convenio cuál es el preaviso exacto de tu sector, porque varía, y comunicar la baja por escrito con acuse de recibo para poder demostrar la fecha.",
+    q7:
+      "¿Las vacaciones no disfrutadas se pagan siempre?",
+    a7:
+      "Se pagan cuando el contrato termina y no ha dado tiempo a disfrutarlas, que es justo el caso del finiquito. Lo que no permite la ley es cambiar vacaciones por dinero mientras el contrato sigue vivo: el derecho al descanso no es renunciable. En el finiquito se abonan los días devengados y no disfrutados en proporción al tiempo trabajado en el año, y esos días cotizan a la Seguridad Social, de modo que alargan ligeramente tu vida laboral. Si la empresa te obligó a disfrutar vacaciones en fechas que no te correspondían, o si no llevabas registro, revisa tus nóminas y el calendario laboral antes de aceptar el cómputo: es una de las partidas donde más discrepancias aparecen.",
     tableTitle: "Indemnización según el tipo de extinción",
     tableCol1: "Tipo de extinción",
     tableCol2: "Indemnización",
@@ -117,6 +139,28 @@ const T = {
     worked: "A worker with a gross annual salary of €30,000 has a daily wage of 30,000 / 365 = €82.19. If 12 days of untaken holiday remain when the contract ends, they are owed 12 × 82.19 = €986.28. If they also worked 10 unpaid days of the current month, that adds another €821.90. And if bonus payments are not pro-rated and 5 months have passed since the last one, the proportional share would be approximately (2,500 / 12) × 5 = €1,041.67. The gross settlement would therefore come to about €2,849.85, before the applicable withholdings.",
     deepTitle: "What the settlement is made up of",
     deep: "The settlement clears everything the company owes you when the contract ends, whatever the reason. It comprises three main items. The first is accrued but untaken holiday, calculated by multiplying the outstanding days by the daily wage. The second is the days actually worked in the current month that have not yet been paid. And the third is the proportional share of extraordinary bonus payments, applicable only if they are not already pro-rated in monthly payslips. To these three items you may add concepts such as outstanding commissions, unpaid overtime or holiday funds, and where applicable the dismissal indemnity, which is legally distinct from the settlement itself.",
+    example2Title:
+      "Full example: contract ending on 20 September",
+    example2:
+      "Someone on €2,100 gross a month, with bonus payments not pro-rated, leaving the company on 20 September with 8 untaken holiday days. Their daily wage is 2,100 / 30 = €70. First, days worked in September: 20 × 70 = €1,400. Second, untaken holidays: 8 × 70 = €560. Third, the proportional share of the extra payments: if the Christmas one accrues from January to December and 263 of 365 days have accrued, that is 2,100 × 263 / 365 = €1,513; if the summer one was already paid in July, it generates nothing further. The gross settlement would come to about €3,473, to which income tax and contributions apply. If the contract also ends at the employer's initiative, the dismissal indemnity is computed separately and is not part of the settlement.",
+    indemTableTitle:
+      "Indemnity by reason for termination",
+    indemCol1:
+      "Reason",
+    indemCol2:
+      "Indemnity",
+    claimTitle:
+      "What to do if the settlement does not add up",
+    claim:
+      "Signing the settlement does not always mean giving up your right to claim, but it pays to do it properly. If you disagree, write 'no conforme' next to your signature before signing: signing without it can be read as acceptance and full settlement of accounts. Always ask for a copy itemised concept by concept and compare it with your payslips. To claim for dismissal the deadline is twenty working days from the effective date, a very short window that is not paused by ongoing negotiations with the company; the process starts with a conciliation request before your region's mediation body, prior to the court claim. If what you are claiming is unpaid amounts rather than the dismissal itself, the general deadline is one year. When in doubt, trade unions and employment advice services review settlements free of charge.",
+    q6:
+      "Can the company deduct unserved notice from my settlement?",
+    a6:
+      "Yes. When you resign, the collective agreement or your contract usually sets a notice period, commonly fifteen days, so the company can arrange your replacement. If you leave without honouring it, the company may deduct from the settlement the amount corresponding to the days of notice not served, calculated on your daily wage. What it cannot do is apply a larger penalty, or withhold the entire settlement as punishment: what it owes you for days worked, holidays and bonus payments remains yours. Check the exact notice period for your sector in the collective agreement, because it varies, and give notice in writing with proof of receipt so you can evidence the date.",
+    q7:
+      "Are untaken holidays always paid?",
+    a7:
+      "They are paid when the contract ends and there was no time to take them, which is exactly the settlement scenario. What the law does not allow is exchanging holidays for money while the contract is still running: the right to rest cannot be waived. The settlement pays the days accrued and not taken in proportion to the time worked during the year, and those days count towards social security, slightly extending your contribution record. If the company made you take holidays on dates that were not due, or you kept no record, review your payslips and the working calendar before accepting the count: it is one of the items where disagreements most often arise.",
     tableTitle: "Indemnity by type of contract termination",
     tableCol1: "Type of termination",
     tableCol2: "Indemnity",
@@ -132,6 +176,14 @@ const SEVERANCE_TABLE = [
   { es: "Fin de contrato temporal", en: "End of temporary contract", ind: "12 días/año", indEn: "12 days/year" },
   { es: "Despido disciplinario procedente", en: "Justified disciplinary dismissal", ind: "Sin indemnización", indEn: "No indemnity" },
   { es: "Baja voluntaria", en: "Voluntary resignation", ind: "Sin indemnización", indEn: "No indemnity" },
+];
+
+const INDEM_TABLE = [
+  { es: "Despido improcedente (desde 12/02/2012)", en: "Unfair dismissal (since 12/02/2012)", tipo: "33 días por año, máx. 24 mensualidades" },
+  { es: "Despido objetivo o colectivo", en: "Objective or collective dismissal", tipo: "20 días por año, máx. 12 mensualidades" },
+  { es: "Fin de contrato temporal", en: "End of a temporary contract", tipo: "12 días por año trabajado" },
+  { es: "Despido procedente", en: "Fair dismissal", tipo: "Sin indemnización" },
+  { es: "Baja voluntaria", en: "Voluntary resignation", tipo: "Sin indemnización" },
 ];
 
 export default function Finiquito() {
@@ -392,6 +444,8 @@ export default function Finiquito() {
       <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.deepTitle}</h2>
         <p>{t.deep}</p>
+        <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.example2Title}</h3>
+        <p>{t.example2}</p>
         <h3 className="text-base font-semibold mt-6 mb-2 text-gray-900 dark:text-white">{t.workedTitle}</h3>
         <p>{t.worked}</p>
       </section>
@@ -419,7 +473,29 @@ export default function Finiquito() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.claimTitle}</h2>
+        <p>{t.claim}</p>
       </section>
+
+      <div className="mt-8 overflow-x-auto">
+        <h3 className="text-base font-semibold mb-3 text-gray-900 dark:text-white">{t.indemTableTitle}</h3>
+        <table className="w-full text-sm border-collapse max-w-md">
+          <thead>
+            <tr className="border-b border-gray-200 dark:border-white/10 text-left text-gray-500 dark:text-white/50">
+              <th className="py-2 pr-4 font-medium">{t.indemCol1}</th>
+              <th className="py-2 font-medium">{t.indemCol2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {INDEM_TABLE.map((row) => (
+              <tr key={row.es} className="border-b border-gray-100 dark:border-white/5">
+                <td className="py-2 pr-4 text-gray-900 dark:text-white">{locale === "en" ? row.en : row.es}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.tipo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
@@ -445,6 +521,14 @@ export default function Finiquito() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

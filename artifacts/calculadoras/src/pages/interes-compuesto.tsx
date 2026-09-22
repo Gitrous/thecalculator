@@ -86,6 +86,22 @@ const T = {
     a6: "Depende del producto financiero. Un depósito bancario puede capitalizar de forma anual, trimestral o mensual; un fondo de inversión acumula el rendimiento de manera continua a través del valor liquidativo. Cuanto mayor es la frecuencia de capitalización, mayor es el capital final, aunque la diferencia es modesta: 10.000 € al 7 % durante 20 años dan 38.697 € con capitalización anual y unos 40.387 € con capitalización mensual. Esta calculadora emplea capitalización anual, que es la convención más habitual y la que usan la mayoría de simuladores para comparar productos.",
     deepTitle: "Cómo se calcula el interés compuesto",
     deep: "La fórmula básica es C = C₀ · (1 + i)^n, donde C₀ es el capital inicial, i el tipo de interés anual expresado en tanto por uno y n el número de años. El exponente es la clave de todo: cada año multiplica el capital acumulado, no solo el inicial, y por eso el crecimiento se acelera con el tiempo. Cuando además realizas aportaciones periódicas, al resultado anterior se le suma el valor futuro de esa serie de aportaciones, que se calcula con la expresión A · [((1 + i)^n − 1) / i]. La calculadora combina ambos términos para darte el capital final, el total aportado y los intereses generados por separado.",
+    lateTitle:
+      "Lo que cuesta empezar diez años tarde",
+    late:
+      "El interés compuesto no premia tanto la cantidad como el tiempo, y eso se ve mejor con dos personas que con una fórmula. Ana aporta 200 € al mes desde los 25 hasta los 35 años y luego no vuelve a aportar nada: en total ha puesto 24.000 €. Bruno empieza a los 35 y aporta esos mismos 200 € al mes hasta los 65: ha puesto 72.000 €, el triple. Con una rentabilidad media anual del 6 %, al cumplir los 65 Ana tendría alrededor de 200.000 € y Bruno unos 195.000 €. Ana llega a la misma cifra habiendo aportado un tercio, simplemente porque su dinero ha tenido treinta años más para multiplicarse. El mensaje práctico no es que aportar más no sirva, sino que cada año de retraso es un año que no se recupera aportando más adelante: los primeros euros son los que más trabajan.",
+    realTitle:
+      "Rentabilidad nominal, inflación y rentabilidad real",
+    real:
+      "Un capital que crece al 6 % anual mientras los precios suben al 3 % no te hace un 6 % más rico, sino aproximadamente un 3 %. Esa diferencia, la rentabilidad real, es la única que importa cuando el objetivo es mantener poder adquisitivo, y explica por qué el dinero parado en una cuenta corriente pierde valor de forma silenciosa: al 3 % de inflación, 10.000 € guardados bajo el colchón conservan el poder de compra de unos 7.400 € al cabo de diez años. El interés compuesto funciona en ambas direcciones. Conviene por eso mirar siempre tres cifras juntas: la rentabilidad esperada, la inflación prevista y las comisiones, porque las tres se componen año tras año. Una comisión anual del 1,5 % frente a una del 0,3 % puede parecer un detalle, y a treinta años se lleva una parte muy considerable del capital final.",
+    q7:
+      "¿Cada cuánto conviene que se capitalicen los intereses?",
+    a7:
+      "Cuanto más a menudo, mejor para quien invierte, aunque la diferencia es menor de lo que suele imaginarse. Con un 6 % nominal, capitalizar una vez al año da exactamente un 6 % efectivo; hacerlo mensualmente lo eleva a alrededor del 6,17 %, y diariamente a poco más del 6,18 %. A partir de cierta frecuencia el efecto se estanca, porque matemáticamente tiende a un límite. Donde sí importa mucho la frecuencia es en la dirección contraria: en una deuda de tarjeta de crédito que capitaliza mensualmente, ese mismo mecanismo juega en tu contra y explica que un 20 % nominal se convierta en una carga bastante mayor a lo largo del año. Al comparar productos, mira siempre la TAE, que ya incorpora el efecto de la frecuencia de capitalización y permite comparar manzanas con manzanas.",
+    q8:
+      "¿Cuánto se comen las comisiones de un fondo a largo plazo?",
+    a8:
+      "Mucho más de lo que sugiere el porcentaje. Imagina 10.000 € invertidos durante treinta años con una rentabilidad bruta del 7 % anual. Con una comisión total del 0,3 %, el capital final ronda los 70.000 €. Con una comisión del 1,8 %, se queda en torno a 45.000 €. Esa diferencia de punto y medio, que sobre el papel parece pequeña, se lleva aproximadamente un tercio del resultado, porque cada año se cobra sobre el capital acumulado y ese dinero deja de componerse. Por eso el dato al que conviene mirar no es solo la rentabilidad pasada, sino el coste total del producto, incluyendo gastos corrientes, comisiones de custodia y cualquier cargo de suscripción o reembolso. Es lo único de una inversión que se puede conocer de antemano con certeza.",
     exampleTitle: "Ejemplo resuelto",
     example: "Supongamos 10.000 € iniciales invertidos al 7 % anual durante 20 años, sin aportaciones adicionales. Aplicamos C = 10.000 × (1 + 0,07)^20 = 10.000 × 3,8697 = 38.697 €. Has aportado 10.000 € y has generado 28.697 € en intereses, casi el triple de tu inversión inicial. Si además aportases 200 € cada mes (2.400 € al año), el valor futuro de esas aportaciones sería de unos 98.400 €, con lo que el capital final superaría los 137.000 € habiendo aportado 58.000 € de tu bolsillo.",
     tableTitle: "Crecimiento de 10.000 € al 7 % anual",
@@ -135,6 +151,22 @@ const T = {
     a6: "It depends on the financial product. A bank deposit may compound annually, quarterly or monthly; an investment fund accrues returns continuously through its net asset value. The higher the compounding frequency, the higher the final capital, though the difference is modest: €10,000 at 7% over 20 years gives €38,697 with annual compounding and about €40,387 with monthly compounding. This calculator uses annual compounding, the most common convention and the one most simulators use to compare products.",
     deepTitle: "How compound interest is calculated",
     deep: "The basic formula is C = C₀ · (1 + i)^n, where C₀ is the initial capital, i the annual interest rate expressed as a decimal and n the number of years. The exponent is what matters most: each year multiplies the accumulated capital, not just the initial amount, which is why growth accelerates over time. When you also make regular contributions, the future value of that series is added to the previous result, calculated with the expression A · [((1 + i)^n − 1) / i]. The calculator combines both terms to give you the final capital, the total contributed and the interest generated, separately.",
+    lateTitle:
+      "What starting ten years late really costs",
+    late:
+      "Compound interest rewards time more than amount, and that is clearer with two people than with a formula. Ana pays in €200 a month from age 25 to 35 and then never contributes again: €24,000 in total. Bruno starts at 35 and pays the same €200 a month until 65: €72,000, three times as much. At an average annual return of 6%, by 65 Ana would have around €200,000 and Bruno about €195,000. Ana reaches the same figure having contributed a third as much, simply because her money had thirty more years to multiply. The practical message is not that contributing more is useless, but that each year of delay is a year you cannot recover by contributing later: the first euros are the ones that work hardest.",
+    realTitle:
+      "Nominal return, inflation and real return",
+    real:
+      "Capital growing at 6% a year while prices rise at 3% does not make you 6% richer, but roughly 3%. That difference, the real return, is the only one that matters when the goal is preserving purchasing power, and it explains why money sitting in a current account loses value silently: at 3% inflation, €10,000 kept under the mattress retains the buying power of about €7,400 after ten years. Compound interest works in both directions. That is why it pays to look at three figures together: expected return, expected inflation and fees, because all three compound year after year. An annual fee of 1.5% versus 0.3% may look like a detail, and over thirty years it takes a very considerable share of the final capital.",
+    q7:
+      "How often should interest be compounded?",
+    a7:
+      "The more often the better for the investor, although the difference is smaller than people imagine. At a 6% nominal rate, compounding once a year gives exactly 6% effective; monthly raises it to about 6.17%, and daily to just over 6.18%. Beyond a certain frequency the effect plateaus, because mathematically it tends to a limit. Where frequency does matter a lot is in the opposite direction: on credit card debt compounded monthly, the same mechanism works against you and explains why a 20% nominal rate becomes a noticeably heavier burden over the year. When comparing products, always look at the APR, which already incorporates the effect of compounding frequency and lets you compare like with like.",
+    q8:
+      "How much do fund fees eat over the long run?",
+    a8:
+      "Far more than the percentage suggests. Picture €10,000 invested for thirty years with a gross annual return of 7%. With total fees of 0.3%, the final capital is around €70,000. With fees of 1.8%, it lands near €45,000. That gap of one and a half points, small on paper, takes roughly a third of the result, because it is charged every year on the accumulated capital and that money stops compounding. This is why the figure to look at is not only past performance but the product's total cost, including ongoing charges, custody fees and any subscription or redemption charge. It is the only thing about an investment you can know in advance with certainty.",
     exampleTitle: "Worked example",
     example: "Take €10,000 invested at 7% a year for 20 years, with no further contributions. We apply C = 10,000 × (1 + 0.07)^20 = 10,000 × 3.8697 = €38,697. You contributed €10,000 and generated €28,697 in interest, almost triple your initial investment. If you also contributed €200 a month (€2,400 a year), the future value of those contributions would be about €98,400, bringing the final capital above €137,000 having put in €58,000 of your own money.",
     tableTitle: "Growth of €10,000 at 7% a year",
@@ -464,6 +496,10 @@ export default function InteresCompuesto() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.lateTitle}</h2>
+        <p>{t.late}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.realTitle}</h2>
+        <p>{t.real}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -494,6 +530,14 @@ export default function InteresCompuesto() {
           <AccordionItem value="item-6">
             <AccordionTrigger>{t.q6}</AccordionTrigger>
             <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q8">
+            <AccordionTrigger>{t.q8}</AccordionTrigger>
+            <AccordionContent>{t.a8}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

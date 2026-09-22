@@ -156,6 +156,18 @@ const T = {
     intro1: "El conversor de unidades te permite transformar al instante valores entre los sistemas de medida más utilizados: el Sistema Internacional (SI), el sistema anglosajón y otras unidades de uso habitual. Las categorías cubiertas son longitud, masa, temperatura, energía, velocidad, área y volumen, abarcando las conversiones más frecuentes en ciencia, ingeniería y vida cotidiana.",
     intro2: "Para cada categoría, selecciona la unidad de origen y la unidad de destino, introduce el valor y obtendrás el resultado al instante. También se muestra una tabla de referencia rápida con los valores equivalentes para 1, 10, 100 y 1.000 unidades. El conversor usa factores de conversión estandarizados o valores de consenso científico.",
     disclaimer: "Los factores de conversión son los establecidos internacionalmente. Referencia: Sistema Internacional de Unidades (SI), definido por la Oficina Internacional de Pesas y Medidas (BIPM). Para aplicaciones de ingeniería o científicas de alta precisión, consulta las fuentes normativas oficiales.",
+    solvedTitle:
+      "Tres conversiones resueltas paso a paso",
+    solved:
+      "Convertir 90 km/h a metros por segundo: un kilómetro son 1.000 metros y una hora 3.600 segundos, así que basta dividir entre 3,6. El resultado es 25 m/s. Esa constante 3,6 es la que conviene memorizar, porque aparece en cualquier problema de cinemática. Convertir 6 pulgadas a centímetros: una pulgada son exactamente 2,54 cm por definición internacional, de modo que 6 × 2,54 = 15,24 cm. Es una equivalencia exacta, no aproximada, desde el acuerdo de la yarda y la libra de 1959. Convertir 350 °F a grados Celsius, la típica temperatura de horno de una receta estadounidense: primero se resta 32 y después se divide entre 1,8, es decir, (350 − 32) / 1,8 = 176,7 °C, lo que en la práctica significa poner el horno a 175-180 °C. El orden de las operaciones importa: dividir primero y restar después da un resultado equivocado.",
+    mistakesTitle:
+      "Los errores que más se repiten al convertir",
+    mistakes:
+      "El primero es tratar la temperatura como si fuera una escala proporcional. Duplicar los grados Celsius no duplica el calor, porque el cero de esa escala es convencional, no absoluto; por eso las conversiones con °C y °F llevan una suma o una resta además del factor. El segundo es confundir masa y peso: el kilogramo mide masa y el newton mide fuerza, y aunque en la vida cotidiana se usen como sinónimos, en física no lo son. El tercero es dar por hecho que un galón es un galón: el estadounidense equivale a unos 3,785 litros y el imperial británico a unos 4,546, una diferencia del veinte por ciento que arruina cualquier receta o cálculo de consumo. El cuarto es arrastrar redondeos intermedios: conviene redondear solo al final, porque encadenar tres conversiones redondeando en cada paso puede desviar el resultado de forma apreciable.",
+    q7:
+      "¿Por qué hay dos sistemas de unidades y no uno solo?",
+    a7:
+      "Por inercia histórica más que por razones técnicas. El Sistema Internacional nació de la Revolución Francesa con la idea de basar las medidas en constantes naturales y no en referencias arbitrarias como el pie de un rey, y hoy lo usan prácticamente todos los países. Estados Unidos mantiene el sistema consuetudinario en el uso cotidiano por el coste enorme de cambiar toda la infraestructura industrial, la señalización y las costumbres, aunque su ciencia, su medicina y su ejército trabajan en unidades métricas. La convivencia de ambos sistemas no es inofensiva: en 1999 la NASA perdió la sonda Mars Climate Orbiter, valorada en más de 100 millones de dólares, porque un equipo trabajó en libras-fuerza y otro en newtons. Convertir bien no es pedantería.",
     fromLabel: "De",
     toLabel: "A",
     valueLabel: "Valor a convertir",
@@ -191,6 +203,18 @@ const T = {
     intro1: "The unit converter lets you instantly transform values between the most widely used measurement systems: the International System (SI), the imperial system and other commonly used units. The categories covered are length, mass, temperature, energy, speed, area and volume, covering the most frequent conversions in science, engineering and everyday life.",
     intro2: "For each category, select the source unit and target unit, enter the value and you will get the result instantly. A quick reference table is also shown with equivalent values for 1, 10, 100 and 1,000 units. The converter uses standardised conversion factors or scientific consensus values.",
     disclaimer: "Conversion factors are internationally established. Reference: the International System of Units (SI), defined by the International Bureau of Weights and Measures (BIPM). For high-precision engineering or scientific applications, consult the official normative sources.",
+    solvedTitle:
+      "Three conversions solved step by step",
+    solved:
+      "Converting 90 km/h to metres per second: a kilometre is 1,000 metres and an hour 3,600 seconds, so you simply divide by 3.6. The result is 25 m/s. That constant, 3.6, is worth memorising, because it appears in any kinematics problem. Converting 6 inches to centimetres: an inch is exactly 2.54 cm by international definition, so 6 × 2.54 = 15.24 cm. It is an exact equivalence, not an approximation, since the 1959 yard and pound agreement. Converting 350 °F to Celsius, the typical oven temperature in an American recipe: first subtract 32, then divide by 1.8, that is (350 − 32) / 1.8 = 176.7 °C, which in practice means setting the oven to 175-180 °C. The order of operations matters: dividing first and subtracting afterwards gives the wrong answer.",
+    mistakesTitle:
+      "The mistakes people repeat when converting",
+    mistakes:
+      "The first is treating temperature as a proportional scale. Doubling degrees Celsius does not double the heat, because that scale's zero is conventional, not absolute; this is why conversions with °C and °F involve an addition or subtraction as well as a factor. The second is confusing mass and weight: the kilogram measures mass and the newton measures force, and although everyday language treats them as synonyms, physics does not. The third is assuming a gallon is a gallon: the US one is about 3.785 litres and the British imperial one about 4.546, a twenty per cent difference that ruins any recipe or fuel calculation. The fourth is carrying intermediate rounding: round only at the end, because chaining three conversions and rounding at each step can shift the result appreciably.",
+    q7:
+      "Why are there two systems of units instead of one?",
+    a7:
+      "Historical inertia more than technical reasons. The International System was born out of the French Revolution with the idea of basing measurements on natural constants rather than arbitrary references such as a king's foot, and today practically every country uses it. The United States keeps its customary system in everyday use because of the enormous cost of changing industrial infrastructure, signage and habits, although its science, medicine and military work in metric units. The coexistence of both systems is not harmless: in 1999 NASA lost the Mars Climate Orbiter, worth more than 100 million dollars, because one team worked in pound-force and another in newtons. Converting properly is not pedantry.",
     fromLabel: "From",
     toLabel: "To",
     valueLabel: "Value to convert",
@@ -415,6 +439,13 @@ export default function ConversorUnidades() {
 
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
+      <section className="mt-10 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.solvedTitle}</h2>
+        <p>{t.solved}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.mistakesTitle}</h2>
+        <p>{t.mistakes}</p>
+      </section>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">
@@ -443,6 +474,10 @@ export default function ConversorUnidades() {
           <AccordionItem value="q6">
             <AccordionTrigger>{t.q6}</AccordionTrigger>
             <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

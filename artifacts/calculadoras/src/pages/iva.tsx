@@ -65,6 +65,22 @@ const T = {
     a5: "Es un mecanismo por el que la obligación de declarar el IVA se traslada del vendedor al comprador, de modo que la factura se emite sin IVA y es el destinatario quien lo autoliquida. Se aplica en supuestos concretos: ejecuciones de obra inmobiliaria entre empresas, entregas de determinados materiales como chatarra o metales, operaciones intracomunitarias entre empresas con NIF-IVA válido y algunas entregas de inmuebles. En la factura debe constar expresamente la mención «inversión del sujeto pasivo» para justificar la ausencia de IVA repercutido.",
     deepTitle: "Los tipos de IVA en España y qué grava cada uno",
     deep: "España aplica tres tipos impositivos. El general del 21 % se aplica por defecto a la mayoría de bienes y servicios: electrónica, ropa, vehículos, bebidas alcohólicas, servicios profesionales o suministros. El reducido del 10 % cubre alimentos en general, transporte de viajeros, hostelería y restauración, entradas a espectáculos culturales y deportivos, y determinadas obras de renovación de vivienda. El superreducido del 4 % se reserva a bienes de primera necesidad: pan común, leche, huevos, frutas, verduras, cereales, quesos, libros, periódicos, medicamentos de uso humano, prótesis y vehículos para personas con movilidad reducida.",
+    quarterTitle:
+      "El IVA trimestral: cómo funciona el modelo 303",
+    quarter:
+      "Para un autónomo o una empresa, el IVA no es un ingreso ni un gasto: es dinero que se cobra por cuenta de Hacienda y se liquida cada tres meses con el modelo 303. La mecánica consiste en restar al IVA repercutido, el que has cobrado en tus facturas emitidas, el IVA soportado, el que has pagado en las facturas de gastos vinculados a tu actividad. Si la diferencia es positiva, se ingresa; si es negativa, queda a compensar en los trimestres siguientes, y solo en la última declaración del año puede pedirse la devolución, salvo que estés acogido al régimen mensual. Los plazos habituales son los veinte primeros días de abril, julio y octubre, y hasta el 30 de enero el del cuarto trimestre; si domicilias el pago, el plazo termina unos días antes. Para que el IVA soportado sea deducible hace falta factura completa a tu nombre, no un simple ticket, y que el gasto esté afecto a la actividad.",
+    specialTitle:
+      "Casos que confunden: recargo, exenciones y operaciones fuera de España",
+    special:
+      "Hay tres situaciones que generan casi todas las dudas. La primera es el recargo de equivalencia, obligatorio para los comerciantes minoristas que venden a particulares sin transformar el producto: su proveedor les añade un recargo en la factura y, a cambio, ellos no presentan liquidaciones de IVA. La segunda son las exenciones: la sanidad, la educación reglada, los seguros y determinadas operaciones financieras no llevan IVA, lo que no es lo mismo que aplicar un tipo del cero por ciento, porque el exento tampoco puede deducirse el IVA que soporta. La tercera son las operaciones con otros países: en las ventas de servicios a empresas de la Unión Europea se aplica la inversión del sujeto pasivo y la factura sale sin IVA, siempre que ambas partes estén dadas de alta en el registro de operadores intracomunitarios; las exportaciones fuera de la Unión están exentas, y las ventas a particulares de otros países tienen reglas propias según el volumen.",
+    q6:
+      "¿Qué es el recargo de equivalencia y a quién le afecta?",
+    a6:
+      "Es un régimen especial de IVA pensado para el comercio minorista que vende a consumidores finales sin transformar lo que compra: una tienda de ropa, un quiosco, una ferretería. Funciona al revés de lo habitual. El proveedor añade en su factura, además del IVA que corresponda, un recargo adicional cuyo porcentaje depende del tipo aplicable. A cambio, el minorista no presenta el modelo 303 ni liquida IVA trimestralmente, porque se entiende que ya lo ha pagado de golpe al comprar la mercancía. La contrapartida es que tampoco puede deducirse el IVA de sus gastos, ni siquiera el de las inversiones. Es obligatorio, no opcional, para quienes cumplen los requisitos, y no se aplica a quienes fabrican, transforman o venden principalmente a otras empresas.",
+    q7:
+      "¿Cuándo una factura no lleva IVA?",
+    a7:
+      "Hay varios motivos y conviene distinguirlos, porque se indican de forma distinta en la factura. Primero, las operaciones exentas por su naturaleza: asistencia sanitaria, educación reglada, seguros, alquiler de vivienda o determinadas operaciones financieras. Segundo, las operaciones en las que el impuesto lo declara el destinatario y no el emisor, lo que se conoce como inversión del sujeto pasivo, habitual en servicios prestados a empresas de otros países de la Unión Europea y en ciertos sectores como la construcción y la chatarra. Tercero, las exportaciones fuera de la Unión Europea, que están exentas. Y cuarto, las ventas de bienes a empresas de otros países de la Unión dadas de alta en el registro de operadores intracomunitarios. En todos los casos la factura debe mencionar el motivo y el artículo aplicable; una factura sin IVA y sin explicación es una factura mal emitida.",
     workedTitle: "Ejemplo resuelto",
     worked: "Para añadir el IVA general a una base de 250 €, se multiplica por 1,21: 250 × 1,21 = 302,50 €, de los cuales 52,50 € son IVA. La operación inversa, extraer el IVA de un precio final de 302,50 €, exige dividir y no restar: 302,50 / 1,21 = 250 € de base imponible, y la diferencia de 52,50 € es la cuota. Si restaras directamente el 21 % de 302,50 € obtendrías 238,98 €, un resultado incorrecto que subestima la base en más de once euros.",
     tableTitle: "Tipos de IVA vigentes en España",
@@ -112,6 +128,22 @@ const T = {
     a5: "It is a mechanism whereby the obligation to declare VAT shifts from the seller to the buyer, so the invoice is issued without VAT and the recipient self-assesses it. It applies in specific cases: construction work between businesses, supplies of certain materials such as scrap or metals, intra-Community transactions between businesses with a valid VAT number, and some property transfers. The invoice must expressly state 'reverse charge' to justify the absence of output VAT.",
     deepTitle: "Spanish VAT rates and what each one covers",
     deep: "Spain applies three tax rates. The standard 21% rate is the default for most goods and services: electronics, clothing, vehicles, alcoholic drinks, professional services or utilities. The reduced 10% rate covers food in general, passenger transport, hospitality and catering, tickets to cultural and sporting events, and certain home renovation work. The super-reduced 4% rate is reserved for basic necessities: ordinary bread, milk, eggs, fruit, vegetables, cereals, cheese, books, newspapers, medicines for human use, prostheses and vehicles for people with reduced mobility.",
+    quarterTitle:
+      "Quarterly VAT: how form 303 works",
+    quarter:
+      "For a self-employed worker or a company, VAT is neither income nor expense: it is money collected on behalf of the tax agency and settled every three months through form 303. The mechanics consist of subtracting input VAT — what you paid on expense invoices linked to your activity — from output VAT, what you charged on the invoices you issued. If the difference is positive, you pay it; if negative, it is carried forward to following quarters, and only in the last return of the year can a refund be requested, unless you are on the monthly regime. The usual deadlines are the first twenty days of April, July and October, and 30 January for the fourth quarter; if you pay by direct debit, the deadline ends a few days earlier. For input VAT to be deductible you need a full invoice in your name, not a simple receipt, and the expense must relate to the activity.",
+    specialTitle:
+      "Confusing cases: equivalence surcharge, exemptions and cross-border operations",
+    special:
+      "Three situations generate nearly all the questions. The first is the equivalence surcharge, compulsory for retailers selling to consumers without transforming the product: their supplier adds a surcharge to the invoice and, in exchange, they file no VAT returns. The second is exemptions: healthcare, regulated education, insurance and certain financial operations carry no VAT, which is not the same as applying a zero rate, because an exempt business cannot deduct the VAT it bears either. The third is cross-border operations: sales of services to companies in the European Union apply the reverse charge and the invoice is issued without VAT, provided both parties are registered as intra-community operators; exports outside the Union are exempt, and sales to consumers in other countries have their own rules depending on volume.",
+    q6:
+      "What is the equivalence surcharge and who does it affect?",
+    a6:
+      "It is a special VAT regime designed for retailers selling to final consumers without transforming what they buy: a clothes shop, a newsstand, a hardware store. It works the other way round from the usual system. The supplier adds to its invoice, on top of the applicable VAT, an additional surcharge whose percentage depends on the rate applied. In exchange, the retailer files no quarterly VAT return, because the tax is deemed to have been paid up front when buying the goods. The trade-off is that they cannot deduct the VAT on their expenses either, not even on investments. It is compulsory, not optional, for those who meet the requirements, and does not apply to businesses that manufacture, transform or sell mainly to other companies.",
+    q7:
+      "When does an invoice carry no VAT?",
+    a7:
+      "There are several reasons and it is worth telling them apart, because they are stated differently on the invoice. First, operations exempt by their nature: healthcare, regulated education, insurance, residential rentals or certain financial operations. Second, operations where the tax is declared by the recipient rather than the issuer, known as the reverse charge, common in services provided to companies in other European Union countries and in sectors such as construction and scrap metal. Third, exports outside the European Union, which are exempt. And fourth, sales of goods to companies in other Union countries registered as intra-community operators. In every case the invoice must state the reason and the applicable article; an invoice without VAT and without an explanation is an incorrectly issued invoice.",
     workedTitle: "Worked example",
     worked: "To add standard VAT to a base of €250, multiply by 1.21: 250 × 1.21 = €302.50, of which €52.50 is VAT. The inverse operation, extracting VAT from a final price of €302.50, requires dividing rather than subtracting: 302.50 / 1.21 = €250 taxable base, and the €52.50 difference is the VAT. If you simply subtracted 21% from €302.50 you would get €238.98, an incorrect result that underestimates the base by more than eleven euros.",
     tableTitle: "VAT rates in force in Spain",
@@ -358,6 +390,10 @@ export default function Iva() {
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>
         <p>{t.interpret}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.quarterTitle}</h2>
+        <p>{t.quarter}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.specialTitle}</h2>
+        <p>{t.special}</p>
       </section>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
@@ -384,6 +420,14 @@ export default function Iva() {
           <AccordionItem value="q5">
             <AccordionTrigger>{t.q5}</AccordionTrigger>
             <AccordionContent>{t.a5}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q6">
+            <AccordionTrigger>{t.q6}</AccordionTrigger>
+            <AccordionContent>{t.a6}</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="q7">
+            <AccordionTrigger>{t.q7}</AccordionTrigger>
+            <AccordionContent>{t.a7}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>

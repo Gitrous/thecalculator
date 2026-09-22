@@ -11,6 +11,25 @@ interface Entry {
  * to the site — do not add entries for work that has not shipped. */
 const ENTRIES: Entry[] = [
   {
+    date: "2026-09-22",
+    es: [
+      "Se amplió el contenido de las treinta calculadoras. Las diez principales (IRPF, salario neto, paro, finiquito, autónomos, pensión, hipoteca, amortización anticipada, IVA e interés compuesto) incorporan un segundo ejemplo resuelto con cifras, tablas de datos, los límites de cada cálculo, los casos particulares que más dudas generan y dos preguntas frecuentes adicionales.",
+      "Las calculadoras de matemáticas, física, conversión de unidades, nota media y letra del DNI pasaron de ser una herramienta con una explicación breve a incluir ejercicios resueltos paso a paso, errores habituales y el contexto de cada método.",
+      "El blog se reorganizó: los veintinueve artículos, muchos de ellos breves y solapados entre sí, se fusionaron en quince guías más extensas. Las direcciones de los artículos absorbidos redirigen a la guía que ahora los contiene, de modo que ningún enlace anterior queda roto.",
+      "Las calculadoras en inglés pasaron a tener la dirección traducida (por ejemplo, /en/calculators/finance/net-salary en lugar del identificador en español). Las direcciones anteriores redirigen a las nuevas.",
+      "Se retiraron los anuncios de las portadas de categoría, que son páginas de navegación y no de contenido.",
+      "Se corrigió el enlace entre el artículo sobre la letra del DNI y su calculadora, que no aparecía por estar registrado en una categoría equivocada.",
+    ],
+    en: [
+      "The content of all thirty calculators was expanded. The ten main ones (income tax, net salary, unemployment benefit, final settlement, self-employed contributions, pension, mortgage, early repayment, VAT and compound interest) now include a second worked example with figures, data tables, the limits of each calculation, the particular cases that cause most confusion, and two additional frequently asked questions.",
+      "The maths, physics, unit conversion, grade average and DNI letter calculators went from being a tool with a short explanation to including step-by-step solved exercises, common mistakes and the context of each method.",
+      "The blog was reorganised: the twenty-nine articles, many of them short and overlapping, were merged into fifteen longer guides. The addresses of the absorbed articles redirect to the guide that now contains them, so no previous link is broken.",
+      "The English calculators now have translated addresses (for example, /en/calculators/finance/net-salary instead of the Spanish identifier). The previous addresses redirect to the new ones.",
+      "Ads were removed from the category landing pages, which are navigation rather than content.",
+      "The link between the DNI letter article and its calculator was fixed; it was missing because the article was registered under the wrong category.",
+    ],
+  },
+  {
     date: "2026-09-06",
     es: [
       "Se publicó esta página de historial de cambios, para que cada revisión quede registrada con su fecha y su alcance.",

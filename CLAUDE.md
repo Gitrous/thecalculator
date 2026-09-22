@@ -176,6 +176,28 @@ Comprobar tras desplegar (`%{http_code}` debe ser 301 en ambas):
 curl -s -o /dev/null -w "%{http_code} -> %{redirect_url}\n" https://thecalculator.tech/en/calculators/work/paro/
 ```
 
+## Blog: guías fusionadas (estructura actual)
+
+Los 29 artículos cortos se fusionaron en 15 guías más largas. Cómo está montado,
+porque no es evidente leyendo el código:
+
+- Cada guía es el artículo **primario** que sobrevivió, con su slug original
+  intacto (para no perder posicionamiento). Los cuerpos de los artículos
+  absorbidos se copiaron dentro de `ARTICLE_BODIES[primario]` en
+  `src/lib/article-bodies.ts`, precedidos de un `h2` que hace de puente.
+- Los absorbidos se borraron de `ARTICLES` y sus URLs (ES y EN, con y sin barra)
+  redirigen con 301 en `public/_redirects`.
+- Las fuentes (`ARTICLE_SOURCES`) de los absorbidos se fusionaron en las del
+  primario, sin duplicados.
+- Una calculadora cuya guía fue absorbida perdería su bloque «Guía relacionada»,
+  así que existe el campo opcional `alsoCalcs` en `Article`: lista de
+  `"categoria/slug"` a los que esa guía también corresponde. `calculator-page.tsx`
+  lo consulta además de `relatedCalcSlug`.
+
+Al fusionar o retirar un artículo hay que tocar **cinco** sitios: `articles.ts`,
+`article-bodies.ts`, `public/sitemap.xml`, `public/_redirects` y, si procede,
+`alsoCalcs`. Las rutas del prerender salen solas de `ARTICLES` (`routes.ts`).
+
 ## Analítica (Cloudflare Web Analytics)
 
 La medición la **inyecta Cloudflare en el borde** (RUM en modo `Enable` en el
