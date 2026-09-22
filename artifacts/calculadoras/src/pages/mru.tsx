@@ -442,6 +442,8 @@ export default function MRU() {
         <p>{tr.interpret}</p>
       </section>
 
+      <p className="text-xs text-muted-foreground italic mt-8 mb-2">{tr.disclaimer}</p>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">

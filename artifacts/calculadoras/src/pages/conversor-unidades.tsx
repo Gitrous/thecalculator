@@ -413,6 +413,8 @@ export default function ConversorUnidades() {
         </table>
       </div>
 
+      <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
+
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
 
       <section className="mt-10">

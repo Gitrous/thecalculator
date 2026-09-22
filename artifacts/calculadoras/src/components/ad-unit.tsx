@@ -27,8 +27,8 @@ export function AdUnit({ slot, className }: AdUnitProps) {
     }
   }, []);
 
-  // Don't render anything until AdSense approves the account.
-  // The <ins> element is harmless when slot is a placeholder.
+  // The <ins> stays in the markup always: AdSense fills it once the account is
+  // approved and the slot exists, and leaves it collapsed otherwise.
   return (
     <div className={className}>
       <ins
