@@ -141,6 +141,23 @@ for f in blog/*/index.html; do grep -q 'Abrir calculadora' $f || echo "SIN CTA $
 for f in calculadoras/*/*/index.html; do grep -q 'Guía' $f || echo "SIN GUÍA $f"; done  # solo reforma-hogar
 ```
 
+## URLs en inglés (`enSlug`)
+
+Las calculadoras tienen **dos slugs**: `slug` (español, p. ej. `salario-neto`) y
+`enSlug` (inglés, `net-salary`), ambos en `src/lib/calculators.ts`. La URL
+inglesa usa `enSlug`, pero **todo el código sigue indexado por el slug
+español**: `REGISTRY` y el JSON-LD de FAQ en `calculator-page.tsx`, `RELATED`
+en `calculators.ts`, `relatedCalcSlug` en `articles.ts` y la clave de
+`localStorage`. Por eso en `/en/` la calculadora se resuelve con
+`getCalculatorByEnSlug()` y a partir de ahí se usa `calc.slug`, nunca el
+`slug` de la URL. Si en el futuro se usa el de la URL, la página inglesa da 404
+o pierde la FAQ sin error visible.
+
+Al añadir una calculadora: `enSlug` en `calculators.ts`, entrada en
+`public/sitemap.xml` y, si se renombra un `enSlug`, un `301` en
+`public/_redirects` **antes** del fallback SPA (`/*  /index.html  200`), que al
+ser comodín captura todo lo que vaya después.
+
 ## Analítica (Cloudflare Web Analytics)
 
 La medición la **inyecta Cloudflare en el borde** (RUM en modo `Enable` en el

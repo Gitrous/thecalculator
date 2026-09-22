@@ -56,6 +56,9 @@ export interface Category {
 export interface CalculatorMeta {
   /** URL slug within the category, e.g. "hipoteca". */
   slug: string;
+  /** URL slug used in the English version, e.g. "mortgage". The Spanish slug
+   * stays the id everywhere in code (RELATED, REGISTRY, FAQ keys). */
+  enSlug: string;
   category: CategoryId;
   /** Card title shown on the home and category pages. */
   title: string;
@@ -138,6 +141,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Finanzas ──────────────────────────────────────────────────────────────
   {
     slug: "hipoteca",
+    enSlug: "mortgage",
     category: "finanzas",
     title: "Calculadora de Hipoteca",
     description:
@@ -157,6 +161,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "prestamo-personal",
+    enSlug: "personal-loan",
     category: "finanzas",
     title: "Calculadora de Préstamo Personal",
     description:
@@ -175,6 +180,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "porcentajes",
+    enSlug: "percentage",
     category: "finanzas",
     title: "Calculadora de Porcentajes",
     description:
@@ -193,6 +199,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "iva",
+    enSlug: "vat",
     category: "finanzas",
     title: "Calculadora de IVA",
     description:
@@ -212,6 +219,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "irpf",
+    enSlug: "income-tax",
     category: "finanzas",
     title: "Calculadora IRPF",
     description:
@@ -231,6 +239,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "interes-compuesto",
+    enSlug: "compound-interest",
     category: "finanzas",
     title: "Interés Compuesto",
     description:
@@ -249,6 +258,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "salario-neto",
+    enSlug: "net-salary",
     category: "finanzas",
     title: "Calculadora de Salario Neto",
     description:
@@ -268,6 +278,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "alquiler-vs-compra",
+    enSlug: "rent-vs-buy",
     category: "finanzas",
     title: "Alquiler vs Compra",
     description:
@@ -289,6 +300,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Hogar ─────────────────────────────────────────────────────────────────
   {
     slug: "gasto-coche",
+    enSlug: "car-costs",
     category: "hogar",
     title: "Calculadora de Gasto de Coche",
     description:
@@ -308,6 +320,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "consumo-electrico",
+    enSlug: "electricity-cost",
     category: "hogar",
     title: "Calculadora de Consumo Eléctrico",
     description:
@@ -328,6 +341,7 @@ export const CALCULATORS: CalculatorMeta[] = [
 
   {
     slug: "reforma-hogar",
+    enSlug: "home-renovation",
     category: "hogar",
     title: "Presupuesto de Reforma del Hogar",
     description:
@@ -349,6 +363,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Trabajo ───────────────────────────────────────────────────────────────
   {
     slug: "finiquito",
+    enSlug: "final-settlement",
     category: "trabajo",
     title: "Calculadora de Finiquito",
     description:
@@ -368,6 +383,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "letra-dni",
+    enSlug: "dni-letter",
     category: "trabajo",
     title: "Calculadora Letra del DNI",
     description:
@@ -387,6 +403,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "autonomos",
+    enSlug: "freelancer-tax",
     category: "trabajo",
     title: "Calculadora Cuota Autónomos",
     description:
@@ -406,6 +423,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "dias-entre-fechas",
+    enSlug: "days-between-dates",
     category: "trabajo",
     title: "Calculadora de Días entre Fechas",
     description:
@@ -424,6 +442,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "horas-trabajadas",
+    enSlug: "work-hours",
     category: "trabajo",
     title: "Calculadora de Horas Trabajadas",
     description:
@@ -445,6 +464,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Educación ─────────────────────────────────────────────────────────────
   {
     slug: "pitagoras",
+    enSlug: "pythagorean-theorem",
     category: "educacion",
     title: "Calculadora de Pitágoras",
     description:
@@ -463,6 +483,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "regla-de-tres",
+    enSlug: "rule-of-three",
     category: "educacion",
     title: "Calculadora Regla de Tres",
     description:
@@ -481,6 +502,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "nota-media",
+    enSlug: "grade-average",
     category: "educacion",
     title: "Calculadora de Nota Media",
     description:
@@ -500,6 +522,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "mru",
+    enSlug: "uniform-motion",
     category: "educacion",
     title: "Calculadora MRU",
     description:
@@ -518,6 +541,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "mrua",
+    enSlug: "accelerated-motion",
     category: "educacion",
     title: "Calculadora MRUA",
     description:
@@ -536,6 +560,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "conversor-unidades",
+    enSlug: "unit-converter",
     category: "educacion",
     title: "Conversor de Unidades",
     description:
@@ -556,6 +581,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Salud ─────────────────────────────────────────────────────────────────
   {
     slug: "imc",
+    enSlug: "bmi",
     category: "salud",
     title: "Calculadora de IMC",
     description:
@@ -574,6 +600,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "calorias",
+    enSlug: "calories-bmr",
     category: "salud",
     title: "Calculadora de Calorías y TMB",
     description:
@@ -593,6 +620,7 @@ export const CALCULATORS: CalculatorMeta[] = [
 
   {
     slug: "frecuencia-cardiaca",
+    enSlug: "max-heart-rate",
     category: "salud",
     title: "Calculadora de Frecuencia Cardíaca Máxima",
     description: "Calcula tu FCmáx y tus cinco zonas de entrenamiento para optimizar tus sesiones de ejercicio.",
@@ -609,6 +637,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "agua-diaria",
+    enSlug: "daily-water-intake",
     category: "salud",
     title: "Calculadora de Agua Diaria",
     description: "Descubre cuánta agua debes beber al día según tu peso, nivel de actividad física y el clima.",
@@ -627,6 +656,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Finanzas (nuevas) ─────────────────────────────────────────────────────
   {
     slug: "amortizacion-anticipada",
+    enSlug: "early-mortgage-repayment",
     category: "finanzas",
     title: "Calculadora de Amortización Anticipada de Hipoteca",
     description:
@@ -645,6 +675,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "tae",
+    enSlug: "apr-vs-nominal-rate",
     category: "finanzas",
     title: "Calculadora TAE / TIN",
     description:
@@ -665,6 +696,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   // ── Trabajo (nuevas) ──────────────────────────────────────────────────────
   {
     slug: "paro",
+    enSlug: "unemployment-benefit",
     category: "trabajo",
     title: "Calculadora de Paro (Prestación por Desempleo)",
     description:
@@ -684,6 +716,7 @@ export const CALCULATORS: CalculatorMeta[] = [
   },
   {
     slug: "pension",
+    enSlug: "retirement-pension",
     category: "trabajo",
     title: "Calculadora de Pensión de Jubilación",
     description:
@@ -762,6 +795,14 @@ export function getCalculator(
   return CALCULATORS.find((c) => c.category === category && c.slug === slug);
 }
 
+/** Resolve a calculator from an English URL, e.g. "finance" + "mortgage". */
+export function getCalculatorByEnSlug(
+  category: string,
+  enSlug: string,
+): CalculatorMeta | undefined {
+  return CALCULATORS.find((c) => c.category === category && c.enSlug === enSlug);
+}
+
 /** Canonical site path for a calculator, e.g. "/calculadoras/finanzas/hipoteca". */
 export function calcPath(c: CalculatorMeta): string {
   return `/calculadoras/${c.category}/${c.slug}`;
@@ -784,7 +825,7 @@ export const EN_TO_ES_CATEGORY: Record<string, CategoryId> = {
 };
 
 export function enCalcPath(c: CalculatorMeta): string {
-  return `/en/calculators/${EN_CATEGORY_SLUGS[c.category]}/${c.slug}`;
+  return `/en/calculators/${EN_CATEGORY_SLUGS[c.category]}/${c.enSlug}`;
 }
 
 /** Static legal pages: equivalent path in the other locale. */
@@ -809,7 +850,11 @@ export function localeSwitchPath(location: string, currentlyEn: boolean): string
     if (m) {
       const [, enCat, slug] = m;
       const esCat = EN_TO_ES_CATEGORY[enCat];
-      if (esCat) return slug ? `/calculadoras/${esCat}/${slug}` : `/calculadoras/${esCat}`;
+      if (esCat) {
+        if (!slug) return `/calculadoras/${esCat}`;
+        const c = getCalculatorByEnSlug(esCat, slug);
+        return c ? calcPath(c) : `/calculadoras/${esCat}`;
+      }
     }
     return "/";
   }
@@ -818,7 +863,11 @@ export function localeSwitchPath(location: string, currentlyEn: boolean): string
   if (m) {
     const [, esCat, slug] = m;
     const enCat = EN_CATEGORY_SLUGS[esCat as CategoryId];
-    if (enCat) return slug ? `/en/calculators/${enCat}/${slug}` : `/en/calculators/${enCat}`;
+    if (enCat) {
+      if (!slug) return `/en/calculators/${enCat}`;
+      const c = getCalculator(esCat, slug);
+      return c ? enCalcPath(c) : `/en/calculators/${enCat}`;
+    }
   }
   return "/en";
 }

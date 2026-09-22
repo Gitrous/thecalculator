@@ -419,21 +419,21 @@ export default function Imc() {
             <div className="space-y-1">
               {[
                 {
-                  href: isEn ? "/en/calculators/health/calorias" : "/calculadoras/salud/calorias",
+                  href: isEn ? "/en/calculators/health/calories-bmr" : "/calculadoras/salud/calorias",
                   icon: <Zap className="w-4 h-4 text-amber-500" />,
                   bg: "bg-amber-100 dark:bg-amber-900/30",
                   label: isEn ? "Calories & BMR" : "Calorías y TMB",
                   sub: isEn ? "Calculate your energy expenditure" : "Calcula tu gasto energético",
                 },
                 {
-                  href: isEn ? "/en/calculators/health/agua-diaria" : "/calculadoras/salud/agua-diaria",
+                  href: isEn ? "/en/calculators/health/daily-water-intake" : "/calculadoras/salud/agua-diaria",
                   icon: <Activity className="w-4 h-4 text-blue-500" />,
                   bg: "bg-blue-100 dark:bg-blue-900/30",
                   label: isEn ? "Daily Water" : "Agua Diaria",
                   sub: isEn ? "Recommended hydration" : "Hidratación recomendada",
                 },
                 {
-                  href: isEn ? "/en/calculators/health/frecuencia-cardiaca" : "/calculadoras/salud/frecuencia-cardiaca",
+                  href: isEn ? "/en/calculators/health/max-heart-rate" : "/calculadoras/salud/frecuencia-cardiaca",
                   icon: <Heart className="w-4 h-4 text-rose-500" />,
                   bg: "bg-rose-100 dark:bg-rose-900/30",
                   label: isEn ? "Heart Rate" : "Frecuencia Cardíaca",

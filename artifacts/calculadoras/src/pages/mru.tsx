@@ -473,7 +473,7 @@ export default function MRU() {
       <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
         {isEn ? "Related calculator: " : "Calculadora relacionada: "}
         <Link
-          href={isEn ? "/en/calculators/education/mrua" : "/calculadoras/educacion/mrua"}
+          href={isEn ? "/en/calculators/education/accelerated-motion" : "/calculadoras/educacion/mrua"}
           className="text-primary underline"
         >
           {isEn ? "Uniformly accelerated motion (MRUA)" : "MRUA (movimiento con aceleración)"}

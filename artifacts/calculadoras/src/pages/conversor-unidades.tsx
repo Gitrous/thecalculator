@@ -448,7 +448,7 @@ export default function ConversorUnidades() {
       <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
         {locale === "en" ? "Related calculator: " : "Calculadora relacionada: "}
         <Link
-          href={locale === "en" ? "/en/calculators/education/pitagoras" : "/calculadoras/educacion/pitagoras"}
+          href={locale === "en" ? "/en/calculators/education/pythagorean-theorem" : "/calculadoras/educacion/pitagoras"}
           className="text-primary underline"
         >
           {locale === "en" ? "Pythagorean theorem" : "Teorema de Pitágoras"}

@@ -4,6 +4,7 @@ import type { ComponentType } from "react";
 import { ChevronRight, ArrowRight, MapPin, BookOpen } from "lucide-react";
 import {
   getCalculator,
+  getCalculatorByEnSlug,
   getCategory,
   getRelatedCalculators,
   type CategoryId,
@@ -103,14 +104,16 @@ export default function CalculatorPage() {
     ? (EN_TO_ES_CATEGORY[categoria] ?? categoria)
     : categoria;
 
-  const calc = getCalculator(categoryId, slug);
+  // English URLs carry the English slug (…/finance/mortgage), Spanish ones
+  // the Spanish slug, but the rest of the code keys off the Spanish slug.
+  const calc = isEn ? getCalculatorByEnSlug(categoryId, slug) : getCalculator(categoryId, slug);
   const category = getCategory(categoryId);
-  const Component = REGISTRY[`${categoryId}/${slug}`];
+  const Component = calc ? REGISTRY[`${categoryId}/${calc.slug}`] : undefined;
 
   useEffect(() => {
     if (!calc) return;
     try {
-      const key = `${categoryId}/${slug}`;
+      const key = `${categoryId}/${calc.slug}`;
       const current: string[] = JSON.parse(localStorage.getItem("calc_recent") ?? "[]");
       const updated = [key, ...current.filter((k) => k !== key)].slice(0, 5);
       localStorage.setItem("calc_recent", JSON.stringify(updated));
@@ -142,7 +145,7 @@ export default function CalculatorPage() {
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   };
-  const faqNode = getFaqJsonLd(`${categoryId}/${slug}`, isEn ? "en" : "es");
+  const faqNode = getFaqJsonLd(`${categoryId}/${calc.slug}`, isEn ? "en" : "es");
   const breadcrumb = {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -212,7 +215,7 @@ export default function CalculatorPage() {
       {/* Guides written for this calculator */}
       {(() => {
         const guides = ARTICLES.filter(
-          (a) => a.relatedCalcCategory === categoryId && a.relatedCalcSlug === slug,
+          (a) => a.relatedCalcCategory === categoryId && a.relatedCalcSlug === calc.slug,
         );
         if (guides.length === 0) return null;
         return (

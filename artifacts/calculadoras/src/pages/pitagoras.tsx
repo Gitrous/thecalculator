@@ -653,7 +653,7 @@ export default function Pitagoras() {
       <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
         {locale === "en" ? "Related calculator: " : "Calculadora relacionada: "}
         <Link
-          href={locale === "en" ? "/en/calculators/education/conversor-unidades" : "/calculadoras/educacion/conversor-unidades"}
+          href={locale === "en" ? "/en/calculators/education/unit-converter" : "/calculadoras/educacion/conversor-unidades"}
           className="text-primary underline"
         >
           {locale === "en" ? "Unit converter" : "Conversor de unidades"}
