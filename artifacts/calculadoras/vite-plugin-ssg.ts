@@ -86,6 +86,32 @@ function applyHead(template: string, head: HeadData): string {
   return html;
 }
 
+/** One entry of Vite's build manifest (only the fields used here). */
+interface ManifestChunk {
+  file: string;
+  imports?: string[];
+}
+
+/** Every JS file a module needs: its own chunk plus its static imports,
+ * recursively. Dynamic imports are left out on purpose: they load later. */
+function chunkFiles(manifest: Record<string, ManifestChunk>, key: string, seen = new Set<string>()): string[] {
+  if (seen.has(key)) return [];
+  seen.add(key);
+  const entry = manifest[key];
+  if (!entry) return [];
+  return [entry.file, ...(entry.imports ?? []).flatMap((k) => chunkFiles(manifest, k, seen))];
+}
+
+/** Add <link rel="modulepreload"> for the route's on-demand chunks, skipping
+ * any the template already references. */
+function addModulePreloads(html: string, files: string[]): string {
+  const links = [...new Set(files)]
+    .filter((f) => !html.includes(`/${f}"`))
+    .map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`);
+  if (links.length === 0) return html;
+  return html.replace("</head>", `    ${links.join("\n    ")}\n  </head>`);
+}
+
 /** Map a route to the static file path it should be written to. */
 function outFileForRoute(route: string): string {
   if (route === "/") return path.join(CLIENT_OUT, "index.html");
@@ -134,10 +160,11 @@ export function ssgPlugin(): Plugin {
 
         // 2. Load the server render() and the route list from the bundle.
         const serverEntry = pathToFileURL(path.join(SERVER_OUT, "entry-server.js")).href;
-        const { render, getAllRoutes, preloadRoutes } = (await import(serverEntry)) as {
+        const { render, getAllRoutes, preloadRoutes, routeModules } = (await import(serverEntry)) as {
           render: (url: string) => { html: string; head: HeadData | null };
           getAllRoutes: () => string[];
           preloadRoutes: () => Promise<void>;
+          routeModules: (url: string) => string[];
         };
 
         // Resolve on-demand chunks up front: render() is synchronous, so a
@@ -145,6 +172,11 @@ export function ssgPlugin(): Plugin {
         await preloadRoutes();
 
         const template = await fs.readFile(path.join(CLIENT_OUT, "index.html"), "utf8");
+
+        // Vite's manifest maps source modules to their hashed chunks. It is
+        // only needed here, so it is removed afterwards and never published.
+        const manifestPath = path.join(CLIENT_OUT, ".vite", "manifest.json");
+        const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8")) as Record<string, ManifestChunk>;
         const routes = getAllRoutes();
 
         let ok = 0;
@@ -154,6 +186,7 @@ export function ssgPlugin(): Plugin {
             const { html, head } = render(route);
             let page = template;
             if (head) page = applyHead(page, head);
+            page = addModulePreloads(page, routeModules(route).flatMap((m) => chunkFiles(manifest, m)));
             page = page.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
 
             const outFile = outFileForRoute(route);
@@ -166,8 +199,9 @@ export function ssgPlugin(): Plugin {
           }
         }
 
-        // 3. Clean up the server bundle (not part of the published output).
+        // 3. Clean up the server bundle and the manifest (not part of the published output).
         await fs.rm(SERVER_OUT, { recursive: true, force: true });
+        await fs.rm(path.join(CLIENT_OUT, ".vite"), { recursive: true, force: true });
 
         console.log(`\n[ssg] prerendered ${ok} routes${failed ? `, ${failed} failed (SPA fallback)` : ""}.`);
       } finally {

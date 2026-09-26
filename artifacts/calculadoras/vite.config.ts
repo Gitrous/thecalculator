@@ -52,12 +52,17 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Read by vite-plugin-ssg.ts to add per-route modulepreload links, then
+    // deleted so it is not published.
+    manifest: true,
     rollupOptions: {
       output: {
         manualChunks: {
           "vendor-react": ["react", "react-dom", "wouter"],
           "vendor-state": ["@tanstack/react-query"],
-          "vendor-ui": ["lucide-react", "recharts", "date-fns"],
+          // recharts and date-fns are left out on purpose: only some
+          // calculators use them, and a manual chunk is preloaded on every page.
+          "vendor-ui": ["lucide-react"],
         },
       },
     },

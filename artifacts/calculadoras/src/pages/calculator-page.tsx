@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "wouter";
-import type { ComponentType } from "react";
 import { ChevronRight, ArrowRight, MapPin, BookOpen } from "lucide-react";
 import {
   getCalculator,
@@ -20,37 +19,7 @@ import { Seo } from "@/components/seo";
 import { getFaqJsonLd } from "@/lib/faq-schema";
 import NotFound from "@/pages/not-found";
 import { useLocale } from "@/lib/locale";
-
-import HipotecaAvanzada from "@/pages/hipoteca-avanzada";
-import PrestamoPersonal from "@/pages/prestamo-personal";
-import Porcentajes from "@/pages/porcentajes";
-import Iva from "@/pages/iva";
-import IRPF from "@/pages/irpf";
-import InteresCompuesto from "@/pages/interes-compuesto";
-import SalarioNeto from "@/pages/salario-neto";
-import AlquilerVsCompra from "@/pages/alquiler-vs-compra";
-import GastoCoche from "@/pages/gasto-coche";
-import ConsumoElectrico from "@/pages/consumo-electrico";
-import Finiquito from "@/pages/finiquito";
-import LetraDni from "@/pages/letra-dni";
-import Autonomos from "@/pages/autonomos";
-import DiasEntreFechas from "@/pages/dias-entre-fechas";
-import HorasTrabajadas from "@/pages/horas-trabajadas";
-import ReglaDeTres from "@/pages/regla-de-tres";
-import NotaMedia from "@/pages/nota-media";
-import MRU from "@/pages/mru";
-import MRUA from "@/pages/mrua";
-import ConversorUnidades from "@/pages/conversor-unidades";
-import Pitagoras from "@/pages/pitagoras";
-import Imc from "@/pages/imc";
-import Calorias from "@/pages/calorias";
-import AmortizacionAnticipada from "@/pages/amortizacion-anticipada";
-import Tae from "@/pages/tae";
-import Paro from "@/pages/paro";
-import Pension from "@/pages/pension";
-import FrecuenciaCardiaca from "@/pages/frecuencia-cardiaca";
-import AguaDiaria from "@/pages/agua-diaria";
-import ReformaHogar from "@/pages/reforma-hogar";
+import { getLoadedCalculator, hasCalculator, loadCalculator } from "@/pages/calculator-registry";
 
 const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
   finanzas: "FinanceApplication",
@@ -60,39 +29,6 @@ const CATEGORY_APP_TYPE: Record<CategoryId, string> = {
   salud: "HealthApplication",
 };
 
-/** Maps "categoria/slug" to the page component implementing the calculator. */
-const REGISTRY: Record<string, ComponentType> = {
-  "finanzas/hipoteca": HipotecaAvanzada,
-  "finanzas/prestamo-personal": PrestamoPersonal,
-  "finanzas/porcentajes": Porcentajes,
-  "finanzas/iva": Iva,
-  "finanzas/irpf": IRPF,
-  "finanzas/interes-compuesto": InteresCompuesto,
-  "finanzas/salario-neto": SalarioNeto,
-  "finanzas/alquiler-vs-compra": AlquilerVsCompra,
-  "hogar/gasto-coche": GastoCoche,
-  "hogar/consumo-electrico": ConsumoElectrico,
-  "hogar/reforma-hogar": ReformaHogar,
-  "trabajo/finiquito": Finiquito,
-  "trabajo/letra-dni": LetraDni,
-  "trabajo/autonomos": Autonomos,
-  "trabajo/dias-entre-fechas": DiasEntreFechas,
-  "trabajo/horas-trabajadas": HorasTrabajadas,
-  "educacion/pitagoras": Pitagoras,
-  "educacion/regla-de-tres": ReglaDeTres,
-  "educacion/nota-media": NotaMedia,
-  "educacion/mru": MRU,
-  "educacion/mrua": MRUA,
-  "educacion/conversor-unidades": ConversorUnidades,
-  "salud/imc": Imc,
-  "salud/calorias": Calorias,
-  "salud/frecuencia-cardiaca": FrecuenciaCardiaca,
-  "salud/agua-diaria": AguaDiaria,
-  "finanzas/amortizacion-anticipada": AmortizacionAnticipada,
-  "finanzas/tae": Tae,
-  "trabajo/paro": Paro,
-  "trabajo/pension": Pension,
-};
 
 export default function CalculatorPage() {
   const { categoria = "", slug = "" } = useParams();
@@ -108,7 +44,23 @@ export default function CalculatorPage() {
   // the Spanish slug, but the rest of the code keys off the Spanish slug.
   const calc = isEn ? getCalculatorByEnSlug(categoryId, slug) : getCalculator(categoryId, slug);
   const category = getCategory(categoryId);
-  const Component = calc ? REGISTRY[`${categoryId}/${calc.slug}`] : undefined;
+  const calcKey = calc ? `${categoryId}/${calc.slug}` : "";
+  const Component = calcKey ? getLoadedCalculator(calcKey) : undefined;
+
+  // On a landing URL the chunk was resolved before the first render (main.tsx),
+  // so this only runs for in-app navigation. Re-rendering once it arrives also
+  // rebuilds the JSON-LD, whose FAQ node needs the module to have registered.
+  const [, setLoadedKey] = useState("");
+  useEffect(() => {
+    if (!calcKey || Component) return;
+    let alive = true;
+    loadCalculator(calcKey).then(() => {
+      if (alive) setLoadedKey(calcKey);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [calcKey, Component]);
 
   useEffect(() => {
     if (!calc) return;
@@ -120,7 +72,9 @@ export default function CalculatorPage() {
     } catch {}
   }, [categoryId, slug, calc]);
 
-  if (!calc || !category || !Component) return <NotFound />;
+  if (!calc || !category || !hasCalculator(calcKey)) return <NotFound />;
+  // Chunk still on its way: keep the page height so the footer does not jump.
+  if (!Component) return <div className="max-w-5xl mx-auto min-h-screen" aria-busy="true" />;
 
   const seoTitle = isEn ? calc.enSeoTitle : calc.seoTitle;
   const seoDescription = isEn ? calc.enSeoDescription : calc.seoDescription;

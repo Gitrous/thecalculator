@@ -114,14 +114,43 @@ Si añades carga diferida (p. ej. al partir las calculadoras en chunks):
 3. `vite-plugin-ssg.ts` lo espera antes del primer render, así que el servidor
    renderiza el componente ya resuelto y el HTML sale completo.
 
-Ver `src/pages/blog-routes.tsx`, que es el patrón ya implementado para el blog.
+Hay dos implementaciones: `src/pages/blog-routes.tsx` (blog) y
+`src/pages/calculator-registry.ts` (las 30 calculadoras, cada una en su chunk).
+
+Tres trampas más que **no dan error**, todas ya resueltas; no las deshagas:
+
+- **El cliente usa `createRoot` sin hidratación**: al arrancar React sustituye el
+  HTML prerenderizado. Si el chunk de la ruta aún se está descargando, la página
+  **se queda en blanco** hasta que llega. Por eso `main.tsx` espera el chunk de
+  la URL de aterrizaje antes de montar React.
+- **La FAQ del JSON-LD la registra el propio módulo** de cada calculadora
+  (`registerFaq` al importarse). Si la página construye el JSON-LD antes de
+  cargar el chunk, sale sin FAQ. `calculator-page.tsx` vuelve a renderizar
+  cuando el chunk llega para rehacerlo.
+- **El navegador solo descubre el chunk después de ejecutar el paquete
+  principal** (espera en cadena). `vite-plugin-ssg.ts` lee el manifiesto de Vite
+  y añade a cada página `<link rel="modulepreload">` con los chunks de su ruta
+  (`routeModules()` en `entry-server.tsx`); después borra el manifiesto para que
+  no se publique. En `CALCULATOR_CHUNKS` el nombre del fichero va en la misma
+  fila que su `import()` a propósito: si se separan, la precarga apunta a otro
+  chunk sin avisar.
+
+`recharts` y `date-fns` están fuera del chunk manual `vendor-ui` a propósito: un
+chunk manual se precarga en todas las páginas, y solo algunas calculadoras los
+usan.
 
 **Verificación obligatoria** tras tocar esto: comprobar que el HTML generado
 sigue conteniendo el texto real, no solo que el build no falle. Por ejemplo:
 
 ```bash
 grep -c "Adolphe Quetelet" dist/public/blog/que-es-el-imc/index.html   # debe ser 1
+grep -c "Segundo ejemplo: 45.000" dist/public/calculadoras/finanzas/salario-neto/index.html  # debe ser 1
 ```
+
+Para medir texto por página, extrae el `<body>` completo: el `<script>` del
+módulo va en el `<head>`, así que una expresión del tipo
+`<div id="root">(.*)</div>\s*<script` no casa y da cero palabras aunque la
+página esté bien.
 
 ## Enlazado interno blog ↔ calculadoras (trampa conocida)
 
