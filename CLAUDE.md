@@ -61,7 +61,7 @@ Guía para Claude Code en este repositorio.
 
 AdSense se retiró en octubre de 2026; los anuncios son de **Monetag**.
 
-- Los códigos van en dos sitios: `MONETAG_SRC` en el `<script>` inline de
+- Los códigos van en dos sitios: `MONETAG_TAGS` en el `<script>` inline de
   `index.html` (etiqueta global: MultiTag, push, vignette…) y `AD_SLOTS` en
   `src/lib/ads.ts` (banners dentro de la página, uno por hueco). Cada valor es
   la URL `src` del script que da el panel de Monetag. **Vacío = desactivado**,
@@ -70,7 +70,7 @@ AdSense se retiró en octubre de 2026; los anuncios son de **Monetag**.
   (`localStorage["cookie-consent"] === "denied"`). Al rechazar, la página se
   recarga para quitar lo que Monetag ya inyectó. Si añades otro script de
   anuncios, respeta esa misma clave.
-- `public/sw.js` es el service worker de push de Monetag (zona 12104831). Debe
+- `public/sw.js` es el service worker de push de Monetag (zona 12105547; la misma que su etiqueta en `index.html`). Debe
   servirse en `/sw.js` (raíz): no lo muevas ni lo renombres, ni le pongas caché
   larga en `_headers`. Al rechazar, `removePushWorker()` (`src/lib/ads.ts`) y
   el script de `index.html` dan de baja el worker que termina en `/sw.js`; así

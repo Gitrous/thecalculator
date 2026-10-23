@@ -62,13 +62,19 @@
 
     <!-- Monetag: paste the site verification <meta> from the dashboard here, if it asks for one. -->
 
-    <!-- Monetag site-wide tag (MultiTag / In-Page Push / Vignette…). Set the
-         script URL from the Monetag dashboard; empty disables it. It loads for
+    <!-- Monetag site-wide tags (push, in-page push…), from the Monetag
+         dashboard (Websites → thecalculator.tech → Get tag). They load for
          everyone except visitors who rejected cookies in the banner
          (localStorage "cookie-consent" = "denied"). -->
     <script>
       (function () {
-        var MONETAG_SRC = "";
+        // Monetag zones for thecalculator.tech (site 3545485).
+        var MONETAG_TAGS = [
+          // Push Notifications (zone 12105547); needs /sw.js with the same zone.
+          { src: "https://5gvci.com/act/files/tag.min.js?z=12105547" },
+          // In-Page Push (zone 12105559).
+          { src: "https://nap5k.com/tag.min.js", zone: "12105559" },
+        ];
         var denied = false;
         try {
           denied = localStorage.getItem("cookie-consent") === "denied";
@@ -85,12 +91,14 @@
           } catch (e) {}
           return;
         }
-        if (!MONETAG_SRC) return;
-        var s = document.createElement("script");
-        s.src = MONETAG_SRC;
-        s.async = true;
-        s.setAttribute("data-cfasync", "false");
-        document.head.appendChild(s);
+        MONETAG_TAGS.forEach(function (t) {
+          var s = document.createElement("script");
+          if (t.zone) s.dataset.zone = t.zone;
+          s.src = t.src;
+          s.async = true;
+          s.setAttribute("data-cfasync", "false");
+          document.head.appendChild(s);
+        });
       })();
     </script>
 
