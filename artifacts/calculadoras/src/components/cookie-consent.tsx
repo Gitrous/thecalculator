@@ -50,10 +50,10 @@ export function CookieConsent() {
   const policyHref = isEn ? "/en/cookies" : "/cookies";
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[100] no-print flex justify-center p-4 sm:p-6">
-      <div className="w-full max-w-xl rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-xl p-4 sm:p-5">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <p className="flex-1 text-sm text-gray-600 dark:text-gray-300">
+    <div className="fixed inset-x-0 bottom-0 z-[100] no-print flex justify-center p-2 sm:p-6">
+      <div className="w-full max-w-xl rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-xl p-3 sm:p-5">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+          <p className="flex-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
             {isEn ? (
               <>
                 We use cookies, including third-party advertising cookies (Monetag), to keep
@@ -79,14 +79,14 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => decide(false)}
-              className="px-4 py-2 rounded-lg text-sm font-medium border border-gray-300 dark:border-zinc-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium border border-gray-300 dark:border-zinc-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
             >
               {isEn ? "Reject" : "Rechazar"}
             </button>
             <button
               type="button"
               onClick={() => decide(true)}
-              className="px-4 py-2 rounded-lg text-sm font-semibold bg-primary text-white hover:opacity-90 transition-opacity"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold bg-primary text-white hover:opacity-90 transition-opacity"
             >
               {isEn ? "Accept" : "Aceptar"}
             </button>
