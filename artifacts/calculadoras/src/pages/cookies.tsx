@@ -9,7 +9,7 @@ export default function Cookies() {
     return (
       <LegalPage
         title="Cookie Policy"
-        description="Information about the cookies used on Online Calculators (thecalculator.tech), including Google AdSense advertising cookies."
+        description="Information about the cookies used on Online Calculators (thecalculator.tech), including Monetag advertising cookies."
         path="/en/cookies"
         alternatePath="/cookies"
         updated="Last updated: June 16, 2026"
@@ -34,11 +34,11 @@ export default function Cookies() {
             leaves your device.
           </li>
           <li>
-            <strong>Advertising (third party)</strong> — <strong>Google AdSense</strong> and its
-            partners may set cookies to show and measure ads, including personalized advertising
-            based on your browsing. See{" "}
-            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">
-              Google's advertising technologies
+            <strong>Advertising (third party)</strong> — <strong>Monetag</strong> and its partners
+            may set cookies to show and measure ads. They are only loaded if you have not rejected
+            cookies in our banner. See 
+            <a href="https://monetag.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+              Monetag's privacy policy
             </a>
             .
           </li>
@@ -50,12 +50,9 @@ export default function Cookies() {
 
         <h2>3. Managing cookies</h2>
         <p>
-          You can accept, block or delete cookies through your browser settings. You can also opt out
-          of personalized advertising at{" "}
-          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
-            Google Ads Settings
-          </a>{" "}
-          or{" "}
+          You can accept, block or delete cookies through your browser settings, and change your
+          choice on this site at any time from the "Cookie settings" link in the footer. If you
+          reject cookies, no ads are loaded. You can also opt out of interest-based advertising at{" "}
           <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
             www.aboutads.info
           </a>
@@ -75,7 +72,7 @@ export default function Cookies() {
   return (
     <LegalPage
       title="Política de Cookies"
-      description="Información sobre las cookies utilizadas en thecalculator.tech, incluidas las cookies publicitarias de Google AdSense."
+      description="Información sobre las cookies utilizadas en thecalculator.tech, incluidas las cookies publicitarias de Monetag."
       path="/cookies"
       alternatePath="/en/cookies"
       updated="Última actualización: 16 de junio de 2026"
@@ -100,11 +97,11 @@ export default function Cookies() {
           tu dispositivo.
         </li>
         <li>
-          <strong>Publicitarias (de terceros)</strong> — <strong>Google AdSense</strong> y sus
-          colaboradores pueden instalar cookies para mostrar y medir anuncios, incluida la publicidad
-          personalizada según tu navegación. Consulta{" "}
-          <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">
-            las tecnologías publicitarias de Google
+          <strong>Publicitarias (de terceros)</strong> — <strong>Monetag</strong> y sus
+          colaboradores pueden instalar cookies para mostrar y medir anuncios. Solo se cargan si no
+          has rechazado las cookies en nuestro aviso. Consulta{" "}
+          <a href="https://monetag.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+            la política de privacidad de Monetag
           </a>
           .
         </li>
@@ -116,12 +113,10 @@ export default function Cookies() {
 
       <h2>3. Gestión de cookies</h2>
       <p>
-        Puedes aceptar, bloquear o eliminar las cookies desde la configuración de tu navegador.
-        También puedes inhabilitar la publicidad personalizada en{" "}
-        <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
-          la Configuración de anuncios de Google
-        </a>{" "}
-        o en{" "}
+        Puedes aceptar, bloquear o eliminar las cookies desde la configuración de tu navegador, y
+        cambiar tu elección en este sitio en cualquier momento desde el enlace «Configurar
+        cookies» del pie de página. Si rechazas las cookies, no se carga ningún anuncio. También
+        puedes inhabilitar la publicidad basada en intereses en{" "}
         <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
           www.aboutads.info
         </a>

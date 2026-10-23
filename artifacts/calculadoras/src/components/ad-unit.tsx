@@ -1,45 +1,30 @@
 import { useEffect, useRef } from "react";
-import { AD_CLIENT } from "@/lib/ads";
-
-declare global {
-  interface Window {
-    adsbygoogle: Record<string, unknown>[];
-  }
-}
+import { adsAllowed } from "@/lib/ads";
 
 interface AdUnitProps {
+  /** Monetag banner script URL (from AD_SLOTS). Empty renders nothing. */
   slot: string;
   className?: string;
 }
 
 export function AdUnit({ slot, className }: AdUnitProps) {
-  const ref = useRef<HTMLModElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    // Skip if this <ins> was already processed by AdSense.
-    if (el.getAttribute("data-adsbygoogle-status")) return;
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch {
-      // adsbygoogle script not yet loaded; auto-ads will handle it.
-    }
-  }, []);
+    if (!el || !slot || !adsAllowed()) return;
+    // Monetag's banner tag renders where its script sits, so it goes inside
+    // the slot. Cleared on unmount so client-side navigation doesn't stack ads.
+    const script = document.createElement("script");
+    script.src = slot;
+    script.async = true;
+    script.setAttribute("data-cfasync", "false");
+    el.appendChild(script);
+    return () => {
+      el.innerHTML = "";
+    };
+  }, [slot]);
 
-  // The <ins> stays in the markup always: AdSense fills it once the account is
-  // approved and the slot exists, and leaves it collapsed otherwise.
-  return (
-    <div className={className}>
-      <ins
-        ref={ref}
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client={AD_CLIENT}
-        data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
-    </div>
-  );
+  if (!slot) return null;
+  return <div ref={ref} className={className} />;
 }

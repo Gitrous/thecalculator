@@ -60,34 +60,39 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     </noscript>
 
-    <!-- Google Consent Mode v2: deny by default until the user decides -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        wait_for_update: 500,
-      });
-      // Re-apply a previously stored choice as early as possible.
-      try {
-        if (localStorage.getItem("cookie-consent") === "granted") {
-          gtag("consent", "update", {
-            ad_storage: "granted",
-            ad_user_data: "granted",
-            ad_personalization: "granted",
-            analytics_storage: "granted",
-          });
-        }
-      } catch (e) {}
-    </script>
+    <!-- Monetag: paste the site verification <meta> from the dashboard here, if it asks for one. -->
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1123812992313934" crossorigin="anonymous"></script>
+    <!-- Monetag site-wide tag (MultiTag / In-Page Push / Vignette…). Set the
+         script URL from the Monetag dashboard; empty disables it. It loads for
+         everyone except visitors who rejected cookies in the banner
+         (localStorage "cookie-consent" = "denied"). -->
+    <script>
+      (function () {
+        var MONETAG_SRC = "";
+        var denied = false;
+        try {
+          denied = localStorage.getItem("cookie-consent") === "denied";
+        } catch (e) {}
+        if (denied) {
+          // Stop Monetag push: unregistering /sw.js cancels its subscription.
+          try {
+            navigator.serviceWorker.getRegistrations().then(function (regs) {
+              regs.forEach(function (r) {
+                var w = r.active || r.installing || r.waiting;
+                if (w && /\/sw\.js$/.test(w.scriptURL)) r.unregister();
+              });
+            });
+          } catch (e) {}
+          return;
+        }
+        if (!MONETAG_SRC) return;
+        var s = document.createElement("script");
+        s.src = MONETAG_SRC;
+        s.async = true;
+        s.setAttribute("data-cfasync", "false");
+        document.head.appendChild(s);
+      })();
+    </script>
 
     <!-- Cloudflare Web Analytics: injected at the edge (RUM set to "Enable" in
          the dashboard), so no snippet belongs here. The manual third-party

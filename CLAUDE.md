@@ -57,10 +57,32 @@ Guía para Claude Code en este repositorio.
     bifurca con `useLocale()` / `isEn`)
   - `public/sitemap.xml` — entradas ES y EN con `hreflang` cruzados
 
-## Cumplimiento de políticas de Google AdSense (IMPORTANTE)
+## Anuncios (Monetag)
+
+AdSense se retiró en octubre de 2026; los anuncios son de **Monetag**.
+
+- Los códigos van en dos sitios: `MONETAG_SRC` en el `<script>` inline de
+  `index.html` (etiqueta global: MultiTag, push, vignette…) y `AD_SLOTS` en
+  `src/lib/ads.ts` (banners dentro de la página, uno por hueco). Cada valor es
+  la URL `src` del script que da el panel de Monetag. **Vacío = desactivado**,
+  sin hueco en blanco.
+- Carga para todos **salvo** quien pulse «Rechazar» en el banner
+  (`localStorage["cookie-consent"] === "denied"`). Al rechazar, la página se
+  recarga para quitar lo que Monetag ya inyectó. Si añades otro script de
+  anuncios, respeta esa misma clave.
+- `public/sw.js` es el service worker de push de Monetag (zona 12104831). Debe
+  servirse en `/sw.js` (raíz): no lo muevas ni lo renombres, ni le pongas caché
+  larga en `_headers`. Al rechazar, `removePushWorker()` (`src/lib/ads.ts`) y
+  el script de `index.html` dan de baja el worker que termina en `/sw.js`; así
+  se cancela la suscripción push. Si cambias el nombre del fichero, cambia
+  también esos dos filtros, o las push seguirán llegando tras rechazar.
+- Si Monetag pide verificar el sitio, la `<meta>` va donde indica el
+  comentario de `index.html`, y las líneas de `ads.txt` en `public/ads.txt`.
+
+## Calidad del contenido (IMPORTANTE)
 
 **Después de CADA cambio** (nueva calculadora, página nueva, modificación de
-contenido), revisar que se cumplen las políticas de AdSense. Si se detecta algún
+contenido), revisar que se cumplen estas pautas de contenido. Si se detecta algún
 incumplimiento, **NO corregirlo automáticamente**: informar al usuario de qué
 política se incumple, qué se haría para corregirlo, y preguntar si quiere que
 se haga.

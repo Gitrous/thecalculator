@@ -9,7 +9,7 @@ export default function Privacidad() {
     return (
       <LegalPage
         title="Privacy Policy"
-        description="How Online Calculators (thecalculator.tech) handles data, cookies and third-party advertising (Google AdSense)."
+        description="How Online Calculators (thecalculator.tech) handles data, cookies and third-party advertising (Monetag)."
         path="/en/privacy"
         alternatePath="/privacidad"
         updated="Last updated: June 16, 2026"
@@ -56,11 +56,10 @@ export default function Privacidad() {
             .
           </li>
           <li>
-            <strong>Google AdSense</strong> — serves the advertising shown on this site. Google and
-            its partners may use cookies and similar technologies to show ads based on your prior
-            visits to this and other websites. See{" "}
-            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">
-              How Google uses information from sites that use its services
+            <strong>Monetag</strong> — serves the advertising shown on this site. Monetag and its
+            partners may use cookies and similar technologies to show and measure ads. See its 
+            <a href="https://monetag.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+              privacy policy
             </a>
             .
           </li>
@@ -72,14 +71,10 @@ export default function Privacidad() {
 
         <h2>4. Advertising cookies and personalization</h2>
         <p>
-          Third-party vendors, including Google, use cookies to serve ads based on your previous
-          visits. Google's use of advertising cookies enables it and its partners to serve ads based
-          on your visit to this site and/or other sites on the Internet. You can opt out of
-          personalized advertising by visiting{" "}
-          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
-            Google Ads Settings
-          </a>{" "}
-          or{" "}
+          Third-party vendors, including Monetag, may use cookies to serve and measure ads based on
+          your visit to this site and/or other sites on the Internet. If you reject cookies in our
+          banner, no ads are loaded. You can change your choice at any time from the "Cookie
+          settings" link in the footer, and opt out of interest-based advertising at{" "}
           <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
             www.aboutads.info
           </a>
@@ -106,7 +101,7 @@ export default function Privacidad() {
   return (
     <LegalPage
       title="Política de Privacidad"
-      description="Cómo thecalculator.tech trata los datos, las cookies y la publicidad de terceros (Google AdSense)."
+      description="Cómo thecalculator.tech trata los datos, las cookies y la publicidad de terceros (Monetag)."
       path="/privacidad"
       alternatePath="/en/privacy"
       updated="Última actualización: 16 de junio de 2026"
@@ -157,11 +152,11 @@ export default function Privacidad() {
           .
         </li>
         <li>
-          <strong>Google AdSense</strong> — gestiona la publicidad mostrada en este sitio. Google y
-          sus colaboradores pueden usar cookies y tecnologías similares para mostrar anuncios basados
-          en tus visitas anteriores a este y otros sitios web. Consulta{" "}
-          <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">
-            cómo usa Google la información de los sitios que utilizan sus servicios
+          <strong>Monetag</strong> — gestiona la publicidad mostrada en este sitio. Monetag y sus
+          colaboradores pueden usar cookies y tecnologías similares para mostrar y medir anuncios.
+          Consulta su 
+          <a href="https://monetag.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+            política de privacidad
           </a>
           .
         </li>
@@ -174,14 +169,11 @@ export default function Privacidad() {
 
       <h2>4. Cookies publicitarias y personalización</h2>
       <p>
-        Proveedores externos, incluido Google, utilizan cookies para mostrar anuncios basados en tus
-        visitas anteriores. El uso de cookies publicitarias permite a Google y a sus colaboradores
-        mostrar anuncios en función de tu visita a este sitio y/o a otros sitios de Internet. Puedes
-        inhabilitar la publicidad personalizada en{" "}
-        <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
-          la Configuración de anuncios de Google
-        </a>{" "}
-        o en{" "}
+        Proveedores externos, incluido Monetag, pueden usar cookies para mostrar y medir anuncios en
+        función de tu visita a este sitio y/o a otros sitios de Internet. Si rechazas las cookies en
+        nuestro aviso, no se carga ningún anuncio. Puedes cambiar tu elección en cualquier momento
+        desde el enlace «Configurar cookies» del pie de página, e inhabilitar la publicidad
+        basada en intereses en{" "}
         <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">
           www.aboutads.info
         </a>

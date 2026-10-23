@@ -59,7 +59,7 @@ export default function AvisoLegal() {
 
         <h2>5. External links and advertising</h2>
         <p>
-          The site displays advertising through Google AdSense and may contain links to third-party
+          The site displays advertising through Monetag and may contain links to third-party
           websites. We are not responsible for the content or policies of those external sites.
         </p>
 
@@ -127,7 +127,7 @@ export default function AvisoLegal() {
 
       <h2>5. Enlaces externos y publicidad</h2>
       <p>
-        El sitio muestra publicidad a través de Google AdSense y puede contener enlaces a sitios web
+        El sitio muestra publicidad a través de Monetag y puede contener enlaces a sitios web
         de terceros. No nos hacemos responsables del contenido ni de las políticas de dichos sitios
         externos.
       </p>

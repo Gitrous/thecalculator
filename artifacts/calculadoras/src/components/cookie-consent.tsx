@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useLocale } from "@/lib/locale";
-
-const STORAGE_KEY = "cookie-consent";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+import { CONSENT_KEY as STORAGE_KEY, removePushWorker } from "@/lib/ads";
 
 /**
- * GDPR / Google Consent Mode v2 banner. Consent defaults to "denied" in
- * index.html before AdSense loads; this banner lets the user grant or reject
- * it and pushes the corresponding `consent: update` to Google. The choice is
- * persisted in localStorage and re-applied on the next visit.
+ * Cookie banner. Monetag ads load by default; rejecting stores "denied" in
+ * localStorage, which stops both the site-wide tag (index.html) and the
+ * in-page banners (AdUnit), and unregisters the push service worker (/sw.js)
+ * so notifications stop. The page reloads on reject so scripts Monetag
+ * already injected are gone too. The choice is re-applied on the next visit.
  */
 export function CookieConsent() {
   const isEn = useLocale() === "en";
@@ -33,20 +27,22 @@ export function CookieConsent() {
     return () => window.removeEventListener("cookie-consent:open", reopen);
   }, []);
 
-  function decide(granted: boolean) {
+  async function decide(granted: boolean) {
     const value = granted ? "granted" : "denied";
+    let previous: string | null = null;
     try {
+      previous = localStorage.getItem(STORAGE_KEY);
       localStorage.setItem(STORAGE_KEY, value);
     } catch {
       /* ignore storage errors (private mode, etc.) */
     }
-    window.gtag?.("consent", "update", {
-      ad_storage: value,
-      ad_user_data: value,
-      ad_personalization: value,
-      analytics_storage: value,
-    });
     setVisible(false);
+    // Ads were running (no choice yet, or accepted before): reload so they go.
+    // Going from rejected to accepted also reloads, so ads start straight away.
+    if (value === "denied") await removePushWorker();
+    if (previous !== value && (value === "denied" || previous === "denied")) {
+      window.location.reload();
+    }
   }
 
   if (!visible) return null;
@@ -60,7 +56,7 @@ export function CookieConsent() {
           <p className="flex-1 text-sm text-gray-600 dark:text-gray-300">
             {isEn ? (
               <>
-                We use cookies, including third-party advertising cookies (Google AdSense), to keep
+                We use cookies, including third-party advertising cookies (Monetag), to keep
                 this site free. You can accept or reject non-essential cookies. Read more in our{" "}
                 <Link href={policyHref} className="text-primary underline">
                   Cookie Policy
@@ -69,7 +65,7 @@ export function CookieConsent() {
               </>
             ) : (
               <>
-                Usamos cookies, incluidas las publicitarias de terceros (Google AdSense), para
+                Usamos cookies, incluidas las publicitarias de terceros (Monetag), para
                 mantener este sitio gratuito. Puedes aceptar o rechazar las cookies no esenciales. Más
                 información en nuestra{" "}
                 <Link href={policyHref} className="text-primary underline">
