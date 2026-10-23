@@ -270,7 +270,7 @@ export default function DiasEntreFechas() {
       </div>
 
       {/* ── Main two-column layout ── */}
-      <div className="flex flex-col lg:flex-row gap-5 items-start">
+      <div className="flex flex-col lg:flex-row gap-5 lg:items-start">
 
         {/* LEFT: inputs */}
         <div className="w-full lg:w-64 shrink-0 space-y-4">

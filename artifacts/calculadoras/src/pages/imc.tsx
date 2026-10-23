@@ -298,7 +298,7 @@ export default function Imc() {
       </div>
 
       {/* ── Main two-column widget ── */}
-      <div className="flex flex-col lg:flex-row gap-5 items-start">
+      <div className="flex flex-col lg:flex-row gap-5 lg:items-start">
 
         {/* LEFT column */}
         <div className="flex-1 min-w-0 space-y-4">

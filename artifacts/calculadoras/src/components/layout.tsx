@@ -79,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-[100dvh] flex flex-col mesh-bg">
       <header className="sticky top-0 z-50 w-full border-b bg-white/90 dark:bg-black/20 border-gray-200 dark:border-white/10 backdrop-blur-md no-print">
-        <div className="container mx-auto px-4 h-16 grid grid-cols-3 items-center">
+        <div className="container mx-auto px-4 h-16 grid grid-cols-[auto_1fr_auto] gap-2 items-center">
           {/* Left: logo */}
           <button
             onClick={() => navigate(homeHref)}
@@ -91,7 +91,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </button>
           {/* Center: nav */}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-3 sm:gap-6 min-w-0">
             {/* Calculadoras dropdown */}
             <div className="relative group">
               <button

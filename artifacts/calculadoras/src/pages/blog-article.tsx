@@ -340,7 +340,7 @@ export default function BlogArticle() {
       </div>
 
       {/* Two-column layout */}
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="flex flex-col lg:flex-row gap-8 lg:items-start">
         {/* ── Main content ── */}
         <div className="flex-1 min-w-0">
           {/* Hero image */}

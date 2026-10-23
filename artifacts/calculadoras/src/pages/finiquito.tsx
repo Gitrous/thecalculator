@@ -242,7 +242,7 @@ export default function Finiquito() {
       </div>
 
       {/* Two-column layout */}
-      <div className="flex flex-col lg:flex-row gap-6 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
 
         {/* ── LEFT: Form ── */}
         <div className="flex-1 min-w-0 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-6 space-y-5">

@@ -276,7 +276,7 @@ export default function GastoCoche() {
       </div>
 
       {/* ── Main layout ── */}
-      <div className="flex flex-col lg:flex-row gap-5 items-start">
+      <div className="flex flex-col lg:flex-row gap-5 lg:items-start">
 
         {/* LEFT: inputs */}
         <div className="w-full lg:w-72 shrink-0 space-y-4">

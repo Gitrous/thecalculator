@@ -236,7 +236,7 @@ export default function HipotecaAvanzada() {
         <p>{t.intro2}</p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+      <div className="flex flex-col md:flex-row gap-8 md:items-start">
         <Card className="w-full md:w-72 shrink-0">
           <CardHeader>
             <CardTitle>{t.cardTitle}</CardTitle>

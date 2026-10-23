@@ -254,7 +254,7 @@ export default function ConsumoElectrico() {
       </div>
 
       {/* Two-column layout */}
-      <div className="flex flex-col lg:flex-row gap-6 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
 
         {/* ── LEFT COLUMN ── */}
         <div className="flex-1 min-w-0 space-y-4">

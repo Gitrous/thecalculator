@@ -225,7 +225,7 @@ export default function ReformaHogar() {
         <p>{t.intro2}</p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
 
         {/* ── LEFT: item list ── */}
         <div className="flex-1 min-w-0 space-y-3">
