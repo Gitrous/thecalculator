@@ -259,10 +259,3 @@ select:focus {
   animation: page-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ── Gradient hero text ──────────────────────────────────────────────────── */
-.text-gradient {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(90deg, #60A5FA, #34D399);
-}

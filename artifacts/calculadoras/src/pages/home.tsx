@@ -50,13 +50,6 @@ const CAT_LINK: Record<string, string> = {
   educacion: "text-violet-600 hover:text-violet-800",
   salud:     "text-teal-600   hover:text-teal-800",
 };
-const CAT_BLOB: Record<string, string> = {
-  finanzas:  "bg-blue-300/40   dark:bg-blue-600/20",
-  hogar:     "bg-amber-300/40  dark:bg-amber-600/20",
-  trabajo:   "bg-indigo-300/40 dark:bg-indigo-600/20",
-  educacion: "bg-violet-300/40 dark:bg-violet-600/20",
-  salud:     "bg-teal-300/40   dark:bg-teal-600/20",
-};
 const CAT_ACCENT: Record<string, string> = {
   finanzas:  "bg-blue-500",
   hogar:     "bg-amber-500",
@@ -80,12 +73,10 @@ function CategoryFeaturedCard({ cat, isEn }: { cat: Category; isEn: boolean }) {
   const badge = CAT_BADGE[cat.id] ?? "text-gray-600 bg-gray-100";
   const link  = CAT_LINK[cat.id]  ?? "text-gray-600";
 
-  const blob = CAT_BLOB[cat.id] ?? "bg-gray-300/40";
 
   return (
     <Link href={catHref}>
       <div className={`relative h-full overflow-hidden rounded-3xl border p-6 md:p-8 shadow-sm hover:shadow-lg transition-all cursor-pointer group ${bg}`}>
-        <div className={`absolute -bottom-10 -right-10 w-48 h-48 rounded-full blur-3xl pointer-events-none ${blob}`} />
         <div className="relative flex items-start justify-between mb-6">
           <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${cat.color}`}>
             <Icon className="w-6 h-6" />
@@ -121,12 +112,10 @@ function CategorySmallCard({ cat, isEn }: { cat: Category; isEn: boolean }) {
   const catHref = isEn ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}` : `/calculadoras/${cat.id}`;
   const bg   = CAT_BG[cat.id]   ?? "bg-gray-50 border-gray-200";
   const link = CAT_LINK[cat.id] ?? "text-gray-600";
-  const blob = CAT_BLOB[cat.id] ?? "bg-gray-300/40";
 
   return (
     <Link href={catHref}>
       <div className={`relative overflow-hidden rounded-3xl border p-5 shadow-sm hover:shadow-md transition-all cursor-pointer group h-full ${bg}`}>
-        <div className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full blur-2xl pointer-events-none ${blob}`} />
         <div className={`relative w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${cat.color}`}>
           <Icon className="w-5 h-5" />
         </div>
@@ -370,7 +359,7 @@ export default function Home() {
       />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="bg-gray-50 dark:bg-gray-950 py-20 px-4">
+      <section className="bg-gray-50 dark:bg-gray-950 py-10 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           {/* Animated logo */}
           <div className="flex justify-center">
@@ -378,15 +367,14 @@ export default function Home() {
           </div>
 
           {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100/80 dark:bg-white/5 text-gray-500 dark:text-gray-400 text-xs font-semibold tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+          <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
             {isEn ? `${CALCULATORS.length} FREE CALCULATORS` : `${CALCULATORS.length} CALCULADORAS GRATUITAS`}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
             {isEn
-              ? <>Precision in Every Calculation.<br /><span className="text-gradient">Confidence</span> in Every Decision.</>
-              : <>Calcula con Precisión.<br /><span className="text-gradient">Decide</span> con Confianza.</>}
+              ? <>Precision in Every Calculation.<br /><span className="text-primary">Confidence</span> in Every Decision.</>
+              : <>Calcula con Precisión.<br /><span className="text-primary">Decide</span> con Confianza.</>}
           </h1>
 
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
