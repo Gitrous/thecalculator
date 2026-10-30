@@ -115,7 +115,7 @@ function renderSection(section: ArticleSection, idx: number) {
   }
 }
 
-function HeroImage({ category, image }: { category: string; image?: string }) {
+function HeroImage({ category, image, alt }: { category: string; image?: string; alt: string }) {
   const gradient = CATEGORY_GRADIENTS[category] ?? "from-gray-400 to-gray-600";
   const Icon = CATEGORY_ICONS[category];
   return (
@@ -123,7 +123,7 @@ function HeroImage({ category, image }: { category: string; image?: string }) {
       {image ? (
         <img
           src={image}
-          alt=""
+          alt={alt}
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
@@ -236,7 +236,6 @@ export default function BlogArticle() {
     headline: title,
     description,
     datePublished: article.date,
-    dateModified: article.date,
     ...(articleImage ? { image: articleImage } : {}),
     author: {
       "@type": "Organization",
@@ -344,7 +343,7 @@ export default function BlogArticle() {
         {/* ── Main content ── */}
         <div className="flex-1 min-w-0">
           {/* Hero image */}
-          <HeroImage category={article.category} image={ARTICLE_IMAGES[article.slug]} />
+          <HeroImage category={article.category} image={ARTICLE_IMAGES[article.slug]} alt={isEn ? article.enTitle : article.title} />
 
           {/* Lead */}
           <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-6">

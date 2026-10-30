@@ -44,6 +44,8 @@ function ArticleImage({ category, image, className }: { category: string; image?
         <img
           src={image}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />

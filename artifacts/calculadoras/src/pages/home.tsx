@@ -196,7 +196,7 @@ function AcademyCard({ article, isEn }: { article: Article; isEn: boolean }) {
     <Link href={href}>
       <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:shadow-lg transition-all cursor-pointer h-full flex flex-col group">
         <div className="relative h-40 overflow-hidden">
-          <img src={image} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img src={image} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
           <div className="absolute top-3 left-3">
             <span className="px-2 py-0.5 rounded text-xs font-bold bg-white/25 backdrop-blur-sm text-white">

@@ -1894,11 +1894,24 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     
       {
         type: "h2",
-        text: "Un ejemplo completo, paso a paso",
+        text: "Dos casos límite para practicar",
       },
       {
         type: "p",
-        text: "Supongamos el número 12345678. Se divide entre 23: el cociente es 536.768 y el resto 14. Se busca el 14 en la tabla de control y la letra que corresponde es la Z, de modo que el documento sería 12345678Z. El cálculo no necesita calculadora científica: basta con dividir, quedarse con la parte entera, multiplicarla por 23 y restar ese producto al número original. Esa resta es el resto, y ese resto es lo único que determina la letra.",
+        text: "Con el número 00000000 el resto es 0, así que la letra es T. Con 99999999 el resto es 1, así que la letra es R. Si tu cálculo da otra letra, revisa primero la división: el error casi siempre está en el resto, no en la tabla. Para comprobarlo, multiplica el cociente por 23 y resta el producto al número original; el resultado debe coincidir con el resto que has usado.",
+      },
+      {
+        type: "h2",
+        text: "Errores frecuentes al calcular la letra",
+      },
+      {
+        type: "ul",
+        items: [
+          "Contar la tabla desde 1 en lugar de desde 0: el resto 0 corresponde a T, no a R.",
+          "Olvidar la sustitución de X, Y o Z por 0, 1 o 2 cuando se trata de un NIE.",
+          "Comparar sin normalizar: la letra se escribe en mayúscula y sin espacios entre el número y la letra.",
+          "Confundir la letra de control con otros datos del documento, como la fecha de caducidad o el número de soporte, que son valores distintos.",
+        ],
       },
       {
         type: "h2",
@@ -1940,11 +1953,24 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     
       {
         type: "h2",
-        text: "A complete example, step by step",
+        text: "Two edge cases to practise with",
       },
       {
         type: "p",
-        text: "Take the number 12345678. Divide it by 23: the quotient is 536,768 and the remainder 14. Look up 14 in the control table and the matching letter is Z, so the document would be 12345678Z. The calculation needs no scientific calculator: divide, keep the integer part, multiply it by 23 and subtract that product from the original number. That subtraction is the remainder, and the remainder alone determines the letter.",
+        text: "With the number 00000000 the remainder is 0, so the letter is T. With 99999999 the remainder is 1, so the letter is R. If your calculation gives a different letter, check the division first: the error is almost always in the remainder, not in the table. To verify it, multiply the quotient by 23 and subtract the product from the original number; the result must match the remainder you used.",
+      },
+      {
+        type: "h2",
+        text: "Common mistakes when calculating the letter",
+      },
+      {
+        type: "ul",
+        items: [
+          "Counting the table from 1 instead of 0: remainder 0 corresponds to T, not R.",
+          "Forgetting to replace X, Y or Z with 0, 1 or 2 when working with a NIE.",
+          "Comparing without normalising: the letter is written in capitals and without spaces between the number and the letter.",
+          "Confusing the control letter with other data on the document, such as the expiry date or the support number, which are different values.",
+        ],
       },
       {
         type: "h2",
