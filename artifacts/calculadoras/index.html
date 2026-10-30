@@ -60,7 +60,24 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     </noscript>
 
-    <!-- Monetag: paste the site verification <meta> from the dashboard here, if it asks for one. -->
+    <!-- Google AdSense (publisher pub-1123812992313934). Loads for everyone
+         except visitors who rejected cookies (localStorage "cookie-consent" =
+         "denied"), the same rule as the other ads. ads.txt lists the same
+         publisher ID. -->
+    <script>
+      (function () {
+        var denied = false;
+        try {
+          denied = localStorage.getItem("cookie-consent") === "denied";
+        } catch (e) {}
+        if (denied) return;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1123812992313934";
+        s.crossOrigin = "anonymous";
+        document.head.appendChild(s);
+      })();
+    </script>
 
     <!-- Cloudflare Web Analytics: injected at the edge (RUM set to "Enable" in
          the dashboard), so no snippet belongs here. The manual third-party

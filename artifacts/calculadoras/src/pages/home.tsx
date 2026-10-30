@@ -553,6 +553,52 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ── About this site ─────────────────────────────────── */}
+          <section className="bg-gray-50 dark:bg-gray-950 py-16 px-4">
+            <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {isEn ? "What you will find here" : "Qué encontrarás aquí"}
+              </h2>
+              {isEn ? (
+                <>
+                  <p>
+                    thecalculator.tech is a free collection of online calculators for everyday
+                    questions about money, housing, work, education and health: a mortgage
+                    payment, the net salary after tax in Spain, VAT, a BMI, the number of days
+                    between two dates, or the average grade of a course. Each calculator runs in
+                    your browser and needs no sign-up.
+                  </p>
+                  <p>
+                    Every result is an estimate. The calculators show the formula or steps they
+                    use, so you can check the figures yourself. For rules that change, such as tax
+                    brackets or contribution rates, check the official source before you decide.
+                    Our <Link href="/en/methodology" className="text-primary underline">methodology page</Link> explains how
+                    we build and review each tool, and the <Link href="/en/about" className="text-primary underline">about page</Link> says who
+                    runs the site.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    thecalculator.tech es una colección gratuita de calculadoras online para
+                    preguntas cotidianas sobre dinero, vivienda, trabajo, educación y salud: la
+                    cuota de una hipoteca, el salario neto después de impuestos en España, el IVA,
+                    el IMC, los días que hay entre dos fechas o la nota media de un curso. Cada
+                    calculadora funciona en tu navegador y no requiere registro.
+                  </p>
+                  <p>
+                    Todo resultado es orientativo. Las calculadoras muestran la fórmula o los pasos
+                    que usan, para que puedas comprobar las cifras tú mismo. En normas que cambian,
+                    como los tramos del IRPF o los tipos de cotización, consulta la fuente oficial
+                    antes de decidir. La <Link href="/metodologia" className="text-primary underline">metodología</Link> explica
+                    cómo construimos y revisamos cada herramienta, y la página <Link href="/sobre-nosotros" className="text-primary underline">sobre nosotros</Link> indica
+                    quién lleva el sitio.
+                  </p>
+                </>
+              )}
+            </div>
+          </section>
+
           {/* Ad */}
           <div className="bg-gray-50 dark:bg-gray-950 px-4 py-6">
             <div className="max-w-6xl mx-auto">
