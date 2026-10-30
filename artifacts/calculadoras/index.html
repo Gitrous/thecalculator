@@ -62,46 +62,6 @@
 
     <!-- Monetag: paste the site verification <meta> from the dashboard here, if it asks for one. -->
 
-    <!-- Monetag site-wide tags (push, in-page push…), from the Monetag
-         dashboard (Websites → thecalculator.tech → Get tag). They load for
-         everyone except visitors who rejected cookies in the banner
-         (localStorage "cookie-consent" = "denied"). -->
-    <script>
-      (function () {
-        // Monetag zones for thecalculator.tech (site 3545485).
-        var MONETAG_TAGS = [
-          // Push Notifications (zone 12105547); needs /sw.js with the same zone.
-          { src: "https://5gvci.com/act/files/tag.min.js?z=12105547" },
-          // In-Page Push (zone 12105559).
-          { src: "https://nap5k.com/tag.min.js", zone: "12105559" },
-        ];
-        var denied = false;
-        try {
-          denied = localStorage.getItem("cookie-consent") === "denied";
-        } catch (e) {}
-        if (denied) {
-          // Stop Monetag push: unregistering /sw.js cancels its subscription.
-          try {
-            navigator.serviceWorker.getRegistrations().then(function (regs) {
-              regs.forEach(function (r) {
-                var w = r.active || r.installing || r.waiting;
-                if (w && /\/sw\.js$/.test(w.scriptURL)) r.unregister();
-              });
-            });
-          } catch (e) {}
-          return;
-        }
-        MONETAG_TAGS.forEach(function (t) {
-          var s = document.createElement("script");
-          if (t.zone) s.dataset.zone = t.zone;
-          s.src = t.src;
-          s.async = true;
-          s.setAttribute("data-cfasync", "false");
-          document.head.appendChild(s);
-        });
-      })();
-    </script>
-
     <!-- Cloudflare Web Analytics: injected at the edge (RUM set to "Enable" in
          the dashboard), so no snippet belongs here. The manual third-party
          script that used to sit here loaded from static.cloudflareinsights.com,

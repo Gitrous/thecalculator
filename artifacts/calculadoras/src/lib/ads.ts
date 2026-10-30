@@ -20,31 +20,12 @@ export const CONSENT_KEY = "cookie-consent";
 
 /**
  * Ads load by default and stop only when the visitor rejects cookies in the
- * banner. The site-wide Monetag tag in index.html applies the same rule.
+ * banner. In-content banners (AdUnit) check this before loading.
  */
 export function adsAllowed(): boolean {
   try {
     return localStorage.getItem(CONSENT_KEY) !== "denied";
   } catch {
     return true;
-  }
-}
-
-/**
- * Unregisters Monetag's push service worker (/sw.js). Unregistering also
- * cancels its push subscription, so notifications stop. Used when the visitor
- * rejects cookies; index.html runs the same check on every load.
- */
-export async function removePushWorker(): Promise<void> {
-  try {
-    if (!("serviceWorker" in navigator)) return;
-    const regs = await navigator.serviceWorker.getRegistrations();
-    await Promise.all(
-      regs
-        .filter((r) => (r.active ?? r.installing ?? r.waiting)?.scriptURL.endsWith("/sw.js"))
-        .map((r) => r.unregister()),
-    );
-  } catch {
-    /* ignore: unsupported or blocked */
   }
 }

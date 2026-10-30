@@ -61,21 +61,19 @@ Guía para Claude Code en este repositorio.
 
 AdSense se retiró en octubre de 2026; los anuncios son de **Monetag**.
 
-- Los códigos van en dos sitios: `MONETAG_TAGS` en el `<script>` inline de
-  `index.html` (etiqueta global: MultiTag, push, vignette…) y `AD_SLOTS` en
-  `src/lib/ads.ts` (banners dentro de la página, uno por hueco). Cada valor es
-  la URL `src` del script que da el panel de Monetag. **Vacío = desactivado**,
-  sin hueco en blanco.
+- **Retirados (oct 2026): las etiquetas site-wide de push y In-Page Push**
+  (zonas 12105547 y 12105559), el `public/sw.js` y `removePushWorker()`. Se
+  quitaron para preparar la revisión de AdSense (formatos intrusivos). Para
+  reactivarlos hay que restaurar `MONETAG_TAGS` en `index.html`, `public/sw.js`
+  desde git (`git show <commit-anterior>:artifacts/calculadoras/public/sw.js`) y
+  el filtro de `/sw.js` al rechazar. Ver [[monetag-push-retirado]].
+- Los banners dentro de la página van en `AD_SLOTS` de `src/lib/ads.ts`, uno
+  por hueco. Cada valor es la URL `src` del script del panel de Monetag.
+  **Vacío = desactivado**, sin hueco en blanco.
 - Carga para todos **salvo** quien pulse «Rechazar» en el banner
   (`localStorage["cookie-consent"] === "denied"`). Al rechazar, la página se
-  recarga para quitar lo que Monetag ya inyectó. Si añades otro script de
-  anuncios, respeta esa misma clave.
-- `public/sw.js` es el service worker de push de Monetag (zona 12105547; la misma que su etiqueta en `index.html`). Debe
-  servirse en `/sw.js` (raíz): no lo muevas ni lo renombres, ni le pongas caché
-  larga en `_headers`. Al rechazar, `removePushWorker()` (`src/lib/ads.ts`) y
-  el script de `index.html` dan de baja el worker que termina en `/sw.js`; así
-  se cancela la suscripción push. Si cambias el nombre del fichero, cambia
-  también esos dos filtros, o las push seguirán llegando tras rechazar.
+  recarga para quitar lo que ya se inyectó. Si añades otro script de anuncios,
+  respeta esa misma clave.
 - Si Monetag pide verificar el sitio, la `<meta>` va donde indica el
   comentario de `index.html`, y las líneas de `ads.txt` en `public/ads.txt`.
 

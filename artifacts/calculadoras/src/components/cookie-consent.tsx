@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { useLocale } from "@/lib/locale";
-import { CONSENT_KEY as STORAGE_KEY, removePushWorker } from "@/lib/ads";
+import { CONSENT_KEY as STORAGE_KEY } from "@/lib/ads";
 
 /**
- * Cookie banner. Monetag ads load by default; rejecting stores "denied" in
- * localStorage, which stops both the site-wide tag (index.html) and the
- * in-page banners (AdUnit), and unregisters the push service worker (/sw.js)
- * so notifications stop. The page reloads on reject so scripts Monetag
- * already injected are gone too. The choice is re-applied on the next visit.
+ * Cookie banner. Ads load by default; rejecting stores "denied" in
+ * localStorage, which stops the in-content banners (AdUnit). The page reloads
+ * on reject so scripts already injected are gone too. The choice is re-applied
+ * on the next visit.
  */
 export function CookieConsent() {
   const isEn = useLocale() === "en";
@@ -27,7 +26,7 @@ export function CookieConsent() {
     return () => window.removeEventListener("cookie-consent:open", reopen);
   }, []);
 
-  async function decide(granted: boolean) {
+  function decide(granted: boolean) {
     const value = granted ? "granted" : "denied";
     let previous: string | null = null;
     try {
@@ -39,7 +38,6 @@ export function CookieConsent() {
     setVisible(false);
     // Ads were running (no choice yet, or accepted before): reload so they go.
     // Going from rejected to accepted also reloads, so ads start straight away.
-    if (value === "denied") await removePushWorker();
     if (previous !== value && (value === "denied" || previous === "denied")) {
       window.location.reload();
     }
