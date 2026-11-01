@@ -23,6 +23,68 @@ interface CategoryContent {
   faqs: Array<{ q: { es: string; en: string }; a: { es: string; en: string } }>;
 }
 
+/** Extra paragraph and one more FAQ per category. Nothing here quotes figures:
+ * tax, price and health values change, so they belong in the calculators, not
+ * in static text. */
+const CATEGORY_GUIDE: Record<
+  string,
+  {
+    p: { es: string; en: string };
+    faq: CategoryContent["faqs"][number];
+  }
+> = {
+  finanzas: {
+    p: {
+      es: "Antes de comparar cifras conviene separar tres conceptos que se confunden: el tipo nominal (TIN), la tasa que incluye comisiones (TAE) y el coste total, que suma además seguros y gastos vinculados. En una hipoteca, la cuota depende del capital, del tipo y del plazo; cambiar el plazo modifica mucho el total de intereses aunque apenas mueva la cuota. En una nómina, el salario neto es lo que cobras después de las retenciones de IRPF y las cotizaciones a la Seguridad Social, y varía con tu situación personal. Usa las calculadoras para ver escenarios y contrasta los parámetros vigentes con la fuente oficial.",
+      en: "Before comparing figures, separate three concepts that are often confused: the nominal rate (TIN), the rate that includes fees (APR, TAE), and the total cost, which also adds insurance and linked expenses. On a mortgage, the monthly payment depends on the capital, the rate and the term; changing the term changes the total interest a lot even if the payment barely moves. On a payslip, net salary is what you receive after income tax withholding and Social Security contributions, and it varies with your personal situation. Use the calculators to explore scenarios and check the current parameters against the official source.",
+    },
+    faq: {
+      q: { es: "¿Conviene alargar el plazo de una hipoteca para pagar menos cada mes?", en: "Is it worth extending a mortgage term to pay less each month?" },
+      a: { es: "Alargar el plazo baja la mensualidad, pero se pagan más intereses en total, porque el capital pendiente se mantiene durante más tiempo. Compara los dos escenarios con la calculadora de hipoteca: uno con plazo corto y cuota mayor, y otro con plazo largo y cuota menor. Decide según tu margen mensual real y tus previsiones de ingresos, no solo por la cuota más baja. Si más adelante quieres amortizar anticipadamente, revisa antes si tu contrato cobra comisiones por ello.", en: "Extending the term lowers the monthly payment, but you pay more interest overall because the outstanding capital stays for longer. Compare the two scenarios with the mortgage calculator: one with a short term and higher payment, and one with a long term and lower payment. Decide based on your real monthly margin and income outlook, not only on the lowest payment. If you may repay early later, check first whether your contract charges fees for it." },
+    },
+  },
+  hogar: {
+    p: {
+      es: "Las calculadoras de hogar parten de datos que puedes comprobar en tus facturas y documentos: el consumo en kilovatios-hora de la factura de la luz, la potencia contratada, el importe del seguro del coche o los litros que repostas. Con esos datos, el resultado muestra qué parte del gasto corresponde a cada concepto. En electricidad, la tarifa y la franja horaria cambian el coste de un mismo consumo, así que conviene revisar el contrato además de los aparatos. En el coche, la amortización y el seguro pueden pesar más que el combustible según el uso que le des.",
+      en: "Home calculators start from data you can check on your bills and documents: the kilowatt-hour consumption on your electricity bill, the contracted power, the car insurance premium or the litres you refuel. With those inputs, the result shows which share of the spending belongs to each item. In electricity, the tariff and the time-of-use band change the cost of the same consumption, so review your contract as well as your appliances. For a car, depreciation and insurance can weigh more than fuel depending on how you use it.",
+    },
+    faq: {
+      q: { es: "¿Por qué mi factura de la luz varía aunque consuma lo mismo?", en: "Why does my electricity bill change even when I use the same amount?" },
+      a: { es: "Porque el precio no es fijo. La factura combina el término de potencia y el término de energía, y, según la tarifa contratada, el precio del kilovatio-hora puede cambiar por franja horaria. Los impuestos y el alquiler del equipo de medida se suman al importe final. Un mismo consumo cuesta más en horas punta que en horas valle. Para entender la variación, compara el consumo en kWh de dos facturas consecutivas y revisa qué tarifa tienes. La calculadora de consumo eléctrico sirve para estimar el coste de un aparato cuando conoces su potencia y sus horas de uso.", en: "Because the price is not fixed. The bill combines a power charge and an energy charge, and depending on the tariff the kilowatt-hour price can change by time-of-use band. Taxes and the meter rental are added to the final amount. The same consumption costs more at peak hours than at off-peak hours. To understand a change, compare the kWh consumed on two consecutive bills and check which tariff you have. The electricity consumption calculator helps you estimate the cost of one appliance when you know its power and hours of use." },
+    },
+  },
+  trabajo: {
+    p: {
+      es: "Las calculadoras de trabajo sirven para comprobar cifras de nóminas, contratos y registros de jornada. Antes de usar una, ten a mano el dato de partida exacto: el salario bruto anual, las fechas de alta y baja, las horas acordadas. Los resultados dependen de la normativa laboral y fiscal vigente. Si una cifra no cuadra con tu documentación, la referencia correcta es el convenio colectivo aplicable o una asesoría laboral. Las herramientas muestran el cálculo paso a paso para que puedas reproducirlo con tus propios datos.",
+      en: "Work calculators help you check figures from payslips, contracts and time records. Before using one, have the exact starting data at hand: annual gross salary, start and end dates, agreed hours. Results depend on the labour and tax rules in force. If a figure does not match your paperwork, the correct reference is the applicable collective agreement or a labour adviser. The tools show the step-by-step calculation so you can reproduce it with your own data.",
+    },
+    faq: {
+      q: { es: "¿Cómo sé si mi finiquito está bien calculado?", en: "How do I know whether my final settlement is calculated correctly?" },
+      a: { es: "Lo más práctico es rehacer el cálculo con los datos de tu contrato: salario, fecha de inicio, fecha de fin, causa de la baja y días de vacaciones no disfrutados. Compara cada partida por separado: vacaciones pendientes, pagas extra prorrateadas y, en su caso, indemnización. La causa de la baja cambia por completo el resultado, así que conviene revisarla antes de firmar. Si hay diferencias, pide el desglose por escrito a la empresa. Si persisten, consulta con un sindicato o con una asesoría laboral.", en: "The most practical way is to redo the calculation with your contract data: salary, start date, end date, reason for leaving and untaken holiday days. Compare each item separately: pending holidays, pro-rated extra pays and, where applicable, compensation. The reason for leaving changes the result completely, so check it before signing. If there are differences, ask the employer for the breakdown in writing. If they persist, consult a trade union or a labour adviser." },
+    },
+  },
+  educacion: {
+    p: {
+      es: "Las calculadoras de educación cubren física, matemáticas y conversiones de unidades. Su utilidad es didáctica: muestran la fórmula, los valores de entrada y los pasos intermedios, para que el resultado se pueda verificar a mano. Antes de resolver un ejercicio, identifica qué magnitud pide el enunciado y en qué unidades están los datos, porque buena parte de los errores vienen de mezclar unidades. Usa las calculadoras para comprobar tus cálculos, no para evitar entenderlos.",
+      en: "Education calculators cover physics, mathematics and unit conversions. Their purpose is educational: they show the formula, the input values and the intermediate steps so you can check the result by hand. Before solving an exercise, identify which quantity the problem asks for and which units the data use, because many errors come from mixing units. Use the calculators to check your work, not to avoid understanding it.",
+    },
+    faq: {
+      q: { es: "¿Por qué mi resultado de física no coincide con el del libro?", en: "Why doesn't my physics result match the textbook?" },
+      a: { es: "Casi siempre por una de estas causas: unidades distintas (metros frente a centímetros, segundos frente a horas), redondeos intermedios o una hipótesis diferente, como despreciar la resistencia del aire o usar un valor de la gravedad distinto. Repite el cálculo sin redondear hasta el final y comprueba que las unidades cuadran en cada paso. Si el libro usa un supuesto distinto, el resultado también lo será, así que anota las condiciones del enunciado antes de comparar cifras.", en: "Almost always because of one of these: different units (metres versus centimetres, seconds versus hours), intermediate rounding, or a different assumption, such as ignoring air resistance or using a different value of gravity. Repeat the calculation without rounding until the end and check that the units cancel correctly at each step. If the textbook uses a different assumption, the result will differ too, so note the problem's conditions before comparing figures." },
+    },
+  },
+  salud: {
+    p: {
+      es: "Las calculadoras de salud estiman valores a partir de datos generales como peso, altura, edad o nivel de actividad. Son orientativas y no sustituyen una valoración médica. El IMC, por ejemplo, no distingue masa muscular de grasa, y no se interpreta igual en adultos que en menores. Si un resultado te preocupa o no encaja con cómo te encuentras, consulta a tu médico o a un profesional de la nutrición. Usa los resultados como referencia para seguir tu evolución, no como diagnóstico.",
+      en: "Health calculators estimate values from general data such as weight, height, age or activity level. They are indicative and do not replace a medical assessment. BMI, for example, does not distinguish muscle from fat, and it is not interpreted the same way in adults and in children. If a result worries you or does not match how you feel, consult your doctor or a nutrition professional. Use the results as a reference to track your progress, not as a diagnosis.",
+    },
+    faq: {
+      q: { es: "¿Un resultado fuera de rango significa que tengo un problema de salud?", en: "Does a result outside the range mean I have a health problem?" },
+      a: { es: "No necesariamente. Los rangos son referencias estadísticas para población adulta y no tienen en cuenta factores individuales como la masa muscular, la complexión o la historia clínica. Un valor fuera de rango es una señal para revisar hábitos y, si persiste, para consultar a un profesional. Solo un médico puede valorar si hay un problema real, a partir de pruebas y de tu historial completo. Evita tomar decisiones de medicación, dieta o ejercicio intenso basándote solo en una calculadora.", en: "Not necessarily. The ranges are statistical references for adults and do not account for individual factors such as muscle mass, build or medical history. An out-of-range value is a signal to review habits and, if it persists, to consult a professional. Only a doctor can assess whether there is a real problem, based on tests and your full history. Avoid making decisions about medication, diet or intense exercise based only on a calculator." },
+    },
+  },
+};
+
 const CATEGORY_CONTENT: Record<string, CategoryContent> = {
   finanzas: {
     intro: {
@@ -216,7 +278,8 @@ export default function Category() {
   const content = CATEGORY_CONTENT[category.id];
   const intro = content ? (isEn ? content.intro.en : content.intro.es) : null;
   const intro2 = content ? (isEn ? content.intro2.en : content.intro2.es) : null;
-  const faqs = content ? content.faqs : [];
+  const guide = CATEGORY_GUIDE[category.id];
+  const faqs = [...(content ? content.faqs : []), ...(guide ? [guide.faq] : [])];
   const faqLabel = isEn ? "Frequently asked questions" : "Preguntas frecuentes";
 
   return (
@@ -256,6 +319,7 @@ export default function Category() {
         <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
           <p>{intro}</p>
           {intro2 && <p>{intro2}</p>}
+          {guide && <p>{isEn ? guide.p.en : guide.p.es}</p>}
         </div>
       )}
 

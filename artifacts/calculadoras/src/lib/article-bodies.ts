@@ -14,7 +14,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sections: [
       {
         type: "p",
-        text: "El Índice de Masa Corporal (IMC) es una medida numérica que relaciona el peso corporal con la altura de una persona. Fue desarrollado en el siglo XIX por el matemático belga Adolphe Quetelet y adoptado por la Organización Mundial de la Salud como indicador estándar para clasificar el estado ponderal de la población adulta.",
+        text: "Pesarte y no saber si ese número es sano deja la duda abierta: un peso sin referencia puede llevarte a preocuparte de más o a ignorar algo que sí importa. El Índice de Masa Corporal (IMC) resuelve esa duda con una sola cuenta: relaciona el peso con la altura y da una cifra que se puede comparar con rangos de referencia. Fue desarrollado en el siglo XIX por el matemático belga Adolphe Quetelet y lo adoptó la Organización Mundial de la Salud como indicador estándar para clasificar el estado ponderal de la población adulta. Aquí verás cómo se calcula, qué mide y qué no mide.",
       },
       {
         type: "h2",
@@ -273,7 +273,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     enSections: [
       {
         type: "p",
-        text: "Body Mass Index (BMI) is a numerical measure that relates a person's body weight to their height. It was developed in the 19th century by Belgian mathematician Adolphe Quetelet and adopted by the World Health Organization as the standard indicator for classifying the weight status of the adult population.",
+        text: "Knowing your weight without knowing whether that figure is healthy leaves you guessing: a number with no reference can make you worry too much, or ignore something that matters. Body Mass Index (BMI) answers that with one simple calculation: it relates weight to height and gives a figure you can compare with reference ranges. It was developed in the 19th century by Belgian mathematician Adolphe Quetelet and adopted by the World Health Organization as the standard indicator for classifying the weight status of the adult population. Here you will see how it is calculated, what it measures and what it does not.",
       },
       {
         type: "h2",
@@ -532,6 +532,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "como-calcular-cuota-hipoteca": {
     sections: [
+      { type: "p", text: "Firmar una hipoteca sin saber cómo se calcula la cuota es arriesgado: la mensualidad compromete tu presupuesto durante décadas. Muchos compradores miran solo la cuota inicial y no el total que acabarán pagando. El sistema francés es el más habitual en las hipotecas españolas, y entender cómo reparte capital e intereses te permite comparar ofertas con criterio. Aquí verás la fórmula, un ejemplo paso a paso y qué cambia al variar el plazo o el tipo." },
       { type: "h2", text: "¿Qué es el sistema de amortización francés?" },
       { type: "p", text: "La inmensa mayoría de hipotecas en España utilizan el sistema francés: la cuota mensual es constante durante toda la vida del préstamo. Lo que cambia mes a mes es la proporción que corresponde a capital y a intereses. Al principio, casi todo son intereses; al final, casi todo es amortización de capital." },
       { type: "h2", text: "La fórmula de la cuota mensual" },
@@ -569,6 +570,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "La opción más conveniente (reducir plazo o cuota, o incluso invertir en lugar de amortizar) depende de tu situación financiera personal. Revisa tu contrato hipotecario antes de amortizar y consulta con tu banco para confirmar las condiciones exactas." },
     ],
     enSections: [
+      { type: "p", text: "Signing a mortgage without knowing how the payment is calculated is risky: the monthly figure commits your budget for decades. Many buyers look only at the first payment and not at the total they will repay. The French system is the most common in Spanish mortgages, and understanding how it splits capital and interest lets you compare offers with judgement. Here you will see the formula, a worked example and what changes when the term or the rate changes." },
       { type: "h2", text: "What is the French amortisation system?" },
       { type: "p", text: "The vast majority of mortgages in Spain use the French system: the monthly payment is constant throughout the life of the loan. What changes month to month is the proportion that goes to capital and interest. At the start, almost everything is interest; at the end, almost everything is capital repayment." },
       { type: "h2", text: "The monthly payment formula" },
@@ -608,7 +610,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "que-es-la-tae-diferencia-tin": {
     sections: [
-      { type: "p", text: "Cuando un banco anuncia un préstamo, hay dos porcentajes en el cartel y solo uno de ellos sirve para comparar. El TIN es el que suele ir en grande; la TAE, en letra más pequeña. Esa jerarquía tipográfica no es casual, porque la TAE casi siempre es la cifra más alta, y también la única honesta." },
+      { type: "p", text: "Cuando un banco anuncia un préstamo, hay dos porcentajes en el cartel y comparar con el equivocado te puede costar dinero sin que lo notes. El TIN suele ir en letra grande; la TAE, en letra pequeña. Esa diferencia no es un detalle: la TAE incluye comisiones y gastos obligatorios que el TIN deja fuera, así que suele ser la cifra más alta y la única que sirve para comparar préstamos entre sí. Esta guía explica qué incluye cada una y cómo usarlas para elegir." },
       { type: "h2", text: "¿Qué es el TIN?" },
       { type: "p", text: "El TIN (Tipo de Interés Nominal) es el porcentaje de interés que el banco aplica sobre el capital prestado, expresado en términos anuales pero sin tener en cuenta la frecuencia de capitalización ni las comisiones del producto. Es el dato que aparece con más frecuencia en la publicidad." },
       { type: "p", text: "Su gran limitación es que dos préstamos con el mismo TIN pueden costar cantidades distintas. Si uno capitaliza mensualmente y otro anualmente, el primero genera intereses sobre intereses doce veces al año y acaba siendo más caro, aunque el número anunciado sea idéntico. El TIN, por sí solo, no permite detectar esa diferencia." },
@@ -651,7 +653,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Compara siempre la TAE entre entidades y lee la letra pequeña del contrato antes de firmar. El Banco de España ofrece información oficial para comparar préstamos. Este artículo es informativo y no constituye asesoramiento financiero." },
     ],
     enSections: [
-      { type: "p", text: "When a bank advertises a loan there are two percentages on the poster, and only one of them is any use for comparison. The nominal rate is usually the one in large type; the APR sits in smaller print. That typographic hierarchy is no accident, because the APR is almost always the higher figure — and also the only honest one." },
+      { type: "p", text: "When a bank advertises a loan there are two percentages on the poster, and comparing with the wrong one can cost you money without you noticing. The nominal rate usually appears in large type; the APR in small print. That difference is not a detail: the APR includes mandatory fees and charges that the nominal rate leaves out, so it is usually the higher figure and the only one that works for comparing loans with each other. This guide explains what each one includes and how to use them to choose." },
       { type: "h2", text: "What is the nominal rate?" },
       { type: "p", text: "The nominal interest rate is the percentage interest the bank applies to the loan capital, expressed annually but without taking into account the compounding frequency or product fees. It is the figure most commonly seen in advertising." },
       { type: "p", text: "Its great limitation is that two loans with the same nominal rate can cost different amounts. If one compounds monthly and the other annually, the first generates interest on interest twelve times a year and ends up more expensive, even though the advertised number is identical. The nominal rate alone cannot reveal that difference." },
@@ -696,6 +698,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "como-funciona-interes-compuesto": {
     sections: [
+      { type: "p", text: "Mucha gente paga intereses durante años sin ver cuánto le cuestan. Entender la diferencia entre interés simple y compuesto te ayuda a detectar cuándo el dinero trabaja a tu favor y cuándo en tu contra. Aquí verás cómo se calcula cada uno con un ejemplo, y por qué el tiempo importa tanto." },
       { type: "h2", text: "Interés simple vs. interés compuesto" },
       { type: "p", text: "Con interés simple, los intereses se calculan siempre sobre el capital inicial: 10.000 € al 5% generan 500 € cada año, siempre. Con interés compuesto, los intereses del año anterior se suman al capital y generan nuevos intereses: el segundo año se calculan sobre 10.500 €, el tercero sobre 11.025 €, y así sucesivamente." },
       { type: "h2", text: "La regla del 72" },
@@ -731,7 +734,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "En contextos fiscales o financieros con porcentajes, siempre verifica el cálculo con tu asesor." },
     ],
     enSections: [
-      { type: "p", text: "Compound interest is described as the most powerful force in finance for a reason: it is the only mechanism that makes money grow without further effort on your part. Understanding it matters twice over, because it works just as relentlessly in your favour when you invest as against you when you carry debt." },
+      { type: "p", text: "Many people pay interest for years without seeing what it really costs them. Compound interest is described as the most powerful force in finance for a reason: it makes money grow without further effort on your part. Understanding it matters twice over, because it works just as relentlessly in your favour when you invest as against you when you carry debt." },
       { type: "h2", text: "Simple vs. compound interest" },
       { type: "p", text: "With simple interest, interest is always calculated on the initial capital: €10,000 at 5% generates €500 every year. With compound interest, the previous year's interest is added to the capital and generates new interest: the second year it is calculated on €10,500, the third on €11,025, and so on." },
       { type: "p", text: "Over one year the difference is trivial; over thirty it is enormous. Those €10,000 at 5% simple interest become €25,000 after thirty years. Compounded, they become about €43,200. Same capital, same rate, same time: the only difference is whether the interest itself earns interest." },
@@ -774,6 +777,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "alquilar-o-comprar-vivienda": {
     sections: [
+      { type: "p", text: "Alquilar o comprar suele decidirse por intuición o por un eslogan, y ambas cosas pueden salir caras. La comparación justa no es la cuota frente al alquiler, sino el coste total de cada opción durante los años que realmente vas a quedarte en la vivienda. Aquí verás cómo calcularlo y qué variables pesan más." },
       { type: "h2", text: "El ratio precio/alquiler" },
       { type: "p", text: "El indicador más usado para comparar mercados inmobiliarios es el PER (Price-to-Earnings Ratio): precio de compra dividido entre el alquiler anual. Un PER de 20 significa que tardarías 20 años de alquiler en «pagar» el piso. Ciudades como Madrid o Barcelona tienen PER superiores a 30; en ciudades medianas puede bajar a 15-18." },
       { type: "h2", text: "El coste de oportunidad: lo que pocas calculadoras incluyen" },
@@ -826,7 +830,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "«Renting is throwing money away» is probably the most repeated piece of financial advice in Spain, and also one of the least examined. Buying involves costs that are equally unrecoverable — interest, taxes, notary fees, maintenance — and ties up capital that could be doing something else. The honest comparison is not rent against mortgage payment, but the total cost of each option over the years you will actually stay." },
+      { type: "p", text: "Renting or buying is often decided by intuition or by a slogan, and either can turn out expensive. The fair comparison is not the payment against the rent, but the total cost of each option over the years you will really stay in the home. «Renting is throwing money away» is probably the most repeated piece of financial advice in Spain, and also one of the least examined. Buying involves costs that are equally unrecoverable — interest, taxes, notary fees, maintenance — and ties up capital that could be doing something else. The honest comparison is not rent against mortgage payment, but the total cost of each option over the years you will actually stay." },
       { type: "h2", text: "The price/rent ratio" },
       { type: "p", text: "The most widely used indicator for comparing property markets is the PER (Price-to-Earnings Ratio): purchase price divided by annual rent. A PER of 20 means it would take 20 years of rent to 'pay for' the flat. Cities like Madrid or Barcelona have PERs above 30; in medium-sized cities it can fall to 15–18." },
       { type: "h2", text: "Opportunity cost: what few calculators include" },
@@ -886,7 +890,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "como-calcular-salario-neto-espana": {
     sections: [
-      { type: "p", text: "Entre lo que la empresa dice que te paga y lo que aparece en tu cuenta hay dos descuentos, y solo uno de ellos es un impuesto. Entender la diferencia sirve para algo muy concreto: saber qué parte de tu nómina es negociable, qué parte puedes ajustar tú y qué parte no depende de nadie. Vamos por orden." },
+      { type: "p", text: "Cuando miras el ingreso de la nómina y ves menos de lo que esperabas, es fácil culpar a Hacienda sin saber qué descuento es cuál. Entre lo que la empresa dice que te paga y lo que llega a tu cuenta hay dos descuentos, y solo uno es un impuesto. Separarlos te permite saber qué parte de tu nómina puedes ajustar tú, qué parte depende de tu situación y qué parte no depende de nadie. Vamos por orden." },
       { type: "h2", text: "Cotizaciones del trabajador a la Seguridad Social" },
       { type: "ul", items: ["Contingencias comunes: 4,70%", "Desempleo: 1,55% (contrato indefinido)", "Formación profesional: 0,10%", "Total aproximado: 6,35% del salario bruto"] },
       { type: "p", text: "Este 6,35 % es prácticamente fijo: no depende de tus circunstancias personales ni puedes modificarlo. Y es solo la parte que pagas tú. La empresa aporta además alrededor de un 30 % adicional sobre tu base de cotización, que no ves en la nómina pero forma parte de lo que le cuestas. Por eso, cuando negocies un sueldo, tu coste real para la empresa es bastante mayor que tu bruto." },
@@ -928,7 +932,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Los tramos mostrados corresponden al ejercicio 2026; la parte autonómica varía según tu comunidad y la AEAT publica los valores oficiales de cada año. Para una declaración exacta usa el borrador de la AEAT en Renta Web o consulta a un asesor fiscal. Los resultados de la calculadora son orientativos." },
     ],
     enSections: [
-      { type: "p", text: "Between what your employer says it pays you and what lands in your account there are two deductions, and only one of them is a tax. Understanding the difference is useful for something very concrete: knowing which part of your payslip is negotiable, which part you can adjust yourself, and which part depends on nobody. Let us take them in order." },
+      { type: "p", text: "When you look at your payslip and see less than you expected, it is easy to blame tax without knowing which deduction is which. Between what your employer says it pays you and what reaches your account there are two deductions, and only one of them is a tax. Separating them tells you which part of your payslip you can adjust yourself, which part depends on your situation and which part depends on nobody. Let us take them in order." },
       { type: "h2", text: "Employee Social Security contributions" },
       { type: "ul", items: ["Common contingencies: 4.70%", "Unemployment: 1.55% (permanent contract)", "Vocational training: 0.10%", "Approximate total: 6.35% of gross salary"] },
       { type: "p", text: "This 6.35% is essentially fixed: it does not depend on your personal circumstances and you cannot change it. And it is only your share. The employer additionally pays around 30% on top of your contribution base, which never appears on your payslip but is part of what you cost. So when negotiating a salary, your real cost to the company is considerably higher than your gross." },
@@ -972,7 +976,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "iva-tipos-espana-guia": {
     sections: [
-      { type: "p", text: "El IVA es el impuesto que más veces pagas y del que menos te enteras, porque va incorporado en el precio de casi todo lo que compras. Para un consumidor eso basta; para un autónomo o una pequeña empresa, en cambio, entender cómo se calcula y cómo se declara es parte del trabajo. Esta guía cubre los dos casos." },
+      { type: "p", text: "Un precio con IVA incluido no dice cuánto del importe es impuesto, y si eres autónomo o tienes una pequeña empresa, confundir la base con la cuota puede dar errores en factura y en declaración. El IVA es el impuesto que más veces pagas, porque va incorporado en el precio de casi todo lo que compras. Para un consumidor basta con saber qué hay dentro del precio; para quien factura, entender cómo se calcula y cómo se declara es parte del trabajo. Esta guía cubre los dos casos." },
       { type: "h2", text: "Los tres tipos de IVA" },
       { type: "ul", items: ["IVA general (21%): la mayoría de bienes y servicios, ropa, electrónica, hostelería", "IVA reducido (10%): alimentos no básicos, restaurantes, vivienda nueva, transporte de viajeros", "IVA superreducido (4%): alimentos básicos (pan, leche, huevos, frutas, verduras), libros, medicamentos, prensa"] },
       { type: "p", text: "La frontera entre tipos es menos intuitiva de lo que parece y da lugar a situaciones curiosas. El pan común tributa al 4 %, pero el pan de molde industrial al 10 %. El agua embotellada va al 10 %, mientras que la leche va al 4 %. Un libro en papel tributa al 4 % y también el libro electrónico desde 2020, pero el audiolibro sigue otra regla. Cuando el encuadre no está claro, la consulta vinculante a la AEAT es la vía para resolverlo con seguridad jurídica." },
@@ -1024,7 +1028,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "VAT is the tax you pay most often and notice least, because it is baked into the price of almost everything you buy. For a consumer that is enough; for a freelancer or a small business, however, understanding how it is calculated and declared is part of the job. This guide covers both cases." },
+      { type: "p", text: "A price with VAT included does not tell you how much of it is tax, and if you are self-employed or run a small business, mixing up the taxable base with the VAT amount can lead to invoice and return errors. VAT is the tax you pay most often, because it is built into the price of almost everything you buy. For a consumer it is enough to know what is inside the price; for anyone who invoices, understanding how it is calculated and declared is part of the job. This guide covers both cases." },
       { type: "h2", text: "The three VAT rates" },
       { type: "ul", items: ["Standard VAT (21%): most goods and services, clothing, electronics, hospitality", "Reduced VAT (10%): non-basic food, restaurants, new housing, passenger transport", "Super-reduced VAT (4%): basic foods (bread, milk, eggs, fruit, vegetables), books, medicines, press"] },
       { type: "p", text: "The boundary between rates is less intuitive than it looks and produces some odd results. Ordinary bread is taxed at 4%, but industrial sliced bread at 10%. Bottled water goes at 10%, while milk goes at 4%. A printed book is taxed at 4% and so is the ebook since 2020, but audiobooks follow a different rule. Where the classification is unclear, a binding ruling from the Spanish Tax Agency is the way to settle it with legal certainty." },
@@ -1078,7 +1082,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "coste-real-tener-coche": {
     sections: [
-      { type: "p", text: "Casi todo el mundo sabe cuánto le cuesta llenar el depósito y casi nadie sabe cuánto le cuesta el coche. Son cosas muy distintas: el combustible rara vez supera un tercio del gasto real. Contar solo lo que se paga en la gasolinera es como calcular el coste de una casa mirando únicamente la factura de la luz." },
+      { type: "p", text: "Muchos conductores deciden si compran o mantienen un coche mirando solo lo que pagan en la gasolinera, y se llevan una sorpresa al final del año. Casi todo el mundo sabe cuánto le cuesta llenar el depósito y casi nadie suma el resto: seguro, impuestos, revisiones, neumáticos y la pérdida de valor del vehículo. El combustible suele ser solo una parte del gasto total. Contar solo lo que se paga en la gasolinera es como calcular el coste de una casa mirando únicamente la factura de la luz." },
       { type: "h2", text: "Los gastos fijos del vehículo" },
       { type: "ul", items: ["Seguro: 400–1.200 €/año según cobertura y conductor", "IVTM (impuesto de circulación): 50–200 €/año según municipio y potencia", "ITV: ~50 €/bienal (cada 4 años en coches nuevos, luego cada 2)", "Revisión anual en taller: 150–400 €", "Neumáticos: ~400 € cada 30.000–40.000 km"] },
       { type: "p", text: "Estos gastos comparten una característica incómoda: se pagan igual conduzcas 5.000 o 30.000 kilómetros al año. Por eso el coste por kilómetro de quien usa poco el coche se dispara: los mismos 1.500 € de gastos fijos repartidos entre pocos kilómetros dan una cifra por kilómetro mucho peor. Un coche parado en el garaje sigue costando dinero todos los días." },
@@ -1118,7 +1122,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Los cálculos de consumo son estimaciones basadas en la potencia nominal. El consumo real varía según el estado y uso del aparato." },
     ],
     enSections: [
-      { type: "p", text: "Almost everyone knows what it costs to fill the tank and almost nobody knows what their car costs. They are very different things: fuel rarely exceeds a third of the real expense. Counting only what you pay at the pump is like working out the cost of a house by looking solely at the electricity bill." },
+      { type: "p", text: "Many drivers decide whether to buy or keep a car by looking only at what they pay at the pump, and get a surprise at the end of the year. Almost everyone knows what it costs to fill the tank, and almost nobody adds up the rest: insurance, taxes, servicing, tyres and the car losing value. Fuel is usually only part of the total cost. Counting only what you pay at the pump is like working out the cost of a house by looking solely at the electricity bill." },
       { type: "h2", text: "Fixed vehicle costs" },
       { type: "ul", items: ["Insurance: €400–1,200/year depending on cover and driver", "Road tax (IVTM): €50–200/year depending on municipality and engine power", "MOT: ~€50 every 2 years (every 4 years for new cars, then every 2)", "Annual service: €150–400", "Tyres: ~€400 every 30,000–40,000 km"] },
       { type: "p", text: "These costs share an uncomfortable feature: you pay them the same whether you drive 5,000 or 30,000 km a year. That is why the per-kilometre cost of a light user rockets: the same €1,500 of fixed costs spread over fewer kilometres gives a far worse figure per kilometre. A car sitting in the garage still costs money every day." },
@@ -1160,7 +1164,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "que-incluye-finiquito-como-calcularlo": {
     sections: [
-      { type: "p", text: "El día que termina un contrato, la empresa te pone delante un papel y un bolígrafo, normalmente con prisa y a menudo en un momento emocionalmente incómodo. Ese papel es el finiquito, y firmarlo sin entenderlo es uno de los errores más caros que se cometen en el ámbito laboral español. La buena noticia es que se calcula con tres cuentas sencillas que puedes comprobar tú mismo en cinco minutos." },
+      { type: "p", text: "El día que termina un contrato, la empresa te pone delante un papel y un bolígrafo, normalmente con prisa y a menudo en un momento emocionalmente incómodo. Ese papel es el finiquito, y firmarlo sin entenderlo es un error habitual que puede costarte dinero. La buena noticia es que se calcula con unas pocas cuentas que puedes comprobar tú mismo, con los datos de tu contrato delante. Aquí verás qué partidas incluye y cómo revisarlas antes de firmar." },
       { type: "h2", text: "¿Qué es el finiquito?" },
       { type: "p", text: "El finiquito es el documento que acredita la liquidación de todos los conceptos económicos pendientes entre empresa y trabajador al finalizar la relación laboral. No hay que confundirlo con la indemnización por despido, que es un concepto separado que solo corresponde en ciertos tipos de cese." },
       { type: "p", text: "La distinción es importante porque determina qué te deben. El finiquito se cobra siempre, sea cual sea el motivo de la extinción: incluso si te vas voluntariamente, la empresa te debe lo devengado y no pagado. La indemnización, en cambio, solo aparece en determinados despidos, y su importe depende del tipo: 20 días por año en el objetivo, 33 en el improcedente, ninguna en la baja voluntaria o el disciplinario procedente." },
@@ -1228,7 +1232,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Ten en cuenta que «día hábil» en sentido legal excluye también los festivos, mientras que el cálculo de «días laborables» de la calculadora solo descarta los fines de semana; para plazos exactos, contrasta el calendario oficial de festivos. Para plazos legales importantes, verifica siempre con un abogado o asesor la normativa exacta aplicable a tu caso." },
     ],
     enSections: [
-      { type: "p", text: "On the day a contract ends, the company puts a sheet of paper and a pen in front of you, usually in a hurry and often at an emotionally awkward moment. That sheet is the finiquito, and signing it without understanding it is one of the costliest mistakes in Spanish employment. The good news is that it rests on three simple sums you can check yourself in five minutes." },
+      { type: "p", text: "On the day a contract ends, the company puts a sheet of paper and a pen in front of you, usually in a hurry and often at an emotionally awkward moment. That sheet is the finiquito, and signing it without understanding it is a common mistake that can cost you money. The good news is that it rests on a few simple sums you can check yourself, using your contract data. Here you will see which items it includes and how to review them before signing." },
       { type: "h2", text: "What is a severance payment?" },
       { type: "p", text: "The severance payment (finiquito) is the document that records the settlement of all outstanding financial items between employer and employee at the end of the employment relationship. It must not be confused with redundancy compensation, which is a separate concept that only applies in certain types of dismissal." },
       { type: "p", text: "The distinction matters because it determines what you are owed. The finiquito is always payable, whatever the reason for termination: even if you resign, the company owes you what you have accrued and not been paid. Compensation, by contrast, only arises in certain dismissals, and its size depends on the type: 20 days per year for objective dismissal, 33 for unfair dismissal, and none at all for voluntary resignation or justified disciplinary dismissal." },
@@ -1298,7 +1302,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "cuota-autonomo-2026-tramos": {
     sections: [
-      { type: "p", text: "Durante décadas, el autónomo español elegía su base de cotización casi como quien elige un plan de móvil, y la inmensa mayoría escogía la mínima. El resultado fue una generación de trabajadores por cuenta propia con pensiones muy bajas. El sistema de cotización por ingresos reales, en vigor desde 2023, pretende corregir eso vinculando lo que pagas a lo que realmente ganas." },
+      { type: "p", text: "Si eres autónomo, la cuota que pagas cada mes determina cuánto cotizas, y eso influye en tu futura pensión. Durante años, muchos autónomos eligieron la base de cotización mínima, lo que deja pensiones futuras más bajas de lo que muchos esperan. El sistema de cotización por ingresos reales, en vigor desde 2023, vincula lo que pagas a lo que realmente ganas. Aquí verás cómo funcionan los tramos de 2026 y cómo elegir el tuyo con criterio." },
       { type: "h2", text: "El nuevo sistema de cotización por ingresos reales" },
       { type: "p", text: "Desde enero de 2023, los autónomos en España cotizan según sus rendimientos netos reales, no según una base elegida libremente. El sistema se aplica de forma progresiva: en 2023, 2024 y 2025 había cuotas transitorias; en 2026 entra en vigor la estructura definitiva con 15 tramos." },
       { type: "p", text: "El funcionamiento es sencillo de describir: calculas tu rendimiento neto mensual previsto, localizas el tramo en el que encaja y cotizas sobre la base mínima de ese tramo, a la que se aplica un tipo cercano al 31,4 %. Puedes elegir cotizar por una base superior si quieres mejorar tus prestaciones futuras, pero nunca por debajo de la que te corresponde." },
@@ -1359,7 +1363,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "For decades, Spanish self-employed workers picked their contribution base rather as one picks a mobile plan, and the overwhelming majority picked the minimum. The result was a generation of sole traders with very low pensions. The actual-income contribution system, in force since 2023, aims to correct that by tying what you pay to what you genuinely earn." },
+      { type: "p", text: "If you are self-employed, the monthly fee you pay sets how much you contribute, and that shapes your future pension. For years many sole traders chose the minimum contribution base, which leaves future pensions lower than many expect. The actual-income contribution system, in force since 2023, ties what you pay to what you genuinely earn. Here you will see how the 2026 brackets work and how to choose yours with care." },
       { type: "h2", text: "The new actual-income contribution system" },
       { type: "p", text: "Since January 2023, self-employed workers in Spain contribute based on their actual net income, not a freely chosen base. The system is being phased in progressively: 2023, 2024 and 2025 had transitional rates; in 2026 the definitive structure with 15 brackets takes full effect." },
       { type: "p", text: "The mechanics are simple to describe: you work out your expected monthly net income, find the bracket it falls into, and contribute on that bracket's minimum base, to which a rate of around 31.4% is applied. You may choose a higher base if you want to improve your future benefits, but never one below the bracket that applies to you." },
@@ -1422,7 +1426,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "pension-jubilacion-espana-como-funciona": {
     sections: [
-      { type: "p", text: "La pensión de jubilación se decide con décadas de antelación, cotización a cotización, y sin embargo la mayoría de la gente no mira los números hasta que le quedan cinco años. Merece la pena adelantarse, porque las dos variables que determinan el importe —cuánto cotizaste y durante cuánto tiempo— solo se pueden influir mientras sigues trabajando." },
+      { type: "p", text: "Muchas personas llegan a los últimos años de su vida laboral sin saber qué pensión les corresponde, y entonces ya tienen pocas opciones. La pensión de jubilación se decide con décadas de antelación, cotización a cotización. Las dos variables que determinan el importe —cuánto cotizaste y durante cuánto tiempo— solo se pueden influir mientras sigues trabajando. Por eso conviene mirar los números antes de que sea tarde para cambiarlos." },
       { type: "h2", text: "Los dos factores clave: base reguladora y porcentaje" },
       { type: "p", text: "La pensión bruta mensual se calcula como: Pensión = Base reguladora × Porcentaje según años cotizados. La base reguladora es el promedio de las bases de cotización de los últimos 25 años (300 meses), actualizadas con el IPC salvo los 24 meses anteriores a la jubilación. El porcentaje arranca en el 50 % con el mínimo de 15 años cotizados y sube un 0,19 % por cada mes cotizado de más hasta el mes 248, y un 0,18 % por los siguientes, alcanzando el 100 % a los 37 años. Durante los años de transición la disposición transitoria novena permite llegar algo antes: en 2026, con 36 años y 6 meses." },
       { type: "p", text: "Que el periodo de cómputo sean 25 años y no toda la vida laboral tiene una consecuencia práctica importante: los años finales de carrera pesan mucho. Un ascenso a los 50 entra en la base reguladora; uno a los 30, si luego bajaste de ingresos, puede quedar fuera del cómputo." },
@@ -1476,7 +1480,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "A retirement pension is decided decades in advance, contribution by contribution, and yet most people do not look at the numbers until five years are left. It is worth getting ahead of it, because the two variables that set the amount — how much you contributed and for how long — can only be influenced while you are still working." },
+      { type: "p", text: "Many people reach the last years of their working life without knowing what pension they will receive, and by then they have few options left. A retirement pension is decided decades in advance, contribution by contribution. The two variables that set the amount — how much you contributed and for how long — can only be influenced while you are still working. That is why it is worth looking at the numbers before it is too late to change them." },
       { type: "h2", text: "The two key factors: regulatory base and percentage" },
       { type: "p", text: "The gross monthly pension is calculated as: Pension = Regulatory base × Percentage by years contributed. The regulatory base is the average of contribution bases over the last 25 years (300 months), adjusted for CPI except for the 24 months before retirement. The percentage starts at 50% with the 15-year minimum and rises by 0.19% for each additional month contributed up to month 248, and 0.18% for those beyond, reaching 100% at 37 years. During the transitional years the ninth transitional provision allows it slightly earlier: in 2026, at 36 years and 6 months." },
       { type: "p", text: "That the computation period is 25 years rather than a whole career has an important practical consequence: the final years weigh heavily. A promotion at 50 enters the regulatory base; one at 30, if your earnings later fell, may fall outside the calculation entirely." },
@@ -1532,7 +1536,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "registro-jornada-horas-trabajadas": {
     sections: [
-      { type: "p", text: "El registro de jornada dejó de ser una recomendación para convertirse en obligación en 2019, y desde entonces es una de las cuestiones que más inspecciones y reclamaciones genera. Para la empresa es una carga administrativa; para el trabajador, la única prueba objetiva de las horas que realmente hace. Conviene conocer las reglas desde ambos lados." },
+      { type: "p", text: "Si haces horas extra y no hay un registro que las recoja, demostrarlas después puede ser muy difícil. El registro de jornada dejó de ser una recomendación para convertirse en obligación en 2019, y desde entonces es uno de los temas que más inspecciones y reclamaciones genera. Para la empresa es una carga administrativa; para el trabajador, la prueba objetiva de las horas que realmente hace. Aquí verás las reglas desde ambos lados." },
       { type: "h2", text: "La obligación legal: el artículo 34.9 del Estatuto de los Trabajadores" },
       { type: "p", text: "Desde el 12 de mayo de 2019, todas las empresas están obligadas a registrar diariamente el horario de sus trabajadores, incluyendo la hora de inicio y fin de jornada. El registro debe conservarse durante 4 años y estar disponible para la Inspección de Trabajo, los trabajadores y sus representantes." },
       { type: "p", text: "La obligación alcanza a todas las empresas con independencia de su tamaño y a todos los trabajadores por cuenta ajena, incluidos los contratos a tiempo parcial. Quedan fuera los autónomos, los socios trabajadores de cooperativas en determinados regímenes y el personal de alta dirección, cuya relación laboral es de carácter especial." },
@@ -1586,7 +1590,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "Working time recording stopped being a recommendation and became an obligation in Spain in 2019, and it has generated inspections and claims ever since. For the employer it is an administrative burden; for the worker, the only objective proof of the hours actually worked. The rules are worth knowing from both sides." },
+      { type: "p", text: "If you work overtime and no record captures it, proving those hours later can be very difficult. Working time recording stopped being a recommendation and became an obligation in Spain in 2019, and it has been one of the most inspected and claimed topics since. For the employer it is an administrative burden; for the worker, the objective proof of the hours actually worked. Here you will see the rules from both sides." },
       { type: "h2", text: "The legal obligation: Article 34.9 of the Workers' Statute" },
       { type: "p", text: "Since 12 May 2019, all companies must daily record their employees' working hours, including start and end times. The records must be kept for 4 years and be available to the Labour Inspectorate, employees and their representatives." },
       { type: "p", text: "The obligation covers every company regardless of size and every employee, part-time contracts included. It does not extend to the self-employed, to worker-members of cooperatives under certain regimes, or to senior management personnel, whose employment relationship is of a special nature." },
@@ -1642,7 +1646,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "regla-de-tres-directa-inversa": {
     sections: [
-      { type: "p", text: "La regla de tres es probablemente la primera herramienta matemática que se usa fuera del aula y la última que se olvida. Sirve para ajustar una receta, convertir divisas, calcular un descuento o repartir gastos. Su único punto delicado es distinguir cuándo la proporción es directa y cuándo inversa, y ahí es donde vale la pena detenerse." },
+      { type: "p", text: "Ajustar una receta para más comensales o calcular un descuento sin saber qué operación hacer lleva a errores fáciles de evitar. La regla de tres es probablemente la primera herramienta matemática que se usa fuera del aula y la última que se olvida. Sirve para ajustar una receta, convertir divisas, calcular un descuento o repartir gastos. Su único punto delicado es distinguir cuándo la proporción es directa y cuándo inversa, y ahí es donde vale la pena detenerse." },
       { type: "h2", text: "Proporcionalidad directa: más de uno, más del otro" },
       { type: "p", text: "Dos magnitudes son directamente proporcionales cuando al multiplicar una por un factor k, la otra también se multiplica por k. Ejemplos: precio y cantidad (si compras el doble, pagas el doble); tiempo y distancia a velocidad constante. La fórmula: si A/B = C/X, entonces X = B × C / A." },
       { type: "h2", text: "Proporcionalidad inversa: más de uno, menos del otro" },
@@ -1719,7 +1723,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Las conversiones son exactas según los factores estándar del SI. En contextos científicos de alta precisión, verifica los factores con tu fuente de referencia." },
     ],
     enSections: [
-      { type: "p", text: "The rule of three is probably the first piece of mathematics you use outside a classroom and the last one you forget. It scales a recipe, converts currency, works out a discount or splits a bill. Its only tricky point is telling direct from inverse proportion, and that is where it pays to slow down." },
+      { type: "p", text: "Scaling a recipe for more guests, or working out a discount without knowing which operation to use, leads to mistakes that are easy to avoid. The rule of three is probably the first piece of mathematics you use outside a classroom and the last one you forget. It scales a recipe, converts currency, works out a discount or splits a bill. Its only tricky point is telling direct from inverse proportion, and that is where it pays to slow down." },
       { type: "h2", text: "Direct proportion: more of one, more of the other" },
       { type: "p", text: "Two quantities are directly proportional when multiplying one by a factor k also multiplies the other by k. Examples: price and quantity (if you buy twice as much, you pay twice as much); time and distance at constant speed. Formula: if A/B = C/X, then X = B × C / A." },
       { type: "h2", text: "Inverse proportion: more of one, less of the other" },
@@ -1798,7 +1802,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "mru-mrua-fisica-ejemplos": {
     sections: [
-      { type: "p", text: "El movimiento rectilíneo es el primer modelo que se estudia en cinemática porque es el más simple que sigue describiendo bien la realidad. Con dos escenarios —velocidad constante y aceleración constante— se resuelve la mayoría de los problemas de un curso de física y buena parte de las situaciones cotidianas: un frenazo, una caída, un adelantamiento." },
+      { type: "p", text: "Los problemas de cinemática suelen bloquearse en la misma pregunta: ¿qué fórmula uso? Sin un modelo claro, cada ejercicio parece distinto. El movimiento rectilíneo es el primer modelo que se estudia en cinemática porque es el más simple que sigue describiendo bien la realidad. Con dos escenarios —velocidad constante y aceleración constante— se resuelve la mayoría de los problemas de un curso de física y buena parte de las situaciones cotidianas: un frenazo, una caída, un adelantamiento." },
       { type: "h2", text: "MRU: velocidad constante, aceleración cero" },
       { type: "p", text: "En el MRU la velocidad es constante y la aceleración es exactamente cero. La única fórmula necesaria es d = v × t. El gráfico posición-tiempo es una línea recta con pendiente igual a la velocidad; el gráfico velocidad-tiempo es una línea horizontal. Ejemplos reales aproximados: un tren en autopiloto a velocidad crucero, un patín deslizándose en hielo sin rozamiento." },
       { type: "h2", text: "MRUA: aceleración constante ≠ 0" },
@@ -1836,7 +1840,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "callout", text: "Estas ecuaciones son válidas únicamente cuando la aceleración es constante. Para movimientos con aceleración variable se necesita cálculo integral (cinemática avanzada)." },
     ],
     enSections: [
-      { type: "p", text: "Rectilinear motion is the first model studied in kinematics because it is the simplest one that still describes reality well. With two scenarios — constant velocity and constant acceleration — you can solve most problems in a physics course and a good share of everyday situations: braking, falling, overtaking." },
+      { type: "p", text: "Kinematics problems often get stuck on the same question: which formula do I use? Without a clear model, every exercise looks different. Rectilinear motion is the first model studied in kinematics because it is the simplest one that still describes reality well. With two scenarios — constant velocity and constant acceleration — you can solve most problems in a physics course and a good share of everyday situations: braking, falling, overtaking." },
       { type: "h2", text: "URM: constant velocity, zero acceleration" },
       { type: "p", text: "In URM, velocity is constant and acceleration is exactly zero. The only formula needed is d = v × t. The position-time graph is a straight line with slope equal to velocity; the velocity-time graph is a horizontal line. Real-world approximations: a train on autopilot at cruising speed, a skate gliding on frictionless ice." },
       { type: "h2", text: "UARM: constant non-zero acceleration" },
@@ -1876,7 +1880,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "como-calcular-letra-dni": {
     sections: [
-      { type: "p", text: "Cuando el DNI español incorporó la letra de control en 1990, el objetivo era doble: detectar errores tipográficos al teclear el número y dificultar la falsificación de documentos. La letra actúa como dígito verificador, igual que el dígito de control de un IBAN o el último número de un código de barras EAN-13." },
+      { type: "p", text: "Un formulario que rechaza tu DNI, o una letra que no cuadra, puede bloquear un trámite. Cuando se añadió la letra de control al número del DNI, el objetivo era doble: detectar errores tipográficos al teclear el número y dificultar la falsificación de documentos. La letra actúa como dígito verificador, igual que el dígito de control de un IBAN o el último número de un código de barras EAN-13." },
       { type: "h2", text: "El algoritmo paso a paso" },
       { type: "ul", items: [
         "Toma el número del DNI (8 dígitos, sin la letra).",
@@ -1935,7 +1939,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
     enSections: [
-      { type: "p", text: "When the Spanish DNI incorporated the control letter in 1990, the goal was twofold: to detect typing errors when entering the number and to make document forgery harder. The letter acts as a check digit, just like the control digit of an IBAN or the last digit of an EAN-13 barcode." },
+      { type: "p", text: "A form that rejects your DNI, or a letter that does not match, can block a procedure. When the control letter was added to the Spanish DNI number, the goal was twofold: to detect typing errors when entering the number and to make document forgery harder. The letter acts as a check digit, just like the control digit of an IBAN or the last digit of an EAN-13 barcode." },
       { type: "h2", text: "The algorithm step by step" },
       { type: "ul", items: [
         "Take the DNI number (8 digits, without the letter).",
