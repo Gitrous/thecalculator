@@ -45,6 +45,8 @@ function Toggle({
 
 const T = {
   es: {
+    sumarTitle: "Sumar o restar días a una fecha",
+    sumar: "Para saber qué fecha cae tras un número de días, se suma ese número al día de partida. Por ejemplo, 90 días después del 15 de marzo de 2026 es el 13 de junio de 2026. Para restar días, el proceso es el mismo hacia atrás. Esta página calcula la diferencia entre dos fechas; para comprobar un resultado, introduce la fecha de partida como inicio y la fecha obtenida como fin: la diferencia debe ser exactamente el número de días buscado. Si necesitas contar solo días laborables, el resultado cambia, porque los fines de semana no suman y los festivos dependen del calendario de cada comunidad o empresa.",
     title: "Calculadora de Días entre Fechas",
     subtitle: "Calcula cuántos días, semanas, meses y días laborables hay entre dos fechas.",
     intro1: "Calcular el número exacto de días entre dos fechas es una necesidad habitual en contextos legales, laborales y personales: plazos para presentar recursos administrativos, duración de contratos temporales, días de vacaciones consumidos o tiempo que falta para un evento. La diferencia entre 'días naturales' y 'días laborables' (excluyendo fines de semana) es clave en muchos de estos contextos.",
@@ -101,6 +103,8 @@ const T = {
     interpret: "Antes de usar el número obtenido, comprueba dos cosas. La primera es si el plazo que manejas cuenta días naturales o hábiles, porque la calculadora ofrece ambos y elegir el criterio equivocado puede hacerte perder un derecho. La segunda es si los extremos se incluyen: en la mayoría de plazos legales el cómputo comienza el día siguiente al hecho que los origina, de modo que el día inicial no cuenta. Ten en cuenta también que el cálculo de días laborables no puede contemplar los festivos locales y autonómicos, que varían según el municipio, así que para plazos ajustados conviene contrastarlo con el calendario oficial de tu comunidad.",
   },
   en: {
+    sumarTitle: "Add or subtract days from a date",
+    sumar: "To find the date that falls a given number of days after another date, add that number to the start date. For example, 90 days after 15 March 2026 is 13 June 2026. To subtract days, the process runs backwards. This page calculates the difference between two dates; to check a result, enter the start date as the beginning and the date you obtained as the end: the difference must be exactly the number of days you were looking for. If you need only working days, the result changes, because weekends do not count and public holidays depend on the calendar of each region or company.",
     title: "Days Between Dates Calculator",
     subtitle: "Calculate how many days, weeks, months and working days there are between two dates.",
     intro1: "Calculating the exact number of days between two dates is a common need in legal, work and personal contexts: deadlines for administrative appeals, duration of temporary contracts, holidays used or time until an event. The distinction between 'calendar days' and 'working days' (excluding weekends) is key in many of these contexts.",
@@ -442,6 +446,11 @@ export default function DiasEntreFechas() {
           </tbody>
         </table>
       </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.sumarTitle}</h2>
+        <p>{t.sumar}</p>
+      </section>
 
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>

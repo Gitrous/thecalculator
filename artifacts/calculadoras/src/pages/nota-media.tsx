@@ -27,6 +27,8 @@ let nextId = 4;
 
 const T = {
   es: {
+    exampleWeightTitle: "Ejemplo con la fórmula de la media ponderada",
+    exampleWeight: "La media ponderada es la suma de cada nota multiplicada por sus créditos, dividida entre el total de créditos. Con 6 créditos sacados con un 7, 3 créditos con un 5 y 6 créditos con un 9: (6 × 7 + 3 × 5 + 6 × 9) / 15 = 111 / 15 = 7,4. La media simple de las tres notas sería 7,0, porque da el mismo peso a una asignatura de 3 créditos que a una de 6. Cada universidad decide si pondera por créditos y con qué redondeo, así que consulta el reglamento de tu centro antes de usar la cifra en una solicitud.",
     title: "Calculadora de Nota Media",
     subtitle: "Calcula tu nota media simple o ponderada por créditos ECTS.",
     intro1: "La nota media del expediente académico es un indicador clave para acceder a becas, másteres con plazas limitadas y oposiciones que puntúan el historial académico. En España, la mayoría de universidades la calculan como la media ponderada por créditos ECTS, lo que significa que las asignaturas con más créditos tienen mayor impacto en la nota final. Una asignatura de 6 créditos cuenta el doble que una de 3.",
@@ -84,6 +86,8 @@ const T = {
       "No existe una fórmula oficial universal, y ese es el origen de muchos malentendidos. La escala española va de 0 a 10 con el aprobado en 5, mientras que el sistema anglosajón usa letras o un GPA sobre 4, y el alemán funciona al revés, con el 1 como mejor nota. Lo que hacen las universidades es aplicar tablas de equivalencia propias, y en el ámbito europeo se emplea además la distribución estadística de las notas de cada titulación, de forma que lo que se compara no es el número en bruto sino la posición relativa dentro de la promoción. Por eso, para una solicitud internacional, lo que se pide no es una conversión hecha por ti sino el expediente oficial con las calificaciones, el número de créditos y, si es posible, el suplemento europeo al título.",
   },
   en: {
+    exampleWeightTitle: "Worked example of the weighted average formula",
+    exampleWeight: "The weighted average is the sum of each grade multiplied by its credits, divided by the total credits. With 6 credits passed with a 7, 3 credits with a 5 and 6 credits with a 9: (6 × 7 + 3 × 5 + 6 × 9) / 15 = 111 / 15 = 7.4. The simple average of the three grades would be 7.0, because it gives the same weight to a 3-credit subject as to a 6-credit one. Each university decides whether to weight by credits and how to round, so check your faculty's regulations before using the figure in an application.",
     title: "Grade Average Calculator",
     subtitle: "Calculate your simple or ECTS credit-weighted average grade.",
     intro1: "The average grade on your academic transcript is a key indicator for accessing scholarships, oversubscribed master's programmes and public-sector exams that award points for academic records. In Spain, most universities calculate it as the credit-weighted average by ECTS, meaning that subjects with more credits have a greater impact on the final grade. A 6-credit subject counts twice as much as a 3-credit one.",
@@ -322,6 +326,11 @@ export default function NotaMedia() {
       <p className="text-xs text-muted-foreground italic mt-8 mb-2">{t.disclaimer}</p>
 
       <AdUnit slot={AD_SLOTS.midContent} className="my-10" />
+
+      <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.exampleWeightTitle}</h2>
+        <p>{t.exampleWeight}</p>
+      </section>
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">{t.faqTitle}</h2>

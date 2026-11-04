@@ -47,6 +47,8 @@ const CUSTOM = "custom";
 
 const T = {
   es: {
+    ruleTitle: "La regla del 72: cuánto tarda en duplicarse el capital",
+    rule: "Para estimar en cuántos años se duplica una inversión con interés compuesto, se divide 72 entre el tipo de interés anual en porcentaje. Con un 6 % anual, 72 / 6 = 12 años; el cálculo exacto da 11,9 años. Es una aproximación buena para tipos habituales, entre el 6 % y el 10 %. Su base matemática es que el capital se duplica cuando (1 + r)^t = 2, y tomando logaritmos t = ln 2 / ln(1 + r). Como ln 2 es aproximadamente 0,693, la expresión se parece a 69,3 / r. Se usa 72 porque tiene muchos divisores enteros y resulta cómodo de calcular de cabeza. Con un 7 % el cálculo exacto da 10,2 años frente a los 10,3 de la regla. La aproximación pierde precisión con tipos muy altos o muy bajos, y no tiene en cuenta impuestos ni comisiones.",
     backHome: "Volver al inicio",
     title: "Calculadora de Interés Compuesto",
     subtitle: "Descubre el poder del tiempo y cómo tus inversiones pueden crecer de forma exponencial.",
@@ -112,6 +114,8 @@ const T = {
     interpret: "Fíjate sobre todo en la proporción entre lo que has aportado y los intereses generados, porque es la métrica que revela la fuerza del interés compuesto. En plazos cortos la mayor parte del capital final procede de tus aportaciones; a partir de los quince o veinte años los intereses empiezan a superarlas y el crecimiento se vuelve mucho más pronunciado. Ten presente además dos limitaciones: la calculadora asume una rentabilidad constante, mientras que los mercados reales fluctúan y pueden encadenar años negativos, y no descuenta ni la inflación ni la fiscalidad del ahorro, que en España grava las ganancias del capital entre el 19 % y el 30 % en el momento de recuperar la inversión.",
   },
   en: {
+    ruleTitle: "Rule of 72: how long it takes for capital to double",
+    rule: "To estimate how many years an investment at compound interest takes to double, divide 72 by the annual interest rate in percent. At 6% a year, 72 / 6 = 12 years; the exact calculation gives 11.9 years. It is a good approximation for common rates, between 6% and 10%. Its mathematical basis is that capital doubles when (1 + r)^t = 2, and taking logarithms gives t = ln 2 / ln(1 + r). Since ln 2 is about 0.693, the expression resembles 69.3 / r. The number 72 is used because it has many whole-number divisors, which makes it easy to calculate in your head. At 7% the exact calculation gives 10.2 years against the rule's 10.3. The approximation loses accuracy at very high or very low rates, and it ignores taxes and fees.",
     backHome: "Back to home",
     title: "Compound Interest Calculator",
     subtitle: "Discover the power of time and how your investments can grow exponentially.",
@@ -492,6 +496,11 @@ export default function InteresCompuesto() {
           </tbody>
         </table>
       </div>
+
+      <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.ruleTitle}</h2>
+        <p>{t.rule}</p>
+      </section>
 
       <section className="mt-8 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{t.interpretTitle}</h2>

@@ -35,6 +35,8 @@ import {
   Heart,
   Droplets,
   Hammer,
+  Cake,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 
@@ -295,6 +297,45 @@ export const CALCULATORS: CalculatorMeta[] = [
     enSeoDescription: "Compare the long-term cost of renting vs buying a home. Find out which is better for your situation.",
     spainSpecific: true,
     enDescription: "Compare renting vs buying a home over the long term.",
+  },
+
+  {
+    slug: "dividir-cuenta",
+    enSlug: "split-bill",
+    category: "finanzas",
+    title: "Dividir la Cuenta entre Amigos",
+    description:
+      "Reparte un gasto entre varias personas, con propina, y sin que los céntimos se descuadren.",
+    shortLabel: "Dividir Cuenta",
+    icon: Users,
+    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    seoTitle: "Calculadora para Dividir la Cuenta entre Amigos",
+    seoDescription:
+      "Divide la cuenta entre varias personas con propina y reparto exacto de céntimos, sin errores de redondeo.",
+    enTitle: "Split the Bill Calculator",
+    enShortLabel: "Split the Bill",
+    enSeoTitle: "Split the Bill Calculator with Tip",
+    enSeoDescription: "Split a bill between friends with tip, with the cents shared out so the total adds up exactly.",
+    enDescription: "Split a bill between people with tip, without rounding errors.",
+  },
+  {
+    slug: "edad",
+    enSlug: "age-calculator",
+    category: "trabajo",
+    title: "Calculadora de Edad",
+    description:
+      "Calcula tu edad exacta en años, meses y días, los días vividos y cuánto falta para tu próximo cumpleaños.",
+    shortLabel: "Edad",
+    icon: Cake,
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
+    seoTitle: "Calculadora de Edad exacta en años, meses y días",
+    seoDescription:
+      "Calcula tu edad exacta en años, meses y días, los días que llevas vivo y cuánto falta para tu próximo cumpleaños.",
+    enTitle: "Age Calculator",
+    enShortLabel: "Age",
+    enSeoTitle: "Age Calculator: Exact Age in Years, Months and Days",
+    enSeoDescription: "Calculate your exact age in years, months and days, the days you have lived and the days to your next birthday.",
+    enDescription: "Calculate your exact age in years, months and days.",
   },
 
   // ── Hogar ─────────────────────────────────────────────────────────────────
