@@ -346,12 +346,12 @@ export default function Home() {
       <Seo
         title={
           isEn
-            ? "Free Online Calculators and Simulators"
+            ? "Calculator Online: Free Calculators for Money, Work, Home and Health"
             : "Calculadoras y Simuladores Online Gratis"
         }
         description={
           isEn
-            ? "Free online calculators for finance, home, work, education and health: mortgage, net salary, VAT, BMI, calories and more. No sign-up, results explained step by step."
+            ? "Free calculator online for finance, home, work, education and health: mortgage, net salary, VAT, BMI, calories and more. No sign-up, results explained step by step."
             : "Calculadoras online gratuitas de finanzas, hogar, trabajo, educación y salud: hipoteca, salario neto, IVA, IMC, calorías y más. Sin registro y con el cálculo explicado paso a paso."
         }
         path={isEn ? "/en" : "/"}
@@ -576,6 +576,11 @@ export default function Home() {
                     we build and review each tool, and the <Link href="/en/about" className="text-primary underline">about page</Link> says who
                     runs the site.
                   </p>
+                  <p>
+                    Need a calculator online in a hurry? Every tool opens in the browser, works on a
+                    phone or a computer, and shows the formula behind the result. Start from a
+                    category below or search for a calculator by name at the top of the page.
+                  </p>
                 </>
               ) : (
                 <>
@@ -593,6 +598,12 @@ export default function Home() {
                     antes de decidir. La <Link href="/metodologia" className="text-primary underline">metodología</Link> explica
                     cómo construimos y revisamos cada herramienta, y la página <Link href="/sobre-nosotros" className="text-primary underline">sobre nosotros</Link> indica
                     quién lleva el sitio.
+                  </p>
+                  <p>
+                    ¿Necesitas una calculadora online rápida? Cada herramienta se abre en el navegador,
+                    funciona en el móvil o en el ordenador y muestra la fórmula detrás del resultado.
+                    Empieza por una categoría de abajo o busca una calculadora por su nombre al
+                    principio de la página.
                   </p>
                 </>
               )}

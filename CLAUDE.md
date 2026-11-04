@@ -272,3 +272,12 @@ Cómo verificar que funciona:
 - `thecalculator.tech` se sirve por Cloudflare Pages, conectado a este repo
   (rama `main`). Cada push a `main` dispara un build automático.
 - Build output directory en Cloudflare: `artifacts/calculadoras/dist/public`.
+
+## SEO: impresiones de Search Console en URLs redirigidas
+
+Las URLs de Search Console con impresiones pueden ser **fuentes de 301**, no
+páginas vivas: `/en/calculators/work/autonomos/`, `/blog/mrua-movimiento-uniformemente-acelerado/`
+y `/blog/dias-entre-fechas-plazos-legales/` redirigen. Antes de optimizar una URL
+de GSC, comprueba con `curl -s -o /dev/null -w "%{http_code} -> %{redirect_url}\n"`
+y optimiza el destino. Para la consulta exacta de una página, usa la pestaña
+Consultas filtrada por página en GSC; la tabla sin filtrar no la asocia a URLs.

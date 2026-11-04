@@ -288,7 +288,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
     seoTitle: "Calculadora Alquiler vs Compra de vivienda",
     seoDescription:
-      "Compara si te sale más rentable alquilar o comprar vivienda según tu situación concreta.",
+      "Compara si te sale más rentable alquilar o comprar vivienda y calcula el año en que comprar empieza a salir a cuenta.",
     enTitle: "Rent vs Buy Calculator (Spain)",
     enShortLabel: "Rent vs Buy",
     enSeoTitle: "Rent vs Buy Calculator - Is It Better to Rent or Buy? (Spain)",

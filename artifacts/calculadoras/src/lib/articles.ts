@@ -58,8 +58,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "que-es-la-tae-diferencia-tin",
     enSlug: "what-is-apr-difference-from-nominal-rate",
-    title: "TAE, TIN y cómo comparar préstamos sin equivocarte",
-    enTitle: "APR, nominal rate and how to compare loans without getting it wrong",
+    title: "TAE vs TIN: diferencia y cómo comparar préstamos sin equivocarte",
+    enTitle: "APR vs nominal rate: the difference and how to compare loans",
     description: "La diferencia entre el tipo nominal y la TAE, qué gastos incluye cada uno y cómo comparar dos ofertas de préstamo que parecen iguales y no lo son.",
     enDescription: "The difference between the nominal rate and the APR, which costs each one includes, and how to compare two loan offers that look alike but are not.",
     category: "finanzas",
@@ -186,8 +186,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "regla-de-tres-directa-inversa",
     enSlug: "rule-of-three-direct-inverse",
-    title: "Matemáticas de andar por casa: proporciones, unidades y medias ponderadas",
-    enTitle: "Everyday maths: proportions, units and weighted averages",
+    title: "Regla de tres directa e inversa: ejemplos y otras matemáticas cotidianas",
+    enTitle: "Direct and inverse rule of three: examples and everyday maths",
     description: "La regla de tres directa e inversa, el teorema de Pitágoras aplicado a problemas reales, cómo convertir unidades sin liarse y cómo se pondera una nota media.",
     enDescription: "Direct and inverse rule of three, the Pythagorean theorem applied to real problems, converting units without confusion, and how a weighted grade average works.",
     category: "educacion",
@@ -199,8 +199,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "mru-mrua-fisica-ejemplos",
     enSlug: "uniform-motion-physics-examples",
-    title: "Cinemática con ejemplos reales: movimiento uniforme y acelerado",
-    enTitle: "Kinematics with real examples: uniform and accelerated motion",
+    title: "Movimiento uniformemente acelerado (MRUA) y MRU: ejemplos reales",
+    enTitle: "Uniformly accelerated motion (MRUA) and uniform motion: real examples",
     description: "MRU y MRUA explicados con trenes, frenadas y caídas libres: qué fórmula usar en cada caso, cómo leer las gráficas y dónde están los errores de signo.",
     enDescription: "Uniform and accelerated motion explained with trains, braking distances and free fall: which formula to use, how to read the graphs and where sign errors hide.",
     category: "educacion",
