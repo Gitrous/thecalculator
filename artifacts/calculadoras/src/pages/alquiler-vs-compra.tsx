@@ -58,16 +58,16 @@ const T = {
     deepTitle: "Cómo se compara el coste real de alquilar y comprar",
     deep: "La comparación suma, año a año, dos escenarios paralelos. En el escenario de compra se contabilizan la entrada, los gastos e impuestos de la compraventa, las cuotas de hipoteca pagadas, el IBI, la comunidad, el seguro y el mantenimiento; a ese coste acumulado se le resta el patrimonio generado, es decir, el valor estimado de la vivienda menos la deuda pendiente. En el escenario de alquiler se acumulan las rentas pagadas, actualizadas con la subida anual prevista, y se suma el rendimiento obtenido al invertir tanto la entrada como la diferencia mensual entre cuota y alquiler. El punto de equilibrio es el año en que el coste neto de comprar pasa a ser inferior al de alquilar.",
     exampleTitle: "Ejemplo resuelto",
-    example: "Para una vivienda de 250.000 € con un 20 % de entrada (50.000 €) y una hipoteca de 200.000 € al 3 % a 30 años, la cuota mensual ronda los 843 €. Sumando IBI, comunidad, seguro y mantenimiento, el desembolso mensual se acerca a los 1.100 €. Frente a un alquiler de 900 € mensuales, el comprador paga 200 € más al mes, pero de su cuota unos 343 € del primer año amortizan capital y se convierten en patrimonio. El inquilino, en cambio, dispone de los 50.000 € de la entrada para invertir. Con una revalorización de la vivienda del 2 % anual y una rentabilidad de la inversión del 5 %, el equilibrio suele situarse entre el año 8 y el 12.",
+    example: "Vivienda de 250.000 €, entrada del 20 % (50.000 €) e hipoteca de 200.000 € al 3 % a 30 años: la cuota mensual es de 843,21 €. Si el alquiler equivalente es de 900 € al mes, la cuota sola queda por debajo del alquiler, pero el IBI, la comunidad, el seguro y el mantenimiento se suman y pueden cambiar la comparación. Durante el primer año, la cuota amortiza unos 4.176 € de capital, que pasan a ser patrimonio. El inquilino, en cambio, puede invertir esos 50.000 € de la entrada. Con una subida del alquiler del 2 % anual y una rentabilidad de la inversión del 5 %, el año de equilibrio depende sobre todo de los gastos de compraventa, que introduces tú. El simulador además supone una revalorización de la vivienda del 2 % anual y un mantenimiento del 1 % del precio al año.",
     tableTitle: "Gastos de compra de una vivienda (además del precio)",
     tableCol1: "Concepto",
-    tableCol2: "Coste orientativo",
+    tableCol2: "Cómo calcularlo",
     interpretTitle: "Cómo interpretar el resultado",
     interpret: "El punto de equilibrio es la cifra que debes mirar, pero contrástalo con tu horizonte real de permanencia. Si prevés mudarte antes de ese año, el alquiler sale ganando casi con seguridad, porque los gastos de compraventa se amortizan muy lentamente y vender implica nuevos costes. Si vas a quedarte más tiempo, la compra suele imponerse. Ten presente que el resultado es muy sensible a dos supuestos que nadie puede predecir: la revalorización de la vivienda y la rentabilidad de la inversión alternativa. Prueba a variarlos en escenarios pesimistas y optimistas para ver cuán robusta es la conclusión, y recuerda que la compra añade además un valor no financiero, la estabilidad, que no aparece en ninguna hoja de cálculo.",
     hiddenTitle:
       "Lo que la comparación pura de números deja fuera",
     hidden:
-      "El cálculo financiero es necesario pero no suficiente, porque hay factores que pesan mucho y no caben en una hoja de cálculo. La movilidad es el principal: comprar tiene unos costes de entrada y de salida altos, entre impuestos, notaría y comisiones, de modo que si existe una probabilidad razonable de cambiar de ciudad en menos de cinco o seis años, alquilar suele ganar aunque los números a largo plazo digan lo contrario. La estabilidad laboral influye en la misma dirección. Del lado de la compra hay dos ventajas que tampoco aparecen: el pago de la hipoteca funciona como un ahorro forzoso que mucha gente no haría de forma voluntaria, y ser propietario protege de las subidas del alquiler cuando llegas a la jubilación, que es cuando los ingresos bajan. Y está el factor que ningún modelo captura: poder reformar la cocina a tu gusto, o la tranquilidad de no depender de que un propietario no renueve el contrato.",
+      "El cálculo financiero es necesario pero no suficiente, porque hay factores que pesan mucho y no caben en una hoja de cálculo. La movilidad es el principal: comprar tiene unos costes de entrada y de salida altos, entre impuestos, notaría y comisiones, de modo que si existe una probabilidad razonable de cambiar de ciudad antes del año de equilibrio que muestra el simulador, alquilar suele ganar aunque los números a largo plazo digan lo contrario. La estabilidad laboral influye en la misma dirección. Del lado de la compra hay dos ventajas que tampoco aparecen: el pago de la hipoteca funciona como un ahorro forzoso que mucha gente no haría de forma voluntaria, y ser propietario protege de las subidas del alquiler cuando llegas a la jubilación, que es cuando los ingresos bajan. Y está el factor que ningún modelo captura: poder reformar la cocina a tu gusto, o la tranquilidad de no depender de que un propietario no renueve el contrato.",
   },
   en: {
     backHome: "Back to home",
@@ -111,26 +111,26 @@ const T = {
     deepTitle: "How the real cost of renting and buying is compared",
     deep: "The comparison adds up two parallel scenarios year by year. In the buying scenario it counts the deposit, the transaction costs and taxes, the mortgage payments made, property tax, community fees, insurance and maintenance; from that cumulative cost it subtracts the equity built up, that is, the estimated value of the home minus the outstanding debt. In the renting scenario it accumulates the rent paid, updated with the expected annual increase, and adds the return obtained by investing both the deposit and the monthly difference between mortgage payment and rent. The break-even point is the year in which the net cost of buying drops below that of renting.",
     exampleTitle: "Worked example",
-    example: "For a €250,000 home with a 20% deposit (€50,000) and a €200,000 mortgage at 3% over 30 years, the monthly payment is around €843. Adding property tax, community fees, insurance and maintenance, the monthly outlay approaches €1,100. Against a rent of €900 a month, the buyer pays €200 more, but about €343 of the first year's payments repay principal and turn into equity. The tenant, meanwhile, has the €50,000 deposit available to invest. With home appreciation of 2% a year and an investment return of 5%, break-even typically falls between year 8 and year 12.",
+    example: "A €250,000 home, a 20% deposit (€50,000) and a €200,000 mortgage at 3% over 30 years: the monthly payment is €843.21. If the equivalent rent is €900 a month, the payment alone is below the rent, but property tax, community fees, insurance and maintenance add up and can change the comparison. In the first year the payment repays about €4,176 of principal, which becomes equity. The tenant, meanwhile, can invest that €50,000 deposit. With rent rising 2% a year and an investment return of 5%, the break-even year depends mainly on the transaction costs, which you enter yourself. The simulator also assumes home appreciation of 2% a year and maintenance of 1% of the price per year.",
     tableTitle: "Costs of buying a home (on top of the price)",
     tableCol1: "Item",
-    tableCol2: "Indicative cost",
+    tableCol2: "How to estimate it",
     interpretTitle: "How to interpret the result",
     interpret: "The break-even point is the figure to look at, but weigh it against how long you realistically expect to stay. If you foresee moving before that year, renting almost certainly wins, because transaction costs are amortised very slowly and selling brings new costs of its own. If you plan to stay longer, buying usually comes out ahead. Keep in mind that the result is highly sensitive to two assumptions nobody can predict: home appreciation and the return on the alternative investment. Try varying them in pessimistic and optimistic scenarios to see how robust the conclusion is, and remember that buying also adds a non-financial value — stability — that no spreadsheet captures.",
     hiddenTitle:
       "What a pure comparison of numbers leaves out",
     hidden:
-      "The financial calculation is necessary but not sufficient, because some factors weigh heavily and do not fit in a spreadsheet. Mobility is the main one: buying carries high entry and exit costs, between taxes, notary and fees, so if there is a reasonable chance of moving city within five or six years, renting usually wins even when the long-run numbers say otherwise. Job stability points the same way. On the buying side there are two advantages that also go unrecorded: mortgage payments act as forced saving that many people would not do voluntarily, and owning protects you from rent increases when you reach retirement, which is when income falls. And there is the factor no model captures: being able to redo the kitchen your way, or the peace of mind of not depending on a landlord renewing your contract.",
+      "The financial calculation is necessary but not sufficient, because some factors weigh heavily and do not fit in a spreadsheet. Mobility is the main one: buying carries high entry and exit costs, between taxes, notary and fees, so if there is a reasonable chance of moving city before the break-even year the simulator shows, renting usually wins even when the long-run numbers say otherwise. Job stability points the same way. On the buying side there are two advantages that also go unrecorded: mortgage payments act as forced saving that many people would not do voluntarily, and owning protects you from rent increases when you reach retirement, which is when income falls. And there is the factor no model captures: being able to redo the kitchen your way, or the peace of mind of not depending on a landlord renewing your contract.",
   },
 };
 
 const BUY_COSTS = [
-  { es: "ITP (segunda mano)", en: "Transfer tax (second-hand)", coste: "6 – 10 %" },
-  { es: "IVA + AJD (obra nueva)", en: "VAT + stamp duty (new build)", coste: "10 % + 0,5 – 1,5 %" },
-  { es: "Notaría", en: "Notary", coste: "600 – 900 €" },
-  { es: "Registro de la propiedad", en: "Land registry", coste: "400 – 650 €" },
-  { es: "Gestoría", en: "Administrative agency", coste: "300 – 500 €" },
-  { es: "Tasación", en: "Property valuation", coste: "300 – 600 €" },
+  { es: "ITP (segunda mano)", en: "Transfer tax (second-hand)", coste: "Según comunidad autónoma", costeEn: "Depends on the autonomous community" },
+  { es: "IVA + AJD (obra nueva)", en: "VAT + stamp duty (new build)", coste: "Según comunidad y tipo de operación", costeEn: "Depends on region and transaction type" },
+  { es: "Notaría", en: "Notary", coste: "Pedir presupuesto", costeEn: "Ask for a quote" },
+  { es: "Registro de la propiedad", en: "Land registry", coste: "Pedir presupuesto", costeEn: "Ask for a quote" },
+  { es: "Gestoría", en: "Administrative agency", coste: "Pedir presupuesto", costeEn: "Ask for a quote" },
+  { es: "Tasación", en: "Property valuation", coste: "Pedir presupuesto", costeEn: "Ask for a quote" },
 ];
 
 export default function AlquilerVsCompra() {
@@ -421,7 +421,7 @@ export default function AlquilerVsCompra() {
             {BUY_COSTS.map((row) => (
               <tr key={row.en} className="border-b border-gray-100 dark:border-white/5">
                 <td className="py-2 pr-4 text-gray-900 dark:text-white">{isEn ? row.en : row.es}</td>
-                <td className="py-2 font-semibold text-primary whitespace-nowrap">{row.coste}</td>
+                <td className="py-2 font-semibold text-primary whitespace-nowrap">{locale === "en" ? row.costeEn : row.coste}</td>
               </tr>
             ))}
           </tbody>

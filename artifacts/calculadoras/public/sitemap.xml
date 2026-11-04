@@ -1103,4 +1103,22 @@
     <priority>0.7</priority>
     <lastmod>2026-11-04</lastmod>
   </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/educacion/desviacion-tipica/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/educacion/desviacion-tipica/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/education/standard-deviation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/educacion/desviacion-tipica/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/education/standard-deviation/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/educacion/desviacion-tipica/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/education/standard-deviation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/educacion/desviacion-tipica/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-04</lastmod>
+  </url>
 </urlset>

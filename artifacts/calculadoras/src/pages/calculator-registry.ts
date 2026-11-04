@@ -50,6 +50,7 @@ const CALCULATOR_CHUNKS: Record<string, [file: string, load: Loader]> = {
   "educacion/mru": ["mru", () => import("@/pages/mru")],
   "educacion/mrua": ["mrua", () => import("@/pages/mrua")],
   "educacion/conversor-unidades": ["conversor-unidades", () => import("@/pages/conversor-unidades")],
+  "educacion/desviacion-tipica": ["desviacion-tipica", () => import("@/pages/desviacion-tipica")],
   "salud/imc": ["imc", () => import("@/pages/imc")],
   "salud/calorias": ["calorias", () => import("@/pages/calorias")],
   "salud/frecuencia-cardiaca": ["frecuencia-cardiaca", () => import("@/pages/frecuencia-cardiaca")],

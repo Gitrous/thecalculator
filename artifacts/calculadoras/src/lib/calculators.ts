@@ -37,6 +37,7 @@ import {
   Hammer,
   Cake,
   Users,
+  Sigma,
   type LucideIcon,
 } from "lucide-react";
 
@@ -336,6 +337,26 @@ export const CALCULATORS: CalculatorMeta[] = [
     enSeoTitle: "Age Calculator: Exact Age in Years, Months and Days",
     enSeoDescription: "Calculate your exact age in years, months and days, the days you have lived and the days to your next birthday.",
     enDescription: "Calculate your exact age in years, months and days.",
+  },
+
+  {
+    slug: "desviacion-tipica",
+    enSlug: "standard-deviation",
+    category: "educacion",
+    title: "Calculadora de Desviación Típica",
+    description:
+      "Calcula la media, la varianza y la desviación típica de una lista de datos, como muestra o como población.",
+    shortLabel: "Desviación Típica",
+    icon: Sigma,
+    color: "text-violet-600 bg-violet-100 dark:bg-violet-900/30",
+    seoTitle: "Calculadora de Desviación Típica (muestra y población)",
+    seoDescription:
+      "Calcula la desviación típica, la varianza y la media de tus datos, como muestra (n − 1) o como población (N).",
+    enTitle: "Standard Deviation Calculator",
+    enShortLabel: "Standard Deviation",
+    enSeoTitle: "Standard Deviation Calculator (Sample and Population)",
+    enSeoDescription: "Calculate the standard deviation, variance and mean of your data, as a sample (n − 1) or a population (N).",
+    enDescription: "Calculate the mean, variance and standard deviation of a list of data.",
   },
 
   // ── Hogar ─────────────────────────────────────────────────────────────────
