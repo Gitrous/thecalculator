@@ -245,6 +245,7 @@ export default function BlogArticle() {
     publisher: {
       "@type": "Organization",
       name: "thecalculator.tech",
+      alternateName: ["thecalculator", "thecalculatortech", "thecalculator tech"],
       url: "https://thecalculator.tech",
       logo: {
         "@type": "ImageObject",
