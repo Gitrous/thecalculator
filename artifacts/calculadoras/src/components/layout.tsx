@@ -96,7 +96,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="relative group">
               <button
                 onClick={() => navigate(homeHref)}
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1 py-1 -my-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors cursor-pointer"
               >
                 {isEn ? "Calculators" : "Calculadoras"}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
@@ -126,14 +126,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <Link
               href={isEn ? "/en/blog" : "/blog"}
-              className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors"
+              className="hidden sm:flex items-center gap-1.5 py-1 -my-1 text-sm font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors"
             >
               <BookOpen className="w-4 h-4" />
               Blog
             </Link>
             <Link
               href={isEn ? "/en/contact" : "/contacto"}
-              className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-white/50 hover:text-primary dark:hover:text-white transition-colors"
+              className="hidden sm:flex items-center gap-1.5 py-1 -my-1 text-sm font-medium text-gray-500 dark:text-white/50 hover:text-primary dark:hover:text-white transition-colors"
             >
               <Mail className="w-4 h-4" />
               {isEn ? "Contact us" : "Contáctanos"}
