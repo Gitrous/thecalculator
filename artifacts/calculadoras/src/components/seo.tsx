@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SITE_NAME_ES, SITE_NAME_EN } from "@/lib/site";
+import { SITE_NAME_ES, SITE_DOMAIN } from "@/lib/site";
 
 const SITE = "https://thecalculator.tech";
 
@@ -47,7 +47,7 @@ export interface HeadData {
  * runs identically on the server (SSG) and the client. */
 export function computeHead({ title, description, path, jsonLd, alternatePath }: SeoProps): HeadData {
   const isEn = isEnPath(path);
-  const siteName = isEn ? SITE_NAME_EN : SITE_NAME_ES;
+  const siteName = isEn ? SITE_DOMAIN : SITE_NAME_ES;
   const fullTitle = `${title} | ${siteName}`;
   const lang = isEn ? "en" : "es";
   const ogLocale = isEn ? "en_US" : "es_ES";

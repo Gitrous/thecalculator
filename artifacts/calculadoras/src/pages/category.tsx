@@ -271,6 +271,9 @@ export default function Category() {
     : `/en/calculators/${EN_CATEGORY_SLUGS[category.id]}`;
   const homeHref = isEn ? "/en" : "/";
   const homeLabel = isEn ? "Home" : "Inicio";
+  const seoDesc = isEn
+    ? `${displayDesc} Free calculators by thecalculator.tech, no sign-up.`
+    : `${displayDesc} Gratis y sin registro, en thecalculator.tech.`;
   const pageTitle = isEn
     ? `${displayName} Calculators`
     : `Calculadoras de ${displayName}`;
@@ -286,7 +289,7 @@ export default function Category() {
     <div className="max-w-6xl mx-auto space-y-8">
       <Seo
         title={pageTitle}
-        description={displayDesc}
+        description={seoDesc}
         path={seoPath}
         alternatePath={alternatePath}
       />
