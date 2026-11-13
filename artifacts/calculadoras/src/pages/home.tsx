@@ -351,7 +351,7 @@ export default function Home() {
         }
         description={
           isEn
-            ? "Free online calculators for finance, home, work, education and health: mortgage, net salary, VAT, BMI and more. No sign-up, results explained."
+            ? "Calculator online, free: mortgage, net salary, VAT, BMI and more for finance, home, work, education and health. No sign-up, results explained."
             : "Calculadoras online gratuitas de finanzas, hogar, trabajo, educación y salud: hipoteca, salario neto, IVA, IMC y más. Sin registro, cálculo explicado."
         }
         path={isEn ? "/en" : "/"}

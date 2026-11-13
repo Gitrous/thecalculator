@@ -177,8 +177,8 @@ export const CALCULATORS: CalculatorMeta[] = [
       "Calcula la cuota mensual de tu préstamo personal, el total de intereses y el cuadro de amortización mes a mes.",
     enTitle: "Personal Loan Calculator",
     enShortLabel: "Personal Loan",
-    enSeoTitle: "Personal Loan Calculator",
-    enSeoDescription: "Calculate your monthly personal loan payment and total interest.",
+    enSeoTitle: "Loan Calculator: Personal Loan Payment and Interest",
+    enSeoDescription: "Free loan calculator for personal loans: monthly payment, total interest and a month-by-month amortisation schedule. No sign-up.",
     enDescription: "Calculate monthly payments and total cost of your personal loan.",
   },
   {
