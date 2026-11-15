@@ -1819,25 +1819,6 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "p", text: "A esa distancia hay que sumarle además el espacio recorrido durante el tiempo de reacción, que sí es proporcional a la velocidad. Es la razón física por la que los límites de velocidad no son arbitrarios y por la que un exceso aparentemente pequeño cambia radicalmente el desenlace de un imprevisto." },
       { type: "callout", text: "Estas fórmulas asumen aceleración constante en línea recta y sin rozamiento. En situaciones reales, intervienen otras fuerzas." },
     
-      {
-        type: "h2",
-        text: "El MRUA en detalle: cuando la velocidad cambia",
-      },
-      { type: "p", text: "El Movimiento Rectilíneo Uniformemente Acelerado (MRUA) es aquel en que un objeto se mueve en línea recta con una aceleración constante. A diferencia del MRU (aceleración cero), aquí la velocidad cambia a un ritmo fijo. Es uno de los modelos más importantes de la física clásica porque describe situaciones cotidianas: un coche que acelera desde el semáforo, una piedra que cae al vacío o un avión que rueda por la pista antes de despegar." },
-      { type: "h2", text: "Las 4 ecuaciones cinemáticas del MRUA" },
-      { type: "ul", items: [
-        "v = v₀ + a·t  →  velocidad final en función del tiempo",
-        "x = v₀·t + ½·a·t²  →  posición (desplazamiento) en función del tiempo",
-        "v² = v₀² + 2·a·x  →  velocidad sin necesidad de conocer el tiempo",
-        "x = ½·(v₀ + v)·t  →  desplazamiento como velocidad media × tiempo",
-      ] },
-      { type: "h2", text: "Variables y unidades" },
-      { type: "p", text: "v₀ es la velocidad inicial (m/s), v es la velocidad final (m/s), a es la aceleración (m/s²), t es el tiempo (s) y x es el desplazamiento (m). La aceleración puede ser positiva (el objeto acelera) o negativa (desacelera, frenada). La gravedad terrestre es a = −9,8 m/s² si tomamos el eje positivo hacia arriba." },
-      { type: "h2", text: "Ejemplo: caída libre desde 45 m" },
-      { type: "p", text: "Un objeto cae desde 45 m de altura sin velocidad inicial. a = 9,8 m/s², v₀ = 0. Tiempo de caída: x = ½·a·t² → 45 = ½·9,8·t² → t = √(90/9,8) ≈ 3,03 s. Velocidad al impactar: v = v₀ + a·t = 0 + 9,8·3,03 ≈ 29,7 m/s (≈ 107 km/h). Verificación con la 3.ª ecuación: v² = 0 + 2·9,8·45 = 882 → v ≈ 29,7 m/s. ✓" },
-      { type: "h2", text: "Diferencia entre MRUA y MRU" },
-      { type: "p", text: "En el MRU (Movimiento Rectilíneo Uniforme) la aceleración es cero: la velocidad no cambia y la posición crece linealmente con el tiempo (x = v·t). En el MRUA la aceleración es distinta de cero: la velocidad cambia linealmente con el tiempo y la posición crece de forma parabólica (x = v₀·t + ½·a·t²). La gráfica v-t del MRU es una línea horizontal; la del MRUA es una línea inclinada." },
-      { type: "callout", text: "Estas ecuaciones son válidas únicamente cuando la aceleración es constante. Para movimientos con aceleración variable se necesita cálculo integral (cinemática avanzada)." },
     ],
     enSections: [
       { type: "p", text: "Kinematics problems often get stuck on the same question: which formula do I use? Without a clear model, every exercise looks different. Rectilinear motion is the first model studied in kinematics because it is the simplest one that still describes reality well. With two scenarios — constant velocity and constant acceleration — you can solve most problems in a physics course and a good share of everyday situations: braking, falling, overtaking." },
@@ -1857,25 +1838,6 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "p", text: "On top of that you must add the ground covered during reaction time, which is proportional to speed. This is the physical reason speed limits are not arbitrary, and why an apparently small excess radically changes the outcome of an unexpected event." },
       { type: "callout", text: "These formulas assume constant acceleration in a straight line without friction. In real situations, other forces come into play." },
     
-      {
-        type: "h2",
-        text: "Accelerated motion in detail: when velocity changes",
-      },
-      { type: "p", text: "Uniformly Accelerated Rectilinear Motion (MRUA in Spanish) describes an object moving in a straight line with constant acceleration. Unlike uniform motion (zero acceleration), here the velocity changes at a fixed rate. It is one of the most important models in classical physics because it describes everyday situations: a car accelerating from traffic lights, a stone falling through the air, or an aircraft rolling down the runway before take-off." },
-      { type: "h2", text: "The 4 kinematic equations of MRUA" },
-      { type: "ul", items: [
-        "v = v₀ + a·t  →  final velocity as a function of time",
-        "x = v₀·t + ½·a·t²  →  position (displacement) as a function of time",
-        "v² = v₀² + 2·a·x  →  velocity without needing to know time",
-        "x = ½·(v₀ + v)·t  →  displacement as average velocity × time",
-      ] },
-      { type: "h2", text: "Variables and units" },
-      { type: "p", text: "v₀ is initial velocity (m/s), v is final velocity (m/s), a is acceleration (m/s²), t is time (s) and x is displacement (m). Acceleration can be positive (object speeds up) or negative (object slows down, braking). Earth's gravitational acceleration is a = −9.8 m/s² when the positive axis points upward." },
-      { type: "h2", text: "Example: free fall from 45 m" },
-      { type: "p", text: "An object falls from 45 m with no initial velocity. a = 9.8 m/s², v₀ = 0. Fall time: x = ½·a·t² → 45 = ½·9.8·t² → t = √(90/9.8) ≈ 3.03 s. Impact velocity: v = v₀ + a·t = 0 + 9.8·3.03 ≈ 29.7 m/s (≈ 107 km/h). Verification with the 3rd equation: v² = 0 + 2·9.8·45 = 882 → v ≈ 29.7 m/s. ✓" },
-      { type: "h2", text: "Difference between MRUA and MRU" },
-      { type: "p", text: "In MRU (Uniform Rectilinear Motion) acceleration is zero: velocity does not change and position grows linearly with time (x = v·t). In MRUA acceleration is non-zero: velocity changes linearly with time and position grows parabolically (x = v₀·t + ½·a·t²). The v-t graph of MRU is a horizontal line; that of MRUA is an inclined line." },
-      { type: "callout", text: "These equations are only valid when acceleration is constant. For motion with variable acceleration, integral calculus is required (advanced kinematics)." },
     ],
   },
   "como-calcular-letra-dni": {

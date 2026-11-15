@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -10,7 +10,7 @@ import {
   localeSwitchPath,
   EN_CATEGORY_SLUGS,
 } from "@/lib/calculators";
-import { Mail, ChevronDown, BookOpen } from "lucide-react";
+import { Mail, ChevronDown, BookOpen, Menu, X } from "lucide-react";
 import { LogoAnimated } from "@/components/logo-animated";
 import { useLocale } from "@/lib/locale";
 import { ARTICLES } from "@/lib/articles";
@@ -19,10 +19,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const locale = useLocale();
   const [location, navigate] = useLocation();
   const isEn = locale === "en";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
+    setMenuOpen(false);
   }, [location]);
 
   // Language toggle: stay on the equivalent page in the other locale
@@ -148,8 +150,66 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {isEn ? "Español" : "English"}
             </Link>
             <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? (isEn ? "Close menu" : "Cerrar menú") : isEn ? "Open menu" : "Abrir menú"}
+              className="sm:hidden p-2 -m-2 rounded-md text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white"
+            >
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <nav
+            id="mobile-menu"
+            aria-label={isEn ? "Main menu" : "Menú principal"}
+            className="sm:hidden border-t border-gray-200 dark:border-white/10 bg-white dark:bg-zinc-900 px-4 py-4 max-h-[calc(100dvh-4rem)] overflow-y-auto"
+          >
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+              {isEn ? "Calculators" : "Calculadoras"}
+            </p>
+            <ul className="grid grid-cols-1 gap-1 mb-4">
+              {CATEGORIES.map((cat) => {
+                const CatIcon = cat.icon;
+                const catHref = isEn
+                  ? `/en/calculators/${EN_CATEGORY_SLUGS[cat.id]}`
+                  : `/calculadoras/${cat.id}`;
+                return (
+                  <li key={cat.id}>
+                    <Link
+                      href={catHref}
+                      className="flex items-center gap-2.5 px-3 py-3 rounded-lg text-base text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+                    >
+                      <div className={`w-7 h-7 rounded flex items-center justify-center shrink-0 ${cat.color}`}>
+                        <CatIcon className="w-4 h-4" />
+                      </div>
+                      {isEn ? cat.enName : cat.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="border-t border-gray-200 dark:border-white/10 pt-3 flex flex-col">
+              <Link
+                href={isEn ? "/en/blog" : "/blog"}
+                className="flex items-center gap-2.5 px-3 py-3 rounded-lg text-base font-semibold text-gray-700 dark:text-white/80 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+              >
+                <BookOpen className="w-5 h-5" />
+                Blog
+              </Link>
+              <Link
+                href={isEn ? "/en/contact" : "/contacto"}
+                className="flex items-center gap-2.5 px-3 py-3 rounded-lg text-base font-medium text-gray-600 dark:text-white/70 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+              >
+                <Mail className="w-5 h-5" />
+                {isEn ? "Contact us" : "Contáctanos"}
+              </Link>
+            </div>
+          </nav>
+        )}
       </header>
 
       <main className="flex-1 container mx-auto px-4 py-8">
