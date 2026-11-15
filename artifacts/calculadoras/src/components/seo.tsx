@@ -48,7 +48,10 @@ export interface HeadData {
 export function computeHead({ title, description, path, jsonLd, alternatePath }: SeoProps): HeadData {
   const isEn = isEnPath(path);
   const siteName = isEn ? SITE_DOMAIN : SITE_NAME_ES;
-  const fullTitle = `${title} | ${siteName}`;
+  // Google muestra ~60 caracteres de título: si el sufijo de marca empuja por
+  // encima, se omite (la marca sigue en og:site_name y en la home).
+  const suffixed = `${title} | ${siteName}`;
+  const fullTitle = suffixed.length <= 60 ? suffixed : title;
   const lang = isEn ? "en" : "es";
   const ogLocale = isEn ? "en_US" : "es_ES";
   const url = `${SITE}${withSlash(path)}`;
