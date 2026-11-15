@@ -8,9 +8,11 @@ set -euo pipefail
 HOST="thecalculator.tech"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PUBLIC="$ROOT/artifacts/calculadoras/public"
-KEY_FILE="$(ls "$PUBLIC"/*.txt 2>/dev/null | xargs -I{} sh -c 'grep -qE "^[a-f0-9]{32}$" "{}" && echo "{}"' | head -1)"
-[ -n "$KEY_FILE" ] || { echo "No hay fichero de clave en $PUBLIC" >&2; exit 1; }
-KEY="$(cat "$KEY_FILE")"
+KEY=""
+for f in "$PUBLIC"/*.txt; do
+  if [[ "$(basename "$f" .txt)" =~ ^[a-f0-9]{32}$ ]]; then KEY="$(cat "$f")"; break; fi
+done
+[ -n "$KEY" ] || { echo "No hay fichero de clave en $PUBLIC" >&2; exit 1; }
 
 if [ "$#" -gt 0 ]; then
   URLS=("$@")
