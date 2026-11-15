@@ -1175,4 +1175,40 @@
     <priority>0.7</priority>
     <lastmod>2026-11-15</lastmod>
   </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/trabajo/horas-extras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/horas-extras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/overtime-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/horas-extras/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/work/overtime-pay/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/horas-extras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/overtime-pay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/horas-extras/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/finanzas/rentabilidad-alquiler/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/finanzas/rentabilidad-alquiler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/finance/rental-yield/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/finanzas/rentabilidad-alquiler/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/finance/rental-yield/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/finanzas/rentabilidad-alquiler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/finance/rental-yield/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/finanzas/rentabilidad-alquiler/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
 </urlset>

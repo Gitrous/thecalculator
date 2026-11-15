@@ -1,4 +1,5 @@
 import {
+  Timer,
   Building,
   Percent,
   Receipt,
@@ -502,6 +503,46 @@ export const CALCULATORS: CalculatorMeta[] = [
     enSeoDescription:
       "Calculate how much you receive at maturity on a fixed-term deposit: gross interest, withholding and the final total. No sign-up.",
     enDescription: "Calculate interest, withholding and the total at maturity of a fixed-term deposit.",
+  },
+  {
+    slug: "horas-extras",
+    enSlug: "overtime-pay",
+    category: "trabajo",
+    title: "Calculadora de Horas Extra",
+    description:
+      "Calcula cuánto valen tus horas extra según tu salario bruto anual, tu jornada y el recargo de tu convenio.",
+    shortLabel: "Horas Extra",
+    icon: Timer,
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
+    seoTitle: "Calculadora de Horas Extra: valor de la hora y límite de 80 al año",
+    seoDescription:
+      "Calcula el valor de tus horas extra según salario y jornada, con el mínimo legal de la hora ordinaria y el límite de 80 horas al año.",
+    enTitle: "Overtime Calculator",
+    enShortLabel: "Overtime",
+    enSeoTitle: "Overtime Calculator: Hourly Value and the 80-Hour Annual Limit (Spain)",
+    enSeoDescription:
+      "Calculate what your overtime is worth from your salary and hours, with the legal minimum of an ordinary hour and the 80-hour annual limit. No sign-up.",
+    enDescription: "Calculate what your overtime hours are worth in Spain.",
+  },
+  {
+    slug: "rentabilidad-alquiler",
+    enSlug: "rental-yield",
+    category: "finanzas",
+    title: "Calculadora de Rentabilidad de Alquiler",
+    description:
+      "Calcula la rentabilidad bruta y neta de un piso en alquiler según su precio, la renta mensual y los gastos anuales.",
+    shortLabel: "Rentabilidad Alquiler",
+    icon: House,
+    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    seoTitle: "Calculadora de Rentabilidad de Alquiler: bruta y neta",
+    seoDescription:
+      "Calcula la rentabilidad bruta y neta de un piso para alquilar según precio, renta mensual, meses alquilado y gastos anuales. Sin registro.",
+    enTitle: "Rental Yield Calculator",
+    enShortLabel: "Rental Yield",
+    enSeoTitle: "Rental Yield Calculator: Gross and Net Return on a Flat",
+    enSeoDescription:
+      "Calculate the gross and net rental yield of a flat from its price, monthly rent, months let and annual costs. No sign-up.",
+    enDescription: "Calculate the gross and net rental yield of a flat.",
   },
   {
     slug: "letra-dni",
