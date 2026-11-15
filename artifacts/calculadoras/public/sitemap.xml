@@ -1121,4 +1121,58 @@
     <priority>0.7</priority>
     <lastmod>2026-11-04</lastmod>
   </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/trabajo/indemnizacion-despido/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/indemnizacion-despido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/dismissal-compensation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/indemnizacion-despido/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/work/dismissal-compensation/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/indemnizacion-despido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/dismissal-compensation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/indemnizacion-despido/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/trabajo/vacaciones-devengadas/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/vacaciones-devengadas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/holiday-entitlement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/vacaciones-devengadas/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/work/holiday-entitlement/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/trabajo/vacaciones-devengadas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/work/holiday-entitlement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/trabajo/vacaciones-devengadas/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/calculadoras/finanzas/plazo-fijo-deposito/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/finanzas/plazo-fijo-deposito/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/finance/fixed-deposit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/finanzas/plazo-fijo-deposito/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/calculators/finance/fixed-deposit/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/calculadoras/finanzas/plazo-fijo-deposito/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/calculators/finance/fixed-deposit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/calculadoras/finanzas/plazo-fijo-deposito/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-15</lastmod>
+  </url>
 </urlset>

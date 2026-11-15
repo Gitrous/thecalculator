@@ -444,6 +444,66 @@ export const CALCULATORS: CalculatorMeta[] = [
     enDescription: "Estimate your Spanish finiquito (final settlement), shown separately from the dismissal indemnity.",
   },
   {
+    slug: "indemnizacion-despido",
+    enSlug: "dismissal-compensation",
+    category: "trabajo",
+    title: "Calculadora de Indemnización por Despido",
+    description:
+      "Calcula la indemnización por despido improcedente u objetivo según tu antigüedad y tu salario bruto anual.",
+    shortLabel: "Indemnización por Despido",
+    icon: Scale,
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
+    seoTitle: "Calculadora de Indemnización por Despido: improcedente y objetivo",
+    seoDescription:
+      "Calcula tu indemnización por despido improcedente (33 días por año) u objetivo (20 días por año) según antigüedad y salario. Sin registro.",
+    enTitle: "Dismissal Compensation Calculator",
+    enShortLabel: "Dismissal Compensation",
+    enSeoTitle: "Dismissal Compensation Calculator (Spain): Unfair and Objective",
+    enSeoDescription:
+      "Calculate Spanish dismissal compensation: 33 days per year for unfair dismissal, 20 for objective. Based on service and salary. No sign-up.",
+    enDescription: "Calculate the compensation for an unfair or objective dismissal in Spain.",
+  },
+  {
+    slug: "vacaciones-devengadas",
+    enSlug: "holiday-entitlement",
+    category: "trabajo",
+    title: "Calculadora de Vacaciones Devengadas",
+    description:
+      "Calcula los días de vacaciones generados desde tu alta, los que ya has disfrutado y los que quedan pendientes.",
+    shortLabel: "Vacaciones Devengadas",
+    icon: Umbrella,
+    color: "text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30",
+    seoTitle: "Calculadora de Vacaciones Devengadas y pendientes",
+    seoDescription:
+      "Calcula los días de vacaciones generados, disfrutados y pendientes según tu fecha de alta y tu convenio. Sin registro.",
+    enTitle: "Holiday Entitlement Calculator",
+    enShortLabel: "Holiday Entitlement",
+    enSeoTitle: "Holiday Entitlement Calculator: Accrued and Pending Days (Spain)",
+    enSeoDescription:
+      "Calculate the paid holiday days accrued, taken and pending since your start date, based on your collective agreement. No sign-up.",
+    enDescription: "Calculate the holiday days accrued, taken and pending.",
+  },
+  {
+    slug: "plazo-fijo-deposito",
+    enSlug: "fixed-deposit",
+    category: "finanzas",
+    title: "Calculadora de Plazo Fijo",
+    description:
+      "Calcula los intereses, la retención y el total al vencimiento de un depósito a plazo fijo.",
+    shortLabel: "Plazo Fijo",
+    icon: Banknote,
+    color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30",
+    seoTitle: "Calculadora de Plazo Fijo: intereses y total al vencimiento",
+    seoDescription:
+      "Calcula cuánto cobras al vencimiento de un plazo fijo: intereses brutos, retención e importe final. Interés simple. Sin registro.",
+    enTitle: "Fixed Deposit Calculator",
+    enShortLabel: "Fixed Deposit",
+    enSeoTitle: "Fixed Deposit Calculator: Interest and Total at Maturity",
+    enSeoDescription:
+      "Calculate how much you receive at maturity on a fixed-term deposit: gross interest, withholding and the final total. No sign-up.",
+    enDescription: "Calculate interest, withholding and the total at maturity of a fixed-term deposit.",
+  },
+  {
     slug: "letra-dni",
     enSlug: "dni-letter",
     category: "trabajo",
