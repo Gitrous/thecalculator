@@ -110,7 +110,7 @@ const T = {
     financing: "Financiación",
     taxes: "Impuestos + ITV",
     proTipLabel: "EFFICIENCY PRO TIP",
-    proTip: "\"Según las guías de conducción eficiente del IDAE y la DGT, reducir la velocidad de 120 a 110 km/h puede rebajar el consumo en torno a un 10–15 %. En 15.000 km anuales, eso puede suponer alrededor de €150 menos en combustible.\"",
+    proTip: "\"Reducir la velocidad de 120 a 110 km/h baja el consumo de forma apreciable; la diferencia exacta depende del coche y del tráfico. Conducir a velocidad constante y sin acelerones ayuda a gastar menos combustible.\"",
     articleTitle: "El coste real de tener un coche en España",
     articleDesc: "Analizamos todos los gastos: combustible, seguro, impuestos, mantenimiento y depreciación. ¿Sabes cuánto te cuesta cada kilómetro?",
     articleLink: "Leer artículo →",
@@ -119,13 +119,13 @@ const T = {
     q1: "¿Qué gastos incluye el coste real del coche?",
     a1: "El coste real incluye todos los gastos directos e indirectos: combustible (calculado por consumo × km × precio), seguro, mantenimiento y neumáticos, aparcamiento o garaje, impuesto de circulación, ITV y, si el coche está financiado, la cuota mensual. Muchos conductores solo cuentan el combustible y el seguro, infravalorando el verdadero coste.",
     q2: "¿Cuánto cuesta de media mantener un coche en España?",
-    a2: "Según la OCU y la DGT, el coste medio de mantenimiento de un turismo en España oscila entre 3.500 € y 6.500 € al año, dependiendo del modelo, los kilómetros recorridos y si el vehículo está financiado. El coste por kilómetro suele estar entre 0,20 € y 0,45 €.",
+    a2: "El coste de mantenimiento de un turismo depende del modelo, de los kilómetros recorridos y de si el vehículo está financiado, así que la mejor cifra es la de tus propios gastos de los últimos doce meses. Esta calculadora te permite introducirlos.",
     q3: "¿Cuándo sale a cuenta tener coche frente al transporte público?",
     a3: "El vehículo propio resulta más económico cuando se recorren muchos kilómetros al año (más de 15.000-20.000), se vive en una zona con mala red de transporte público o se comparten trayectos. En ciudades con buenas redes de metro y autobús, el abono de transporte puede ser hasta 4 veces más barato.",
     q4: "¿Cómo puedo reducir el coste de mi coche?",
     a4: "Las principales palancas para reducir el coste son: conducción eficiente (velocidad constante, anticipación en frenadas, presión de neumáticos correcta), comparar seguros anualmente, revisar el precio del combustible por zonas, y considerar un vehículo más eficiente o eléctrico si tu consumo anual es elevado.",
     q5: "¿Qué es la depreciación y por qué no aparece en el cálculo?",
-    a5: "La depreciación es la pérdida de valor del vehículo con el paso del tiempo y suele ser el mayor coste oculto de tener coche, aunque no se paga mes a mes. Un turismo nuevo pierde en torno al 20-25 % de su valor el primer año y alrededor del 50 % a los cinco años. Esta calculadora se centra en los gastos corrientes que sí desembolsas cada mes, pero si quieres conocer el coste total de propiedad deberías sumar la depreciación anual: para un coche de 25.000 € que valdrá 12.500 € en cinco años, son 2.500 € adicionales al año.",
+    a5: "La depreciación es la pérdida de valor del vehículo con el paso del tiempo y suele ser el mayor coste oculto de tener coche, aunque no se paga mes a mes. Un turismo nuevo pierde una parte importante de su valor en el primer año, y la pérdida acumulada a cinco años depende del modelo y del mercado de ocasión. Esta calculadora se centra en los gastos corrientes que sí desembolsas cada mes, pero si quieres conocer el coste total de propiedad deberías sumar la depreciación anual: como supuesto ilustrativo, un coche de 25.000 € que valiera 12.500 € en cinco años supondría 2.500 € de depreciación al año.",
     q6: "¿Sale más barato un coche eléctrico?",
     a6: "Depende sobre todo de los kilómetros que recorras y de dónde recargues. En consumo, un eléctrico gasta unos 15-20 kWh cada 100 km: recargando en casa con tarifa valle el coste ronda los 2-3 € por cada 100 km, frente a los 8-10 € de un gasolina equivalente. El mantenimiento también es menor, al no haber cambios de aceite, filtros ni embrague. En contra juegan un precio de compra más alto y una depreciación históricamente más rápida. La regla general es que el eléctrico compensa a partir de unos 15.000 km anuales si puedes recargar en casa.",
     deepTitle: "Cómo se calcula el coste real de un coche",
@@ -167,7 +167,7 @@ const T = {
     financing: "Finance",
     taxes: "Taxes + MOT",
     proTipLabel: "EFFICIENCY PRO TIP",
-    proTip: "\"According to eco-driving guides from IDAE and the DGT, reducing your speed from 120 to 110 km/h can lower fuel consumption by around 10–15%. Over 15,000 km, that can mean roughly €150 less in fuel.\"",
+    proTip: "\"Reducing your speed from 120 to 110 km/h noticeably lowers fuel consumption; the exact saving depends on the car and traffic. Steady speeds and gentle acceleration help you use less fuel.\"",
     articleTitle: "The Real Cost of Owning a Car in Spain",
     articleDesc: "We analyse all the costs: fuel, insurance, taxes, maintenance and depreciation. Do you know how much each kilometre actually costs you?",
     articleLink: "Read article →",
@@ -176,13 +176,13 @@ const T = {
     q1: "What expenses make up the real cost of a car?",
     a1: "The real cost includes all direct and indirect expenses: fuel (calculated from consumption × km × price), insurance, maintenance and tyres, parking or garage fees, road tax, MOT and, if the car is financed, the monthly repayment. Many drivers only count fuel and insurance, underestimating the true cost.",
     q2: "How much does it cost on average to run a car in Spain?",
-    a2: "According to the OCU and DGT, the average cost of running a standard car in Spain ranges from €3,500 to €6,500 per year, depending on the model, kilometres driven and whether the vehicle is financed. The cost per kilometre is typically between €0.20 and €0.45.",
+    a2: "Maintenance cost depends on the model, the kilometres driven and whether the car is financed, so the best figure is your own spending over the last twelve months. This calculator lets you enter it.",
     q3: "When is owning a car cheaper than public transport?",
     a3: "A private vehicle is more economical when you cover a lot of kilometres per year (more than 15,000–20,000), you live in an area with poor public transport, or you share journeys. In cities with good metro and bus networks, a transit pass can be up to four times cheaper.",
     q4: "How can I reduce my car running costs?",
     a4: "The main levers to reduce costs are: efficient driving (steady speed, anticipating braking, correct tyre pressure), comparing insurance annually, checking fuel prices by area, and considering a more efficient or electric vehicle if your annual mileage is high.",
     q5: "What is depreciation and why isn't it in the calculation?",
-    a5: "Depreciation is the loss of value of the vehicle over time and is usually the biggest hidden cost of car ownership, even though you do not pay it month by month. A new car loses around 20-25% of its value in the first year and roughly 50% after five years. This calculator focuses on the running costs you actually pay out each month, but if you want the total cost of ownership you should add annual depreciation: for a €25,000 car worth €12,500 in five years, that is an extra €2,500 a year.",
+    a5: "Depreciation is the loss of value of the vehicle over time and is usually the biggest hidden cost of car ownership, even though you do not pay it month by month. A new car loses a large share of its value in the first year, and the loss over five years depends on the model and the used-car market. This calculator focuses on the running costs you actually pay out each month, but if you want the total cost of ownership you should add annual depreciation: as an illustrative assumption, a €25,000 car worth €12,500 in five years means €2,500 of depreciation a year.",
     q6: "Is an electric car cheaper?",
     a6: "It depends mainly on your mileage and where you charge. On energy, an EV uses about 15-20 kWh per 100 km: charging at home on an off-peak tariff costs around €2-3 per 100 km, against €8-10 for an equivalent petrol car. Maintenance is also lower, with no oil changes, filters or clutch. Against that, the purchase price is higher and depreciation has historically been faster. The general rule is that an EV pays off from around 15,000 km a year if you can charge at home.",
     deepTitle: "How the real cost of a car is calculated",
@@ -415,8 +415,8 @@ export default function GastoCoche() {
           {isEn ? "Spanish government fuel-price portal" : "portal de precios de carburantes del Gobierno de España"}
         </a>
         {isEn
-          ? ". Maintenance ranges are indicative figures from OCU and DGT references."
-          : ". Los rangos de mantenimiento son cifras orientativas basadas en referencias de la OCU y la DGT."}
+          ? "."
+          : "."}
       </p>
 
       <section className="mt-12 prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">

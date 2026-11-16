@@ -31,11 +31,11 @@ export const ARTICLES: Article[] = [
     relatedCalcSlug: "imc",
     relatedCalcCategory: "salud",
 
-    title: "Peso, calorías, hidratación y pulso: cómo leer tus números de salud",
+    title: "Peso, calorías, hidratación y pulso: leer tus números",
     description:
       "Qué mide y qué no mide el IMC, cuántas calorías necesitas al día, cuánta agua beber de verdad y cómo usar las zonas de frecuencia cardíaca.",
 
-    enTitle: "Weight, calories, hydration and heart rate: reading your health numbers",
+    enTitle: "Weight, calories, hydration and pulse: your health numbers",
     enDescription:
       "What BMI does and does not measure, how many calories you need a day, how much water you really need, and how to use heart rate training zones.",
     alsoCalcs: ["salud/calorias", "salud/agua-diaria", "salud/frecuencia-cardiaca"],
@@ -45,8 +45,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "como-calcular-cuota-hipoteca",
     enSlug: "how-to-calculate-mortgage-payment",
-    title: "La hipoteca de principio a fin: cuota, intereses y amortización anticipada",
-    enTitle: "The mortgage from start to finish: payment, interest and early repayment",
+    title: "La hipoteca de principio a fin: cuota e intereses",
+    enTitle: "The mortgage from start to finish: payment and interest",
     description: "Cómo se calcula la cuota de tu hipoteca, por qué al principio casi todo son intereses y cuánto ahorras de verdad si amortizas antes de tiempo.",
     enDescription: "How your mortgage payment is calculated, why almost all of it is interest at the start, and how much you really save by repaying early.",
     category: "finanzas",
@@ -58,7 +58,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "que-es-la-tae-diferencia-tin",
     enSlug: "what-is-apr-difference-from-nominal-rate",
-    title: "TAE vs TIN: diferencia y cómo comparar préstamos sin equivocarte",
+    title: "TAE vs TIN: diferencia y cómo comparar préstamos",
     enTitle: "APR vs nominal rate: the difference and how to compare loans",
     description: "La diferencia entre el tipo nominal y la TAE, qué gastos incluye cada uno y cómo comparar dos ofertas de préstamo que parecen iguales y no lo son.",
     enDescription: "The difference between the nominal rate and the APR, which costs each one includes, and how to compare two loan offers that look alike but are not.",
@@ -96,8 +96,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "como-calcular-salario-neto-espana",
     enSlug: "how-to-calculate-net-salary-spain",
-    title: "Tu nómina explicada: del salario bruto al neto y el IRPF que te retienen",
-    enTitle: "Your payslip explained: from gross to net and the tax withheld",
+    title: "Tu nómina explicada: del bruto al neto",
+    enTitle: "Your payslip explained: from gross to net",
     description: "Qué se descuenta exactamente de tu nómina, cómo funciona la retención del IRPF y por qué la declaración sale a devolver o a pagar.",
     enDescription: "What is actually deducted from your payslip, how income tax withholding works and why your tax return ends in a refund or a payment.",
     category: "finanzas",
@@ -122,8 +122,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "coste-real-tener-coche",
     enSlug: "real-cost-owning-a-car",
-    title: "Los dos gastos fijos que más pesan en casa: el coche y la luz",
-    enTitle: "The two fixed costs that weigh most at home: your car and your electricity",
+    title: "Los dos gastos fijos que más pesan: coche y luz",
+    enTitle: "The two fixed home costs that weigh most: car and power",
     description: "Cuánto cuesta realmente tener coche sumando depreciación, seguro y mantenimiento, y cómo entender y reducir la factura eléctrica.",
     enDescription: "What a car really costs once you add depreciation, insurance and maintenance, and how to understand and reduce your electricity bill.",
     category: "hogar",
@@ -136,8 +136,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "que-incluye-finiquito-como-calcularlo",
     enSlug: "what-is-in-severance-payment-spain",
-    title: "Fin de contrato: finiquito, paro y los plazos que empiezan a correr",
-    enTitle: "End of contract: final settlement, unemployment benefit and the deadlines",
+    title: "Fin de contrato: finiquito, paro y plazos",
+    enTitle: "End of contract: final settlement, benefit and deadlines",
     description: "Qué conceptos integran el finiquito, cuánto y cuánto tiempo se cobra de paro, y los plazos legales que se cuentan desde tu último día de trabajo.",
     enDescription: "What makes up your final settlement, how much unemployment benefit you get and for how long, and the legal deadlines counted from your last day at work.",
     category: "trabajo",
@@ -149,8 +149,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "cuota-autonomo-2026-tramos",
     enSlug: "self-employed-contribution-2026-brackets",
-    title: "Cuota de autónomo 2026: tramos por ingresos reales y novedades",
-    enTitle: "Self-Employed Contribution 2026: Income Brackets and What's New",
+    title: "Cuota de autónomo 2026: tramos por ingresos reales",
+    enTitle: "Self-Employed Contribution 2026: Income Brackets",
     description: "El sistema de cotización de autónomos por rendimientos netos en España, con los 15 tramos de 2026, la tarifa plana y los pasos para calcular tu cuota mensual.",
     enDescription: "Spain's self-employed (autónomo) contribution based on net income: the 15 brackets for 2026, the flat rate and how to calculate your monthly fee.",
     category: "trabajo",
@@ -161,8 +161,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "pension-jubilacion-espana-como-funciona",
     enSlug: "retirement-pension-spain-how-it-works",
-    title: "La pensión de jubilación en España: cómo funciona y cuánto cobrarás",
-    enTitle: "Retirement Pension in Spain: How It Works and How Much You Will Receive",
+    title: "La pensión de jubilación en España: cómo funciona",
+    enTitle: "Retirement Pension in Spain: How It Works",
     description: "Cómo se calcula la pensión pública de jubilación: base reguladora, porcentaje según años cotizados, edad de jubilación y cómo estimar la tuya.",
     enDescription: "How the public retirement pension is calculated: regulatory base, percentage by years contributed, retirement age and how to estimate yours.",
     category: "trabajo",
@@ -173,8 +173,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "registro-jornada-horas-trabajadas",
     enSlug: "working-hours-tracking-spain",
-    title: "Registro de jornada obligatorio en España: qué es y cómo cumplir la ley",
-    enTitle: "Mandatory Working Time Recording in Spain: What It Is and How to Comply",
+    title: "Registro de jornada obligatorio: qué es y cómo cumplir",
+    enTitle: "Mandatory Working Time Recording in Spain: Compliance",
     description: "Desde 2019 todas las empresas deben registrar la jornada de sus trabajadores. Qué exige la ley, cuánto cuesta una sanción y qué métodos valen.",
     enDescription: "Since 2019 all companies must record their employees' working hours. We explain what the law requires, how much a penalty costs and which methods are valid.",
     category: "trabajo",
@@ -186,8 +186,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "regla-de-tres-directa-inversa",
     enSlug: "rule-of-three-direct-inverse",
-    title: "Regla de tres directa e inversa: ejemplos y otras matemáticas cotidianas",
-    enTitle: "Direct and inverse rule of three: examples and everyday maths",
+    title: "Regla de tres directa e inversa: ejemplos prácticos",
+    enTitle: "Direct and inverse rule of three: practical examples",
     description: "Regla de tres directa e inversa, teorema de Pitágoras en problemas reales, conversión de unidades y cómo se pondera una nota media.",
     enDescription: "Direct and inverse rule of three, the Pythagorean theorem in real problems, unit conversion and how a weighted grade average works.",
     category: "educacion",
@@ -199,8 +199,8 @@ export const ARTICLES: Article[] = [
   {
     slug: "mru-mrua-fisica-ejemplos",
     enSlug: "uniform-motion-physics-examples",
-    title: "Movimiento uniformemente acelerado (MRUA) y MRU: ejemplos reales",
-    enTitle: "Uniformly accelerated motion (MRUA) and uniform motion: real examples",
+    title: "MRU y MRUA (movimiento acelerado): ejemplos reales",
+    enTitle: "Uniform and accelerated motion: real examples",
     description: "MRU y MRUA explicados con trenes, frenadas y caídas libres: qué fórmula usar en cada caso, cómo leer las gráficas y dónde están los errores de signo.",
     enDescription: "Uniform and accelerated motion with trains, braking distances and free fall: which formula to use, how to read the graphs, sign errors.",
     category: "educacion",
