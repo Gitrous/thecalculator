@@ -32,10 +32,10 @@ export const ARTICLES: Article[] = [
     relatedCalcCategory: "finanzas",
     title: "Deducciones autonómicas del IRPF: qué cambia según tu comunidad",
     description:
-      "Cómo funcionan las deducciones autonómicas del IRPF y los importes oficiales de Andalucía, Cataluña, Madrid y Castilla y León, con su año de referencia.",
+      "Cómo funcionan las deducciones autonómicas del IRPF y los importes oficiales de Andalucía, Cataluña, Madrid, Castilla y León, la Comunidad Valenciana y Baleares, con su año de referencia.",
     enTitle: "Regional income tax deductions in Spain: what changes by community",
     enDescription:
-      "How Spain's regional income tax (IRPF) deductions work, with official amounts for Andalusia, Catalonia, Madrid and Castile and León, each with its tax year.",
+      "How Spain's regional income tax (IRPF) deductions work, with official amounts for Andalusia, Catalonia, Madrid, Castile and León, Valencia and the Balearic Islands, each with its tax year.",
   },
   {
     slug: "que-es-el-imc",
@@ -306,6 +306,9 @@ const S = {
 export const ARTICLE_SOURCES: Record<string, ArticleSource[]> = {
   "deducciones-autonomicas-irpf": [
     { es: "AEAT — Manual práctico, deducciones autonómicas IRPF 2025 (introducción)", en: "AEAT — Practical guide, regional IRPF deductions 2025 (introduction)", url: "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/introduccion.html" },
+    { es: "AEAT — Manual práctico IRPF 2025, deducciones de la Comunitat Valenciana", en: "AEAT — Practical guide IRPF 2025, Valencian Community deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunitat-valenciana/arrendamiento-pago-cesion-uso-vivienda-habitual.html" },
+    { es: "AEAT — Manual práctico IRPF 2025, deducción por nacimiento en la Comunitat Valenciana", en: "AEAT — Practical guide IRPF 2025, Valencian Community birth deduction", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunitat-valenciana/nacimiento-adopcion-delegacion-guarda-acogimiento-familiar.html" },
+    { es: "AEAT — Manual práctico IRPF 2025, deducción por nacimiento en Illes Balears", en: "AEAT — Practical guide IRPF 2025, Balearic Islands birth deduction", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunidad-autonoma-illes-balears/nacimiento.html" },
     { es: "AEAT — Manual práctico IRPF 2024, deducciones de Andalucía", en: "AEAT — Practical guide IRPF 2024, Andalusia deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2024-deducciones-autonomicas/comunidad-autonoma-andalucia.html" },
     { es: "AEAT — Manual práctico IRPF 2024, deducciones de Cataluña", en: "AEAT — Practical guide IRPF 2024, Catalonia deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2024-deducciones-autonomicas/comunidad-autonoma-cataluna.html" },
     { es: "AEAT — Manual práctico IRPF 2025, deducciones de Madrid", en: "AEAT — Practical guide IRPF 2025, Madrid deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunidad-madrid.html" },

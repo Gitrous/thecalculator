@@ -1962,7 +1962,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "deducciones-autonomicas-irpf": {
     sections: [
-      { type: "p", text: "Además de la deducción estatal, cada comunidad autónoma puede aprobar las suyas. Por eso dos personas con el mismo sueldo pueden pagar cantidades distintas de IRPF según dónde vivan. Esta guía explica la regla general y recoge los importes que la Agencia Tributaria publica en sus manuales prácticos para cuatro comunidades. Las cifras cambian cada año, así que cada bloque indica el ejercicio al que corresponde." },
+      { type: "p", text: "Además de la deducción estatal, cada comunidad autónoma puede aprobar las suyas. Por eso dos personas con el mismo sueldo pueden pagar cantidades distintas de IRPF según dónde vivan. Esta guía explica la regla general y recoge los importes que la Agencia Tributaria publica en sus manuales prácticos para seis comunidades. Las cifras cambian cada año, así que cada bloque indica el ejercicio al que corresponde." },
       { type: "h2", text: "Qué son las deducciones autonómicas" },
       { type: "p", text: "La Ley 22/2009, en su artículo 46, permite a las comunidades de régimen común aprobar deducciones sobre la cuota íntegra autonómica por circunstancias personales y familiares, inversiones no empresariales, aplicación de la renta y determinadas subvenciones. Una deducción autonómica reduce la parte del impuesto que gestiona la comunidad, no la parte estatal." },
       { type: "p", text: "Solo se aplican a quien tuvo residencia habitual en esa comunidad. En una declaración conjunta con residencias en comunidades distintas, se aplica la del miembro con mayor base liquidable." },
@@ -1987,6 +1987,15 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
         "Nacimiento o adopción: 1.010 € por el primer hijo, 1.475 € por el segundo y 2.351 € por el tercero y siguientes. En municipios de 5.000 habitantes o menos, 1.420 €, 2.070 € y 3.300 €. Se duplican si el hijo tiene una discapacidad reconocida de al menos el 33 %. Decreto legislativo 1/2013, artículos 4.1 y 10.",
         "Alquiler para jóvenes: 20 % del alquiler, o 25 % en municipios pequeños. Tope de 459 € (612 € al 25 %). Menor de 36 años; base de hasta 18.900 € (31.500 € en conjunta). Decreto legislativo 1/2013, artículos 7.4, 7.5 y 10.",
       ] },
+      { type: "h2", text: "Comunidad Valenciana (guía 2025)" },
+      { type: "ul", items: [
+        "Alquiler de la vivienda habitual: 20 % del alquiler, con tope de 800 €. Sube al 25 % (950 €) con una condición y al 30 % (1.100 €) con dos o más: menor de 35 años, discapacidad de al menos el 65 % (o discapacidad intelectual o mental reconocida de al menos el 33 %), o víctima de violencia de género. Base de hasta 30.000 € (47.000 € en conjunta); el tope se reduce entre 27.000 € y 30.000 € (44.000 € y 47.000 € en conjunta). Ley 13/1997, artículos 4 y 5.",
+        "Nacimiento, adopción o acogimiento: 600 € por el primer hijo, 750 € por el segundo y 900 € por el tercero y siguientes. Mismos límites de base y reducción entre umbrales. Ley 13/1997, artículo 4 (redacción de la Ley 5/2025).",
+      ] },
+      { type: "h2", text: "Illes Balears (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 800 € por el primer hijo, 1.000 € por el segundo, 1.200 € por el tercero y 1.400 € por el cuarto y siguientes. Límite de base de 52.800 € (84.480 € en conjunta), o 63.360 € (101.376 € en conjunta) en familias numerosas o monoparentales con dos o más hijos; por encima de esos límites se reconoce el 50 %. Texto refundido, Decreto legislativo 1/2014, artículo 6 ter.",
+      ] },
       { type: "h2", text: "Preguntas frecuentes" },
       { type: "h2", text: "¿Las cifras de esta guía valen para mi declaración de este año?" },
       { type: "p", text: "Depende del ejercicio que declares. Cada bloque indica el año del manual del que sale la cifra, y los importes se actualizan. Por ejemplo, la deducción de nacimiento de Madrid tiene un importe distinto para nacimientos anteriores y posteriores a 2023, y las cifras de Andalucía y Cataluña proceden de la guía de 2024. Para declarar, consulta el manual práctico del ejercicio correspondiente en la sede electrónica de la Agencia Tributaria y revisa la comunidad que te corresponde. Si no coincide con lo que aquí aparece, prevalece el texto oficial." },
@@ -1997,7 +2006,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "tip", text: "Antes de contar con un importe, busca tu comunidad en el listado de deducciones autonómicas de la sede de la Agencia Tributaria. Te enseña si la deducción es para tu situación, sin tener que leer toda la normativa." },
     ],
     enSections: [
-      { type: "p", text: "On top of the national deduction, each autonomous community can approve its own. That is why two people with the same salary can pay different amounts of income tax depending on where they live. This guide explains the general rule and gathers the amounts the Spanish Tax Agency (AEAT) publishes in its practical guides for four communities. Figures change every year, so each block states the tax year it applies to." },
+      { type: "p", text: "On top of the national deduction, each autonomous community can approve its own. That is why two people with the same salary can pay different amounts of income tax depending on where they live. This guide explains the general rule and gathers the amounts the Spanish Tax Agency (AEAT) publishes in its practical guides for six communities. Figures change every year, so each block states the tax year it applies to." },
       { type: "h2", text: "What regional deductions are" },
       { type: "p", text: "Law 22/2009, article 46, allows communities under the common regime to approve deductions on the regional share of the tax for personal and family circumstances, non-business investments, application of income and certain grants. A regional deduction reduces the part of the tax the community manages, not the national part." },
       { type: "p", text: "They apply only to a person who had habitual residence in that community. In a joint return with residences in different communities, the one of the member with the higher taxable base applies." },
@@ -2021,6 +2030,15 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "ul", items: [
         "Birth or adoption: 1,010 € for the first child, 1,475 € for the second and 2,351 € for the third and later. In municipalities of 5,000 inhabitants or fewer, 1,420 €, 2,070 € and 3,300 €. Doubled if the child has a recognised disability of at least 33 %. Legislative Decree 1/2013, articles 4.1 and 10.",
         "Youth rent: 20 % of the rent, or 25 % in small municipalities. Cap of 459 € (612 € at 25 %). Under 36; base up to 18,900 € (31,500 € joint). Legislative Decree 1/2013, articles 7.4, 7.5 and 10.",
+      ] },
+      { type: "h2", text: "Valencian Community (2025 guide)" },
+      { type: "ul", items: [
+        "Rent of the main residence: 20 % of the rent, capped at 800 €. Rises to 25 % (950 €) with one condition and 30 % (1,100 €) with two or more: under 35, disability of at least 65 % (or a recognised intellectual or mental disability of at least 33 %), or a victim of gender violence. Base up to 30,000 € (47,000 € joint); the cap is reduced between 27,000 € and 30,000 € (44,000 € and 47,000 € joint). Law 13/1997, articles 4 and 5.",
+        "Birth, adoption or foster placement: 600 € for the first child, 750 € for the second and 900 € for the third and later. Same base limits and threshold reduction. Law 13/1997, article 4 (as amended by Law 5/2025).",
+      ] },
+      { type: "h2", text: "Balearic Islands (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 800 € for the first child, 1,000 € for the second, 1,200 € for the third and 1,400 € for the fourth and later. Base limit of 52,800 € (84,480 € joint), or 63,360 € (101,376 € joint) for large or single-parent families with two or more children; above those limits 50 % is granted. Legislative Decree 1/2014, article 6 ter.",
       ] },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h2", text: "Do the figures in this guide apply to my return this year?" },
