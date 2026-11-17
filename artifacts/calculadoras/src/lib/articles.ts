@@ -24,6 +24,20 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    slug: "deducciones-autonomicas-irpf",
+    enSlug: "regional-income-tax-deductions-spain",
+    category: "finanzas",
+    date: "2026-11-17",
+    relatedCalcSlug: "irpf",
+    relatedCalcCategory: "finanzas",
+    title: "Deducciones autonómicas del IRPF: qué cambia según tu comunidad",
+    description:
+      "Cómo funcionan las deducciones autonómicas del IRPF y los importes oficiales de Andalucía, Cataluña, Madrid y Castilla y León, con su año de referencia.",
+    enTitle: "Regional income tax deductions in Spain: what changes by community",
+    enDescription:
+      "How Spain's regional income tax (IRPF) deductions work, with official amounts for Andalusia, Catalonia, Madrid and Castile and León, each with its tax year.",
+  },
+  {
     slug: "que-es-el-imc",
     enSlug: "what-is-bmi",
     category: "salud",
@@ -238,6 +252,7 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   "como-funciona-interes-compuesto":            U("1611974789855-9c2a0a7236a3"),
   "alquilar-o-comprar-vivienda":                U("1570129477492-45c003edd2be"),
   "como-calcular-salario-neto-espana":          U("1579621970795-87facc2f976d"),
+  "deducciones-autonomicas-irpf":               U("1554224154-26032ffc0d07"),
   "iva-tipos-espana-guia":                      U("1556742049-0cfed4f6a45d"),
   // Hogar
   "coste-real-tener-coche":                     U("1494976388531-d1058494cdd8"),
@@ -289,6 +304,13 @@ const S = {
 } as const;
 
 export const ARTICLE_SOURCES: Record<string, ArticleSource[]> = {
+  "deducciones-autonomicas-irpf": [
+    { es: "AEAT — Manual práctico, deducciones autonómicas IRPF 2025 (introducción)", en: "AEAT — Practical guide, regional IRPF deductions 2025 (introduction)", url: "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/introduccion.html" },
+    { es: "AEAT — Manual práctico IRPF 2024, deducciones de Andalucía", en: "AEAT — Practical guide IRPF 2024, Andalusia deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2024-deducciones-autonomicas/comunidad-autonoma-andalucia.html" },
+    { es: "AEAT — Manual práctico IRPF 2024, deducciones de Cataluña", en: "AEAT — Practical guide IRPF 2024, Catalonia deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2024-deducciones-autonomicas/comunidad-autonoma-cataluna.html" },
+    { es: "AEAT — Manual práctico IRPF 2025, deducciones de Madrid", en: "AEAT — Practical guide IRPF 2025, Madrid deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunidad-madrid.html" },
+    { es: "AEAT — Manual práctico IRPF 2025, deducciones de Castilla y León", en: "AEAT — Practical guide IRPF 2025, Castile and León deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunidad-autonoma-castilla-leon.html" },
+  ],
   "que-es-el-imc": [S.oms, S.mifflin, S.efsa, S.tanaka],
   "como-calcular-cuota-hipoteca": [S.bde, S.ley5],
   "que-es-la-tae-diferencia-tin": [S.bde],

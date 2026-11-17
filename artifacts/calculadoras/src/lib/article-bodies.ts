@@ -1960,6 +1960,78 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       },
     ],
   },
+  "deducciones-autonomicas-irpf": {
+    sections: [
+      { type: "p", text: "Además de la deducción estatal, cada comunidad autónoma puede aprobar las suyas. Por eso dos personas con el mismo sueldo pueden pagar cantidades distintas de IRPF según dónde vivan. Esta guía explica la regla general y recoge los importes que la Agencia Tributaria publica en sus manuales prácticos para cuatro comunidades. Las cifras cambian cada año, así que cada bloque indica el ejercicio al que corresponde." },
+      { type: "h2", text: "Qué son las deducciones autonómicas" },
+      { type: "p", text: "La Ley 22/2009, en su artículo 46, permite a las comunidades de régimen común aprobar deducciones sobre la cuota íntegra autonómica por circunstancias personales y familiares, inversiones no empresariales, aplicación de la renta y determinadas subvenciones. Una deducción autonómica reduce la parte del impuesto que gestiona la comunidad, no la parte estatal." },
+      { type: "p", text: "Solo se aplican a quien tuvo residencia habitual en esa comunidad. En una declaración conjunta con residencias en comunidades distintas, se aplica la del miembro con mayor base liquidable." },
+      { type: "callout", text: "Las cifras de esta guía son de los ejercicios indicados en cada bloque. Antes de contar con un importe, compruébalo en el manual del ejercicio que vas a declarar." },
+      { type: "h2", text: "Andalucía (guía 2024)" },
+      { type: "ul", items: [
+        "Alquiler de la vivienda habitual: 15 % del alquiler pagado, con tope de 600 € al año (900 € si hay discapacidad). Requisitos: menor de 35 años o mayor de 65, o víctima de violencia de género, de terrorismo o afectado; base liquidable de hasta 25.000 € (30.000 € en conjunta). Ley 5/2021, artículo 10.2.",
+        "Nacimiento, adopción o acogimiento: 200 € por hijo; 400 € si vives en un municipio de menos de 3.000 habitantes en riesgo de despoblación; 200 € más por cada hijo en un parto múltiple. Mismo límite de renta. Ley 5/2021, artículo 11.",
+      ] },
+      { type: "h2", text: "Cataluña (guía 2024)" },
+      { type: "ul", items: [
+        "Alquiler de la vivienda habitual: 10 % del alquiler, con tope de 300 € al año (600 € en conjunta si alguno cumple los requisitos, o en familias numerosas y monoparentales). Requisitos: 32 años o menos, paro durante 183 días o más, discapacidad de al menos el 65 %, o viudedad con 65 años o más. Base de hasta 20.000 € (30.000 € en conjunta), y alquiler superior al 10 % de la renta neta. Decreto legislativo 1/2024, artículo 612-3.",
+        "Nacimiento o adopción: 150 € para cada progenitor que presente declaración individual; 300 € en declaración conjunta o en familia monoparental. Decreto legislativo 1/2024, artículo 612-1.",
+      ] },
+      { type: "h2", text: "Madrid (guía 2025)" },
+      { type: "ul", items: [
+        "Alquiler de la vivienda habitual: 30 % del alquiler pagado, con tope de 1.237,20 € al año. Requisitos: menor de 40 años; base liquidable de hasta 26.414,22 € (37.322,20 € en conjunta) y de 61.860 € entre todos los miembros del hogar; alquiler superior al 20 % de la base. Decreto legislativo 1/2010, artículos 8 y 18.1.",
+        "Nacimiento o adopción: 721,70 € por hijo para nacimientos desde 2023 (600 € para los anteriores), durante el año del nacimiento y los dos siguientes. Base de hasta 30.930 € (37.322,20 € en conjunta) y 61.860 € en el hogar. Decreto legislativo 1/2010, artículos 4 y 18.1.",
+      ] },
+      { type: "h2", text: "Castilla y León (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 1.010 € por el primer hijo, 1.475 € por el segundo y 2.351 € por el tercero y siguientes. En municipios de 5.000 habitantes o menos, 1.420 €, 2.070 € y 3.300 €. Se duplican si el hijo tiene una discapacidad reconocida de al menos el 33 %. Decreto legislativo 1/2013, artículos 4.1 y 10.",
+        "Alquiler para jóvenes: 20 % del alquiler, o 25 % en municipios pequeños. Tope de 459 € (612 € al 25 %). Menor de 36 años; base de hasta 18.900 € (31.500 € en conjunta). Decreto legislativo 1/2013, artículos 7.4, 7.5 y 10.",
+      ] },
+      { type: "h2", text: "Preguntas frecuentes" },
+      { type: "h2", text: "¿Las cifras de esta guía valen para mi declaración de este año?" },
+      { type: "p", text: "Depende del ejercicio que declares. Cada bloque indica el año del manual del que sale la cifra, y los importes se actualizan. Por ejemplo, la deducción de nacimiento de Madrid tiene un importe distinto para nacimientos anteriores y posteriores a 2023, y las cifras de Andalucía y Cataluña proceden de la guía de 2024. Para declarar, consulta el manual práctico del ejercicio correspondiente en la sede electrónica de la Agencia Tributaria y revisa la comunidad que te corresponde. Si no coincide con lo que aquí aparece, prevalece el texto oficial." },
+      { type: "h2", text: "¿Qué pasa si cambio de comunidad durante el año?" },
+      { type: "p", text: "La regla general es la residencia habitual en la comunidad. Las guías consultadas no detallan cómo se reparte el beneficio cuando una persona cambia de comunidad a mitad del año, así que no conviene dar esa situación por resuelta con esta guía. Antes de declarar, comprueba en el manual del ejercicio la regla sobre residencia y, si la situación es compleja, consulta con la Agencia Tributaria o con un asesor fiscal. Conviene también revisar la declaración de la comunidad donde vivías al final del año y la de la nueva, porque cada una aplica sus propias deducciones y sus propios límites de renta, y la comunidad que te corresponde puede no ser la que esperabas." },
+      { type: "h2", text: "¿Son lo mismo que la deducción estatal?" },
+      { type: "p", text: "No. Las deducciones autonómicas se aplican sobre la cuota íntegra autonómica, es decir, sobre la parte del impuesto que corresponde a la comunidad. La deducción estatal tiene su propia regulación y sus propios requisitos, que no se mezclan con estas. En la práctica conviene verlas por separado: una deducción autonómica no sustituye a una estatal, ni al revés. Cada una tiene su tope, sus requisitos de renta y de edad, y su propio manual en la sede de la Agencia Tributaria. Por eso, al revisar tu declaración, lo más útil es comprobar primero la comunidad de residencia y después qué deducciones de esa comunidad encajan con tu situación." },
+      { type: "tip", text: "Antes de contar con un importe, busca tu comunidad en el listado de deducciones autonómicas de la sede de la Agencia Tributaria. Te enseña si la deducción es para tu situación, sin tener que leer toda la normativa." },
+    ],
+    enSections: [
+      { type: "p", text: "On top of the national deduction, each autonomous community can approve its own. That is why two people with the same salary can pay different amounts of income tax depending on where they live. This guide explains the general rule and gathers the amounts the Spanish Tax Agency (AEAT) publishes in its practical guides for four communities. Figures change every year, so each block states the tax year it applies to." },
+      { type: "h2", text: "What regional deductions are" },
+      { type: "p", text: "Law 22/2009, article 46, allows communities under the common regime to approve deductions on the regional share of the tax for personal and family circumstances, non-business investments, application of income and certain grants. A regional deduction reduces the part of the tax the community manages, not the national part." },
+      { type: "p", text: "They apply only to a person who had habitual residence in that community. In a joint return with residences in different communities, the one of the member with the higher taxable base applies." },
+      { type: "callout", text: "The figures in this guide belong to the tax years indicated in each block. Before counting on an amount, check the guide for the year you are filing." },
+      { type: "h2", text: "Andalusia (2024 guide)" },
+      { type: "ul", items: [
+        "Rent of the main residence: 15 % of the rent paid, capped at 600 € a year (900 € with a disability). Requirements: under 35 or over 65, or a victim of gender violence, terrorism or affected; taxable base up to 25,000 € (30,000 € joint). Law 5/2021, article 10.2.",
+        "Birth, adoption or foster care: 200 € per child; 400 € if you live in a municipality with fewer than 3,000 inhabitants at risk of depopulation; 200 € more for each child in a multiple birth. Same income limit. Law 5/2021, article 11.",
+      ] },
+      { type: "h2", text: "Catalonia (2024 guide)" },
+      { type: "ul", items: [
+        "Rent of the main residence: 10 % of the rent, capped at 300 € a year (600 € joint if either spouse qualifies, or for large and single-parent families). Requirements: 32 or under, unemployed for 183 days or more, disability of at least 65 %, or widowed and 65 or over. Base up to 20,000 € (30,000 € joint), and rent above 10 % of net income. Legislative Decree 1/2024, article 612-3.",
+        "Birth or adoption: 150 € for each parent filing an individual return; 300 € in a joint return or a single-parent family. Legislative Decree 1/2024, article 612-1.",
+      ] },
+      { type: "h2", text: "Madrid (2025 guide)" },
+      { type: "ul", items: [
+        "Rent of the main residence: 30 % of the rent paid, capped at 1,237.20 € a year. Requirements: under 40; taxable base up to 26,414.22 € (37,322.20 € joint) and 61,860 € for all household members; rent above 20 % of the base. Legislative Decree 1/2010, articles 8 and 18.1.",
+        "Birth or adoption: 721.70 € per child for births from 2023 (600 € for earlier ones), in the year of birth and the two following years. Base up to 30,930 € (37,322.20 € joint) and 61,860 € for the household. Legislative Decree 1/2010, articles 4 and 18.1.",
+      ] },
+      { type: "h2", text: "Castile and León (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 1,010 € for the first child, 1,475 € for the second and 2,351 € for the third and later. In municipalities of 5,000 inhabitants or fewer, 1,420 €, 2,070 € and 3,300 €. Doubled if the child has a recognised disability of at least 33 %. Legislative Decree 1/2013, articles 4.1 and 10.",
+        "Youth rent: 20 % of the rent, or 25 % in small municipalities. Cap of 459 € (612 € at 25 %). Under 36; base up to 18,900 € (31,500 € joint). Legislative Decree 1/2013, articles 7.4, 7.5 and 10.",
+      ] },
+      { type: "h2", text: "Frequently asked questions" },
+      { type: "h2", text: "Do the figures in this guide apply to my return this year?" },
+      { type: "p", text: "It depends on the tax year you are filing. Each block states the year of the manual the figure comes from, and amounts are updated. For example, Madrid's birth deduction has a different amount for births before and after 2023, and the Andalusia and Catalonia figures come from the 2024 guide. To file, check the practical guide for the right year on the AEAT electronic headquarters and confirm which community applies to you. If it does not match what is written here, the official text prevails." },
+      { type: "h2", text: "What happens if I move to another community during the year?" },
+      { type: "p", text: "The general rule is habitual residence in the community. The guides consulted do not explain how the benefit is split when someone moves between communities mid-year, so do not treat that situation as settled by this guide. Before filing, check the residence rule in the guide for that tax year and, if your situation is complex, ask the AEAT or a tax adviser. It is also worth reviewing the rules of the community where you lived at year end and of the new one, because each applies its own deductions and income limits, and the community that applies to you may not be the one you expected." },
+      { type: "h2", text: "Are they the same as the national deduction?" },
+      { type: "p", text: "No. Regional deductions apply to the regional share of the tax, that is, the part that corresponds to the community. The national deduction has its own rules and requirements, which are not mixed with these. In practice it helps to look at them separately: a regional deduction does not replace a national one, or the other way round. Each has its own cap, income and age requirements, and its own guide on the AEAT electronic headquarters. So when reviewing your return, the most useful first step is to confirm your community of residence and then check which of its deductions fit your situation." },
+      { type: "tip", text: "Before counting on an amount, look up your community in the list of regional deductions on the AEAT electronic headquarters. It shows whether a deduction fits your situation without reading the whole regulation." },
+    ],
+  },
 };
 
 const WORDS_PER_MINUTE = 200;
