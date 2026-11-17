@@ -88,6 +88,10 @@ const T = {
       "Deducciones que la gente olvida aplicar",
     deductions:
       "La cuota que sale de la escala no es la factura final: después se restan las deducciones, y varias pasan desapercibidas. Las aportaciones a planes de pensiones reducen la base imponible, con un límite anual bastante bajo en los planes individuales y más alto cuando la aportación la hace la empresa. Los donativos a entidades sin ánimo de lucro dan derecho a deducción, con un porcentaje mayor sobre los primeros euros donados y para donaciones recurrentes. Existen deducciones por maternidad, por familia numerosa y por personas con discapacidad a cargo, que además pueden cobrarse por anticipado mes a mes en vez de esperar a la declaración. Quien compró su vivienda habitual antes de 2013 conserva la deducción estatal, suprimida para compras posteriores. Y cada comunidad autónoma añade las suyas: alquiler para jóvenes, gastos de estudios, nacimiento, reformas de eficiencia energética. Los importes se actualizan, así que conviene confirmarlos en la AEAT antes de contar con ellos.",
+    withholdingTitle:
+      "Retención en nómina frente a cuota final",
+    withholding:
+      "La retención que ves en tu nómina es un adelanto que tu empresa ingresa a Hacienda cada mes. Se calcula con un tipo estimado a partir de tu salario y de tu situación familiar, y no siempre coincide con lo que finalmente debes. Por eso al presentar la declaración de la renta puede salir a devolver o a pagar: si la retención fue inferior a la cuota, pagas la diferencia; si fue superior, te devuelven el exceso. Para comprobarlo, compara la retención anual que aparece en tu nómina con la cuota que calcula esta calculadora, y ten en cuenta que los datos reales de la declaración (deducciones, hijos, aportaciones) siempre prevalecen sobre la estimación. Puedes consultar los tipos y las reglas de retención en la web de la Agencia Tributaria (sede.agenciatributaria.gob.es).",
     calendarTitle:
       "Cuándo se declara y qué hacer si te equivocas",
     calendar:
@@ -171,6 +175,10 @@ const T = {
       "Deductions people forget to claim",
     deductions:
       "The amount produced by the scale is not the final bill: deductions are subtracted afterwards, and several go unnoticed. Pension plan contributions reduce the taxable base, with a fairly low annual cap for individual plans and a higher one when the employer makes the contribution. Donations to non-profit organisations qualify for a deduction, at a higher percentage on the first euros donated and for recurring donations. There are deductions for maternity, large families and dependants with a disability, which can also be collected monthly in advance instead of waiting for the tax return. Anyone who bought their main home before 2013 keeps the state deduction, abolished for later purchases. And each autonomous community adds its own: rent for young people, education costs, childbirth, energy-efficiency refurbishments. The amounts are updated regularly, so confirm them with the tax agency before counting on them.",
+    withholdingTitle:
+      "Payroll withholding versus final tax bill",
+    withholding:
+      "The withholding on your payslip is an advance your employer pays to the tax agency every month. It is calculated using an estimated rate based on your salary and family situation, and it does not always match what you finally owe. That is why your tax return can result in a refund or a payment: if the withholding was lower than your bill, you pay the difference; if it was higher, the excess is refunded. To check, compare the annual withholding on your payslip with the bill this calculator estimates, bearing in mind that the actual data in your return (deductions, children, contributions) always takes precedence over the estimate. You can check the withholding rates and rules on the Spanish tax agency website (sede.agenciatributaria.gob.es).",
     calendarTitle:
       "When to file and what to do if you get it wrong",
     calendar:
@@ -1299,6 +1307,8 @@ export default function IRPF() {
         <p>{t.interpret}</p>
         <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.deductionsTitle}</h2>
         <p>{t.deductions}</p>
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.withholdingTitle}</h2>
+        <p>{t.withholding}</p>
         <h2 className="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">{t.calendarTitle}</h2>
         <p>{t.calendar}</p>
       </section>
