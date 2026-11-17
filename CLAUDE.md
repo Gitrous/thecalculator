@@ -281,3 +281,9 @@ y `/blog/dias-entre-fechas-plazos-legales/` redirigen. Antes de optimizar una UR
 de GSC, comprueba con `curl -s -o /dev/null -w "%{http_code} -> %{redirect_url}\n"`
 y optimiza el destino. Para la consulta exacta de una página, usa la pestaña
 Consultas filtrada por página en GSC; la tabla sin filtrar no la asocia a URLs.
+
+## Search Console desde Chrome (trampa conocida)
+
+- `get_page_text` sobre el informe de Rendimiento **no** devuelve las columnas de posición ni CTR de la tabla de consultas. Usa `read_page` con `filter: all` y `max_chars` alto; la salida sale en un fichero persistido que se puede parsear con Python.
+- La tabla de consultas solo expone las filas renderizadas: el parseo dio 17 de 1000. No es lista completa; para posición 11–20 completa hace falta el CSV exportado.
+- La cuenta de Chrome con la que se abre Search Console puede ser invitada (`guest`). Los datos de la propiedad `sc-domain:thecalculator.tech` sí cargan.
