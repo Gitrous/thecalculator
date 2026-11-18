@@ -24,6 +24,34 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    slug: "tributacion-conjunta-irpf",
+    enSlug: "joint-income-tax-filing-spain",
+    category: "finanzas",
+    date: "2026-11-18",
+    relatedCalcSlug: "irpf",
+    relatedCalcCategory: "finanzas",
+    title: "Tributación conjunta en el IRPF: cuándo te conviene declarar juntos",
+    description:
+      "Quién puede declarar conjuntamente, cómo afectan los hijos y la custodia, las reducciones de 3.400 € y 2.150 € y cuándo se puede cambiar la opción.",
+    enTitle: "Joint income tax filing in Spain: when filing together makes sense",
+    enDescription:
+      "Who can file jointly for income tax in Spain, how children and custody affect it, the 3,400 € and 2,150 € reductions, and when the choice can be changed.",
+  },
+  {
+    slug: "indemnizacion-despido-exencion-irpf",
+    enSlug: "dismissal-severance-tax-exemption-spain",
+    category: "trabajo",
+    date: "2026-11-18",
+    relatedCalcSlug: "indemnizacion-despido",
+    relatedCalcCategory: "trabajo",
+    title: "Indemnización por despido y IRPF: qué parte está exenta",
+    description:
+      "Qué parte de la indemnización por despido queda exenta de IRPF según la Ley 35/2006, el límite de 180.000 € y qué pasa con lo que lo supera.",
+    enTitle: "Dismissal severance and income tax: which part is exempt",
+    enDescription:
+      "Which part of dismissal severance is exempt from income tax under Spain's Law 35/2006, the 180,000 € cap and how the excess is treated.",
+  },
+  {
     slug: "deducciones-autonomicas-irpf",
     enSlug: "regional-income-tax-deductions-spain",
     category: "finanzas",
@@ -253,6 +281,8 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   "alquilar-o-comprar-vivienda":                U("1570129477492-45c003edd2be"),
   "como-calcular-salario-neto-espana":          U("1579621970795-87facc2f976d"),
   "deducciones-autonomicas-irpf":               U("1554224154-26032ffc0d07"),
+  "tributacion-conjunta-irpf":                  U("1560518883-ce09059eeffa"),
+  "indemnizacion-despido-exencion-irpf":        U("1570129477492-45c003edd2be"),
   "iva-tipos-espana-guia":                      U("1556742049-0cfed4f6a45d"),
   // Hogar
   "coste-real-tener-coche":                     U("1494976388531-d1058494cdd8"),
@@ -304,6 +334,13 @@ const S = {
 } as const;
 
 export const ARTICLE_SOURCES: Record<string, ArticleSource[]> = {
+  "tributacion-conjunta-irpf": [
+    { es: "AEAT — Manual práctico IRPF 2025, tributación individual y conjunta", en: "AEAT — Practical guide IRPF 2025, individual and joint taxation", url: "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c02-irpf-cuestiones-generales/sujecion-irpf-aspectos-personales/tributacion-individual-opcion-tributacion-conjunta.html" },
+    { es: "BOE — Ley 35/2006, del IRPF (texto consolidado)", en: "BOE — Law 35/2006, Personal Income Tax Act (consolidated text)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" },
+  ],
+  "indemnizacion-despido-exencion-irpf": [
+    { es: "BOE — Ley 35/2006, del IRPF, artículo 7 e) (texto consolidado)", en: "BOE — Law 35/2006, Personal Income Tax Act, article 7 e) (consolidated text)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" },
+  ],
   "deducciones-autonomicas-irpf": [
     { es: "AEAT — Manual práctico, deducciones autonómicas IRPF 2025 (introducción)", en: "AEAT — Practical guide, regional IRPF deductions 2025 (introduction)", url: "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/introduccion.html" },
     { es: "AEAT — Manual práctico IRPF 2025, deducciones de la Comunitat Valenciana", en: "AEAT — Practical guide IRPF 2025, Valencian Community deductions", url: "https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025-deducciones-autonomicas/comunitat-valenciana/arrendamiento-pago-cesion-uso-vivienda-habitual.html" },

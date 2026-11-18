@@ -825,6 +825,34 @@
     <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-09-22</lastmod>
   </url>
   <url>
+    <loc>https://thecalculator.tech/blog/tributacion-conjunta-irpf/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/tributacion-conjunta-irpf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/joint-income-tax-filing-spain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/tributacion-conjunta-irpf/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/blog/joint-income-tax-filing-spain/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/joint-income-tax-filing-spain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/tributacion-conjunta-irpf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/tributacion-conjunta-irpf/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/blog/indemnizacion-despido-exencion-irpf/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/indemnizacion-despido-exencion-irpf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/dismissal-severance-tax-exemption-spain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/indemnizacion-despido-exencion-irpf/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://thecalculator.tech/en/blog/dismissal-severance-tax-exemption-spain/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/dismissal-severance-tax-exemption-spain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thecalculator.tech/blog/indemnizacion-despido-exencion-irpf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/indemnizacion-despido-exencion-irpf/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://thecalculator.tech/blog/deducciones-autonomicas-irpf/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://thecalculator.tech/blog/deducciones-autonomicas-irpf/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://thecalculator.tech/en/blog/regional-income-tax-deductions-spain/"/>
