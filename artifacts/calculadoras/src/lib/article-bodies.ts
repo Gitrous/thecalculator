@@ -1962,7 +1962,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   },
   "deducciones-autonomicas-irpf": {
     sections: [
-      { type: "p", text: "Además de la deducción estatal, cada comunidad autónoma puede aprobar las suyas. Por eso dos personas con el mismo sueldo pueden pagar cantidades distintas de IRPF según dónde vivan. Esta guía explica la regla general y recoge los importes que la Agencia Tributaria publica en sus manuales prácticos para seis comunidades. Las cifras cambian cada año, así que cada bloque indica el ejercicio al que corresponde." },
+      { type: "p", text: "Además de la deducción estatal, cada comunidad autónoma puede aprobar las suyas. Por eso dos personas con el mismo sueldo pueden pagar cantidades distintas de IRPF según dónde vivan. Esta guía explica la regla general y recoge los importes que la Agencia Tributaria publica en sus manuales prácticos para diez comunidades. Las cifras cambian cada año, así que cada bloque indica el ejercicio al que corresponde." },
       { type: "h2", text: "Qué son las deducciones autonómicas" },
       { type: "p", text: "La Ley 22/2009, en su artículo 46, permite a las comunidades de régimen común aprobar deducciones sobre la cuota íntegra autonómica por circunstancias personales y familiares, inversiones no empresariales, aplicación de la renta y determinadas subvenciones. Una deducción autonómica reduce la parte del impuesto que gestiona la comunidad, no la parte estatal." },
       { type: "p", text: "Solo se aplican a quien tuvo residencia habitual en esa comunidad. En una declaración conjunta con residencias en comunidades distintas, se aplica la del miembro con mayor base liquidable." },
@@ -1996,6 +1996,42 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "ul", items: [
         "Nacimiento o adopción: 800 € por el primer hijo, 1.000 € por el segundo, 1.200 € por el tercero y 1.400 € por el cuarto y siguientes. Límite de base de 52.800 € (84.480 € en conjunta), o 63.360 € (101.376 € en conjunta) en familias numerosas o monoparentales con dos o más hijos; por encima de esos límites se reconoce el 50 %. Texto refundido, Decreto legislativo 1/2014, artículo 6 ter.",
       ] },
+      { type: "h2", text: "Galicia (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción en el año: si la base liquidable no supera 22.000 €, 360 € por el primer hijo, 1.200 € por el segundo y 2.400 € por el tercero y siguientes; por encima, 300 € por hijo (360 € en parto múltiple). Se repite en los dos ejercicios siguientes con sus propios importes: sin tope en 22.000 € y 300 € por hijo entre 22.000 € y 31.000 €, y 0 € por encima de 31.000 €. Un 20 % más en municipios de menos de 5.000 habitantes; se duplica con discapacidad de al menos el 33 %. Decreto legislativo 1/2011, artículo 5.",
+      ] },
+      { type: "h2", text: "Aragón (guía 2025)" },
+      { type: "ul", items: [
+        "Tercer hijo o sucesivos: 500 € por hijo, o 600 € si se cumple el límite de renta (21.000 € individual o 35.000 € conjunta). En el régimen diferenciado para municipios con alto riesgo de despoblación, 600 €, o 720 € con el límite. Solo en el ejercicio del nacimiento o adopción. Decreto legislativo 1/2005, artículos 110-2, 160-1 y 160-2.1.",
+      ] },
+      { type: "h2", text: "Canarias (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 265 € por el primer y segundo hijo, 530 € por el tercero, 796 € por el cuarto y 928 € por el quinto y siguientes. Con discapacidad de al menos el 65 %: 600 € por el primero o segundo, y 1.100 € por el tercero o siguiente. Límite de base de 46.455 € individual (61.770 € conjunta). Decreto legislativo 1/2009, artículo 10.",
+      ] },
+      { type: "h2", text: "Principado de Asturias (guía 2025)" },
+      { type: "ul", items: [
+        "Segundo hijo o sucesivos nacidos o adoptados en un concejo en riesgo de despoblamiento o crisis demográfica (Decreto 83/2025): 300 € por hijo. Hay que tener la residencia habitual en ese concejo, y el menor debe convivir con el contribuyente a 31 de diciembre. Límite de base de 35.000 € individual (45.000 € conjunta). Decreto legislativo 2/2014, artículo 14 quater.",
+      ] },
+      { type: "h2", text: "Cantabria (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción a partir del 1 de enero de 2024: 1.400 € por hijo, en el año y los dos siguientes. Se reparte a partes iguales en declaración conjunta. Es compatible con la deducción por maternidad y, solo para menores de 3 años con discapacidad de al menos el 65 %, con la de cuidado de familiares. Decreto legislativo 62/2008, artículo 2.10.",
+      ] },
+      { type: "h2", text: "La Rioja (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 600 € por el primer hijo, 750 € por el segundo y 900 € por el tercero y siguientes, contando todos los hijos del contribuyente. En partos o adopciones múltiples, 60 € más por cada hijo. Si ambos progenitores presentan por separado, se reparte a partes iguales. Ley 10/2017, artículo 32.1.",
+      ] },
+      { type: "h2", text: "Región de Murcia (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 100 € por el primer hijo, 200 € por el segundo y 300 € por el tercero o siguientes. Límite de base de 30.000 € individual (50.000 € conjunta). Decreto legislativo 1/2010, artículo 1.9.",
+      ] },
+      { type: "h2", text: "Castilla-La Mancha (guía 2025)" },
+      { type: "ul", items: [
+        "Nacimiento o adopción: 100 € por un hijo, 500 € si el parto es de dos y 900 € si es de tres o más. El importe depende del número de hijos de cada parto, no del número de partos del año. Límite de base de 27.000 € individual (36.000 € conjunta). Ley 8/2013, artículos 1 y 13.",
+      ] },
+      { type: "h2", text: "Extremadura (guía 2025, solo partos múltiples)" },
+      { type: "ul", items: [
+        "Partos o adopciones múltiples: 300 € por cada hijo nacido en el periodo impositivo. Límite de base de 19.000 € individual (24.000 € conjunta), o 28.000 € (45.000 € conjunta) si se reside en un municipio de menos de 3.000 habitantes. Sin límite para familias numerosas reconocidas. Decreto legislativo 1/2018, artículos 3 y 12 bis. La deducción general por nacimiento no aparece en la página de la sede que he consultado.",
+      ] },
       { type: "h2", text: "Preguntas frecuentes" },
       { type: "h2", text: "¿Las cifras de esta guía valen para mi declaración de este año?" },
       { type: "p", text: "Depende del ejercicio que declares. Cada bloque indica el año del manual del que sale la cifra, y los importes se actualizan. Por ejemplo, la deducción de nacimiento de Madrid tiene un importe distinto para nacimientos anteriores y posteriores a 2023, y las cifras de Andalucía y Cataluña proceden de la guía de 2024. Para declarar, consulta el manual práctico del ejercicio correspondiente en la sede electrónica de la Agencia Tributaria y revisa la comunidad que te corresponde. Si no coincide con lo que aquí aparece, prevalece el texto oficial." },
@@ -2006,7 +2042,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "tip", text: "Antes de contar con un importe, busca tu comunidad en el listado de deducciones autonómicas de la sede de la Agencia Tributaria. Te enseña si la deducción es para tu situación, sin tener que leer toda la normativa." },
     ],
     enSections: [
-      { type: "p", text: "On top of the national deduction, each autonomous community can approve its own. That is why two people with the same salary can pay different amounts of income tax depending on where they live. This guide explains the general rule and gathers the amounts the Spanish Tax Agency (AEAT) publishes in its practical guides for six communities. Figures change every year, so each block states the tax year it applies to." },
+      { type: "p", text: "On top of the national deduction, each autonomous community can approve its own. That is why two people with the same salary can pay different amounts of income tax depending on where they live. This guide explains the general rule and gathers the amounts the Spanish Tax Agency (AEAT) publishes in its practical guides for ten communities. Figures change every year, so each block states the tax year it applies to." },
       { type: "h2", text: "What regional deductions are" },
       { type: "p", text: "Law 22/2009, article 46, allows communities under the common regime to approve deductions on the regional share of the tax for personal and family circumstances, non-business investments, application of income and certain grants. A regional deduction reduces the part of the tax the community manages, not the national part." },
       { type: "p", text: "They apply only to a person who had habitual residence in that community. In a joint return with residences in different communities, the one of the member with the higher taxable base applies." },
@@ -2039,6 +2075,42 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       { type: "h2", text: "Balearic Islands (2025 guide)" },
       { type: "ul", items: [
         "Birth or adoption: 800 € for the first child, 1,000 € for the second, 1,200 € for the third and 1,400 € for the fourth and later. Base limit of 52,800 € (84,480 € joint), or 63,360 € (101,376 € joint) for large or single-parent families with two or more children; above those limits 50 % is granted. Legislative Decree 1/2014, article 6 ter.",
+      ] },
+      { type: "h2", text: "Galicia (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption in the year: if the taxable base does not exceed 22,000 €, 360 € for the first child, 1,200 € for the second and 2,400 € for the third and later; above that, 300 € per child (360 € for a multiple birth). The same two tax years follow with their own amounts: no cap up to 22,000 € and 300 € per child between 22,000 € and 31,000 €, and 0 € above 31,000 €. 20 % more in municipalities under 5,000 inhabitants; doubled with a disability of at least 33 %. Legislative Decree 1/2011, article 5.",
+      ] },
+      { type: "h2", text: "Aragon (2025 guide)" },
+      { type: "ul", items: [
+        "Third or subsequent child: 500 € per child, or 600 € if the income limit is met (21,000 € individual or 35,000 € joint). Under the differentiated regime for municipalities at high depopulation risk, 600 €, or 720 € with the limit. Only in the year of birth or adoption. Legislative Decree 1/2005, articles 110-2, 160-1 and 160-2.1.",
+      ] },
+      { type: "h2", text: "Canary Islands (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 265 € for the first and second child, 530 € for the third, 796 € for the fourth and 928 € for the fifth and later. With a disability of at least 65 %: 600 € for the first or second, and 1,100 € for a third or later. Base limit of 46,455 € individual (61,770 € joint). Legislative Decree 1/2009, article 10.",
+      ] },
+      { type: "h2", text: "Principality of Asturias (2025 guide)" },
+      { type: "ul", items: [
+        "Second or later child born or adopted in a municipality at risk of depopulation or demographic crisis (Decree 83/2025): 300 € per child. You must have habitual residence in that municipality, and the child must live with the taxpayer on 31 December. Base limit of 35,000 € individual (45,000 € joint). Legislative Decree 2/2014, article 14 quater.",
+      ] },
+      { type: "h2", text: "Cantabria (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption from 1 January 2024: 1,400 € per child, in the year and the two following ones. Split equally on a joint return. It can be combined with the maternity deduction and, only for children under 3 with a disability of at least 65 %, with the deduction for caring for relatives. Legislative Decree 62/2008, article 2.10.",
+      ] },
+      { type: "h2", text: "La Rioja (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 600 € for the first child, 750 € for the second and 900 € for the third and later, counting all of the taxpayer's children. For multiple births or adoptions, 60 € more per child. If both parents file separately, the amount is split equally. Law 10/2017, article 32.1.",
+      ] },
+      { type: "h2", text: "Region of Murcia (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 100 € for the first child, 200 € for the second and 300 € for the third or later. Base limit of 30,000 € individual (50,000 € joint). Legislative Decree 1/2010, article 1.9.",
+      ] },
+      { type: "h2", text: "Castile-La Mancha (2025 guide)" },
+      { type: "ul", items: [
+        "Birth or adoption: 100 € for one child, 500 € for a twin birth and 900 € for three or more. The amount depends on the number of children in each birth, not on the number of births in the year. Base limit of 27,000 € individual (36,000 € joint). Law 8/2013, articles 1 and 13.",
+      ] },
+      { type: "h2", text: "Extremadura (2025 guide, multiple births only)" },
+      { type: "ul", items: [
+        "Multiple births or adoptions: 300 € per child born in the tax period. Base limit of 19,000 € individual (24,000 € joint), or 28,000 € (45,000 € joint) for residents of municipalities under 3,000 inhabitants. No limit for officially recognised large families. Legislative Decree 1/2018, articles 3 and 12 bis. The general birth deduction does not appear on the AEAT page I checked.",
       ] },
       { type: "h2", text: "Frequently asked questions" },
       { type: "h2", text: "Do the figures in this guide apply to my return this year?" },
